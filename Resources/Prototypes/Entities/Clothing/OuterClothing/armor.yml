@@ -61,9 +61,9 @@
   description: A standard Type I armored vest that provides decent protection against most types of damage.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Armor/security.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Vests/security.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Armor/security.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Vests/security.rsi
   - type: Armor #Based on /tg/ but slightly compensated to fit the fact that armor stacks in SS14.
     modifiers:
       coefficients:
@@ -88,7 +88,7 @@
     - sprite: _Gabystation/Effects/blood.rsi
       state: armorbloodicon
 
-#Standard armor vest, allowed for security and bartenders
+#Standard armor vest, allowed for security
 - type: entity
   parent: [ BaseSecurityBartenderContraband, ClothingOuterArmorBase]
   id: ClothingOuterArmorBasic
@@ -100,11 +100,6 @@
   name: armor vest
   suffix: slim
   description: A slim Type I armored vest that provides decent protection against most types of damage.
-  components:
-  - type: Sprite
-    sprite: Clothing/OuterClothing/Armor/security_slim.rsi
-  - type: Clothing
-    sprite: Clothing/OuterClothing/Armor/security_slim.rsi
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowBackStorageClothingCombat, BaseSecurityContraband]

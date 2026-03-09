@@ -157,7 +157,7 @@
         name: multiphase_HoS
         whitelist:
           tags:
-          - Multiphase   
+          - Multiphase
 
 - type: entity
   abstract: true
@@ -175,6 +175,7 @@
     damageCoefficient: 0.9
   - type: StaminaResistance
     damageCoefficient: 0.8
+
 - type: entity
   parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseSecurityCommandContraband]
   id: ClothingOuterCoatHoSTrench
@@ -182,9 +183,9 @@
   description: A greatcoat enhanced with a special alloy for some extra protection and style for those with a commanding presence.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/hos_trenchcoat.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/hos.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/hos_trenchcoat.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/hos.rsi
 
 - type: entity
   parent: ClothingOuterStorageToggleableBase
@@ -407,9 +408,9 @@
   description: A sturdy, utilitarian jacket designed to protect a warden from any brig-bound threats.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/warden.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/warden.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/warden.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/warden.rsi
 
 - type: entity
   parent: ClothingOuterStorageBase

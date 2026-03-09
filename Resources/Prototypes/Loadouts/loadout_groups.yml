@@ -1771,7 +1771,6 @@
   - HeadofSecurityCoat
   - HeadofSecurityWinterCoat
   - HeadofSecurityArmorVest
-  - HeadofSecurityArmorVestSlim
 
 - type: loadoutGroup #WizDen Weh Job Plush
   id: HeadofSecurityJobTrinkets
@@ -1885,7 +1884,6 @@
   name: loadout-group-security-outerclothing
   loadouts:
   - ArmorVest
-  - ArmorVestSlim
   - SecurityOfficerWintercoat
 
 #Funky

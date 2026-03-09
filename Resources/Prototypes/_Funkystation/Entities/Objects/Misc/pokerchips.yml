@@ -20,9 +20,10 @@
       - pokerchip_250
       - pokerchip_500
       - pokerchip_1000
+      layerfunction: Threshold
     - type: Sprite
-      sprite: Objects/Economy/cash.rsi
-      #sprite: _Funkystation/Objects/Misc/pokerchips.rsi
+      sprite: _Funkystation/Objects/Misc/pokerchips.rsi
+      state: pokerchip
     - type: Physics
       bodyType: Dynamic
     - type: Fixtures

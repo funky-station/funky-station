@@ -1,5 +1,5 @@
 - type: stack
   id: PokerChipStack
   name: stack-pokerchip
-  icon: { sprite: /Textures/Objects/Economy/cash.rsi, state: cash }
+  icon: { sprite: _Funkystation/Objects/Fun/PokerChips.rsi, state: pokerchips }
   spawn: PokerChipBase

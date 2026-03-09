@@ -23,7 +23,7 @@
   - type: Damageable
     damageContainer: Inorganic
   - type: Bloodstream
-    bloodReagent: Oil
+    bloodReagent: NaniteSlurry # Funkystation - Only Replicators use this so yeah, change to smth else once/if something else uses this, maybe Synthblood?
     bloodlossDamage:
       types:
         Bloodloss:

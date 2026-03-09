@@ -40,3 +40,27 @@
     collection: FootstepBlood
     params:
       volume: 6
+
+- type: reagent
+  id: NaniteSlurry
+  name: reagent-name-nanite-slurry
+  group: Biological
+  desc: reagent-desc-nanite-slurry
+  physicalDesc: reagent-physical-desc-robotic
+  flavor: metallic
+  color: "#960355"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.5
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Shock: 1.2
+      - !type:MovespeedModifier
+        walkSpeedModifier: 0.5
+        sprintSpeedModifier: 0.5
+  footstepSound:
+    collection: FootstepBlood
+    params:
+      volume: 6

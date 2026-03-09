@@ -31,7 +31,7 @@
 - type: startingGear
   id: SpaceCowboyGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitSecDress
+    jumpsuit: ClothingUniformSecurityDressBase
     shoes: ClothingShoesBootsLaceup
     outerClothing: ClothingOuterVest
     id: SpaceCowboyIDCard

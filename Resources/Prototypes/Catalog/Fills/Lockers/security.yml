@@ -139,7 +139,7 @@
       - id: FlashlightSeclite
         prob: 0.8
 #      - id: WeaponDisabler # Funky
-      - id: ClothingUniformJumpsuitSecGrey
+      - id: ClothingUniformJumpsuitSecBase
         prob: 0.3
       - id: ClothingHeadHelmetBasic
       - id: ClothingOuterArmorBasic

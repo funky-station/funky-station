@@ -34,7 +34,9 @@
     ClothingBackpackSecurity: 3
     ClothingBackpackSatchelSecurity: 3
     ClothingBackpackDuffelSecurity: 3
-    ClothingUniformJumpsuitSec: 3
+    ClothingUniformJumpsuitSecBase: 3
+    ClothingUniformSecurityDressBase: 3
+    ClothingUniformSecurityMessBase: 6
     ClothingShoesBootsJack: 3
     ClothingHeadHatBeretSecurity: 3
     ClothingHeadHatSecsoft: 3
@@ -44,9 +46,8 @@
     ClothingHandsGlovesFingerless: 3
     ClothingHeadsetAltSecurityRegular: 3 # Goobstation
     ClothingOuterWinterSec: 2
-    ClothingOuterArmorBasic: 2
+    ClothingOuterArmorBasic: 4
     ClothingNeckScarfStripedRed: 3
-    ClothingOuterArmorBasicSlim: 2
     SurveillanceWirelessCameraBodySecurity: 3 # funkystation - add sec body cam
     ClothingEyesBlindfold: 1
     ClothingShoesBootsCombat: 1

@@ -89,20 +89,17 @@ public sealed class CargoTest
         var products = protoManager.EnumeratePrototypes<CargoProductPrototype>().ToList();
         var bounties = protoManager.EnumeratePrototypes<CargoBountyPrototype>().ToList();
 
-        TestMapData? testMap = null;
+        TestMapData testMap = await pair.CreateTestMap();
         var pairIndex = 0;
 
         foreach (var proto in products)
         {
             foreach (var bounty in bounties)
             {
-                if (testMap == null || pairIndex % 20 == 0)
+                if (pairIndex > 0 && pairIndex % 20 == 0)
                 {
-                    if (testMap != null)
-                    {
-                        await server.WaitPost(() => mapSystem.DeleteMap(testMap.MapId));
-                        await server.WaitRunTicks(1);
-                    }
+                    await server.WaitPost(() => mapSystem.DeleteMap(testMap.MapId));
+                    await server.WaitRunTicks(1);
                     testMap = await pair.CreateTestMap();
                 }
                 pairIndex++;
@@ -143,10 +140,7 @@ public sealed class CargoTest
             }
         }
 
-        if (testMap != null)
-        {
-            await server.WaitPost(() => mapSystem.DeleteMap(testMap.MapId));
-        }
+        await server.WaitPost(() => mapSystem.DeleteMap(testMap.MapId));
 
         await pair.CleanReturnAsync();
     }

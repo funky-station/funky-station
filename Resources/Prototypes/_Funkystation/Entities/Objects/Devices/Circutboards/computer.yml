@@ -82,3 +82,16 @@
     prototype: ComputerCargoOrdersAtmospherics
   - type: StaticPrice
     price: 750
+
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: ResourceOverviewConsoleCircuitboard
+  name: resource overview computer board
+  description: A computer printed circuit board for a resource overview console.
+  components:
+  - type: Sprite
+    state: cpu_supply
+  - type: ComputerBoard
+    prototype: ComputerResourceOverview
+  - type: StaticPrice
+    price: 750

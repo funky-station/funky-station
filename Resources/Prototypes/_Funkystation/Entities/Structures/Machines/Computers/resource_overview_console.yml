@@ -1,0 +1,38 @@
+- type: entity
+  id: ComputerResourceOverview
+  parent: BaseComputerAiAccess
+  name: resource overview computer
+  description: Displays station-wide material levels for ore silos and lathes.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: request
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: ResourceOverviewConsole
+  - type: ActivatableUI
+    key: enum.ResourceOverviewConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.ResourceOverviewConsoleUiKey.Key:
+        type: ResourceOverviewConsoleBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: Computer
+    board: ResourceOverviewConsoleCircuitboard
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#b89f25"
+  - type: AccessReader
+    access: [["Logistics"]]
+  - type: GuideHelp
+    guides:
+    - Cargo

@@ -1809,6 +1809,7 @@
   minLimit: 0
   loadouts:
   - Bodycam # Goobstation - Body cameras
+  - MessTie
 
 - type: loadoutGroup
   id: WardenOuterClothing
@@ -1877,6 +1878,7 @@
   minLimit: 0
   loadouts:
   - Bodycam # Goobstation - Body cameras
+  - MessTie
 
 - type: loadoutGroup
   id: SecurityOuterClothing

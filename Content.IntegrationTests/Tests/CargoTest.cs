@@ -19,6 +19,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+using Content.IntegrationTests.Pair;
 using Content.Server.Cargo.Components;
 using Content.Server.Cargo.Systems;
 using Content.Server.Nutrition.Components;
@@ -80,23 +81,36 @@ public sealed class CargoTest
         await using var pair = await PoolManager.GetServerClient();
         var server = pair.Server;
 
-        var testMap = await pair.CreateTestMap();
-
         var entManager = server.ResolveDependency<IEntityManager>();
         var mapSystem = server.System<SharedMapSystem>();
         var protoManager = server.ResolveDependency<IPrototypeManager>();
         var cargo = entManager.System<CargoSystem>();
 
+        var products = protoManager.EnumeratePrototypes<CargoProductPrototype>().ToList();
         var bounties = protoManager.EnumeratePrototypes<CargoBountyPrototype>().ToList();
 
-        await server.WaitAssertion(() =>
-        {
-            var mapId = testMap.MapId;
+        TestMapData? testMap = null;
+        var pairIndex = 0;
 
-            foreach (var proto in protoManager.EnumeratePrototypes<CargoProductPrototype>())
+        foreach (var proto in products)
+        {
+            foreach (var bounty in bounties)
             {
-                foreach (var bounty in bounties)
+                if (testMap == null || pairIndex % 20 == 0)
                 {
+                    if (testMap != null)
+                    {
+                        await server.WaitPost(() => mapSystem.DeleteMap(testMap.MapId));
+                        await server.WaitRunTicks(1);
+                    }
+                    testMap = await pair.CreateTestMap();
+                }
+                pairIndex++;
+
+                var currentMap = testMap;
+                await server.WaitAssertion(() =>
+                {
+                    var mapId = currentMap.MapId;
                     var passCount = 0;
                     var lastFailureMessage = string.Empty;
 
@@ -123,11 +137,16 @@ public sealed class CargoTest
                         string.IsNullOrEmpty(lastFailureMessage)
                             ? $"Product {proto.ID} / bounty {bounty.ID}: flaky result, only {passCount} passes in 5 attempts"
                             : lastFailureMessage);
-                }
-            }
+                });
 
-            mapSystem.DeleteMap(mapId);
-        });
+                await server.WaitRunTicks(1);
+            }
+        }
+
+        if (testMap != null)
+        {
+            await server.WaitPost(() => mapSystem.DeleteMap(testMap.MapId));
+        }
 
         await pair.CleanReturnAsync();
     }

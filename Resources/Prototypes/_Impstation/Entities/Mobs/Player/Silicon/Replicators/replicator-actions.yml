@@ -23,7 +23,6 @@
   description: Gather nanites. Gain manipulation.
   components:
   - type: InstantAction
-    useDelay: 1
     itemIconStyle: NoItem
     icon: _Impstation/Interface/Actions/replicator_level2.png
     event: !type:ReplicatorUpgrade2ActionEvent
@@ -46,6 +45,7 @@
   description: Equips a Welder into your hand.
   components:
   - type: InstantAction
+    useDelay: 1
     itemIconStyle: NoItem
     icon: Objects/Tools/welder.rsi/icon.png
     event: !type:ReplicatorWelderActionEvent
@@ -107,7 +107,7 @@
     rechargeCooldown: 3
     rechargeSound: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
   - type: BasicEntityAmmoProvider
-    proto: BulletDisabler
+    proto: BulletEnergyTurretDisabler
     capacity: 1
     count: 1
   - type: Gun

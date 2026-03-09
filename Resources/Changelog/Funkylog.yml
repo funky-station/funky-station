@@ -7888,3 +7888,9 @@ Entries:
         payloads, and two flash payloads.
   id: 908
   time: '2026-03-09T08:30:21.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Fix
+      message: Fixes mentions of LOOC to Help
+  id: 909
+  time: '2026-03-09T17:16:58.0000000+00:00'

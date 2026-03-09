@@ -101,11 +101,6 @@
 
 - type: latheRecipe
   parent: BaseCommandJumpsuitRecipe
-  id: ClothingUniformSecurityDressSkirtBase
-  result: ClothingUniformSecurityDressSkirtBase
-
-- type: latheRecipe
-  parent: BaseCommandJumpsuitRecipe
   id: ClothingUniformMessHosBase
   result: ClothingUniformMessHosBase
 

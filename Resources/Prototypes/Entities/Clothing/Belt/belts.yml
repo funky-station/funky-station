@@ -759,12 +759,12 @@
   parent: ClothingBeltSecurity
   id: ClothingBeltSecurityWebbing
   name: security carrier
-  description: Unique and versatile chest rig, can hold security gear.
+  description: A versatile chest rig for holding security gear.
   components:
   - type: Sprite
-    sprite: Clothing/Belt/securitywebbing.rsi
+    sprite: _Funkystation/Clothing/Belt/security_webbing.rsi
   - type: Clothing
-    sprite: Clothing/Belt/securitywebbing.rsi
+    sprite: _Funkystation/Clothing/Belt/security_webbing.rsi
 
 - type: entity
   parent: [ ClothingBeltStorageBase, BaseSecurityCargoContraband ]

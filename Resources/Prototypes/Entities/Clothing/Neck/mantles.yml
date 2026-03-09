@@ -80,12 +80,12 @@
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckMantleHOS
   name: head of security's mantle
-  description: Shootouts with syndicate agents are just another Tuesday for this HoS. This mantle is a symbol of commitment to the station.
+  description: This ostentatious mantle is a symbol of commitment to the station.
   components:
   - type: Sprite
-    sprite: Clothing/Neck/mantles/hosmantle.rsi
+    sprite: _Funkystation/Clothing/Neck/Mantle/hos_mantle.rsi
   - type: Clothing
-    sprite: Clothing/Neck/mantles/hosmantle.rsi
+    sprite: _Funkystation/Clothing/Neck/Mantle/hos_mantle.rsi
   - type: MeleeWeapon
     damage:
       types:

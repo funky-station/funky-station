@@ -74,7 +74,7 @@
   description: An exquisite dark and red cloak fitting for those who can assert dominance over wrongdoers. Take a stab at being civil in prosecution!
   components:
   - type: Sprite
-    sprite: Clothing/Neck/Cloaks/hos.rsi
+    sprite: _Funkystation/Clothing/Neck/Cloaks/hos_cloak.rsi
   - type: StealTarget
     stealGroup: HeadCloak
   - type: MeleeWeapon

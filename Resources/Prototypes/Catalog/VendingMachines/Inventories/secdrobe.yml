@@ -39,13 +39,13 @@
     ClothingUniformSecurityDressSkirtBase: 3
     ClothingUniformSecurityMessBase: 3
     ClothingUniformSecurityMessSkirtBase: 3
+    ClothingNeckSecurityBowtie: 6
     ClothingUniformJumpsuitCadetBase: 3
     ClothingShoesBootsJack: 3
     ClothingHeadHatBeretSecurity: 3
     ClothingHeadHatSecsoft: 3
-    ClothingHeadBandRed: 3
-    ClothingMaskNeckGaiterRed: 3
     ClothingHandsGlovesColorBlack: 3
+    ClothingHandsGlovesColorWhite: 3
     ClothingHandsGlovesFingerless: 3
     ClothingHeadsetAltSecurityRegular: 3 # Goobstation
     ClothingOuterWinterSec: 2

@@ -84,3 +84,55 @@
   parent: BaseCommandHatRecipe
   id: ClothingHeadHatCEConductor
   result: ClothingHeadHatCEConductor
+
+# Security
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpsuitHosBase
+  result: ClothingUniformJumpsuitHosBase
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformDressHosBase
+  result: ClothingUniformDressHosBase
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformSecurityDressSkirtBase
+  result: ClothingUniformSecurityDressSkirtBase
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformMessHosBase
+  result: ClothingUniformMessHosBase
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformMessHosDressBase
+  result: ClothingUniformMessHosDressBase
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitSecBase
+  result: ClothingUniformJumpsuitSecBase
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformSecurityDressBase
+  result: ClothingUniformSecurityDressBase
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformSecurityDressSkirtBase
+  result: ClothingUniformSecurityDressSkirtBase
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformSecurityMessBase
+  result: ClothingUniformSecurityMessBase
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformSecurityMessSkirtBase
+  result: ClothingUniformSecurityMessSkirtBase

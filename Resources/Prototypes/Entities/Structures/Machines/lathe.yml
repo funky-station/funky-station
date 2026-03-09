@@ -1622,14 +1622,11 @@
     - ClothingUniformJumpskirtHoPSweater
     - ClothingHeadHatBeretHoS
     - ClothingHeadHatHoshat
-    - ClothingUniformJumpsuitHoS
-    - ClothingUniformJumpskirtHoS
-    - ClothingUniformJumpsuitHosFormal
-    - ClothingUniformJumpskirtHosFormal
-    - ClothingUniformJumpsuitHoSAlt
-    - ClothingUniformJumpskirtHoSAlt
-    - ClothingUniformJumpsuitHoSBlue
-    - ClothingUniformJumpsuitHoSGrey
+    - ClothingUniformJumpsuitHosBase
+    - ClothingUniformDressHosBase
+    - ClothingUniformSecurityDressSkirtBase
+    - ClothingUniformMessHosBase
+    - ClothingUniformMessHosDressBase
     - ClothingUniformJumpsuitHydroponics
     - ClothingUniformJumpskirtHydroponics
     - ApronHydroponics # Funky Change
@@ -1673,11 +1670,11 @@
     - ClothingUniformJumpsuitSeniorResearcher
     - ClothingUniformJumpskirtSeniorResearcher
     - ClothingHeadHatBeretSecurity
-    - ClothingUniformJumpsuitSec
-    - ClothingUniformJumpskirtSec
-    - ClothingHeadHatBeretBrigmedic
-    - ClothingUniformJumpsuitBrigmedic
-    - ClothingUniformJumpskirtBrigmedic
+    - ClothingUniformJumpsuitSecBase
+    - ClothingUniformSecurityDressBase
+    - ClothingUniformSecurityDressSkirtBase
+    - ClothingUniformSecurityMessBase
+    - ClothingUniformSecurityMessSkirtBase
     - ClothingHeadHatBeretWarden
     - ClothingHeadHatWarden
     - ClothingUniformJumpsuitWarden

@@ -6,12 +6,16 @@ using System.Linq;
 using Content.Server.Materials;
 using Content.Server._Funkystation.ResourceOverview;
 using Content.Shared.Materials;
+using Content.Shared.Players;
 using Content.Shared._Funkystation.ResourceOverview.BUI;
 using Content.Shared._Funkystation.ResourceOverview.Components;
+using Content.Shared.Mind;
 using Robust.Server.GameObjects;
+using Robust.Server.Player;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Player;
 
 namespace Content.IntegrationTests.Tests._Funkystation.ResourceOverview;
 
@@ -22,12 +26,14 @@ public sealed class ResourceOverviewConsoleTest
     [Test]
     public async Task ResourceOverviewConsole_ShowsSilosAndLathes()
     {
-        await using var pair = await PoolManager.GetServerClient();
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Connected = true, Dirty = true });
         var server = pair.Server;
         var entMan = server.ResolveDependency<IEntityManager>();
         var mapSystem = server.System<SharedMapSystem>();
         var uiSystem = server.System<UserInterfaceSystem>();
         var materialStorage = server.System<SharedMaterialStorageSystem>();
+        var playerMan = server.ResolveDependency<IPlayerManager>();
+        var mindSystem = server.System<SharedMindSystem>();
 
         var testMap = await pair.CreateTestMap();
         var coords = testMap.GridCoords;
@@ -35,6 +41,7 @@ public sealed class ResourceOverviewConsoleTest
         EntityUid console = default;
         EntityUid silo = default;
         EntityUid lathe = default;
+        EntityUid playerEntity = default;
 
         await server.WaitAssertion(() =>
         {
@@ -49,16 +56,19 @@ public sealed class ResourceOverviewConsoleTest
             materialStorage.TryChangeMaterialAmount(silo, "Steel", 50);
             materialStorage.TryChangeMaterialAmount(silo, "Glass", 30);
             materialStorage.TryChangeMaterialAmount(silo, "Plastic", 20);
+
+            var session = playerMan.Sessions.FirstOrDefault();
+            Assert.That(session, Is.Not.Null, "No connected player session");
+            mindSystem.WipeMind(session!.Data.ContentData()?.Mind);
+            playerEntity = entMan.SpawnEntity("AdminObserver", coords);
+            playerMan.SetAttachedEntity(session, playerEntity);
         });
 
         await pair.RunTicksSync(5);
 
         await server.WaitAssertion(() =>
         {
-            var player = pair.Player;
-            Assert.That(player, Is.Not.Null);
-            Assert.That(player!.AttachedEntity, Is.Not.Null);
-            Assert.That(uiSystem.TryOpenUi(console, ResourceOverviewConsoleUiKey.Key, player.AttachedEntity!.Value));
+            Assert.That(uiSystem.TryOpenUi(console, ResourceOverviewConsoleUiKey.Key, playerEntity));
         });
 
         await pair.RunTicksSync(10);

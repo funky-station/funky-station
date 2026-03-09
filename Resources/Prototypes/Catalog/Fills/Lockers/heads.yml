@@ -130,7 +130,7 @@
     - id: AstroNavCartridge
     - id: ClothingOuterHardsuitLuxury
     - id: ClothingHandsKnuckleDustersQM
-    # Funky 
+    # Funky
     - id: CargoTechFabCircuitboard
     - id: ResourceOverviewConsoleCircuitboard
     - id: OxygenTankFilled

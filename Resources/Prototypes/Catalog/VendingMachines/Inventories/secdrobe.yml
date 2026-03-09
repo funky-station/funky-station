@@ -36,7 +36,10 @@
     ClothingBackpackDuffelSecurity: 3
     ClothingUniformJumpsuitSecBase: 3
     ClothingUniformSecurityDressBase: 3
-    ClothingUniformSecurityMessBase: 6
+    ClothingUniformSecurityDressSkirtBase: 3
+    ClothingUniformSecurityMessBase: 3
+    ClothingUniformSecurityMessSkirtBase: 3
+    ClothingUniformJumpsuitCadetBase: 3
     ClothingShoesBootsJack: 3
     ClothingHeadHatBeretSecurity: 3
     ClothingHeadHatSecsoft: 3

@@ -7876,3 +7876,15 @@ Entries:
       message: Utility knife now shows its blade when toggled.
   id: 907
   time: '2026-03-08T01:35:36.0000000+00:00'
+- author: pirakaplant
+  changes:
+    - type: Tweak
+      message: >-
+        The nuclear outpost's Booze-O-Mat is now a Bruise-O-Mat. No more hacking
+        needed!
+    - type: Tweak
+      message: >-
+        The nuclear outpost now features two chemical payloads, two explosive
+        payloads, and two flash payloads.
+  id: 908
+  time: '2026-03-09T08:30:21.0000000+00:00'

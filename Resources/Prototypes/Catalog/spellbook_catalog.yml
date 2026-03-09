@@ -279,6 +279,19 @@
 
 # Event
 - type: listing
+  id: SpellbookEventSummonMiniDragon
+  name: spellbook-event-summon-mini-dragon-name
+  description: spellbook-event-summon-mini-dragon-description
+  productAction: ActionSummonMiniDragon
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookEvents
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
   id: SpellbookEventSummonGhosts
   name: spellbook-event-summon-ghosts-name
   description: spellbook-event-summon-ghosts-description

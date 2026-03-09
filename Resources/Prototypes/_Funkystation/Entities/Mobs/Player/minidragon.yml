@@ -230,3 +230,48 @@
       factions:
       - Passive
     - type: FactionException
+
+- type: entity
+  name: wizard's mini dragon familiar
+  parent: BaseMobMiniDragon
+  id: MobMiniDragonFamiliar
+  description: A mini dragon summoned by a wizard to serve as a loyal familiar. It follows its master's commands.
+  components:
+    - type: Sprite
+      layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+      - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+        state: mouth
+        shader: unshaded
+    - type: RandomSprite
+      available:
+      - enum.DamageStateVisualLayers.Base:
+          alive: Rainbow
+        enum.DamageStateVisualLayers.BaseUnshaded:
+          mouth: ""
+    - type: GhostRole
+      prob: 1
+      makeSentient: true
+      allowSpeech: true
+      allowMovement: true
+      name: ghost-role-information-mini-dragon-familiar-name
+      description: ghost-role-information-mini-dragon-familiar-description
+      rules: ghost-role-information-mini-dragon-familiar-rules
+      raffle:
+        settings: default
+      mindRoles:
+      - MindRoleGhostRoleFamiliar
+    - type: GhostTakeoverAvailable
+    - type: NpcFactionMember
+      factions:
+      - Wizard
+    - type: FactionException
+    - type: WizardFamiliar
+    - type: HTN
+      rootTask:
+        task: DragonCarpCompound
+      blackboard:
+        NavSmash: !type:Bool
+          true
+    - type: Actions

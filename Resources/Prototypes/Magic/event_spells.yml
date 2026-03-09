@@ -11,6 +11,36 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
+  id: ActionSummonMiniDragon
+  name: Summon Mini Dragon
+  description: Summons a loyal mini dragon familiar to aid you in your magical endeavors.
+  components:
+  - type: Magic
+    requiresClothes: true
+  - type: InstantAction
+    useDelay: 600
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Funkystation/Mobs/Pets/minidragon.rsi
+      state: icon
+    event: !type:InstantSpawnSpellEvent
+      prototype: MobMiniDragonFamiliar
+      posData: !type:TargetCasterPos
+
+- type: entity
+  id: ActionMiniDragonTeleportToWizard
+  name: Teleport to Wizard
+  description: Teleport to your wizard master's location.
+  components:
+  - type: InstantAction
+    useDelay: 300
+    itemIconStyle: BigAction
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: blink
+    event: !type:MiniDragonTeleportToWizardEvent
+
+- type: entity
   id: ActionSummonGhosts
   name: Summon Ghosts
   description: Makes all current ghosts permanently visible

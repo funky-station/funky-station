@@ -130,6 +130,7 @@
     - id: ClothingHandsKnuckleDustersQM
     # Funky
     - id: CargoTechFabCircuitboard
+    - id: ResourceOverviewConsoleCircuitboard
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
     - id: RadioHandheldCargo #funkystation

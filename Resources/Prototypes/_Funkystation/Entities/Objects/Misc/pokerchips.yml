@@ -21,6 +21,8 @@
       - pokerchip_500
       - pokerchip_1000
       layerfunction: Threshold
+    - type: StackLayerThreshold
+      thresholds: [5, 10, 25, 50, 100, 250, 500, 1000]
     - type: Sprite
       sprite: _Funkystation/Objects/Misc/pokerchips.rsi
       state: pokerchip

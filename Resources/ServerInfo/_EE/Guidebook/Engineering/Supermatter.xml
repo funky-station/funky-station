@@ -72,11 +72,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
   ## Air Alarm Configuration
 
-  <GuideEntityEmbed Entity="AirAlarm" Caption=""/>
-
-  Most air alarms are access-restricted to atmospheric technicians. The supermatter's air alarm is unique, and can be configured by station engineers.
-
   <Box>
+    <GuideEntityEmbed Entity="AirAlarm" />
     <GuideEntityEmbed Entity="GasVentPump"/>
     <GuideEntityEmbed Entity="GasVentScrubber"/>
   </Box>

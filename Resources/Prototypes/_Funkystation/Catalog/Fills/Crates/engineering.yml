@@ -26,14 +26,13 @@
 - type: entity
   id: CrateEngineeringAtmosEquipment
   parent: CrateEngineeringSecure
-  name: atmospheric technician equipment crate
-  description: Contains a Amospheric Hardsuit and Firesuit, fire fighting backpack, atmospheric gas mask, filled tool belt, meson glasses, RCD and RPD alsongide the engineering guidebook.
+  name: atmospheric equipment crate # Funky - Atmos technician isn't a separate job anymore
+  description: Contains a firesuit, firefighting backpack, atmospheric gas mask, filled tool belt, meson glasses, RCD and RPD alongside the engineering guidebook.
   components:
   - type: StorageFill
     contents:
      - id: ClothingBeltUtilityEngineering
      - id: ClothingEyesGlassesMeson
-     - id: ClothingOuterHardsuitAtmos
      - id: ClothingHeadHelmetAtmosFire
      - id: ClothingOuterSuitAtmosFire
      - id: ClothingMaskGasAtmos
@@ -43,7 +42,7 @@
      - id: NitrogenTankFilled
      - id: OxygenTankFilled
      - id: RCD
-     - id: RCDAmmo     
+     - id: RCDAmmo
      - id: HolofanProjector
 
 - type: entity

@@ -338,8 +338,8 @@
 - type: entity
   parent: [ClothingHeadLightBase, BaseEngineeringContraband]
   id: ClothingHeadHelmetAtmosFire
-  name: engineering fire helmet
-  description: An engineering fire helmet, able to keep the user cool in any situation.
+  name: engineering fire helmet # Funky - Atmospheric Technician is no longer a separate job
+  description: An engineering fire helmet, able to keep the user cool in any situation. # Funky - Atmospheric Technician is no longer a separate job
   components:
   - type: Sprite
     sprite: _DV/Clothing/Head/Helmets/atmos_firehelmet.rsi # DeltaV

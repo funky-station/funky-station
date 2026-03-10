@@ -150,7 +150,7 @@
   - type: Clothing
     sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/engineering.rsi
   - type: PressureProtection
-    highPressureMultiplier: 0.04
+    highPressureMultiplier: 0.02 # Funky - Made its high pressure protection a little better to make up for removing the atmos hardsuit
     lowPressureMultiplier: 1000
   - type: Armor
     modifiers:

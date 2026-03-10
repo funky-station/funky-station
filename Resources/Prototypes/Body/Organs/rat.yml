@@ -43,3 +43,9 @@
       # Funky change ends
   - type: Sprite
     state: stomach
+  - type: Metabolizer
+    maxReagents: 3
+    metabolizerTypes: [ Human ] # Funky
+    groups:
+    - id: Food
+    - id: Drink

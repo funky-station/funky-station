@@ -154,7 +154,6 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingMaskGasAtmos
       - id: ClothingOuterSuitAtmosFire
       - id: ClothingHeadHelmetAtmosFire
       - id: OxygenTankFilled
@@ -172,7 +171,6 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingMaskGasAtmos
       - id: ClothingOuterSuitAtmosFire
       - id: ClothingHeadHelmetAtmosFire
       - id: OxygenTankFilled
@@ -213,12 +211,12 @@
   components:
   - type: StorageFill
     contents:
+      - id: ClothingMaskGasAtmos # Funky
       - id: ClothingOuterHardsuitEngineering
       - id: OxygenTankFilled
       - id: NitrogenTankFilled
       - id: ClothingHandsGlovesColorYellow
       - id: HolotapeProjector #funky!
-      - id: ClothingMaskGas
       - id: ClothingShoesBootsMag
       - id: RCD
       - id: RPD #funkystation
@@ -235,8 +233,8 @@
   - type: StorageFill
     contents:
       - id: ClothingHandsGlovesColorYellow
+      - id: ClothingMaskGasAtmos # Funky
       - id: HolotapeProjector #funky!
-      - id: ClothingMaskGas
       - id: trayScanner
       - id: RCD
       - id: RPD #funkystation

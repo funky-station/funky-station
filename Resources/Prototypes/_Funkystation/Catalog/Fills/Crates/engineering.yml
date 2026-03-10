@@ -10,39 +10,39 @@
   id: CrateEngineeringEquipment
   parent: CrateEngineeringSecure
   name: engineer equipment crate
-  description: Contains a Engineering Hardsuit, filled tool belt, meson glasses, RCD, alsongide the engineering guidebook.
+  description: Contains an engineering hardsuit (with air tanks), filled tool belt, meson glasses, RCD, and RPD, alongside the engineering guidebook. # Funky - Fuck it they can have a gas mask and an RPD as a treat
   components:
   - type: StorageFill
     contents:
+      - id: BookEngineersHandbook # Funky - Wait, why the hell was this not already in the crate? The description said it was!
       - id: ClothingBeltUtilityEngineering
       - id: ClothingEyesGlassesMeson
+      - id: ClothingMaskGasAtmos # Funky
       - id: ClothingOuterHardsuitEngineering
       - id: ClothingShoesBootsMag
       - id: NitrogenTankFilled
       - id: OxygenTankFilled
       - id: RCD
+      - id: RPD # Funky
       - id: RCDAmmo
 
 - type: entity
   id: CrateEngineeringAtmosEquipment
   parent: CrateEngineeringSecure
-  name: atmospheric equipment crate # Funky - Atmos technician isn't a separate job anymore
-  description: Contains a firesuit, firefighting backpack, atmospheric gas mask, filled tool belt, meson glasses, RCD and RPD alongside the engineering guidebook.
+  name: atmospheric equipment crate # Funky - Atmos technician isn't a separate job anymore, retooling this to be more of a "specific situation" crate rather than being for a whole job
+  description: Contains an engineering firesuit (with a helmet and air tanks), firefighting backpack, and a holofan, alongside several textbooks on atmospheric systems.
   components:
   - type: StorageFill
     contents:
-     - id: ClothingBeltUtilityEngineering
-     - id: ClothingEyesGlassesMeson
+     - id: BookAtmosAirAlarms # Funky
+     - id: BookAtmosDistro # Funky
+     - id: BookAtmosWaste # Funky
+     - id: BookAtmosVentsMore # Funky
      - id: ClothingHeadHelmetAtmosFire
      - id: ClothingOuterSuitAtmosFire
-     - id: ClothingMaskGasAtmos
      - id: ClothingBackpackFirefighterTank
-     - id: RPD
-     - id: ClothingShoesBootsMag
      - id: NitrogenTankFilled
      - id: OxygenTankFilled
-     - id: RCD
-     - id: RCDAmmo
      - id: HolofanProjector
 
 - type: entity

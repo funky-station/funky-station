@@ -159,8 +159,8 @@
 - type: entity
   parent: ClothingMaskGas
   id: ClothingMaskGasAtmos
-  name: atmospheric gas mask
-  description: Improved gas mask utilized by atmospheric technicians. It's flameproof!
+  name: engineering gas mask # Funky - Atmospheric technician isn't a separate job anymore
+  description: Improved gas mask utilized by engineers. It's flameproof! # Funky
   components:
   - type: Sprite
     sprite: Clothing/Mask/gasatmos.rsi
@@ -175,7 +175,7 @@
   parent: [ClothingMaskGasAtmos, BaseCommandContraband]
   id: ClothingMaskGasCaptain
   name: captain's gas mask
-  description: Nanotrasen cut corners and repainted a spare atmospheric gas mask, but don't tell anyone.
+  description: Nanotrasen cut corners and repainted a spare engineering gas mask, but don't tell anyone.
   components:
   - type: Sprite
     sprite: Clothing/Mask/gascaptain.rsi

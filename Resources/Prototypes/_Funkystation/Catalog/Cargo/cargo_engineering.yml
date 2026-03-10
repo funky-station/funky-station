@@ -22,9 +22,9 @@
     sprite: Clothing/OuterClothing/Hardsuits/atmospherics.rsi
     state: icon
   product: CrateEngineeringAtmosEquipment
-  cost: 9000
+  cost: 3000 # Funky - Made it a lot cheaper because it has less stuff in it now
   category: cargoproduct-category-name-engineering
-  group: market  
+  group: market
 
 - type: cargoProduct
   id: BasicHardsuit

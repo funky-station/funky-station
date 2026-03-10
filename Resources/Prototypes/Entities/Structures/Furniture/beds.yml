@@ -122,16 +122,16 @@
           Generic:  { state: tank_3, visible: true }
           Plasma:  { state: tank_4, visible: true }
           Nitrous:  { state: tank_5, visible: true }
-  - type: HealOnBuckle
+  - type: HealOnBuckle #in total, it's kinda a nerf/buff, you get more diverse healing BUT you don't have as good healing compared to before, plus IMO it's goofy as shit for resting to be better than trico so... being the same feels fine, hopefully
     damage:
       types:
         Poison: -0.2
-        Heat: -0.2
-        Shock: -0.2
-        Cold: -0.2
-        Blunt: -0.2
-        Piercing: -0.2
-        Slash: -0.2
+        Heat: -0.1
+        Shock: -0.1
+        Cold: -0.1
+        Blunt: -0.1
+        Piercing: -0.1
+        Slash: -0.1
   - type: Construction
     graph: bed
     node: medicalbed

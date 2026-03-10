@@ -125,7 +125,7 @@
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowTankStorageClothing]
   id: ClothingOuterSuitAtmosFire
-  name: atmos fire suit
+  name: engineering fire suit # Funky - Atmos technician isn't a separate job anymore
   description: An expensive firesuit that protects against even the most deadly of station fires. Designed to protect even if the wearer is set aflame.
   components:
   - type: Sprite

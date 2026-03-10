@@ -67,8 +67,6 @@
         orGroup: SpacemenFig
       - id: ToyFigurineChiefEngineer
         orGroup: SpacemenFig
-      - id: ToyFigurineAtmosTech
-        orGroup: SpacemenFig
       - id: ToyFigurineEngineer
         orGroup: SpacemenFig
       - id: ToyFigurineResearchDirector

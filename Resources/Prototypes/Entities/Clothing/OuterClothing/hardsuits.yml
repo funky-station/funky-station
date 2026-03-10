@@ -157,7 +157,7 @@
         Piercing: 0.9
         Shock: 0.5
         Caustic: 0.8
-        Radiation: 0.2
+        Radiation: 0.5 # Funky - Made its radiation shielding a little better to make up for removing the atmos hardsuit
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: ClothingSpeedModifier

@@ -118,7 +118,7 @@
     sprite: Clothing/Head/Helmets/merc_helmet.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/merc_helmet.rsi
-  - type: Armor # Helmet meant more for salvage, but with recuded pirece resist as that is something they dont deal wiht very often. 
+  - type: Armor # Helmet meant more for salvage, but with recuded pirece resist as that is something they dont deal wiht very often.
     modifiers:
       coefficients:
         Blunt: 0.85
@@ -338,8 +338,8 @@
 - type: entity
   parent: [ClothingHeadLightBase, BaseEngineeringContraband]
   id: ClothingHeadHelmetAtmosFire
-  name: atmos fire helmet
-  description: An atmos fire helmet, able to keep the user cool in any situation.
+  name: engineering fire helmet
+  description: An engineering fire helmet, able to keep the user cool in any situation.
   components:
   - type: Sprite
     sprite: _DV/Clothing/Head/Helmets/atmos_firehelmet.rsi # DeltaV

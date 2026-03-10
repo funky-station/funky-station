@@ -1,6 +1,6 @@
-// SPDX-FileCopyrightText: 2026 Terkala <appleorange64@gmail.com>
-//
-// SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: 2026 Terkala <appleorange64@gmail.com>
+#
+# SPDX-License-Identifier: MIT
 
 - type: entity
   id: ComputerResourceOverview

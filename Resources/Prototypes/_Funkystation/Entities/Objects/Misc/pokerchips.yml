@@ -27,6 +27,9 @@
     - type: Sprite
       sprite: _Funkystation/Objects/Misc/pokerchips.rsi
       state: pokerchip
+      layers:
+      - state: pokerchip
+        map: [ "base" ]
     - type: Physics
       bodyType: Dynamic
     - type: Fixtures
@@ -78,9 +81,9 @@
 
 - type: entity
   parent: PokerChipBase
-  id: PokerChip10
+  id: PokerChip50
   name: poker chips
-  suffix: 10
+  suffix: 50
   components:
   - type: Sprite
     state: pokerchip

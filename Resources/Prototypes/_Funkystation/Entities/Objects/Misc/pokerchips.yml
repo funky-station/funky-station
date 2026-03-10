@@ -10,6 +10,7 @@
     - type: Stack
       stackType: PokerChipStack
       baseLayer: base
+      count: 1
       layerStates:
       - pokerchip
       - pokerchip_5
@@ -20,7 +21,7 @@
       - pokerchip_250
       - pokerchip_500
       - pokerchip_1000
-      layerfunction: Threshold
+      layerFunction: Threshold
     - type: StackLayerThreshold
       thresholds: [5, 10, 25, 50, 100, 250, 500, 1000]
     - type: Sprite
@@ -38,3 +39,123 @@
           mask:
           - ItemMask
     - type: Appearance
+
+- type: entity
+  parent: PokerChipBase
+  id: PokerChip5
+  name: poker chips
+  suffix: 5
+  components:
+  - type: Sprite
+    state: pokerchip
+  - type: Stack
+    stacktype: PokerChipStack
+    count: 5
+
+- type: entity
+  parent: PokerChipBase
+  id: PokerChip10
+  name: poker chips
+  suffix: 10
+  components:
+  - type: Sprite
+    state: pokerchip
+  - type: Stack
+    stacktype: PokerChipStack
+    count: 10
+
+- type: entity
+  parent: PokerChipBase
+  id: PokerChip25
+  name: poker chips
+  suffix: 25
+  components:
+  - type: Sprite
+    state: pokerchip
+  - type: Stack
+    stacktype: PokerChipStack
+    count: 25
+
+- type: entity
+  parent: PokerChipBase
+  id: PokerChip10
+  name: poker chips
+  suffix: 10
+  components:
+  - type: Sprite
+    state: pokerchip
+  - type: Stack
+    stacktype: PokerChipStack
+    count: 50
+
+- type: entity
+  parent: PokerChipBase
+  id: PokerChip100
+  name: poker chips
+  suffix: 100
+  components:
+  - type: Sprite
+    state: pokerchip
+  - type: Stack
+    stacktype: PokerChipStack
+    count: 100
+
+- type: entity
+  parent: PokerChipBase
+  id: PokerChip250
+  name: poker chips
+  suffix: 250
+  components:
+  - type: Sprite
+    state: pokerchip
+  - type: Stack
+    stacktype: PokerChipStack
+    count: 250
+
+- type: entity
+  parent: PokerChipBase
+  id: PokerChip500
+  name: poker chips
+  suffix: 500
+  components:
+  - type: Sprite
+    state: pokerchip
+  - type: Stack
+    stacktype: PokerChipStack
+    count: 500
+
+- type: entity
+  parent: PokerChipBase
+  id: PokerChip1000
+  name: poker chips
+  suffix: 1000
+  components:
+  - type: Sprite
+    state: pokerchip
+  - type: Stack
+    stacktype: PokerChipStack
+    count: 1000
+
+- type: entity
+  parent: PokerChipBase
+  id: PokerChip10000
+  name: poker chips
+  suffix: 10000
+  components:
+  - type: Sprite
+    state: pokerchip
+  - type: Stack
+    stacktype: PokerChipStack
+    count: 10000
+
+- type: entity
+  parent: PokerChipBase
+  id: PokerChip100000
+  name: poker chips
+  suffix: 100000
+  components:
+  - type: Sprite
+    state: pokerchip
+  - type: Stack
+    stacktype: PokerChipStack
+    count: 100000

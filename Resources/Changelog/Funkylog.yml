@@ -7906,3 +7906,9 @@ Entries:
       message: Fixed wording in the Cosmic Cult Colossus guidebook.
   id: 911
   time: '2026-03-10T00:56:22.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Add
+      message: Added oscilliator as a new nuke and expedition track.
+  id: 912
+  time: '2026-03-10T11:06:37.0000000+00:00'

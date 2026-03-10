@@ -24,7 +24,7 @@ replicator-nest-level5 = How is the hull still intact?!
 # the default message for when we run out of custom levelup messages.
 replicator-nest-levelup = There is a flurry of activity from the nest.
 
-replicator-nest-destroyed = Your nest has been destroyed. A Replicator has been selected to replace it.
+replicator-nest-destroyed = Your nest has been destroyed. A Tier 3 Replicator has been selected to replace it, if there is still one alive.
 
 # ninja spawn warning
 terror-replicators = Attention crew, it appears that someone on your station has made an unexpected communication with a distributed machine intelligence in nearby space.

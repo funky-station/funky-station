@@ -42,7 +42,7 @@ public sealed class ReplicatorItemActionsSystem : EntitySystem
             _handsSystem.RemoveHands(uid);
         }
 
-        var doAfterEvent = new DoAfterArgs(EntityManager, uid, TimeSpan.FromMilliseconds(100), new ReplicatorOmnitoolDoAfterEvent(), uid, null, null)
+        var doAfterEvent = new DoAfterArgs(EntityManager, uid, TimeSpan.FromMicroseconds(1), new ReplicatorOmnitoolDoAfterEvent(), uid, null, null)
         {
             BreakOnDamage = false,
             BreakOnDropItem = false,
@@ -86,7 +86,7 @@ public sealed class ReplicatorItemActionsSystem : EntitySystem
             _handsSystem.RemoveHands(uid);
         }
 
-        var doAfterEvent = new DoAfterArgs(EntityManager, uid, TimeSpan.FromMilliseconds(100), new ReplicatorWelderDoAfterEvent(), uid, null, null)
+        var doAfterEvent = new DoAfterArgs(EntityManager, uid, TimeSpan.FromMicroseconds(1), new ReplicatorWelderDoAfterEvent(), uid, null, null)
         {
             BreakOnDamage = false,
             BreakOnDropItem = false,
@@ -130,7 +130,7 @@ public sealed class ReplicatorItemActionsSystem : EntitySystem
             _handsSystem.RemoveHands(uid);
         }
 
-        var doAfterEvent = new DoAfterArgs(EntityManager, uid, TimeSpan.FromMilliseconds(100), new ReplicatorArmDoAfterEvent(), uid, null, null)
+        var doAfterEvent = new DoAfterArgs(EntityManager, uid, TimeSpan.FromMicroseconds(1), new ReplicatorArmDoAfterEvent(), uid, null, null)
         {
             BreakOnDamage = false,
             BreakOnDropItem = false,
@@ -174,7 +174,7 @@ public sealed class ReplicatorItemActionsSystem : EntitySystem
             _handsSystem.RemoveHands(uid);
         }
 
-        var doAfterEvent = new DoAfterArgs(EntityManager, uid, TimeSpan.FromMilliseconds(100), new ReplicatorAACDoAfterEvent(), uid, null, null)
+        var doAfterEvent = new DoAfterArgs(EntityManager, uid, TimeSpan.FromMicroseconds(1), new ReplicatorAACDoAfterEvent(), uid, null, null)
         {
             BreakOnDamage = false,
             BreakOnDropItem = false,

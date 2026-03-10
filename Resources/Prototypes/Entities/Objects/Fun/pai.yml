@@ -130,8 +130,8 @@
           Searching: { state: pai-searching-overlay }
           On: { state: pai-on-overlay }
   - type: StationMap
-  - type: StationAiVision # Goobstation - AI can see through NT silicon
-    range: 1
+#  - type: StationAiVision # Goobstation - AI can see through NT silicon # funk - Removing because people map these into secret rooms and uh. AIs can just look through these on cult rounds lol, maybe if it was visible through AIs ONLY when it's activated, but yeah, maldPR
+#    range: 1
   - type: ChangeVoiceInContainer
     whitelist:
       components:

@@ -2077,6 +2077,8 @@
   id: VendingMachineAtmosDrobe
   name: AtmosDrobe
   description: This relatively unknown vending machine delivers clothing for Atmospherics Technicians, an equally unknown job.
+  suffix: DO NOT MAP # Funky
+  categories: [ DoNotMap ] # Funky
   components:
   - type: VendingMachine
     pack: AtmosDrobeInventory

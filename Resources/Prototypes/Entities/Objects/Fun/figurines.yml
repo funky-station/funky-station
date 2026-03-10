@@ -265,6 +265,8 @@
   id: ToyFigurineAtmosTech
   name: atmospheric technician figure
   description: A figurine depicting an Atmos Tech holding an unlit welder.
+  suffix: DO NOT MAP # Funky
+  categories: [ DoNotMap ] # Funky
   components:
   - type: Sprite
     state: atmos

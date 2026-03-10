@@ -7900,3 +7900,9 @@ Entries:
       message: Resized rat lobby art to better fit the lobby screen
   id: 910
   time: '2026-03-10T00:52:58.0000000+00:00'
+- author: neadsy
+  changes:
+    - type: Fix
+      message: Fixed wording in the Cosmic Cult Colossus guidebook.
+  id: 911
+  time: '2026-03-10T00:56:22.0000000+00:00'

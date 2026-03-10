@@ -7894,3 +7894,9 @@ Entries:
       message: Fixes mentions of LOOC to Help
   id: 909
   time: '2026-03-09T17:16:58.0000000+00:00'
+- author: Gorsthir
+  changes:
+    - type: Tweak
+      message: Resized rat lobby art to better fit the lobby screen
+  id: 910
+  time: '2026-03-10T00:52:58.0000000+00:00'

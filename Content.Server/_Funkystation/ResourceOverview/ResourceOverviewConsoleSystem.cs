@@ -19,9 +19,6 @@ public sealed class ResourceOverviewConsoleSystem : EntitySystem
     [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
     [Dependency] private readonly SharedMaterialStorageSystem _materialStorage = default!;
 
-    private const float UpdateTime = 1.0f;
-    private float _updateTimer;
-
     public override void Initialize()
     {
         base.Initialize();
@@ -31,6 +28,7 @@ public sealed class ResourceOverviewConsoleSystem : EntitySystem
 
     private void OnBoundUIOpened(Entity<ResourceOverviewConsoleComponent> ent, ref BoundUIOpenedEvent args)
     {
+        ent.Comp.UpdateTimer = 0f;
         UpdateUIState(ent.Owner, ent.Comp);
     }
 
@@ -38,18 +36,17 @@ public sealed class ResourceOverviewConsoleSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        _updateTimer += frameTime;
-
-        if (_updateTimer >= UpdateTime)
+        var query = AllEntityQuery<ResourceOverviewConsoleComponent>();
+        while (query.MoveNext(out var uid, out var component))
         {
-            _updateTimer -= UpdateTime;
+            if (!_userInterfaceSystem.IsUiOpen(uid, ResourceOverviewConsoleUiKey.Key))
+                continue;
 
-            var query = AllEntityQuery<ResourceOverviewConsoleComponent>();
-            while (query.MoveNext(out var uid, out var component))
+            component.UpdateTimer += frameTime;
+
+            if (component.UpdateTimer >= component.UpdateTime)
             {
-                if (!_userInterfaceSystem.IsUiOpen(uid, ResourceOverviewConsoleUiKey.Key))
-                    continue;
-
+                component.UpdateTimer -= component.UpdateTime;
                 UpdateUIState(uid, component);
             }
         }

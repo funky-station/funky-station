@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: 2026 Terkala <appleorange64@gmail.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later
+// SPDX-License-Identifier: MIT
 
 using Content.Shared.Materials;
 using Robust.Shared.GameStates;
@@ -23,6 +23,17 @@ public sealed partial class ResourceOverviewConsoleComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public int LowMaterialThreshold = 10;
+
+    /// <summary>
+    /// Interval in seconds between UI state updates when the console UI is open.
+    /// </summary>
+    [DataField]
+    public float UpdateTime = 1.0f;
+
+    /// <summary>
+    /// Accumulated time since last UI update. Server-only runtime state.
+    /// </summary>
+    public float UpdateTimer;
 }
 
 [Serializable, NetSerializable]

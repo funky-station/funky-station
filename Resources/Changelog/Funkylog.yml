@@ -7876,3 +7876,33 @@ Entries:
       message: Utility knife now shows its blade when toggled.
   id: 907
   time: '2026-03-08T01:35:36.0000000+00:00'
+- author: pirakaplant
+  changes:
+    - type: Tweak
+      message: >-
+        The nuclear outpost's Booze-O-Mat is now a Bruise-O-Mat. No more hacking
+        needed!
+    - type: Tweak
+      message: >-
+        The nuclear outpost now features two chemical payloads, two explosive
+        payloads, and two flash payloads.
+  id: 908
+  time: '2026-03-09T08:30:21.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Fix
+      message: Fixes mentions of LOOC to Help
+  id: 909
+  time: '2026-03-09T17:16:58.0000000+00:00'
+- author: Gorsthir
+  changes:
+    - type: Tweak
+      message: Resized rat lobby art to better fit the lobby screen
+  id: 910
+  time: '2026-03-10T00:52:58.0000000+00:00'
+- author: neadsy
+  changes:
+    - type: Fix
+      message: Fixed wording in the Cosmic Cult Colossus guidebook.
+  id: 911
+  time: '2026-03-10T00:56:22.0000000+00:00'

@@ -7888,3 +7888,27 @@ Entries:
         payloads, and two flash payloads.
   id: 908
   time: '2026-03-09T08:30:21.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Fix
+      message: Fixes mentions of LOOC to Help
+  id: 909
+  time: '2026-03-09T17:16:58.0000000+00:00'
+- author: Gorsthir
+  changes:
+    - type: Tweak
+      message: Resized rat lobby art to better fit the lobby screen
+  id: 910
+  time: '2026-03-10T00:52:58.0000000+00:00'
+- author: neadsy
+  changes:
+    - type: Fix
+      message: Fixed wording in the Cosmic Cult Colossus guidebook.
+  id: 911
+  time: '2026-03-10T00:56:22.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Add
+      message: Added oscilliator as a new nuke and expedition track.
+  id: 912
+  time: '2026-03-10T11:06:37.0000000+00:00'

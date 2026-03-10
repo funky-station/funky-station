@@ -52,7 +52,7 @@
   - type: Sprite
     state: pokerchip
   - type: Stack
-    stacktype: PokerChipStack
+    stackType: PokerChipStack
     count: 5
 
 - type: entity
@@ -64,7 +64,7 @@
   - type: Sprite
     state: pokerchip
   - type: Stack
-    stacktype: PokerChipStack
+    stackType: PokerChipStack
     count: 10
 
 - type: entity
@@ -76,7 +76,7 @@
   - type: Sprite
     state: pokerchip
   - type: Stack
-    stacktype: PokerChipStack
+    stackType: PokerChipStack
     count: 25
 
 - type: entity
@@ -88,7 +88,7 @@
   - type: Sprite
     state: pokerchip
   - type: Stack
-    stacktype: PokerChipStack
+    stackType: PokerChipStack
     count: 50
 
 - type: entity
@@ -100,7 +100,7 @@
   - type: Sprite
     state: pokerchip
   - type: Stack
-    stacktype: PokerChipStack
+    stackType: PokerChipStack
     count: 100
 
 - type: entity
@@ -112,7 +112,7 @@
   - type: Sprite
     state: pokerchip
   - type: Stack
-    stacktype: PokerChipStack
+    stackType: PokerChipStack
     count: 250
 
 - type: entity
@@ -124,7 +124,7 @@
   - type: Sprite
     state: pokerchip
   - type: Stack
-    stacktype: PokerChipStack
+    stackType: PokerChipStack
     count: 500
 
 - type: entity
@@ -136,7 +136,7 @@
   - type: Sprite
     state: pokerchip
   - type: Stack
-    stacktype: PokerChipStack
+    stackType: PokerChipStack
     count: 1000
 
 - type: entity
@@ -148,7 +148,7 @@
   - type: Sprite
     state: pokerchip
   - type: Stack
-    stacktype: PokerChipStack
+    stackType: PokerChipStack
     count: 10000
 
 - type: entity
@@ -160,5 +160,5 @@
   - type: Sprite
     state: pokerchip
   - type: Stack
-    stacktype: PokerChipStack
+    stackType: PokerChipStack
     count: 100000

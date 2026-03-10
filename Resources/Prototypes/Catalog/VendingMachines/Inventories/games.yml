@@ -21,6 +21,7 @@
     Pen: 4
     d6Dice: 8
     CardBoxBlack: 2
+    PokerChip10000: 5
     ChessBoard: 1
     BackgammonBoard: 1
     ParchisBoard: 1
@@ -34,7 +35,6 @@
     MysteryFigureBox: 2
     CrayonBox: 1
     BooksBag: 3
-    PokerChip10000: 5
   contrabandInventory:
     LuxuryPen: 1
     Basketball: 1

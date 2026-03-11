@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2026 ALooseGoose <ALooseGoosey@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Threading;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.Components;

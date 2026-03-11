@@ -28,6 +28,7 @@
   # traits
   - ImpairedMobility
   # - LegsParalyzed (you get healed)
+  - Synth # Adds Synthetic Blood to Paradox Clones
   - LightweightDrunk
   - Narcolepsy
   - Pacified

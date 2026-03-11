@@ -18,6 +18,10 @@
       "name": "alive_level2",
       "directions": 4
     },
+      {
+          "name": "alive_level2alt",
+          "directions": 4
+      },
     {
       "name": "alive_level3",
       "directions": 4
@@ -39,12 +43,19 @@
       "name": "combat_level2",
       "directions": 4
     },
+      {
+          "name": "combat_level2alt",
+          "directions": 4
+      },
     {
       "name": "combat_level3",
       "directions": 4
     },
     {
       "name": "t3weapon"
-    }
+    },
+      {
+      "name": "t2altmelee"
+      }
   ]
 }

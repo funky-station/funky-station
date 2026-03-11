@@ -252,6 +252,54 @@
     speechVerb: Robotic
     speechSounds: Borg
 
+# Tier 2 ALT: Defender. These guys are our mid-level combatants. They have a slightly better stun laser, and a decent melee attack, but no utility functions.
+- type: entity
+  id: MobReplicatorTier2Alt
+  parent: BaseMobReplicator
+  categories: [HideSpawnMenu] # I don't want admins spawning a replicator that's unlinked to a nest
+  suffix: Level 2 Alt
+  components:
+  - type: ActionGun
+    action: ActionReplicatorEnergyBolt
+    gunProto: ReplicatorEnergyBolt
+  - type: CombatMode
+  - type: Puller
+    needsHands: false
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2 # same as slime
+    baseSprintSpeed: 4
+    weightlessFriction: 1
+    weightlessFrictionNoInput: 2
+    weightlessAcceleration: 1.2
+  - type: MovementAlwaysTouching
+  - type: Sprite
+    granularLayersRendering: true
+    drawDepth: Mobs
+    sprite: _Impstation/Mobs/Replicator/replicator.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: alive_level2alt
+    - map: ["enum.ReplicatorVisuals.Combat"]
+      state: combat_level2alt
+      shader: unshaded
+      visible: false
+  - type: NoSlip
+  - type: DamageStateVisuals
+    rotate: false
+    states:
+      Alive:
+        Base: alive_level2alt
+      Dead:
+        Base: dead_level2
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Replicator2
+  - type: ReplacementAccent
+    accent: silicon
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: SyndieBorg
+
 # Tier 3: These guys are tanks. Their job is to tear shit apart and kill things. They're slow, tanky, and have a weapon that does 25 blunt 30 struct.
 - type: entity
   id: MobReplicatorTier3

@@ -51,6 +51,17 @@
     event: !type:ReplicatorWelderActionEvent
 
 - type: entity
+  id: ActionReplicatorUpgrade2Alt
+  name: Upgrade (Tier 2 Alt)
+  description: Gather nanites. Gain weaponary.
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon: _Impstation/Interface/Actions/replicator_level2alt.png
+    event: !type:ReplicatorUpgrade2AltActionEvent
+    useDelay: 20
+
+- type: entity
   id: ActionReplicatorUpgrade3
   name: Upgrade (Tier 3)
   description: Gather nanites. Become stronger.
@@ -108,6 +119,36 @@
     rechargeSound: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
   - type: BasicEntityAmmoProvider
     proto: BulletEnergyTurretDisabler
+    capacity: 1
+    count: 1
+  - type: Gun
+    soundGunshot: /Audio/_Impstation/Weapons/Guns/Gunshots/stunprojector.ogg
+    soundEmpty: null
+
+- type: entity
+  id: ActionReplicatorEnergyBolt
+  name: Energy Bolt
+  description: Terminate target to enable consumption.
+  components:
+  - type: WorldTargetAction
+    icon: { sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi, state: heavylaser_flash } # todo: real sprite
+    event: !type:ActionGunShootEvent
+    priority: 2
+    checkCanAccess: false
+    range: 0
+    itemIconStyle: BigAction
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ReplicatorEnergyBolt
+  name: replicator stun ray
+  description: Neutralize target to enable termination and consumption.
+  components:
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 3
+    rechargeSound: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
+  - type: BasicEntityAmmoProvider
+    proto: BulletEnergyGunMagnum
     capacity: 1
     count: 1
   - type: Gun

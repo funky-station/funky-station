@@ -49,6 +49,7 @@ public sealed class ReplicatorItemActionsSystem : EntitySystem
             BreakOnHandChange = false,
             BreakOnMove = false,
             BreakOnWeightlessMove = false,
+            CancelDuplicate = true,
             Hidden = true,
             NeedHand = false
         };
@@ -93,6 +94,7 @@ public sealed class ReplicatorItemActionsSystem : EntitySystem
             BreakOnHandChange = false,
             BreakOnMove = false,
             BreakOnWeightlessMove = false,
+            CancelDuplicate = true,
             Hidden = true,
             NeedHand = false
         };
@@ -137,6 +139,7 @@ public sealed class ReplicatorItemActionsSystem : EntitySystem
             BreakOnHandChange = false,
             BreakOnMove = false,
             BreakOnWeightlessMove = false,
+            CancelDuplicate = true,
             Hidden = true,
             NeedHand = false
         };
@@ -181,6 +184,7 @@ public sealed class ReplicatorItemActionsSystem : EntitySystem
             BreakOnHandChange = false,
             BreakOnMove = false,
             BreakOnWeightlessMove = false,
+            CancelDuplicate = true,
             Hidden = true,
             NeedHand = false
         };

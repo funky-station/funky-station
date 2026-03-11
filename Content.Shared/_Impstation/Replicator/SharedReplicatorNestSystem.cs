@@ -7,6 +7,7 @@
 // all credit for the core gameplay concepts and a lot of the core functionality of the code goes to the folks over at Goob, but I re-wrote enough of it to justify putting it in our filestructure.
 // the original Bingle PR can be found here: https://github.com/Goob-Station/Goob-Station/pull/1519
 
+using System.Linq;
 using Content.Shared._Impstation.SpawnedFromTracker;
 using Content.Shared.Actions;
 using Content.Shared.Construction.Components;
@@ -28,6 +29,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Timing;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction.Components;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Impstation.Replicator;
 
@@ -55,6 +57,7 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
         SubscribeLocalEvent<ReplicatorNestComponent, StepTriggeredOffEvent>(OnStepTriggered);
 
         SubscribeLocalEvent<ReplicatorComponent, ReplicatorUpgrade2ActionEvent>(OnUpgrade2);
+        SubscribeLocalEvent<ReplicatorComponent, ReplicatorUpgrade2AltActionEvent>(OnUpgrade2Alt);
         SubscribeLocalEvent<ReplicatorComponent, ReplicatorUpgrade3ActionEvent>(OnUpgrade3);
     }
 
@@ -252,6 +255,9 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
                 _actions.AddAction(replicator, targetAction);
             else if (mindContainer.Mind != null)
                 _actionContainer.AddAction((EntityUid)mindContainer.Mind, targetAction);
+
+            if (targetAction == comp.Level2Action)
+                _actions.AddAction(replicator, comp.Level2AltAction);
         }
     }
 
@@ -263,7 +269,7 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
 
         var oldUid = ent.Owner;
 
-        var upgradedUid = UpgradeReplicator(ent, 2);
+        var upgradedUid = UpgradeReplicator(ent, 2, false);
 
         QueueDel(oldUid);
         QueueDel(args.Action);
@@ -285,6 +291,50 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
         }
     }
 
+    public void OnUpgrade2Alt(Entity<ReplicatorComponent> ent, ref ReplicatorUpgrade2AltActionEvent args)
+    {
+        // Don't run this clientside
+        if (_net.IsClient || !_timing.IsFirstTimePredicted)
+            return;
+
+        var oldUid = ent.Owner;
+
+        var upgradedUid = UpgradeReplicator(ent, 2, true);
+
+        QueueDel(oldUid);
+        QueueDel(args.Action);
+
+        {
+            if (!EntityManager.EntityExists(upgradedUid))
+                return;
+
+            if (!TryComp<HandsComponent>(upgradedUid, out var hands))
+                return;
+
+            _handsSystem.AddHand(upgradedUid, "ReplicatorHand", HandLocation.Middle);
+            var tool = Spawn("ReplicatorT2AltMeleeWeapon");
+            _handsSystem.DoPickup(upgradedUid, hands.Hands["ReplicatorHand"], tool);
+            EnsureComp<UnremoveableComponent>(tool);
+
+            if (TryComp<ActionsComponent>(upgradedUid, out var actionsComp))
+            {
+                // I dont know why but the regular Tier 2 Action always shows up for these other guys. This is just to get rid of that. Holy shitcode, me
+                foreach (var actionUid in actionsComp.Actions.ToList())
+                {
+                    if (!EntityManager.TryGetComponent<MetaDataComponent>(actionUid, out var meta) || meta.EntityPrototype == null)
+                        continue;
+
+                    if (meta.EntityPrototype.ID == "ActionReplicatorUpgrade2")
+                    {
+                        _actions.RemoveAction(upgradedUid, actionUid);
+                        break;
+                    }
+                }
+            }
+
+        }
+    }
+
     public void OnUpgrade3(Entity<ReplicatorComponent> ent, ref ReplicatorUpgrade3ActionEvent args)
     {
         // don't run this clientside
@@ -293,7 +343,7 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
 
         var oldUid = ent.Owner;
 
-        var upgradedUid = UpgradeReplicator(ent, 3);
+        var upgradedUid = UpgradeReplicator(ent, 3, false);
 
         QueueDel(ent);
         QueueDel(args.Action);
@@ -312,17 +362,44 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
 
             _actions.AddAction(upgradedUid, "ReplicatorArmAction");
             _actions.AddAction(upgradedUid, "ReplicatorAACAction");
+
+            if (TryComp<ActionsComponent>(upgradedUid, out var actionsComp))
+            {
+                // I dont know why but the regular Tier 2 Action always shows up for these other guys. This is just to get rid of that. Holy shitcode, me
+                foreach (var actionUid in actionsComp.Actions.ToList())
+                {
+                    if (!EntityManager.TryGetComponent<MetaDataComponent>(actionUid, out var meta) || meta.EntityPrototype == null)
+                        continue;
+
+                    if (meta.EntityPrototype.ID == "ActionReplicatorUpgrade2")
+                    {
+                        _actions.RemoveAction(upgradedUid, actionUid);
+                        break;
+                    }
+                }
+            }
         };
     }
 
-    public EntityUid UpgradeReplicator(Entity<ReplicatorComponent> ent, int desiredLevel)
+    public EntityUid UpgradeReplicator(Entity<ReplicatorComponent> ent, int desiredLevel, bool alt)
     {
         var oldUid = ent.Owner;
         var xform = Transform(oldUid);
 
-        var nextStage = desiredLevel == 2
-            ? ent.Comp.Level2Id
-            : ent.Comp.Level3Id;
+        EntProtoId nextStage;
+
+        if (desiredLevel == 2 && !alt)
+        {
+            nextStage = ent.Comp.Level2Id;
+        }
+        else if (desiredLevel == 2 && alt)
+        {
+            nextStage = ent.Comp.Level2altId;
+        }
+        else
+        {
+            nextStage = ent.Comp.Level3Id;
+        }
 
         var upgraded = Spawn(nextStage, xform.Coordinates);
 
@@ -361,6 +438,12 @@ public sealed partial class ReplicatorUpgrade2ActionEvent : InstantActionEvent
 {
 
 }
+
+public sealed partial class ReplicatorUpgrade2AltActionEvent : InstantActionEvent
+{
+
+}
+
 
 public sealed partial class ReplicatorUpgrade3ActionEvent : InstantActionEvent
 {

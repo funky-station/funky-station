@@ -46,10 +46,16 @@ public sealed partial class ReplicatorComponent : Component
     public EntProtoId Level2Id = "MobReplicatorTier2";
 
     [DataField]
+    public EntProtoId Level2altId = "MobReplicatorTier2Alt";
+
+    [DataField]
     public EntProtoId Level3Id = "MobReplicatorTier3";
 
     [DataField]
     public EntProtoId Level2Action = "ActionReplicatorUpgrade2";
+
+    [DataField]
+    public EntProtoId Level2AltAction = "ActionReplicatorUpgrade2Alt";
 
     [DataField]
     public EntProtoId Level3Action = "ActionReplicatorUpgrade3";

@@ -858,6 +858,7 @@
     - OperatingTableCircuitboard # Shitmed Change
     - BorgChargerCircuitboard
     - ThermomachineFreezerMachineCircuitBoard # Assmos - Moved to staticRecipes from dynamicRecipes
+    - ChemDispenserMedicalMachineCircuitboard #funk
     dynamicRecipes:
     - HellfireFreezerMachineCircuitBoard
     - PortableScrubberMachineCircuitBoard

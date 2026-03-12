@@ -139,3 +139,6 @@
 
 - type: Tag
   id: MailEnvelope
+
+- type: Tag
+  id: FitsInMedDispenser

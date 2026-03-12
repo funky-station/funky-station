@@ -32,6 +32,7 @@
     tags:
     - Trash
     - CentrifugeCompatible
+    - FitsInMedDispenser
   - type: PhysicalComposition
     materialComposition:
       Glass: 25

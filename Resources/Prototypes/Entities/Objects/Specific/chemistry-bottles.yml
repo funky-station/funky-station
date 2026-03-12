@@ -52,6 +52,7 @@
     tags:
     - Bottle
     - Trash
+    - FitsInMedDispenser
   - type: PhysicalComposition
     materialComposition:
       Glass: 25
@@ -72,6 +73,8 @@
     solutions:
       drink: # This solution name and target volume is hard-coded in ChemMasterComponent
         maxVol: 30
+  - type: FitsInDispenser
+    solution: drink
   - type: MixableSolution
     solution: drink
   - type: RefillableSolution

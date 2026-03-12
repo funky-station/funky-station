@@ -23,6 +23,7 @@
     - APCElectronics
     - SignalTimerElectronics
     - APECircuitboard
+    - OublietteCircuitBoard # Funky
     - SMESMachineCircuitboard
     - SubstationMachineCircuitboard
     - TelecomServerCircuitboard

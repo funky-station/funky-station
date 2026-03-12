@@ -8,8 +8,11 @@ store-category-salvage-standard = Standard Equipment
 
 # Wearables
 
-vendor-salvage-spationaught-name = Spationaut Hardsuit
-vendor-salvage-spationaught-desc = A lightweight hardsuit designed for industrial EVA in zero gravity.
+vendor-salvage-spationaut-name = Spationaut Hardsuit
+vendor-salvage-spationaut-desc = A lightweight hardsuit designed for industrial EVA in zero gravity.
+
+vendor-salvage-spationaut-upgrade-kit-name = Spationaut Upgrade Kit
+vendor-salvage-spationaut-upgrade-kit-desc = A box containing various parts intended to modify and tweak a standard spationaut hardsuit.
 
 vendor-salvage-mining-suit-name = Mining Hardsuit
 vendor-salvage-mining-suit-desc = A special suit that protects against hazardous, low pressure environments. Has reinforced plating for wildlife encounters.
@@ -52,7 +55,7 @@ vendor-salvage-premium-mre-name = Premium M.R.E
 vendor-salvage-premium-mre-desc = A box of standard NT ERT rations. Filled with everything you want in a balanced meal after a hard day's work.
 
 vendor-salvage-emergency-pen-name = Emergency Medipen
-vendor-salvage-emergency-pen-desc = A rapid and safe way to stabilize patients in critical condition for personnel without advanced medical knowledge.
+vendor-salvage-emergency-pen-desc = A box containing six Emergency Medipens.
 
 vendor-salvage-vodka-name = Vodka Bottle
 vendor-salvage-vodka-desc = Aah, vodka. Prime choice of drink AND fuel by Russians worldwide.
@@ -85,6 +88,9 @@ vendor-salvage-crusher-dagger-desc = A scaled down version of a proto-kinetic cr
 vendor-salvage-mosin-name =  Kardashev-Mosin
 vendor-salvage-mosin-desc = A weapon for hunting, or endless trench warfare. Uses .30 rifle ammo.
 
+vendor-salvage-energy-cutlass-name = Energy Cutlass
+vendor-salvage-energy-cutlass-desc = An exotic energy weapon.
+
 vendor-salvage-antique-cell-name = Antique Power Cell
 vendor-salvage-antique-cell-desc = A small cell that self recharges. Used in old laser arms research.
 
@@ -108,7 +114,7 @@ vendor-salvage-shuttle-kit-name = Shuttle Boards Kit
 vendor-salvage-shuttle-kit-desc = A box filled with all the necessary boards needed to create a new shuttle, or repair an existing one. You didn't crash into something, right?
 
 vendor-salvage-medical-kit-name = Field Medical Kit
-vendor-salvage-medical-kit-desc = A box containing medical supplies, defibrillator,body bags and the materials needed to construct a medibot.
+vendor-salvage-medical-kit-desc = A box containing medical supplies, defibrillator,body bags, roller bed and the materials needed to construct a medibot.
 
 vendor-salvage-cookout-name = Field Cookout Kit
 vendor-salvage-cookout-desc = A box containing a electric grill and freezer board, skewers, 6 pack of beer, and assorted condiments.

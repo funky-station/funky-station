@@ -1,11 +1,12 @@
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
-# SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2026 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -96,6 +97,8 @@
         6
       AggroVisionRadius: !type:Single
         10
+      NavSmash: !type:Bool
+        true
   - type: NPCUseActionOnTarget
     actionId: ActionGoliathTentacle
   - type: Tag
@@ -256,9 +259,13 @@
         4
       AggroVisionRadius: !type:Single
         9
+      NavSmash: !type:Bool
+        true
   - type: Butcherable
     spawned:
     - id: FoodHivelordRemains
+    - id: MaterialHivelordTendril1 # Funkystation
+      amount: 2
 
 - type: entity
   id: MobHivelordBrood
@@ -308,21 +315,25 @@
         15
       AggroVisionRadius: !type:Single
         15
+      NavSmash: !type:Bool
+        true
   - type: TimedDespawn
     lifetime: 100
 
 - type: entity
   id: FoodHivelordRemains
-  parent: FoodBase
-  name: hivelord remains
-  description: All that remains of a hivelord, it seems to be what allows it to break pieces of itself off without being hurt... its healing properties will soon become inert if not used quickly. Try not to think about what you're eating.
+  parent: FoodMeatRawBase
+  name: hivelord core
+  description: The core of a hivelord, it seems to be what allows it to break pieces of itself off without being hurt... its healing properties will soon become inert if not used quickly. Try not to think about what you're eating.
   components:
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 5
+        maxVol: 10
         reagents:
         - ReagentId: Rororium
+          Quantity: 5
+        - ReagentId: Protein
           Quantity: 5
   - type: Sprite
     sprite: Objects/Consumable/Food/rorocore.rsi
@@ -354,3 +365,76 @@
     size: Normal
   - type: StaticPrice
     price: 500
+
+- type: entity
+  id: MobBasilisk
+  parent: [ BaseMobAsteroid, MobBloodstream ]
+  name: basilisk
+  description: A territorial beast, covered in a thick shell that absorbs energy. Its stare causes victims to freeze from the inside.
+  components:
+  - type: Sprite
+    sprite: Mobs/Aliens/Asteroid/basilisk.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: basilisk
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: basilisk
+      Dead:
+        Base: basilisk_dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 3
+    baseSprintSpeed : 3.5
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      80: Dead
+  - type: MeleeWeapon
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Slash: 7
+        Piercing: 5
+  - type: Gun
+    fireRate: 0.75
+    selectedMode: SemiAuto
+    showExamineText: false
+    availableModes: [ SemiAuto ]
+    soundGunshot: /Audio/Weapons/Guns/Gunshots/syringe_gun.ogg
+  - type: RechargeBasicEntityAmmo
+    showExamineText: false
+    rechargeCooldown: 0
+    rechargeSound: null
+  - type: BasicEntityAmmoProvider
+    proto: BasiliskRay
+    capacity: 1
+    count: 1
+  - type: Bloodstream
+    bloodMaxVolume: 200
+    chemicalMaxVolume: 0
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: BasiliskCompound
+    blackboard:
+      VisionRadius: !type:Single
+        7
+      AggroVisionRadius: !type:Single
+        12
+      NavSmash: !type:Bool
+        true
+  - type: Reflect
+    reflectProb: 1
+    reflects:
+    - Energy
+  - type: Butcherable
+    spawned:
+    - id: DiamondOre1
+      amount: 1
+      maxAmount: 3

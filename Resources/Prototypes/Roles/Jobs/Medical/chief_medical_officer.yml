@@ -46,6 +46,7 @@
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 SharkSnake98 <sharksnake87@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -86,6 +87,11 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+  alternateTitles:
+  - ChiefMedicalOfficerMedicalDirector
+  - ChiefMedicalOfficerHeadOfMedical
+  - ChiefMedicalOfficerChiefPhysician
+  - ChiefMedicalOfficerHeadPhysician
 
 - type: startingGear
   id: CMOGear
@@ -96,3 +102,19 @@
   storage:
     back:
     - Flash
+
+- type: jobAlternateTitle
+  id: ChiefMedicalOfficerMedicalDirector
+  name: job-name-alt-cmo-1
+
+- type: jobAlternateTitle
+  id: ChiefMedicalOfficerHeadOfMedical
+  name: job-name-alt-cmo-2
+
+- type: jobAlternateTitle
+  id: ChiefMedicalOfficerChiefPhysician
+  name: job-name-alt-cmo-3
+
+- type: jobAlternateTitle
+  id: ChiefMedicalOfficerHeadPhysician
+  name: job-name-alt-cmo-4

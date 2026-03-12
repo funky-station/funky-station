@@ -1,0 +1,440 @@
+# SPDX-FileCopyrightText: 2025 willow <willowzeta632146@proton.me>
+# SPDX-FileCopyrightText: 2026 wilowzeta <willowzeta632146@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: decal
+  id: FloorSignAI
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: ai
+
+- type: decal
+  id: FloorSignAnchor
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: anchor
+
+- type: decal
+  id: FloorSignAnomalyLab
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: anomlab
+
+- type: decal
+  id: FloorSignArcade
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: arcade
+
+- type: decal
+  id: FloorSignArmory
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: armory
+
+- type: decal
+  id: FloorSignArrivals
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: arrivals
+
+- type: decal
+  id: FloorSignAtmos
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: atmos
+
+- type: decal
+  id: FloorSignBar
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: bar
+
+- type: decal
+  id: FloorSignBotany
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: botany
+
+- type: decal
+  id: FloorSignBridge
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: bridge
+
+- type: decal
+  id: FloorSignBriefing
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: briefing
+
+- type: decal
+  id: FloorSignBrig
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: brig
+
+- type: decal
+  id: FloorSignCargo
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: cargo
+
+- type: decal
+  id: FloorSignCCOffice
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: cco
+
+- type: decal
+  id: FloorSignChapel
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: chapel
+
+- type: decal
+  id: FloorSignChem
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: chem
+
+- type: decal
+  id: FloorSignClown
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: clown
+
+- type: decal
+  id: FloorSignComms
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: comms
+
+- type: decal
+  id: FloorSignCourtroom
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: court
+
+- type: decal
+  id: FloorSignCryogenics
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: cryogenics
+
+- type: decal
+  id: FloorSignCryosleep
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: cryosleep
+
+- type: decal
+  id: FloorSignDetective
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: det
+
+- type: decal
+  id: FloorSignDisposals
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: disposals
+
+- type: decal
+  id: FloorSignDorms
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: dorms
+
+- type: decal
+  id: FloorSignEngi
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: engi
+
+- type: decal
+  id: FloorSignEVA
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: eva
+
+- type: decal
+  id: FloorSignEvac
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: evac
+
+- type: decal
+  id: FloorSignGenetics
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: genetics
+
+- type: decal
+  id: FloorSignGrav
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: grav
+
+- type: decal
+  id: FloorSignHOP
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: hop
+
+- type: decal
+  id: FloorSignIA
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: ia
+
+- type: decal
+  id: FloorSignInterrogation
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: inter
+
+- type: decal
+  id: FloorSignJani
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: jani
+
+- type: decal
+  id: FloorSignKitchen
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: kitchen
+
+- type: decal
+  id: FloorSignLawyer
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: law
+
+- type: decal
+  id: FloorSignLibrary
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: library
+
+- type: decal
+  id: FloorSignMagi
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: magi
+
+- type: decal
+  id: FloorSignMail
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: mail
+
+- type: decal
+  id: FloorSignMats
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: mats
+
+- type: decal
+  id: FloorSignMedical
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: med
+
+- type: decal
+  id: FloorSignMime
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: mime
+
+- type: decal
+  id: FloorSignMorgue
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: morgue
+
+- type: decal
+  id: FloorSignMusician
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: musician
+
+- type: decal
+  id: FloorSignNewsroom
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: news
+
+- type: decal
+  id: FloorSignOrdnanceLab
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: ordnance
+
+- type: decal
+  id: FloorSignPointer
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: pointer
+
+- type: decal
+  id: FloorSignPower
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: power
+
+- type: decal
+  id: FloorSignPsych
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: psych
+
+- type: decal
+  id: FloorSignReactor
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: reactor
+
+- type: decal
+  id: FloorSignRobo
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: robo
+
+- type: decal
+  id: FloorSignSalvage
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: salvage
+
+- type: decal
+  id: FloorSignSatelliteArray
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: satellite
+
+- type: decal
+  id: FloorSignScience
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: sci
+
+- type: decal
+  id: FloorSignSecurity
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: security
+
+- type: decal
+  id: FloorSignService
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: service
+
+- type: decal
+  id: FloorSignSingularity
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: singularity
+
+- type: decal
+  id: FloorSignSolars
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: solars
+
+- type: decal
+  id: FloorSignSupermatter
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: spicyrock
+
+- type: decal
+  id: FloorSignSurgery
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: surgery
+
+- type: decal
+  id: FloorSignTechStorage
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: tech
+
+- type: decal
+  id: FloorSignTEG
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: teg
+
+- type: decal
+  id: FloorSignTelescience
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: telesci
+
+- type: decal
+  id: FloorSignTesla
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: tesla
+
+- type: decal
+  id: FloorSignTheater
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: theater
+
+- type: decal
+  id: FloorSignTools
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: tools
+
+- type: decal
+  id: FloorSignWarden
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: warden
+
+- type: decal
+  id: FloorSignVault
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: vault
+
+- type: decal
+  id: FloorSignViro
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: viro
+
+- type: decal
+  id: FloorSignVoxBox
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: voxbox
+
+- type: decal
+  id: FloorSignXenoarch
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: xenoarch
+
+- type: decal
+  id: FloorSignXenobio
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: xenobio
+
+- type: decal
+  id: FloorSignZoo
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: zoo
+
+
+
+

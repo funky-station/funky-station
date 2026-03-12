@@ -31,14 +31,16 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 a_person <alexanderbeaumont05@hotmail.com>
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Rainbow <ev0lvkitten@gmail.com>
 # SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
+# SPDX-FileCopyrightText: 2026 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Ichaie <ichaicoelho@gmail.com>
+# SPDX-FileCopyrightText: 2026 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -143,6 +145,7 @@
       - id: HolofanProjector
       - id: DoorRemoteFirefight # Goobstation - re adding fire door remote
       - id: ClothingBackpackFirefighterTank
+      - id: AirGrenade
 
 - type: entity
   id: LockerAtmosphericsFilled
@@ -160,6 +163,48 @@
       - id: HolofanProjector
       - id: DoorRemoteFirefight # Goobstation - re adding fire door remote
       - id: ClothingBackpackFirefighterTank
+      - id: AirGrenade
+
+- type: entity
+  id: LockerAtmosphericsFilledNoFireSuit # Funkystation - fire suit lockers without the fire suit, for more variety in atmospherics lockers
+  suffix: Filled, NoFireSuit
+  parent: LockerAtmospherics
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingMaskGasAtmos
+      - id: ClothingOuterSuitAtmosFire
+      - id: ClothingHeadHelmetAtmosFire
+      - id: OxygenTankFilled
+      - id: NitrogenTankFilled
+      - id: MedkitOxygenFilled
+      - id: HolofanProjector
+      - id: DoorRemoteFirefight # Goobstation - re adding fire door remote
+      - id: ClothingBackpackFirefighterTank
+      - id: AirGrenade
+
+- type: entity
+  id: LockerEngineerFilledFireSuit # Funkystation - engineering lockers with the fire suit, for more variety in engineering lockers
+  suffix: Filled, Hardsuit, FireSuit
+  parent: LockerEngineer
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingMaskGasAtmos
+      - id: ClothingOuterSuitAtmosFire
+      - id: ClothingHeadHelmetAtmosFire
+      - id: OxygenTankFilled
+      - id: NitrogenTankFilled
+      - id: ClothingHandsGlovesColorYellow
+      - id: HolotapeProjector #funky!
+      - id: ClothingMaskGas
+      - id: ClothingShoesBootsMag
+      - id: RCD
+      - id: RPD #funkystation
+      - id: RCDAmmo
+      - id: BoxInflatable # funky
+      - id: MaterialBag #funky!
+      - id: MetalFoamGrenade #funky!
 
 - type: entity
   id: LockerEngineerFilledHardsuit

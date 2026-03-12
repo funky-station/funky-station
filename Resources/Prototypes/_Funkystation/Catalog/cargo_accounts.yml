@@ -1,0 +1,11 @@
+# SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: cargoAccount
+  id: Atmospherics
+  name: cargo-account-atmospherics-name
+  code: cargo-account-atmospherics-code
+  color: "#00AFAF"
+  radioChannel: Engineering
+  acquisitionSlip: PaperAcquisitionSlipEngineering

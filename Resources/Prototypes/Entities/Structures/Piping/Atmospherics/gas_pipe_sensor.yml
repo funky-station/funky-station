@@ -1,9 +1,12 @@
 # SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -24,8 +27,8 @@
       state: pipeStraight
     - map: ["base"]
       state: base
-    - map: [ "enum.PowerDeviceVisualLayers.Powered" ]
-      state: lights
+    - map: ["lights"] # Funkystation: Pipe sensor analyzer
+      state: blank
       shader: unshaded
   - type: AtmosPipeLayers
     spriteRsiPaths:
@@ -37,12 +40,14 @@
       Secondary: GasPipeSensorAlt1
       Tertiary: GasPipeSensorAlt2
   - type: Appearance
-  - type: GenericVisualizer
+  - type: GenericVisualizer # Funkystation: Pipe sensor analyzer and pressure indication
     visuals:
-      enum.PowerDeviceVisuals.Powered:
-        enum.PowerDeviceVisualLayers.Powered:
-          False: { state: blank }
-          True: { state: lights }
+      enum.GasPipeSensorVisuals.LightsState:
+        lights:
+          Off:             { state: blank }
+          normalPressure:    { state: lights_normalpressure }
+          OverPressure:    { state: lights_overpressure }
+          ExtremePressure: { state: lights_extremepressure }
   - type: AtmosMonitor
     monitorsPipeNet: true
   - type: GasPipeSensor
@@ -63,6 +68,13 @@
     tags:
     - AirSensor
     - Unstackable
+  - type: ActivatableUI # Funkystation: Pipe sensor analyzer
+    key: enum.GasPipeSensorUiKey.Key
+  - type: UserInterface # Funkystation: Pipe sensor analyzer
+    interfaces:
+      enum.GasPipeSensorUiKey.Key:
+        type: GasPipeSensorBoundUserInterface
+  - type: InteractionOutline # Funkystation: Pipe sensor analyzer
   - type: GuideHelp
     guides:
     - AtmosphericNetworkMonitor

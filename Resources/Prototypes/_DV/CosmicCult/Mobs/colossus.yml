@@ -202,7 +202,6 @@
     - ActionViewLaws
     - ActionCosmicColossusSunder
     - ActionCosmicColossusIngress
-    - ActionCosmicColossusHibernate
   - type: MeleeWeapon
     altDisarm: false
     animation: WeaponArcCosmic
@@ -269,6 +268,25 @@
     autoDisable: false
     corruptionReduction: 0
 
+- type: entity
+  parent: [ MobCosmicColossusBase ]
+  id: MobCosmicColossus
+  components:
+  - type: RandomMetadata
+    nameSegments:
+    - ColossusNames
+    - ColossusTitlesBase
+    nameSeparator: ", "
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      350: Dead
+  - type: CosmicColossus
+  - type: CosmicCorrupting
+    mobile: true
+    autoDisable: false
+    corruptionReduction: 0
+
 - type: speechSounds
   id: ColossusSpeech
   saySound:
@@ -277,6 +295,7 @@
     path: /Audio/_DV/CosmicCult/colossus_ask.ogg
   exclaimSound:
     path: /Audio/_DV/CosmicCult/colossus_exclaim.ogg
+
 
 - type: entity
   categories: [ HideSpawnMenu ]

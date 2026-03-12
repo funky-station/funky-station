@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: 2026 Komoni <131829655+Komonighub@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+name: "Approval"
+
+on:
+  pull_request_review:
+    types:
+      - submitted
+
+permissions:
+  pull-requests: write
+
+jobs:
+  check_approval:
+    runs-on: ubuntu-latest
+    if: github.event.review.user.login == 'taydeo' && github.event.review.state == 'approved'
+    steps:
+      - uses: actions-ecosystem/action-add-labels@v1
+        with:
+          github_token: ${{ secrets.BOT_TOKEN }}
+          labels: "Status: Approved"

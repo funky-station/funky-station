@@ -15,8 +15,10 @@
 # SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
+# SPDX-FileCopyrightText: 2025 ScarKy0 <scarky0@onet.eu>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 AftrLite <61218133+AftrLite@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -28,7 +30,7 @@
   components:
   - type: Sprite
     noRot: true
-    sprite: Structures/Machines/Anomaly/anomaly_vessel.rsi
+    sprite: _Funkystation/Structures/Machines/anomaly_vessel.rsi # Funky
     layers:
     - state: base
     - state: powered-1
@@ -117,7 +119,7 @@
   description: An advanced anomaly vessel capable of greater research potential at the cost of increased volatility and low-level radioactive decay into the environment.
   components:
   - type: Sprite
-    sprite: Structures/Machines/Anomaly/adv_anomaly_vessel.rsi
+    sprite: _Funkystation/Structures/Machines/adv_anomaly_vessel.rsi # Funky
     offset: 0,0.5
     drawdepth: Mobs
   - type: SpriteFade
@@ -142,9 +144,11 @@
   name: A.P.E.
   description: An Anomalous Particle Emitter, capable of shooting out unstable particles which can interface with anomalies.
   components:
+  - type: CosmicLambdaParticleSource # funky
+  - type: DoAfter # Funky
   - type: Sprite
     noRot: true
-    sprite: Structures/Machines/Anomaly/ape.rsi
+    sprite: _Funkystation/Structures/Machines/ape.rsi # Funky
     layers:
     - state: base
     - state: unshaded
@@ -192,6 +196,7 @@
     - AnomalousParticleEpsilon
     - AnomalousParticleZeta
     - AnomalousParticleSigma
+    - CosmicLambdaParticle # Funky
     setTypePorts:
       SetParticleDelta: AnomalousParticleDelta
       SetParticleEpsilon: AnomalousParticleEpsilon

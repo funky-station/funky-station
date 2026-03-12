@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: 2025 AftrLite
-// SPDX-FileCopyrightText: 2025 AftrLite <61218133+AftrLite@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Janet Blackquill <uhhadd@gmail.com>
+// SPDX-FileCopyrightText: 2026 AftrLite <61218133+AftrLite@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -94,6 +94,7 @@ public sealed class CosmicColossusSystem : EntitySystem
         }
         if (ent.Comp.Timed)
             _actions.AddAction(ent, ref ent.Comp.EffigyPlaceActionEntity, ent.Comp.EffigyPlaceAction, ent);
+        _actions.AddAction(ent, ref ent.Comp.HibernateActionEntity, ent.Comp.HibernateAction, ent);
     }
 
     private void OnMobStateChanged(Entity<CosmicColossusComponent> ent, ref MobStateChangedEvent args)

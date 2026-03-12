@@ -40,11 +40,14 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 SharkSnake98 <peanutbuttersharky@gmail.com>
+# SPDX-FileCopyrightText: 2026 SharkSnake98 <sharksnake87@gmail.com>
+# SPDX-FileCopyrightText: 2026 W.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -79,6 +82,10 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+  alternateTitles:
+  - ChiefEngineerEngineeringForeman
+  - ChiefEngineerHeadOfEngineering
+  - ChiefEngineerEngineeringSupervisor
 
 - type: startingGear
   id: ChiefEngineerGear
@@ -89,3 +96,17 @@
   storage:
     back:
     - Flash
+
+- type: jobAlternateTitle
+  id: ChiefEngineerHeadOfEngineering
+  name: job-name-alt-ce-1
+
+- type: jobAlternateTitle
+  id: ChiefEngineerEngineeringForeman
+  name: job-name-alt-ce-2
+  femaleName: job-name-alt-ce-2-f
+  maleName: job-name-alt-ce-2-m
+
+- type: jobAlternateTitle
+  id: ChiefEngineerEngineeringSupervisor
+  name: job-name-alt-ce-3

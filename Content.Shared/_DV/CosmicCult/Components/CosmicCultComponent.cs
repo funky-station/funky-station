@@ -9,7 +9,6 @@ using Content.Shared.StatusIcon;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Audio;
 using Content.Shared._DV.CosmicCult.Prototypes;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.Alert;
 using Robust.Shared.Serialization;
 
@@ -51,6 +50,9 @@ public sealed partial class CosmicCultComponent : Component
 
     [DataField]
     public EntProtoId CosmicFragmentationAction = "ActionCosmicFragmentation";
+
+    [DataField]
+    public EntityUid? CosmicFragmentationActionEntity;
 
     public HashSet<EntityUid?> ActionEntities = [];
 
@@ -144,11 +146,6 @@ public sealed partial class CosmicCultComponent : Component
     /// Wether or not this cultist needs to respirate.
     /// </summary>
     [DataField, AutoNetworkedField] public bool Respiration = true;
-
-    /// <summary>
-    /// A string for storing what damage container this cultist had upon conversion.
-    /// </summary>
-    [DataField, AutoNetworkedField] public ProtoId<DamageContainerPrototype> StoredDamageContainer = "Biological";
 
     /// <summary>
     /// The alert for displaying the cultist's currently held Entropy.

@@ -175,19 +175,15 @@
 # SPDX-FileCopyrightText: 2025 Sofia Gilsanz <softie.gd@gmail.com>
 # SPDX-FileCopyrightText: 2025 SpaceCat~Chan <49094338+SpaceCat-Chan@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Speebro <speebro@notreal.com>
-# SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Toaster <mrtoastymyroasty@gmail.com>
 # SPDX-FileCopyrightText: 2025 Toastermeister <215405651+Toastermeister@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
-# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 aa5g21 <aa5g21@soton.ac.uk>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
@@ -206,6 +202,19 @@
 # SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 # SPDX-FileCopyrightText: 2025 willow <willowzeta632146@proton.me>
 # SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
+# SPDX-FileCopyrightText: 2026 AftrLite <61218133+AftrLite@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
+# SPDX-FileCopyrightText: 2026 DoovyADeer <256158135+DoovyADeer@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 W.xyz() <84605679+pirakaplant@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 W.xyz() <tptechteam@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 jhrushbe <capnmerry@gmail.com>
+# SPDX-FileCopyrightText: 2026 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 rottenheadphones <juaelwe@outlook.com>
+# SPDX-FileCopyrightText: 2026 rotty <juaelwe@outlook.com>
+# SPDX-FileCopyrightText: 2026 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -334,7 +343,7 @@
     - Igniter
     - Signaller
     - Screwdriver
-    - Welder
+#    - Welder  #why are there two welders
     - Wrench
     - CrowbarGreen
     - Multitool
@@ -423,6 +432,7 @@
     - Signaller
     - Screwdriver
     - Welder
+    - WelderIndustrial #funk
     - Wrench
     - CrowbarGreen
     - Multitool
@@ -520,8 +530,13 @@
     - TowelColorWhite #funk towel
     - InflatableWall #funky inflatables
     - InflatableDoor #funk
+    - PowerCellMediumSingle #funk
+    - PowerCellHighSingle #funk
     - SmallPinboard #funky
     - BarberScissors #funk
+    - Shovel #funk
+    - Floodlight #funk
+    - CassetteTapeHigh #funk
     dynamicRecipes:
     - BoomboxRed
     - BoomboxGreen
@@ -704,6 +719,7 @@
     - ClothingBackpackSatchelHolding
     - ClothingBackpackDuffelHolding
     - WelderExperimental
+    - WelderIndustrialAdvanced #funk
     - JawsOfLife
     - FauxTileAstroGrass
     - FauxTileMowedAstroGrass
@@ -726,6 +742,8 @@
     - SadTromboneImplanter
     - LightImplanter
     - BikeHornImplanter
+    - PowerCellHyperSingle #funk
+    - CassetteTapeHyper #funk
   - type: EmagLatheRecipes
     emagDynamicRecipes:
     - BoxBeanbag
@@ -772,6 +790,8 @@
     - MagazinePistolLargeIncendiary # Funkystation
     - MagazineBoxPistolLargeUranium # Funkystation
     - MagazineBoxPistolLargeIncendiary # Funkystation
+    - WeaponEnergyGunEnergyPistol # Funkystation
+    - WeaponTeslaGun # Funkystation
     - MindShieldImplanter
     - TrackingImplanter
     - ClothingHandsTruncheonKnuckleDusters # funk
@@ -841,6 +861,8 @@
     dynamicRecipes:
     - HellfireFreezerMachineCircuitBoard
     - PortableScrubberMachineCircuitBoard
+    - PipeScrubberMachineCircuitBoard # Funkystation
+    - WashingMachineCircuitboard #Funkystation
     - CloningPodMachineCircuitboard
     - MedicalScannerMachineCircuitboard
     - CryoPodMachineCircuitboard
@@ -907,6 +929,7 @@
     - AnomalyVesselExperimentalCircuitboard
     - AnomalySynchronizerCircuitboard
     - APECircuitboard
+    - OublietteCircuitBoard # Funky
     - ArtifactAnalyzerMachineCircuitboard
     - ArtifactCrusherMachineCircuitboard
     - TelecomServerCircuitboard
@@ -921,8 +944,9 @@
     - ThermomachineAdvancedFreezerMachineCircuitBoard # Assmos
     - MusicTechFabCircuitboard # Funky Station
     - ElectrolyzerMachineCircuitboard # Assmos - /tg/ gases
-    - NuclearFabricatorMachineCircuitboard
-    - NuclearCentrifugeMachineCircuitboard
+    - NuclearFabricatorMachineCircuitboard #FH
+    - NuclearCentrifugeMachineCircuitboard #FH
+    - NuclearReactorMonitorComputerCircuitboard #FH
 
   - type: EmagLatheRecipes
     emagDynamicRecipes:
@@ -1011,7 +1035,7 @@
     #- BorgModuleArtifact
     #- BorgModuleAnomaly
     #- BorgModuleGardening
-    #- BorgModuleHarvesting
+    #- BorgModuleCooking
     #- BorgModuleDefibrillator
     - BorgModuleAdvancedChemical
     - RipleyHarness
@@ -1204,10 +1228,11 @@
     - RiotShield
     - SpeedLoaderMagnum
     - SpeedLoaderMagnumEmpty
-    - Stunbaton
+#   - Stunbaton # Funky - Replacing with truncheons
     - TargetClown
     - TargetHuman
     - TargetSyndicate
+    - Truncheon # Funky
     - WeaponDisablerPractice
     - WeaponFlareGunSecurity
     - WeaponLaserCarbinePractice
@@ -1261,6 +1286,8 @@
     - MagazinePistolLargeIncendiary # Funkystation
     - MagazineBoxPistolLargeUranium # Funkystation
     - MagazineBoxPistolLargeIncendiary # Funkystation
+    - WeaponEnergyGunEnergyPistol # Funkystation
+    - WeaponTeslaGun # Funkystation
     - PortableRecharger
     - PowerCageHigh
     - PowerCageMedium
@@ -1275,10 +1302,10 @@
     - SpeedLoaderMagnumUranium
     - TelescopicShield
     - TimerTrigger
-    - Truncheon
+#    - Truncheon # Funky - Making truncheons roundstart
     - VoiceTrigger
     - WeaponAdvancedLaser
-    - WeaponDisabler
+#    - WeaponDisabler # Funky
 #    - WeaponDisablerSMG
     - WeaponLaserCannon
     - WeaponLaserCarbine
@@ -1464,7 +1491,10 @@
     - UtilityKnife #if you don't have scalpels ig #funk
     - CandyBowl #pill(pill that pills you) #funk
     - DeskBell #ringringring #funk
+    - ScalpelAdvanced #funk
+    - ScalpelLaser #funk
     - Tourniquet #funk
+    - AACTablet # Delta-V
     dynamicRecipes:
     - ChemicalPayload
     - CryostasisBeaker
@@ -1560,6 +1590,7 @@
     - ClothingUniformJumpskirtChiefEngineer
     - ClothingUniformJumpsuitChiefEngineerTurtle
     - ClothingUniformJumpskirtChiefEngineerTurtle
+    - ClothingHeadHatCEConductor # Funky!
     - ClothingUniformJumpsuitChaplain
     - ClothingUniformJumpskirtChaplain
     - ClothingUniformJumpsuitChef

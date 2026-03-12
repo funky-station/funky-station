@@ -1,0 +1,26 @@
+# SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: htnCompound
+  id: BasiliskCompound
+  branches:
+  - tasks:
+    - !type:HTNCompoundTask
+      task: BasiliskMeleeCombatCompound
+  - tasks:
+    - !type:HTNCompoundTask
+      task: InnateRangedCombatCompound
+  - tasks:
+    - !type:HTNCompoundTask
+      task: IdleCompound
+
+- type: htnCompound
+  id: BasiliskMeleeCombatCompound
+  branches:
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UtilityOperator
+        proto: NearbyColdMeleeTargets
+    - !type:HTNCompoundTask
+      task: BeforeMeleeAttackTargetCompound

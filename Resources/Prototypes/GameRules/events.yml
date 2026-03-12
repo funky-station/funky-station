@@ -97,6 +97,7 @@
     - id: SpiderSpawn
     - id: HonkbotSpawn
     - id: VentClog
+    - id: MalignRiftSpawn # Funky
 
 - type: entityTable
   id: BasicAntagEventsTable

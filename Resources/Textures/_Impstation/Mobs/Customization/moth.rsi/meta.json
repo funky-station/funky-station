@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "drawn by Snavian and Carousel for Impstation",
+    "copyright": "drawn by Snavian and Carousel for Impstation, resprited by https://github.com/The3rdsideofthings",
     "size": {
       "x": 32,
       "y": 32
@@ -53,7 +53,11 @@
         "directions": 4
       },
       {
-        "name": "wings_backstabbed",
+        "name": "wings_backstabbed_primary",
+        "directions": 4
+      },
+      {
+        "name": "wings_backstabbed_secondary",
         "directions": 4
       },
       {
@@ -158,6 +162,14 @@
       },
       {
         "name": "torso_incision_moth",
+        "directions": 4
+      },
+      {
+        "name": "fan_r_leg",
+        "directions": 4
+      },
+      {
+        "name": "fan_l_leg",
         "directions": 4
       }
     ]

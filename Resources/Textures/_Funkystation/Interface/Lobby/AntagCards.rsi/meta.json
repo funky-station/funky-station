@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "created by rosysaturniidae on Discord for funkystation.org",
+    "copyright": "nuclearoperative (commander+agent) by rosysaturniidae on Discord, wizard by drricky on Discord edited by TrixxedHeart",
     "size": {
         "x": 32,
         "y": 32
@@ -10,8 +10,14 @@
         {
             "name": "nuclearoperativecommander"
         },
+		{
+			"name": "nuclearoperativeagent"
+		},
         {
             "name": "nuclearoperative"
+        },
+		{
+            "name": "wizard"
         }
     ]
 }

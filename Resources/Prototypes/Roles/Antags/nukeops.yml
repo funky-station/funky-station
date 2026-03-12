@@ -50,7 +50,7 @@
   category: Team
   icon:
     sprite: _Funkystation/Interface/Lobby/AntagCards.rsi
-    state: nuclearoperative
+    state: nuclearoperativeagent
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 36000 # 10h

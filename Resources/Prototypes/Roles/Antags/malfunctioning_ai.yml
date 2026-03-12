@@ -7,7 +7,7 @@
   id: MalfunctioningAI
   name: roles-antag-malfunctioning-ai-name
   antagonist: true
-  setPreference: true
+  setPreference: false
   objective: roles-antag-malfunctioning-ai-objective
   guides: [ MalfunctioningAI ]
   category: Solo

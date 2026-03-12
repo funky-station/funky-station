@@ -14,7 +14,7 @@
   id: Changeling
   name: roles-antag-changeling-name
   antagonist: true
-  setPreference: true
+  setPreference: false
   objective: roles-antag-changeling-description
   category: Team
   requirements:

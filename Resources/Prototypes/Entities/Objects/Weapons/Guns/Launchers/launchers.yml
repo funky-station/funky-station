@@ -514,7 +514,7 @@
   - type: BallisticAmmoProvider
     whitelist:
       tags:
-        - GrenadeLessLethal
+        - GrenadeLessLethal #doth not fit actual real in fact lethal shells, these are just kills you slowly and painfully shells, officer!
     capacity: 3
     proto: GrenadeTearGas
     soundInsert:

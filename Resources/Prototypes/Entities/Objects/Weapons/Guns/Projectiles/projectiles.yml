@@ -855,7 +855,7 @@
     deleteOnCollide: false
     damage:
       types:
-        Blunt: 1
+        Blunt: 20 #on par with two beanbag hits, cause 80 stam damage is that
     soundHit:
       path: /Audio/Effects/gen_hit.ogg
   - type: StaminaDamageOnCollide

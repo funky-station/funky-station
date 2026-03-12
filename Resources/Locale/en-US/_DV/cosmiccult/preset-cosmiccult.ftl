@@ -14,7 +14,7 @@ cosmiccult-title = Cosmic Cult
 cosmiccult-description = Cultists lurk amongst the crew.
 
 roles-antag-cosmiccult-name = Cosmic Cultist
-roles-antag-cosmiccult-description = Usher in the end of all things through subterfuge and sabotage, brainwashing those who would oppose you.
+roles-antag-cosmiccult-description = Usher in the end of all things through subterfuge and sabotage, brainwashing those who would oppose you. [color=#4cabb3][bold]The Curtains Must Fall.[/bold][/color]
 
 cosmiccult-gamemode-title = The Cosmic Cult
 cosmiccult-gamemode-description = Scanners detect an anomalous increase in Λ-CDM. There is no additional data.

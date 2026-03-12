@@ -41,7 +41,8 @@ ghost-role-information-blob-name = Blob
 ghost-role-information-blob-description = You are a Blob. You must consume the station.
 
 roles-antag-blob-name = Blob
-roles-antag-blob-objective = Take over the station.
+roles-antag-blob-objective = You are a parasitic space creature with one purpose: consume.
+    Spread from your core, devour the station structure by structure, and assimilate or destroy every living thing aboard. Expand relentlessly. Protect your core at all costs. Leave nothing but biomass.
 
 guide-entry-blob = Blob
 

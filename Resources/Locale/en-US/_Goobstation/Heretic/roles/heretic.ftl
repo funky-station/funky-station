@@ -8,4 +8,5 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 roles-antag-heretic-name = Heretic
-roles-antag-heretic-description = Find influences, realize they've all been taken, sacrifice people, and become all-powerful, or die trying.
+roles-antag-heretic-description = The Gates of [color=green][bold]Mansus[/bold][/color] have opened to your mind. The mundane world no longer matters, only the truths waiting beyond.
+    Seek out influences scattered across the station. Sacrifice to fuel your ascent. Unlock forbidden knowledge and transcend your mortal limits, no matter the cost.

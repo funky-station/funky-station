@@ -960,11 +960,3 @@
     Plastic: 200
     Glass: 100
 
-- type: latheRecipe
-  id: TearGasGrenade
-  result: TearGasGrenade
-  completetime: 3
-  materials:
-    Steel: 200
-    Plastic: 300
-    Glass: 100

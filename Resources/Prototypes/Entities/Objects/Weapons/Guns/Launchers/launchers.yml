@@ -101,6 +101,7 @@
     whitelist:
       tags:
         - Grenade
+        - GrenadeLessLethal #you deny your weapon its true purpose
     capacity: 3
     proto: GrenadeFrag
     soundInsert:

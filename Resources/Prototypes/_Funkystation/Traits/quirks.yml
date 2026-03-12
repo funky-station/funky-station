@@ -4,6 +4,7 @@
 # SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 # SPDX-FileCopyrightText: 2026 Mora <46364955+TrixxedHeart@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -212,3 +213,12 @@
       migraineDuration: 12, 15
       startedMindShieldedMultiplier: 1.0
       midRoundMindShieldedMultiplier: 3
+
+- type: trait
+  id: IgnoreMinorBodilyAlerts
+  name: trait-ignorebodilyalerts-minor-name
+  description: trait-ignorebodilyalerts-minor-desc
+  category: Quirks
+  cost: 0
+  components:
+  - type: IgnoreMinorBodilyAlerts

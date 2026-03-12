@@ -8,8 +8,8 @@
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
-# SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -123,7 +123,7 @@
 
 - type: entity
   name: syndicate cartridge autoinjector
-  parent: [ BaseSyndicateCartridgeAutoinjector , BaseMedicalContraband ]
+  parent: [ BaseSyndicateCartridgeAutoinjector , BaseSyndicateContraband ]
   description: Used for rapid administration of medicine. Requires disposable cartridges to function. Has a sinister red finish to it. Seems to be manufactured with speed in mind.
   id: SyndicateHypo
   components:

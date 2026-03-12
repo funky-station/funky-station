@@ -1,0 +1,57 @@
+# SPDX-FileCopyrightText: 2025 Fr0goo <frogoofrog@outlook.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: loadout
+  id: GreyGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorGray
+  groupBy: "gloves"
+
+- type: loadout
+  id: WhiteGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorWhite
+  groupBy: "gloves"
+
+- type: loadout
+  id: BlackGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorBlack
+  groupBy: "gloves"
+
+- type: loadout
+  id: BrownGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorBrown
+  groupBy: "gloves"
+
+- type: loadout
+  id: OrangeGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorOrange
+  groupBy: "gloves"
+
+- type: loadout
+  id: RedGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorRed
+  groupBy: "gloves"
+
+- type: loadout
+  id: GreenGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorGreen
+  groupBy: "gloves"
+
+- type: loadout
+  id: TealGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorTeal
+  groupBy: "gloves"
+
+- type: loadout
+  id: BlueGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorBlue
+  groupBy: "gloves"

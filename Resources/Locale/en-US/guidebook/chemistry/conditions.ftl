@@ -84,3 +84,12 @@ reagent-effect-condition-guidebook-blood-reagent-threshold =
 reagent-effect-condition-guidebook-this-reagent = this reagent
 
 reagent-effect-condition-guidebook-ling = the target is a changeling
+
+reagent-effect-condition-guidebook-damage-threshold =
+    { $max ->
+        [2147483648] the target has at least {NATURALFIXED($min, 2)} { $damage } damage
+        *[other] { $min ->
+                    [0] the target has at most {NATURALFIXED($max, 2)} { $damage } damage
+                    *[other] the target has between {NATURALFIXED($min, 2)} and {NATURALFIXED($max, 2)} { $damage } damage
+                 }
+    }

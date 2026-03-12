@@ -120,9 +120,9 @@ public sealed class TurbineSystem : SharedTurbineSystem
         supplier.MaxSupply = comp.LastGen;
 
         if (!comp.InletEnt.HasValue || EntityManager.Deleted(comp.InletEnt.Value))
-            comp.InletEnt = SpawnAttachedTo("TurbineGasPipe", new(uid, -1, -1), rotation: Angle.FromDegrees(-90));
+            comp.InletEnt = SpawnAttachedTo("TurbineGasPipe", new(uid, comp.InletPos), rotation: Angle.FromDegrees(comp.InletRot));
         if (!comp.OutletEnt.HasValue || EntityManager.Deleted(comp.OutletEnt.Value))
-            comp.OutletEnt = SpawnAttachedTo("TurbineGasPipe", new(uid, 1, -1), rotation: Angle.FromDegrees(90));
+            comp.OutletEnt = SpawnAttachedTo("TurbineGasPipe", new(uid, comp.OutletPos), rotation: Angle.FromDegrees(comp.OutletRot));
 
         CheckAnchoredPipes(uid, comp);
 
@@ -270,6 +270,7 @@ public sealed class TurbineSystem : SharedTurbineSystem
             _signal.InvokePort(uid, comp.SpeedLowPort);
 
         Dirty(uid, comp);
+        UpdateUI(uid, comp);
     }
 
     private float CalculateTransferVolume(TurbineComponent comp, PipeNode inlet, PipeNode outlet, float dt)
@@ -305,26 +306,6 @@ public sealed class TurbineSystem : SharedTurbineSystem
     #endregion
 
     #region BUI
-    public override void Update(float frameTime)
-    {
-        _accumulator += frameTime;
-        if (_accumulator > _threshold)
-        {
-            AccUpdate();
-            _accumulator = 0;
-        }
-    }
-
-    private void AccUpdate()
-    {
-        var query = EntityQueryEnumerator<TurbineComponent>();
-
-        while (query.MoveNext(out var uid, out var turbine))
-        {
-            UpdateUI(uid, turbine);
-        }
-    }
-
     protected override void UpdateUI(EntityUid uid, TurbineComponent turbine)
     {
         if (!_uiSystem.IsUiOpen(uid, TurbineUiKey.Key))
@@ -346,7 +327,7 @@ public sealed class TurbineSystem : SharedTurbineSystem
                FlowRate = turbine.FlowRate,
 
                StatorLoadMin = 1000,
-               StatorLoadMax = 500000,
+               StatorLoadMax = turbine.StatorLoadMax,
                StatorLoad = turbine.StatorLoad,
            });
     }
@@ -354,12 +335,14 @@ public sealed class TurbineSystem : SharedTurbineSystem
 
     private void OnSignalReceived(EntityUid uid, TurbineComponent comp, ref SignalReceivedEvent args)
     {
+        var change = 0f;
         if (args.Port == comp.StatorLoadIncreasePort)
-            AdjustStatorLoad(comp, 1000);
+            change = 1000f;
         else if (args.Port == comp.StatorLoadDecreasePort)
-            AdjustStatorLoad(comp, -1000);
+            change = -1000f;
 
-        _adminLogger.Add(LogType.Action, $"{ToPrettyString(args.Trigger):trigger} set the stator load on {ToPrettyString(uid):target} to {comp.StatorLoad}");
+        if (AdjustStatorLoad(comp, change))
+            _adminLogger.Add(LogType.Action, $"{ToPrettyString(args.Trigger):trigger} set the stator load on {ToPrettyString(uid):target} to {comp.StatorLoad}");
     }
 
     private void OnAnchorChanged(EntityUid uid, TurbineComponent comp, ref AnchorStateChangedEvent args)

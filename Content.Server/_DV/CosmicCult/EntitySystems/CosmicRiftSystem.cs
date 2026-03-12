@@ -5,28 +5,24 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
-using System.Numerics;
+using System.Linq;
 using Content.Server.Actions;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Beam;
-using Content.Server.Bible.Components;
 using Content.Server.Popups;
-using Content.Server.Power.EntitySystems;
+using Content.Server.Research.Systems;
 using Content.Server.Singularity.EntitySystems;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
-using Content.Shared.Beam;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.Power;
-using Content.Shared.Power.EntitySystems;
 using Content.Shared.Projectiles;
+using Content.Shared.Research.Components;
 using Content.Shared.Singularity.Components;
-using Content.Shared.Singularity.EntitySystems;
 using Content.Shared.Temperature.Components;
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Systems;
@@ -52,11 +48,12 @@ public sealed class CosmicRiftSystem : EntitySystem
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
     [Dependency] private readonly EmitterSystem _emitter = default!;
+    [Dependency] private readonly ResearchSystem _research = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -257,6 +254,12 @@ public sealed class CosmicRiftSystem : EntitySystem
         _audio.PlayPvs(ent.Comp.PurgeSFX, Transform(purgeVFX).Coordinates);
         _audio.PlayPvs(ent.Comp.BeamSFX, Transform(args.User).Coordinates);
         QueueDel(ent);
+
+        var allServers = EntityQueryEnumerator<ResearchServerComponent>();
+        while (allServers.MoveNext(out var server, out _))
+        {
+            _research.ModifyServerPoints(server, 1200);
+        }
     }
 
     /// <summary>

@@ -70,7 +70,6 @@
 # SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Starry <202317940+PurpleTranStar@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tobias Berger <toby@tobot.dev>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
@@ -78,6 +77,7 @@
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2026 Mora <46364955+TrixxedHeart@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Terkala <appleorange64@gmail.com>
 # SPDX-FileCopyrightText: 2026 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -797,6 +797,91 @@
               min: 10
 
 - type: reagent
+  id: AmbuzolI
+  name: reagent-name-ambuzol-1
+  group: Medicine
+  desc: reagent-desc-ambuzol-1
+  physicalDesc: reagent-physical-desc-crisp
+  flavor: medicine
+  color: "#a8d8ff"
+  metabolisms:
+    Medicine:
+      effects:
+        - !type:CureZombieInfection
+          immunityLevel: 1
+          conditions:
+            - !type:ReagentThreshold
+              min: 10
+
+- type: reagent
+  id: AmbuzolII
+  name: reagent-name-ambuzol-2
+  group: Medicine
+  desc: reagent-desc-ambuzol-2
+  physicalDesc: reagent-physical-desc-crisp
+  flavor: medicine
+  color: "#86caf7"
+  metabolisms:
+    Medicine:
+      effects:
+        - !type:CureZombieInfection
+          immunityLevel: 2
+          conditions:
+            - !type:ReagentThreshold
+              min: 10
+
+- type: reagent
+  id: AmbuzolIII
+  name: reagent-name-ambuzol-3
+  group: Medicine
+  desc: reagent-desc-ambuzol-3
+  physicalDesc: reagent-physical-desc-crisp
+  flavor: medicine
+  color: "#64a8ef"
+  metabolisms:
+    Medicine:
+      effects:
+        - !type:CureZombieInfection
+          immunityLevel: 3
+          conditions:
+            - !type:ReagentThreshold
+              min: 10
+
+- type: reagent
+  id: AmbuzolIV
+  name: reagent-name-ambuzol-4
+  group: Medicine
+  desc: reagent-desc-ambuzol-4
+  physicalDesc: reagent-physical-desc-crisp
+  flavor: medicine
+  color: "#4288e7"
+  metabolisms:
+    Medicine:
+      effects:
+        - !type:CureZombieInfection
+          immunityLevel: 4
+          conditions:
+            - !type:ReagentThreshold
+              min: 10
+
+- type: reagent
+  id: AmbuzolV
+  name: reagent-name-ambuzol-5
+  group: Medicine
+  desc: reagent-desc-ambuzol-5
+  physicalDesc: reagent-physical-desc-crisp
+  flavor: medicine
+  color: "#1274b5"
+  metabolisms:
+    Medicine:
+      effects:
+        - !type:CureZombieInfection
+          immunityLevel: 5
+          conditions:
+            - !type:ReagentThreshold
+              min: 10
+
+- type: reagent
   id: AmbuzolPlus
   name: reagent-name-ambuzol-plus
   group: Medicine
@@ -809,6 +894,7 @@
       effects:
         - !type:CureZombieInfection
           innoculate: true
+          immunityLevel: 5
           conditions:
             - !type:ReagentThreshold
               min: 5

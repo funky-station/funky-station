@@ -39,6 +39,8 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 10
+      stain:
+        maxVol: 5
   - type: Tag
     tags:
     - ClothMade
@@ -47,6 +49,15 @@
     damageProtection:
       flatReductions:
         Heat: 5 # the average lightbulb only does around four damage!
+  - type: Appearance
+  - type: Stainable
+    clothingVisuals:
+      gloves:
+      - sprite: _Gabystation/Effects/blood.rsi
+        state: gloveblood
+    iconVisuals:
+    - sprite: _Gabystation/Effects/blood.rsi
+      state: glovebloodicon
 
 - type: entity
   abstract: true

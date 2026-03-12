@@ -1,12 +1,20 @@
 // SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Doctor-Cpu <77215380+Doctor-Cpu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GabyChangelog <agentepanela2@gmail.com>
+// SPDX-FileCopyrightText: 2025 Will-Oliver-Br <164823659+Will-Oliver-Br@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
+using Content.Shared.Chemistry.Components;
+using Content.Shared.Inventory;
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization;
 
@@ -51,5 +59,19 @@ public record struct SprayAttemptEvent(EntityUid User, bool Cancelled = false)
     public void Cancel()
     {
         Cancelled = true;
+    }
+}
+
+public sealed partial class SpilledOnEvent : EntityEventArgs, IInventoryRelayEvent
+{
+    public SlotFlags TargetSlots { get; } = SlotFlags.WITHOUT_POCKET;
+
+    public EntityUid Source;
+    public Solution Solution;
+
+    public SpilledOnEvent(EntityUid source, Solution solution)
+    {
+        Source = source;
+        Solution = solution;
     }
 }

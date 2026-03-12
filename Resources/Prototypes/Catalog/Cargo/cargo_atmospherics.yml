@@ -8,11 +8,12 @@
 # SPDX-FileCopyrightText: 2023 lapatison <100279397+lapatison@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 MODERN <87994977+modern-nm@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+# SPDX-FileCopyrightText: 2025 Checkraze <71046427+Cheackraze@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -22,7 +23,7 @@
     sprite: Structures/Storage/canister.rsi
     state: grey
   product: AirCanister
-  cost: 600 # Funky
+  cost: 615 # Funky
   category: cargoproduct-category-name-atmospherics
   group: market
 
@@ -32,7 +33,7 @@
     sprite: Structures/Storage/canister.rsi
     state: blue
   product: OxygenCanister
-  cost: 600 # Funky
+  cost: 800 # Funky
   category: cargoproduct-category-name-atmospherics
   group: market
 
@@ -42,7 +43,7 @@
     sprite: Structures/Storage/canister.rsi
     state: blue
   product: LiquidOxygenCanister
-  cost: 2000 # Funky
+  cost: 2750 # Funky
   category: cargoproduct-category-name-atmospherics
   group: market
 
@@ -52,7 +53,7 @@
     sprite: Structures/Storage/canister.rsi
     state: red
   product: NitrogenCanister
-  cost: 600 # Funky
+  cost: 550 # Funky
   category: cargoproduct-category-name-atmospherics
   group: market
 
@@ -62,7 +63,7 @@
     sprite: Structures/Storage/canister.rsi
     state: red
   product: LiquidNitrogenCanister
-  cost: 2000 # Funky
+  cost: 1000 # Funky
   category: cargoproduct-category-name-atmospherics
   group: market
 
@@ -72,7 +73,7 @@
     sprite: Structures/Storage/canister.rsi
     state: black
   product: CarbonDioxideCanister
-  cost: 1700 # Until someone fixes it co2 can be used to oneshot people so it's more expensive
+  cost: 680 # Funky - trusting players not to one shot each other with co2. We'll see how it goes.
   category: cargoproduct-category-name-atmospherics
   group: market
 
@@ -82,7 +83,7 @@
     sprite: Structures/Storage/canister.rsi
     state: black
   product: LiquidCarbonDioxideCanister
-  cost: 3500 # Funky
+  cost: 1950 # Funky
   category: cargoproduct-category-name-atmospherics
   group: market
 
@@ -102,7 +103,7 @@
     sprite: Structures/Storage/canister.rsi
     state: water_vapor
   product: WaterVaporCanister
-  cost: 2100
+  cost: 600
   category: cargoproduct-category-name-atmospherics
   group: market
 
@@ -112,7 +113,7 @@
     sprite: Structures/Storage/canister.rsi
     state: orange
   product: PlasmaCanister
-  cost: 3500 # Funky
+  cost: 2500 # Funky
   category: cargoproduct-category-name-atmospherics
   group: market
 
@@ -133,6 +134,6 @@
     sprite: Structures/Storage/canister.rsi
     state: purple
   product: BZCanister
-  cost: 6000
+  cost: 3250
   category: cargoproduct-category-name-atmospherics
   group: market

@@ -1,7 +1,7 @@
 <controls:FancyWindow xmlns="https://spacestation14.io"
             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
             xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
-            MinSize="525 390" Title="Gas Turbine">
+            MinSize="525 415" Title="Gas Turbine">
     <BoxContainer Orientation="Vertical" Margin="5 5 5 5" SeparationOverride="10">
 		<!--Main Content-->
 		<BoxContainer Name="MainContent" Orientation="Horizontal" VerticalExpand="True" Margin="4">
@@ -47,6 +47,11 @@
 									<Label Name="TurbineFlowRateLabel" />
 								</BoxContainer>
 								<Slider Name="TurbineFlowRateSlider" />
+								<BoxContainer Orientation="Horizontal">
+									<Button Name="FlowRateDecrease" Text="-100"/>
+									<BoxContainer HorizontalExpand="True" />
+									<Button Name="FlowRateIncrease" Text="+100"/>
+								</BoxContainer>
 							</BoxContainer>
 						</PanelContainer>
 

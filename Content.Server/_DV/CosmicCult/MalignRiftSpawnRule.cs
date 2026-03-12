@@ -7,6 +7,8 @@ using Content.Server._DV.CosmicCult.Components;
 using Content.Server._DV.CosmicCult.EntitySystems;
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking;
+using Content.Server.Ghost;
+using Content.Server.Light.Components;
 using Content.Server.Station.Components;
 using Content.Server.StationEvents.Components;
 using Content.Server.StationEvents.Events;
@@ -18,6 +20,7 @@ using Robust.Server.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Enums;
 using Robust.Shared.Player;
+using Robust.Shared.Random;
 
 namespace Content.Server._DV.CosmicCult;
 
@@ -26,8 +29,10 @@ public sealed class MalignRiftSpawnRule : StationEventSystem<MalignRiftSpawnRule
     [Dependency] private readonly GameTicker _ticker = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!;
-    [Dependency] private readonly IPlayerManager _playerMan = default!;
     [Dependency] private readonly CosmicRiftSystem _malignRift = default!;
+    [Dependency] private readonly GhostSystem _ghost = default!;
+    [Dependency] private readonly IRobustRandom _rand = default!;
+    [Dependency] private readonly IPlayerManager _playerMan = default!;
 
     protected override void Added(EntityUid uid, MalignRiftSpawnRuleComponent comp, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
@@ -63,6 +68,14 @@ public sealed class MalignRiftSpawnRule : StationEventSystem<MalignRiftSpawnRule
             _chatSystem.DispatchStationAnnouncement(chosenStation.Value, Loc.GetString("cosmiccult-announce-tier2-progress"), sender, false, null, Color.FromHex("#4cabb3"));
             _chatSystem.DispatchStationAnnouncement(chosenStation.Value, Loc.GetString("cosmiccult-announce-tier2-warning"), null, false, null, Color.FromHex("#cae8e8"));
             _audio.PlayGlobal(comp.Tier2Sound, Filter.Broadcast(), false, AudioParams.Default);
+
+            var lights = EntityQueryEnumerator<PoweredLightComponent>();
+            while (lights.MoveNext(out var light, out _))
+            {
+                if (!_rand.Prob(0.50f))
+                    continue;
+                _ghost.DoGhostBooEvent(light);
+            }
 
             for (var i = 0; i < Convert.ToInt16(totalCrew / 6); i++) // spawn # malign rifts equal to 16.67% of the playercount
             {

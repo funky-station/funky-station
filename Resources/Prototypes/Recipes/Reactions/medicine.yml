@@ -34,8 +34,10 @@
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fenn <162015305+TooSillyFennec@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Terkala <appleorange64@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -259,15 +261,168 @@
   products:
     Ambuzol: 4
 
+# Ambuzol I Reactions (2 versions)
 - type: reaction
-  id: AmbuzolPlus
+  id: Ambuzol1Recipe1
   reactants:
-    Ambuzol:
-      amount: 5
-    Hypothium:
-      amount: 5
+    ZombieBlood:
+      amount: 1
+    Multiver:
+      amount: 1
+    Mannitol:
+      amount: 1
   products:
-    AmbuzolPlus: 10
+    AmbuzolI: 3
+
+- type: reaction
+  id: Ambuzol1Recipe2
+  reactants:
+    ZombieBlood:
+      amount: 1
+    Multiver:
+      amount: 1
+    Mannitol:
+      amount: 1
+  products:
+    AmbuzolI: 3
+
+# Ambuzol II Reactions (4 versions)
+- type: reaction
+  id: Ambuzol2Recipe1
+  reactants:
+    AmbuzolI:
+      amount: 1
+    Ultravasculine:
+      amount: 1
+    Cryoxadone:
+      amount: 1
+  products:
+    AmbuzolII: 3
+
+- type: reaction
+  id: Ambuzol2Recipe2
+  reactants:
+    AmbuzolI:
+      amount: 1
+    Ultravasculine:
+      amount: 1
+    Hemoxadone:
+      amount: 1
+  products:
+    AmbuzolII: 3
+
+- type: reaction
+  id: Ambuzol2Recipe3
+  reactants:
+    AmbuzolI:
+      amount: 1
+    PenteticAcid:
+      amount: 1
+    Cryoxadone:
+      amount: 1
+  products:
+    AmbuzolII: 3
+
+- type: reaction
+  id: Ambuzol2Recipe4
+  reactants:
+    AmbuzolI:
+      amount: 1
+    PenteticAcid:
+      amount: 1
+    Hemoxadone:
+      amount: 1
+  products:
+    AmbuzolII: 3
+
+# Ambuzol III Reactions (2 versions)
+- type: reaction
+  id: Ambuzol3Recipe1
+  reactants:
+    AmbuzolII:
+      amount: 1
+    Natusixadone:
+      amount: 1
+    Uranium:
+      amount: 1
+  products:
+    AmbuzolIII: 3
+
+- type: reaction
+  id: Ambuzol3Recipe2
+  reactants:
+    AmbuzolII:
+      amount: 1
+    Phalanximine:
+      amount: 1
+    Pestiline:
+      amount: 1
+  products:
+    AmbuzolIII: 3
+
+# Ambuzol IV Reactions (2 versions)
+- type: reaction
+  id: Ambuzol4Recipe1
+  reactants:
+    AmbuzolIII:
+      amount: 1
+    Artifexium:
+      amount: 1
+    Omnizine:
+      amount: 1
+  products:
+    AmbuzolIV: 3
+
+- type: reaction
+  id: Ambuzol4Recipe2
+  reactants:
+    AmbuzolIII:
+      amount: 1
+    PolytrinicAcid:
+      amount: 1
+    Pyroxadone:
+      amount: 1
+  products:
+    AmbuzolIV: 3
+
+# Ambuzol V Reactions (2 versions)
+- type: reaction
+  id: Ambuzol5Recipe1
+  reactants:
+    AmbuzolIV:
+      amount: 1
+    Happiness:
+      amount: 1
+    HeartbreakerToxin:
+      amount: 1
+    Impedrezene:
+      amount: 1
+  products:
+    AmbuzolV: 4
+
+- type: reaction
+  id: Ambuzol5Recipe2
+  reactants:
+    AmbuzolIV:
+      amount: 1
+    Pax:
+      amount: 1
+    Heparin:
+      amount: 1
+    Lipolicide:
+      amount: 1
+  products:
+    AmbuzolV: 4
+
+#- type: reaction
+#  id: AmbuzolPlus
+#  reactants:
+#    Ambuzol:
+#      amount: 5
+#    Hypothium:
+#      amount: 5
+#  products:
+#    AmbuzolPlus: 10
 
 - type: reaction
   id: Synaptizine
@@ -603,9 +758,10 @@
   minTemp: 400 #Maybe if a method of reducing reagent temp exists one day, this could be -50
   reactants:
     Cognizine:
-      amount: 1
+      amount: 1 #QoL slop, I think cog being consumed sucks since uh. You kinda have to think about using cog for non productive stuff as just a heavy ask, since you can use that for yk, actual fucking people who are rotting in the morgue. Will however buff the usage of plasma, as ideally it'd be a limiter.
+      catalyst: true
     Plasma:
-      amount: 2
+      amount: 5
     Doxarubixadone:
       amount: 1
   products:

@@ -1,7 +1,6 @@
 # SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 HerCoyote23 <131214189+HerCoyote23@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 Nim <128169402+Nimfar11@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 Stanislav4ix <124695665+Stanislav4ix@users.noreply.github.com>
@@ -25,12 +24,14 @@
 # SPDX-FileCopyrightText: 2024 takemysoult <143123247+takemysoult@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 W.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -101,8 +102,8 @@
   - MagazineShotgunBeanbag
   - BoxShellTranquilizer
   - BoxBeanbag
-  - WeaponDisabler
-  - WeaponMechCombatDisabler # Goobstation
+#  - WeaponDisabler # Funky
+#  - WeaponMechCombatDisabler # Goobstation # Funky - Removed
 
 - type: technology
   id: UraniumMunitions
@@ -131,13 +132,13 @@
   id: AdvancedRiotControl
   name: research-technology-advanced-riot-control
   icon:
-    sprite: Objects/Weapons/Melee/truncheon.rsi
-    state: icon
+    sprite: Objects/Weapons/Melee/teleriot_shield.rsi # Funky - Truncheons are no longer included in this tech
+    state: teleriot-icon
   discipline: Arsenal
   tier: 1
   cost: 8000
   recipeUnlocks:
-  - Truncheon
+#  - Truncheon # Funky - They're now roundstart
   - TelescopicShield
   - HoloprojectorSecurity
 #  - WeaponDisablerSMG
@@ -200,6 +201,20 @@
   cost: 10000
   recipeUnlocks:
   - WeaponXrayCannon
+
+- type: technology
+  id: KineticModifications
+  name: research-technology-kinetic-modifications
+  icon:
+    sprite: Objects/Tools/upgrade.rsi
+    state: display
+  discipline: Arsenal
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - PKAUpgradeDamage
+  - PKAUpgradeRange
+  - PKAUpgradeFireRate
 
 - type: technology
   id: BasicShuttleArmament

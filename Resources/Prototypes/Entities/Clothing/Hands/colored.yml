@@ -14,6 +14,9 @@
 # SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 liltenhead <104418166+liltenhead@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Fr0goo <frogoofrog@outlook.com>
+# SPDX-FileCopyrightText: 2025 Frogoo <153249069+Fr0goo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -36,21 +39,21 @@
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     layers:
     - state: icon
-      color: "#9C0DE1"
+      color: "#7864C6"
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#9C0DE1"
+        color: "#7864C6"
       right:
       - state: inhand-right
-        color: "#9C0DE1"
+        color: "#7864C6"
   - type: Clothing
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     clothingVisuals:
       gloves:
       - state: equipped-HAND
-        color: "#9C0DE1"
+        color: "#7864C6"
   - type: Fiber
     fiberColor: fibers-purple
 
@@ -65,21 +68,21 @@
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     layers:
     - state: icon
-      color: "#940000"
+      color: "#71111F"
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#940000"
+        color: "#71111F"
       right:
       - state: inhand-right
-        color: "#940000"
+        color: "#71111F"
   - type: Clothing
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     clothingVisuals:
       gloves:
       - state: equipped-HAND
-        color: "#940000"
+        color: "#71111F"
   - type: Fiber
     fiberColor: fibers-red
 
@@ -94,21 +97,21 @@
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     layers:
     - state: icon
-      color: "#0089EF"
+      color: "#2B4E95"
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#0089EF"
+        color: "#2B4E95"
       right:
       - state: inhand-right
-        color: "#0089EF"
+        color: "#2B4E95"
   - type: Clothing
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     clothingVisuals:
       gloves:
       - state: equipped-HAND
-        color: "#0089EF"
+        color: "#2B4E95"
   - type: Fiber
     fiberColor: fibers-blue
 
@@ -123,21 +126,21 @@
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     layers:
     - state: icon
-      color: "#3CB57C"
+      color: "#5D9B79"
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#3CB57C"
+        color: "#5D9B79"
       right:
       - state: inhand-right
-        color: "#3CB57C"
+        color: "#5D9B79"
   - type: Clothing
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     clothingVisuals:
       gloves:
       - state: equipped-HAND
-        color: "#3CB57C"
+        color: "#5D9B79"
   - type: Fiber
     fiberColor: fibers-teal
 
@@ -152,21 +155,21 @@
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     layers:
     - state: icon
-      color: "#723A02"
+      color: "#4F342F"
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#723A02"
+        color: "#4F342F"
       right:
       - state: inhand-right
-        color: "#723A02"
+        color: "#4F342F"
   - type: Clothing
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     clothingVisuals:
       gloves:
       - state: equipped-HAND
-        color: "#723A02"
+        color: "#4F342F"
   - type: Fiber
     fiberColor: fibers-brown
 
@@ -181,21 +184,21 @@
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     layers:
     - state: icon
-      color: "#999999"
+      color: "#696682"
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#999999"
+        color: "#696682"
       right:
       - state: inhand-right
-        color: "#999999"
+        color: "#696682"
   - type: Clothing
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     clothingVisuals:
       gloves:
       - state: equipped-HAND
-        color: "#999999"
+        color: "#696682"
   - type: Fiber
     fiberColor: fibers-grey
 
@@ -210,21 +213,21 @@
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     layers:
     - state: icon
-      color: "#5ABF2F"
+      color: "#61A53F"
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#5ABF2F"
+        color: "#61A53F"
       right:
       - state: inhand-right
-        color: "#5ABF2F"
+        color: "#61A53F"
   - type: Clothing
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     clothingVisuals:
       gloves:
       - state: equipped-HAND
-        color: "#5ABF2F"
+        color: "#61A53F"
   - type: Fiber
     fiberColor: fibers-green
 
@@ -268,21 +271,21 @@
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     layers:
     - state: icon
-      color: "#EF8100"
+      color: "#F1641F"
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#EF8100"
+        color: "#F1641F"
       right:
       - state: inhand-right
-        color: "#EF8100"
+        color: "#F1641F"
   - type: Clothing
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     clothingVisuals:
       gloves:
       - state: equipped-HAND
-        color: "#EF8100"
+        color: "#F1641F"
   - type: Fiber
     fiberColor: fibers-orange
 
@@ -329,10 +332,10 @@
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#535353"
+        color: "#251F32"
       right:
       - state: inhand-right
-        color: "#535353"
+        color: "#251F32"
   - type: Clothing
     sprite: Clothing/Hands/Gloves/Color/black.rsi
   - type: Butcherable

@@ -1,3 +1,4 @@
+// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 jhrushbe <capnmerry@gmail.com>
 // SPDX-FileCopyrightText: 2025 rottenheadphones <juaelwe@outlook.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -42,7 +43,7 @@ public abstract class SharedTurbineSystem : EntitySystem
         SubscribeLocalEvent<TurbineComponent, TurbineChangeStatorLoadMessage>(OnTurbineStatorLoadChanged);
 
         SubscribeLocalEvent<TurbineComponent, InteractUsingEvent>(RepairTurbine);
-        SubscribeLocalEvent<TurbineComponent, SharedRepairableSystem.RepairFinishedEvent>(OnRepairTurbineFinished);
+        SubscribeLocalEvent<TurbineComponent, RepairFinishedEvent>(OnRepairTurbineFinished);
     }
 
     private void OnExamined(Entity<TurbineComponent> ent, ref ExaminedEvent args)
@@ -153,7 +154,16 @@ public abstract class SharedTurbineSystem : EntitySystem
         audioStream = stream?.Entity is { } entity ? entity : null;
     }
 
-    protected static void AdjustStatorLoad(TurbineComponent turbine, float change) => turbine.StatorLoad = Math.Clamp(turbine.StatorLoad + change, 1000f, 500000f);
+    protected static bool AdjustStatorLoad(TurbineComponent turbine, float change)
+    { 
+        var newSet = Math.Clamp(turbine.StatorLoad + change, 1000f, turbine.StatorLoadMax);
+        if (turbine.StatorLoad != newSet)
+        {
+            turbine.StatorLoad = newSet;
+            return true;
+        }
+        return false; 
+    }
 
     #region User Interface
     private void OnTurbineFlowRateChanged(EntityUid uid, TurbineComponent turbine, TurbineChangeFlowRateMessage args)
@@ -167,7 +177,7 @@ public abstract class SharedTurbineSystem : EntitySystem
 
     private void OnTurbineStatorLoadChanged(EntityUid uid, TurbineComponent turbine, TurbineChangeStatorLoadMessage args)
     {
-        turbine.StatorLoad = Math.Clamp(args.StatorLoad, 1000f, 500000f);
+        turbine.StatorLoad = Math.Clamp(args.StatorLoad, 1000f, turbine.StatorLoadMax);
         Dirty(uid, turbine);
         UpdateUI(uid, turbine);
         _adminLogger.Add(LogType.AtmosDeviceSetting, LogImpact.Medium,
@@ -186,14 +196,14 @@ public abstract class SharedTurbineSystem : EntitySystem
         if (comp.BladeHealth >= comp.BladeHealthMax && !comp.Ruined)
             return;
 
-        args.Handled = _toolSystem.UseTool(args.Used, args.User, uid, comp.RepairDelay, comp.RepairTool, new SharedRepairableSystem.RepairFinishedEvent()
+        args.Handled = _toolSystem.UseTool(args.Used, args.User, uid, comp.RepairDelay, comp.RepairTool, new RepairFinishedEvent()
 , comp.RepairFuelCost);
     }
 
     //Gotta love server/client desync
     protected virtual void OnRepairTurbineFinished(
     Entity<TurbineComponent> ent, 
-    ref SharedRepairableSystem.RepairFinishedEvent args)
+    ref RepairFinishedEvent args)
     {
         if (args.Cancelled)
             return;

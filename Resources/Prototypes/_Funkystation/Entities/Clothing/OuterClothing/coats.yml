@@ -1,5 +1,5 @@
 # SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -136,3 +136,17 @@
     sprite: _Funkystation/Clothing/OuterClothing/Misc/chefblue.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/OuterClothing/Misc/chefblue.rsi
+
+# NTR's Coat
+- type: entity
+  parent: [ClothingOuterStorageBase, BaseCentcommContraband]
+  id: ClothingOuterNTRCoat
+  name: nanotrasen representative's coat
+  description: An expensive coat worn only by the most esteemed Nanotrasen officials.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/ntr_coat.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/ntr_coat.rsi
+  - type: Item
+    size: Normal

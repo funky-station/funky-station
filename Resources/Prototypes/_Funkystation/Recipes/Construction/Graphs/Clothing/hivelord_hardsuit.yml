@@ -1,0 +1,36 @@
+# SPDX-FileCopyrightText: 2026 ThatOneMoon <juozas.dringelis@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: constructionGraph
+  id: HardsuitHivelord
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: hardsuitHivelord
+      steps:
+      - tag: HardsuitSpatio
+        icon:
+          sprite: Clothing/OuterClothing/Hardsuits/spatio.rsi
+          state: icon
+        name: spationaut hardsuit
+        doAfter: 5
+      - tag: SpatioUpgradeKit
+        icon:
+          sprite:  _Funkystation/Objects/Materials/spatio_upgrade_kit.rsi
+          state: icon
+        name: spationaut upgrade kit
+        doAfter: 5
+      - material: Durathread
+        amount: 5
+        doAfter: 5
+      - material: Silver
+        amount: 15
+        doAfter: 5
+      - material: HivelordTendril
+        amount: 8
+        doAfter: 10
+  - node: hardsuitHivelord
+    entity: ClothingOuterHardsuitHivelord
+

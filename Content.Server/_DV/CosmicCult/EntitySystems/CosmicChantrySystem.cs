@@ -10,11 +10,15 @@ using Content.Server.Audio;
 using Content.Server.Chat.Systems;
 using Content.Server.Pinpointer;
 using Content.Server.Popups;
+using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
+using Content.Shared.DoAfter;
 using Content.Shared.Mind;
+using Content.Shared.Popups;
 using Content.Shared.Roles;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
@@ -29,6 +33,7 @@ public sealed class CosmicChantrySystem : EntitySystem
     [Dependency] private readonly ServerGlobalSoundSystem _sound = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedRoleSystem _role = default!;
     [Dependency] private readonly NavMapSystem _navMap = default!;
@@ -43,6 +48,8 @@ public sealed class CosmicChantrySystem : EntitySystem
 
         SubscribeLocalEvent<CosmicChantryComponent, ComponentInit>(OnChantryStarted);
         SubscribeLocalEvent<CosmicChantryComponent, ComponentShutdown>(OnChantryDestroyed);
+
+        SubscribeLocalEvent<CosmicChantryComponent, CosmicChantryDoAfter>(OnDoAfter);
     }
 
     public override void Update(float frameTime)
@@ -55,25 +62,38 @@ public sealed class CosmicChantrySystem : EntitySystem
             if (_timing.CurTime >= comp.SpawnTimer && !comp.Spawned)
             {
                 _appearance.SetData(uid, ChantryVisuals.Status, ChantryStatus.On);
-                _popup.PopupCoordinates(Loc.GetString("cosmiccult-chantry-powerup"), Transform(uid).Coordinates, Content.Shared.Popups.PopupType.LargeCaution);
+                _popup.PopupCoordinates(Loc.GetString("cosmiccult-chantry-powerup"), Transform(uid).Coordinates, PopupType.LargeCaution);
                 comp.Spawned = true;
-            }
-            if (_timing.CurTime >= comp.CountdownTimer)
-            {
-                if (!_mind.TryGetMind(comp.InternalVictim, out var mindEnt, out var mind))
-                    return;
-                mind.PreventGhosting = false;
-                var tgtpos = Transform(uid).Coordinates;
-                var colossus = Spawn(comp.Colossus, tgtpos);
-                _mind.TransferTo(mindEnt, colossus);
-                _mind.TryAddObjective(mindEnt, mind, "CosmicFinalityObjective");
-                _role.MindAddRole(mindEnt, MindRole, mind, true);
-                _antag.SendBriefing(colossus, Loc.GetString("cosmiccult-silicon-colossus-briefing"), Color.FromHex("#4cabb3"), null);
-                Spawn(comp.SpawnVFX, tgtpos);
-                QueueDel(comp.InternalVictim);
-                QueueDel(uid);
+
+                var doAfterArgs = new DoAfterArgs(EntityManager, uid, comp.EventTime, new CosmicChantryDoAfter(), uid, comp.InternalVictim)
+                {
+                    NeedHand = false,
+                    BreakOnWeightlessMove = false,
+                    BreakOnMove = false,
+                    BreakOnHandChange = false,
+                    BreakOnDropItem = false,
+                    BreakOnDamage = false,
+                    RequireCanInteract = false,
+                };
+                _doAfter.TryStartDoAfter(doAfterArgs);
             }
         }
+    }
+
+    private void OnDoAfter(Entity<CosmicChantryComponent> ent, ref CosmicChantryDoAfter args)
+    {
+        if (!_mind.TryGetMind(ent.Comp.InternalVictim, out var mindEnt, out var mind))
+            return;
+        mind.PreventGhosting = false;
+        var tgtpos = Transform(ent).Coordinates;
+        var colossus = Spawn(ent.Comp.Colossus, tgtpos);
+        _mind.TransferTo(mindEnt, colossus);
+        _mind.TryAddObjective(mindEnt, mind, "CosmicFinalityObjective");
+        _role.MindAddRole(mindEnt, MindRole, mind, true);
+        _antag.SendBriefing(colossus, Loc.GetString("cosmiccult-silicon-colossus-briefing"), Color.FromHex("#4cabb3"), null);
+        Spawn(ent.Comp.SpawnVFX, tgtpos);
+        QueueDel(ent.Comp.InternalVictim);
+        QueueDel(ent);
     }
 
     private void OnChantryStarted(Entity<CosmicChantryComponent> ent, ref ComponentInit args)

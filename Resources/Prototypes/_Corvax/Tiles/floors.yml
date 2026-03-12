@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Will-Oliver-Br <164823659+Will-Oliver-Br@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
 - type: tile
   id: FloorWoodParquet
   name: tiles-wood-parquet

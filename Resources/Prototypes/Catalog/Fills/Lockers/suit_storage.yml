@@ -171,8 +171,7 @@
 - type: entity
   id: SuitStorageAtmos
   parent: SuitStorageBase
-  suffix: Atmospheric Technician, DO NOT MAP # Funky
-  categories: [ DoNotMap ] # Funky
+  suffix: Atmospheric Technician
   components:
   - type: StorageFill
     contents:

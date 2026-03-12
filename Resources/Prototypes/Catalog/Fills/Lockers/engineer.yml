@@ -132,8 +132,6 @@
 
 - type: entity
   id: LockerAtmosphericsFilledHardsuit
-  suffix: Filled, Hardsuit, DO NOT MAP # Funky
-  categories: [ DoNotMap ] # Funky
   parent: LockerAtmospherics
   components:
   - type: StorageFill

@@ -32,7 +32,7 @@
   id: CrateEngineeringAtmosEquipment
   parent: CrateEngineeringSecure
   name: atmospheric equipment crate # Funky - Atmos technician isn't a separate job anymore, retooling this to be more of a "specific situation" crate rather than being for a whole job
-  description: Contains an engineering firesuit (with a helmet and air tanks), firefighting backpack, and a holofan, alongside several textbooks on atmospheric systems.
+  description: Contains an atmospheric hardsuit (with air tanks), engineering firesuit (with a helmet), firefighting backpack, and a holofan, alongside several textbooks on atmospheric systems.
   components:
   - type: StorageFill
     contents:
@@ -40,6 +40,7 @@
      - id: BookAtmosDistro # Funky
      - id: BookAtmosWaste # Funky
      - id: BookAtmosVentsMore # Funky
+     - id: ClothingOuterHardsuitAtmos
      - id: ClothingHeadHelmetAtmosFire
      - id: ClothingOuterSuitAtmosFire
      - id: ClothingBackpackFirefighterTank

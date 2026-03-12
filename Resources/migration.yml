@@ -651,8 +651,5 @@ WeaponDisabler: null
 GunSafeDisabler: GunSafePistolRg2
 
 # 2026-03-10
-ClothingOuterHardsuitAtmos: ClothingOuterHardsuitEngineering
-LockerAtmosphericsFilledHardsuit: LockerAtmosphericsFilled
-SuitStorageAtmos: SuitStorageEngi
 ToyFigurineAtmosTech: ToyFigurineEngineer
 VendingMachineAtmosDrobe: VendingMachineEngiDrobe

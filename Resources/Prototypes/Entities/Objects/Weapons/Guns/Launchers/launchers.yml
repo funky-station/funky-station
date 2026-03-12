@@ -490,7 +490,7 @@
   name: security riot launcher
   parent: [BaseWeaponLauncher, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponLauncherRiot
-  description: A weapon designed to be the end all to riots. Has scratch marks that definitely doesn't correlate with security's "accidents", or so they say. Has the words "Never look back" inscribed on it. These don't fit lethal rounds at all due to the company's care of their employees, and definitely not due to prior incidents that costed the company's profit margins.
+  description: A weapon designed to be the end all to riots. Has scratch marks that definitely doesn't correlate with security's "accidents", or so they say. Has the words "Never look back" inscribed on it. These don't fit lethal rounds at all due to the company's care of their employees, and definitely not due to prior incidents that cut into the company's profit margins.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi

@@ -180,35 +180,6 @@
     state: snout_shortbeak_secondary
 
 - type: marking
-  id: LizardSoftEyes
-  bodyPart: Eyes
-  markingCategory: Head
-  speciesRestriction: [Reptilian]
-  followSkinColor: false
-  coloring:
-    default:
-      type:
-        !type:EyeColoring
-  sprites:
-  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
-    state: soft_eyes
-
-- type: marking
-  id: LizardSoftHeterochromia
-  bodyPart: Eyes
-  markingCategory: Head
-  speciesRestriction: [Reptilian]
-  followSkinColor: false
-  coloring:
-    default:
-      type:
-        !type:EyeColoring
-          negative: true
-  sprites:
-  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
-    state: soft_heterochromia
-
-- type: marking
   id: LizardTailGirdled
   bodyPart: Tail
   markingCategory: Tail

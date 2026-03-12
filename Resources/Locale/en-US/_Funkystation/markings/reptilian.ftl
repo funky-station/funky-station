@@ -55,12 +55,6 @@ marking-LizardSnoutShortBeak-snout_shortbeak_primary = Snout Beak Short Primary
 marking-LizardSnoutShortBeak-snout_shortbeak_secondary = Snout Beak Short Secondary
 marking-LizardSnoutShortBeak = Snout Beak Short
 
-marking-LizardSoftEyes-soft_eyes = Eyes Soft
-marking-LizardSoftEyes = Eyes Soft
-
-marking-LizardSoftHeterochromia-soft_heterochromia = Eyes Heterochromia Soft
-marking-LizardSoftHeterochromia = Eyes Heterochromia Soft
-
 marking-LizardTailGirdled-tail_girdled = Tail Girdled
 marking-LizardTailGirdled = Tail Girdled
 

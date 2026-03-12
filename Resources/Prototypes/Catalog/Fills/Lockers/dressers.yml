@@ -82,10 +82,10 @@
     contents:
       - id: ClothingHeadHatBeretHoS
       - id: ClothingHeadHatHoshat
-      - id: ClothingUniformJumpskirtHoSAlt
-      - id: ClothingUniformJumpsuitHoSAlt
-      - id: ClothingUniformJumpskirtHosFormal
-      - id: ClothingUniformJumpsuitHosFormal
+      - id: ClothingUniformHosDressSkirtBase
+      - id: ClothingUniformDressHosBase
+      - id: ClothingUniformMessHosDressBase
+      - id: ClothingUniformMessHosBase
       - id: ClothingOuterWinterHoS
       - id: ClothingNeckCloakHos
 

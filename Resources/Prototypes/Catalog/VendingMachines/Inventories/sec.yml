@@ -57,6 +57,8 @@
     BolaEnergy: 5
     SecHypo: 2
     CartridgeEmergency: 4
+    WeaponFlareGunSecurity: 4 #yarrsec
+    BoxBeanbag: 2 #for good officers of the law
   # security officers need to follow a diet regimen!
   contrabandInventory:
     WeaponMeleeNeedle: 2

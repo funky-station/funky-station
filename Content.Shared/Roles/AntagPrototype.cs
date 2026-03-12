@@ -92,18 +92,6 @@ public sealed partial class AntagPrototype : IPrototype
     public ProtoId<StartingGearPrototype>? PreviewStartingGear;
 
     /// <summary>
-    /// Category for organizing antags in the UI (e.g. "Solo", "Team")
-    /// </summary>
-    [DataField("categoryId")]
-    public string? CategoryId { get; private set; }
-
-    /// <summary>
-    /// Name of the antag category displayed in the UI
-    /// </summary>
-    [DataField("categoryName")]
-    public LocId CategoryName { get; private set; } = string.Empty;
-
-    /// <summary>
     ///     The category prototype ID for this antag.
     /// </summary>
     [DataField("category")]

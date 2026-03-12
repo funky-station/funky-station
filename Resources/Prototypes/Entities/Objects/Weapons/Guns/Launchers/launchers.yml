@@ -483,3 +483,50 @@
       tags:
         - CartridgeRocket
     proto: ImmovableRodSlow
+
+#china lake's pretty gone atm, so uhhh fuck it, using basically the same stuff for the sec riot launcher
+- type: entity
+  name: security riot launcher
+  parent: [BaseWeaponLauncher, BaseGunWieldable, BaseSecurityontraband]
+  id: WeaponLauncherRiot
+  description: A weapon designed to be the end all to riots. Has scratch marks that definitely doesn't correlate with security's "accidents", or so they say. Has the words "Never look back" inscribed on it. These don't fit lethal rounds at all due to the company's care of their employees, and definitely not due to prior incidents that costed the company's profit margins.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
+    layers:
+      - state: icon
+        map: ["enum.GunVisualLayers.Base"]
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
+    slots:
+    - Back
+    - backStorage
+  - type: PumpAction
+  - type: AmmoCounter
+  - type: Gun
+    fireRate: 0.6 # Goobstation
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - GrenadeLessLethal
+    capacity: 3
+    proto: GrenadeTearGas
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 10

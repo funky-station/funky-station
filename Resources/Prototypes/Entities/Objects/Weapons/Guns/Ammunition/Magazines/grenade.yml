@@ -95,3 +95,11 @@
   components:
   - type: BallisticAmmoProvider
     proto: GrenadeBaton
+
+- type: entity
+  id: MagazineGrenadeTearGas
+  name: tear gas grenade cartridge
+  parent: BaseMagazineGrenade
+  components:
+  - type: BallisticAmmoProvider
+    proto: GrenadeTearGas

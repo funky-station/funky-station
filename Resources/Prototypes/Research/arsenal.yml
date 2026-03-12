@@ -230,7 +230,7 @@
   - PowerCageSmall
   - PowerCageMedium
   - MagazineGrenadeEmpty
-  - GrenadeFlash
+#  - GrenadeFlash #funk #moving to roundstart cause sec riot gun exists
   - GrenadeBlast
   - ShuttleGunSvalinnMachineGunCircuitboard
   - ShuttleGunPerforatorCircuitboard

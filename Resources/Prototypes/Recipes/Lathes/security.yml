@@ -942,3 +942,29 @@
   materials:
     Cloth: 50
     Steel: 50
+
+- type: latheRecipe
+  id: GrenadeBaton
+  result: GrenadeBaton
+  completetime: 3
+  materials:
+    Steel: 150
+    Plastic: 200
+
+- type: latheRecipe
+  id: GrenadeTearGas
+  result: GrenadeTearGas
+  completetime: 3
+  materials:
+    Steel: 100
+    Plastic: 200
+    Glass: 100
+
+- type: latheRecipe
+  id: TearGasGrenade
+  result: TearGasGrenade
+  completetime: 3
+  materials:
+    Steel: 200
+    Plastic: 300
+    Glass: 100

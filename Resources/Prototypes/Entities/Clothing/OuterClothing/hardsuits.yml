@@ -106,8 +106,6 @@
   id: ClothingOuterHardsuitAtmos
   name: atmos hardsuit
   description: A special suit that protects against hazardous, low pressure environments. Has thermal shielding.
-  suffix: DO NOT MAP # Funky
-  categories: [ DoNotMap ] # Funky
   components:
   - type: Sprite
     sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/atmospherics.rsi

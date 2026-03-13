@@ -246,8 +246,8 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
         // don't run this clientside
         if (_net.IsClient || !_timing.IsFirstTimePredicted)
             return;
-
-        foreach (var replicator in ent.Comp.SpawnedMinions)
+        var entities = EntityQueryEnumerator<ReplicatorComponent>();
+        while (entities.MoveNext(out var replicator, out var replicatorComp))
         {
             if (!TryComp<ReplicatorComponent>(replicator, out var comp))
                 continue;

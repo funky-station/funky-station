@@ -19,8 +19,8 @@
     time: 86400 # 24h
   guides: [ CosmicCult ]
   icon:
-    sprite: _DV/CosmicCult/Icons/objectives.rsi
-    state: summon
+    sprite: _Funkystation/Interface/Lobby/AntagCards.rsi
+    state: cosmiccult
 
 - type: antag
   id: CosmicAntagColossus

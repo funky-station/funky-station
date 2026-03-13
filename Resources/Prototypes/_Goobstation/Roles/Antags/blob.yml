@@ -15,8 +15,8 @@
   guides: [ Blob ]
   category: Solo
   icon:
-    sprite: _Goobstation/Blob/Mobs/blob.rsi
-    state: blob_core
+    sprite: _Funkystation/Interface/Lobby/AntagCards.rsi
+    state: blob
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 54000 # 15h

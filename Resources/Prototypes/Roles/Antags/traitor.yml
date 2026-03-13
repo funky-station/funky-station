@@ -31,8 +31,8 @@
   guides: [ Traitors ]
   category: Solo
   icon:
-    sprite: Objects/Weapons/Melee/e_sword.rsi
-    state: e_sword
+    sprite: _Funkystation/Interface/Lobby/AntagCards.rsi
+    state: syndicateagent
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 3600 # 1h
@@ -46,8 +46,8 @@
   guides: [ Traitors ]
   category: Solo
   icon:
-    sprite: Objects/Weapons/Melee/e_sword.rsi
-    state: e_sword
+    sprite: _Funkystation/Interface/Lobby/AntagCards.rsi
+    state: sleeperagent
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 3600 # 1h

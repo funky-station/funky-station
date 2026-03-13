@@ -23,8 +23,8 @@
   guides: [ SpaceNinja ]
   category: Solo
   icon:
-    sprite: Objects/Weapons/Melee/katana.rsi
-    state: icon
+    sprite: _Funkystation/Interface/Lobby/AntagCards.rsi
+    state: ninja
   previewStartingGear: SpaceNinjaGear
 
 #Ninja Gear

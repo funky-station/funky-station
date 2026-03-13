@@ -231,7 +231,7 @@
         Blunt: 7
 
 - type: entity
-  name: Lecter # Funky change, swapped from .20 rifle to .30 rifle, made semi auto only, given a scope. 
+  name: Lecter # Funky change, swapped from .20 rifle to .30 rifle, made semi auto only
   parent: [BaseWeaponRifle, BaseSecurityContraband]
   id: WeaponRifleLecter
   description: A high end military grade assault rifle. Uses .30 rifle ammo.
@@ -246,7 +246,7 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Rifles/lecter.rsi
   - type: Gun
-    fireRate: 5
+    fireRate: 3
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -292,10 +292,6 @@
     damage:
       types:
         Blunt: 7
-  - type: CursorOffsetRequiresWield
-  - type: EyeCursorOffset
-    maxOffset: 2
-    pvsIncrease: 0.3
 
 
 - type: entity

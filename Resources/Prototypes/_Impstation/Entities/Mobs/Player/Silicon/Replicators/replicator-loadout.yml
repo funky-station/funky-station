@@ -5,16 +5,28 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: startingGear
+  id: StartingGearReplicator
+  equipment:
+    pocket1: PinpointerReplicatorUnremoveable
+
+- type: startingGear
   id: StartingGearReplicatorTools
+  equipment:
+    pocket1: PinpointerReplicatorUnremoveable
   inhand:
     - OmnitoolUnremoveable
-    - WelderExperimentalUnremoveable
+
+- type: startingGear
+  id: StartingGearReplicatorDefence
+  equipment:
+    pocket1: PinpointerReplicatorUnremoveable
+  inhand:
+  - ReplicatorT2AltMeleeWeapon
 
 - type: startingGear
   id: StartingGearReplicatorWeapon
   inhand:
     - ReplicatorT3Weapon
-    - ReplicatorAAC
   equipment:
     pocket1: PinpointerReplicatorUnremoveable
 
@@ -122,3 +134,17 @@
     state: aac_tablet
   - type: Item
   - type: Unremoveable
+
+- type: inventoryTemplate
+  id: replicator
+  slots:
+  - name: pocket1
+    slotTexture: pocket
+    fullTextureName: template_small
+    slotFlags: POCKET
+    slotGroup: MainHotbar
+    stripTime: 3
+    uiWindowPos: 0,3
+    strippingWindowPos: 0,4
+    displayName: Pocket 1
+    stripHidden: true

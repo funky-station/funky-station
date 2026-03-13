@@ -30,28 +30,6 @@
     useDelay: 20
 
 - type: entity
-  id: ReplicatorOmnitoolAction
-  name: Equip Omnitool
-  description: Equips an Omnitool into your hand.
-  components:
-  - type: InstantAction
-    useDelay: 1
-    itemIconStyle: NoItem
-    icon: Objects/Tools/omnitool.rsi/omnitool-prying.png
-    event: !type:ReplicatorOmnitoolActionEvent
-
-- type: entity
-  id: ReplicatorWelderAction
-  name: Equip Welder
-  description: Equips a Welder into your hand.
-  components:
-  - type: InstantAction
-    useDelay: 1
-    itemIconStyle: NoItem
-    icon: Objects/Tools/welder.rsi/icon.png
-    event: !type:ReplicatorWelderActionEvent
-
-- type: entity
   id: ActionReplicatorUpgrade2Alt
   name: Upgrade (Tier 2 Alt)
   description: Gather nanites. Gain weaponary.
@@ -72,29 +50,6 @@
     icon: _Impstation/Interface/Actions/replicator_level3.png
     event: !type:ReplicatorUpgrade3ActionEvent
     useDelay: 20
-
-- type: entity
-  id: ReplicatorArmAction
-  name: Equip Defender Arm
-  description: Equips your Defender Arm.
-  components:
-  - type: InstantAction
-    useDelay: 1
-    itemIconStyle: NoItem
-    icon: _Impstation/Mobs/Replicator/replicator.rsi/t3weapon.png
-    event: !type:ReplicatorArmActionEvent
-
-
-- type: entity
-  id: ReplicatorAACAction
-  name: Equip verbal interface
-  description: Equips a verbal interface into your hand.
-  components:
-  - type: InstantAction
-    useDelay: 1
-    itemIconStyle: NoItem
-    icon: _Impstation/Mobs/Replicator/replicator_tablet.rsi/aac_tablet.png
-    event: !type:ReplicatorAACActionEvent
 
 - type: entity
   id: ActionReplicatorStunRay

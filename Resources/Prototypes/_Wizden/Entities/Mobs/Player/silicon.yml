@@ -84,3 +84,6 @@
   - type: StandingState
   - type: Alerts
   - type: ProtectedFromStepTriggers
+  - type: Inventory
+    speciesId: replicator
+    templateId: replicator

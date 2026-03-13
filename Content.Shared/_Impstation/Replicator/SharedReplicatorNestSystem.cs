@@ -283,12 +283,9 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
                 return;
 
             _handsSystem.AddHand(upgradedUid, "ReplicatorHand", HandLocation.Middle);
-            var tool = Spawn("OmnitoolUnremoveable");
+            var tool = Spawn("WelderExperimentalUnremoveable");
             _handsSystem.DoPickup(upgradedUid, hands.Hands["ReplicatorHand"], tool);
             EnsureComp<UnremoveableComponent>(tool);
-
-            _actions.AddAction(upgradedUid, "ReplicatorOmnitoolAction");
-            _actions.AddAction(upgradedUid, "ReplicatorWelderAction");
         }
     }
 
@@ -311,11 +308,6 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
 
             if (!TryComp<HandsComponent>(upgradedUid, out var hands))
                 return;
-
-            _handsSystem.AddHand(upgradedUid, "ReplicatorHand", HandLocation.Middle);
-            var tool = Spawn("ReplicatorT2AltMeleeWeapon");
-            _handsSystem.DoPickup(upgradedUid, hands.Hands["ReplicatorHand"], tool);
-            EnsureComp<UnremoveableComponent>(tool);
 
             if (TryComp<ActionsComponent>(upgradedUid, out var actionsComp))
             {
@@ -357,12 +349,9 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
                 return;
 
             _handsSystem.AddHand(upgradedUid, "ReplicatorHand", HandLocation.Middle);
-            var tool = Spawn("ReplicatorT3Weapon");
+            var tool = Spawn("ReplicatorAAC");
             _handsSystem.DoPickup(upgradedUid, hands.Hands["ReplicatorHand"], tool);
             EnsureComp<UnremoveableComponent>(tool);
-
-            _actions.AddAction(upgradedUid, "ReplicatorArmAction");
-            _actions.AddAction(upgradedUid, "ReplicatorAACAction");
 
             if (TryComp<ActionsComponent>(upgradedUid, out var actionsComp))
             {

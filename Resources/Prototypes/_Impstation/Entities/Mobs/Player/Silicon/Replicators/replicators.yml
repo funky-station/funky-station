@@ -12,7 +12,7 @@
   description: It's just a little guy. What harm could it do?
   id: BaseMobReplicator
   abstract: true
-  parent: PlayerSiliconBase
+  parent: [InventoryBase, PlayerSiliconBase]
   components:
   - type: Replicator
   - type: SiliconLawBound
@@ -140,7 +140,7 @@
     speechSounds: Pai
   - type: Inventory
     templateId: replicator
-  - type: InventorySlots
+  - type: EyeProtection
 
 - type: entity
   id: MobReplicatorQueen
@@ -198,12 +198,16 @@
         layer:
         - SmallMobLayer
   - type: Body
-    prototype: Replicator1
+    prototype: Primate
   - type: ReplacementAccent
     accent: silicon
   - type: Speech
     speechVerb: Robotic
     speechSounds: Pai
+  - type: Inventory
+    templateId: replicator
+  - type: Loadout
+    prototypes: [ StartingGearReplicator ]
 
 # Tier 2: Deconstructors. These guys are a little bit tougher, and have tools to take things apart, but they don't have anywhere near as much stun & their attacks are just as weak as T1s.
 - type: entity
@@ -244,14 +248,17 @@
     damageContainer: Inorganic
     damageModifierSet: Replicator2
   - type: Body
-    prototype: Replicator2
+    prototype: Primate
   - type: ItemSlots
-  - type: Inventory
   - type: ReplacementAccent
     accent: silicon
   - type: Speech
     speechVerb: Robotic
     speechSounds: Borg
+  - type: Inventory
+    templateId: replicator
+  - type: Loadout
+    prototypes: [ StartingGearReplicatorTools ]
 
 # Tier 2 ALT: Defender. These guys are our mid-level combatants. They have a slightly better stun laser, and a decent melee attack, but no utility functions.
 - type: entity
@@ -299,9 +306,15 @@
     accent: silicon
   - type: Speech
     speechVerb: Robotic
-    speechSounds: SyndieBorg
+    speechSounds: Borg
+  - type: Inventory
+    templateId: replicator
+  - type: Body
+    prototype: Primate
+  - type: Loadout
+    prototypes: [ StartingGearReplicatorDefence ]
 
-# Tier 3: These guys are tanks. Their job is to tear shit apart and kill things. They're slow, tanky, and have a weapon that does 25 blunt 30 struct.
+# Tier 3: These guys are tanks. Their job is to tear shit apart and kill things. They're slow, tanky, and have a weapon that does 25 blunt 45 struct.
 - type: entity
   id: MobReplicatorTier3
   parent: BaseMobReplicator
@@ -333,7 +346,7 @@
       Dead:
         Base: dead_level3
   - type: Body
-    prototype: Replicator3
+    prototype: Primate
   - type: NoSlip
   - type: Magboots
   - type: Damageable
@@ -344,3 +357,7 @@
   - type: Speech
     speechVerb: Robotic
     speechSounds: SyndieBorg
+  - type: Inventory
+    templateId: replicator
+  - type: Loadout
+    prototypes: [ StartingGearReplicatorWeapon ]

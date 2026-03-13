@@ -45,9 +45,7 @@ roles-antag-syndicate-agent-sleeper-objective = You are an ordinary crewmember..
     When it does, your Syndicate Agent status activates, and your objectives will be revealed.
 
 roles-antag-initial-infected-name = Initial Infected
-roles-antag-initial-infected-objective = You've been infected with a mysterious virus... Spread your infection and convert the station into the undead.
-
-    Bite, infect, and overwhelm the living.
+roles-antag-initial-infected-objective = You've been infected with a mysterious virus... You don't know it yet, but a tumor grows within you, spreading to others around you, until you eventually succumb to the romerol virus!
 
 roles-antag-zombie-name = Zombie
 roles-antag-zombie-objective = Turn as many humans as possible into zombies.

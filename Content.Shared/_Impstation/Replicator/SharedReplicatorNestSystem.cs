@@ -30,6 +30,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Timing;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction.Components;
+using Content.Shared.Stacks;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Impstation.Replicator;
@@ -126,9 +127,18 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
         if (_whitelist.IsBlacklistPass(ent.Comp.Blacklist, tripper))
             return;
 
-        // regardless of what falls in, you get at least one point.
-        ent.Comp.TotalPoints++;
-        ent.Comp.SpawningProgress++;
+        // regardless of what falls in, you get at least one point
+        if (!HasComp<StackComponent>(tripper)) // as long as it's not a stack.
+        {
+            ent.Comp.TotalPoints += 10;
+            ent.Comp.SpawningProgress += 10;
+        }
+
+        // if the item is in a stack, you get points depending on how many items are in that stack.
+        if (TryComp<StackComponent>(tripper, out var stackComp))
+        {
+            ent.Comp.TotalPoints += stackComp.Count;
+        }
 
         // you get a bonus point if the item is Large, 2 bonus points if it's Huge, and 3 bonus points if it's above that.
         if (TryComp<ItemComponent>(tripper, out var itemComp))

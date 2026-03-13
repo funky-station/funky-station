@@ -8,6 +8,8 @@
   id: StartingGearReplicator
   equipment:
     pocket1: PinpointerReplicatorUnremoveable
+  inhand:
+  - ReplicatorT1Weapon
 
 - type: startingGear
   id: StartingGearReplicatorTools
@@ -84,6 +86,30 @@
     speedModifier: 1
     useSound:
       path: /Audio/Items/crowbar.ogg
+
+- type: entity
+  id: ReplicatorT1Weapon
+  parent: BaseItem
+  name: drone stun prod
+  description: You are a non-lethal weapon.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Replicator/replicator.rsi
+    state: t1weapon
+  - type: MeleeWeapon
+    attackRate: 1
+    wideAnimationRotation: 225
+    wideAnimation: WeaponArcThrust
+    soundHit:
+      path: "/Audio/Items/wirecutter.ogg"
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Blunt: 0
+  - type: StaminaDamageOnHit
+    damage: 20
+  - type: Unremoveable
 
 - type: entity
   parent: PinpointerBase

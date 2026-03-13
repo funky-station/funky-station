@@ -16,8 +16,8 @@
   category: Solo
   guides: [ Heretics ]
   icon:
-    sprite: _Goobstation/Heretic/mansus_grasp.rsi
-    state: icon
+    sprite: _Funkystation/Interface/Lobby/AntagCards.rsi
+    state: heretic
 
 - type: startingGear
   id: HereticGear

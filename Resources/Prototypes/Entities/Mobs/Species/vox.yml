@@ -245,13 +245,11 @@
     layers:
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
     - map: [ "enum.HumanoidVisualLayers.Head" ]
-    - map: [ "enum.HumanoidVisualLayers.Snout" ]
-    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
     - map: [ "enum.HumanoidVisualLayers.RArm" ]
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-    - map: [ "jumpsuit" ]
+    - map: [ "jumpsuit"]
     - map: [ "enum.HumanoidVisualLayers.LFoot" ]
     - map: [ "enum.HumanoidVisualLayers.RFoot" ]
     - map: [ "enum.HumanoidVisualLayers.LHand" ]
@@ -259,15 +257,12 @@
     - map: [ "gloves" ]
     - map: [ "shoes" ]
     - map: [ "ears" ]
-    - map: [ "culteyes" ] # funky cult
-      sprite: "_Funkystation/BloodCult/Effects/culteyes.rsi"
-      state: "vox"
-      shader: unshaded
-      visible: false
+    - map: [ "outerClothing" ]
+    - map: [ "enum.HumanoidVisualLayers.Snout" ] # _Funkystation: its more reasonable to have this layered over jumpsuits.
+    - map: [ "enum.HumanoidVisualLayers.Eyes" ] # _Funkystation: moved with snout to avoid layering issues with eyes, it shouldn't but like, whartever
     - map: [ "eyes" ]
     - map: [ "belt" ]
     - map: [ "id" ]
-    - map: [ "outerClothing" ]
     - map: [ "back" ]
     - map: [ "neck" ]
     - map: [ "suitstorage" ] # This is not in the default order

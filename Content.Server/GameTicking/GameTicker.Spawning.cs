@@ -51,8 +51,9 @@
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2026 W.xyz() <84605679+pirakaplant@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2026 taydeo <tay@funkystation.org>
+// SPDX-FileCopyrightText: 2026 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 

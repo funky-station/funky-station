@@ -1,0 +1,14 @@
+# SPDX-FileCopyrightText: 2026 W.xyz() <84605679+pirakaplant@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
+
+- files: ["nightstick_extend.ogg"]
+  license: "CC-BY-4.0"
+  copyright: "Clipped from two sounds by @pirakaplant (GitHub): one by Tairblenn (Freesound) under CC0, the other by Brsjak (Freesound) under CC-BY-4.0."
+  source: "https://freesound.org/people/Brsjak/sounds/482880/" # and https://freesound.org/people/Tairblenn/sounds/538019/ but this YAML template only lets you list one source at a time
+
+- files: ["nightstick_retract.ogg"]
+  license: "CC0-1.0"
+  copyright: "Clipped from a sound from Tairblenn (Freesound), also under CC0, by @pirakaplant (GitHub)."
+  source: "https://freesound.org/people/Tairblenn/sounds/538019/"

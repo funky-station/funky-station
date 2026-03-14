@@ -977,7 +977,6 @@
   - ClownMaskDevil
   - ClownMaskGamble
   - ClownMaskJuggle
-  - ClownMaskBanana
 
 - type: loadoutGroup
   id: ClownJumpsuit
@@ -986,7 +985,6 @@
   - ClownSuit
   - JesterSuit
   - JesterAltSuit
-  - BananaClownSuit
   - HawaiBlack
   - HawaiBlue
   - HawaiRed

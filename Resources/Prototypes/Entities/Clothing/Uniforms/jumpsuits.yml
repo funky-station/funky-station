@@ -286,9 +286,9 @@
   description: HONK!
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/clown.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/clown.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/clown.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/clown.rsi
   - type: Tag
     tags:
     - ClownSuit
@@ -318,9 +318,9 @@
   description: A jolly dress, well suited to entertain your master, nuncle.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/jester.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/jester.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/jester.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/jester.rsi
 
 - type: entity
   parent: ClothingUniformJumpsuitJester
@@ -1332,9 +1332,9 @@
   description: Made for true gladiators (or Ash Walkers).
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/gladiator.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/gladiator.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/gladiator.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/gladiator.rsi
 
 - type: entity
   parent: ClothingUniformBase

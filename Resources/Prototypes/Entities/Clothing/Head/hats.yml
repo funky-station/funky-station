@@ -851,6 +851,9 @@
       sprite: _Funkystation/Clothing/Head/Hats/jester_hat2.rsi
     - type: Clothing
       sprite: _Funkystation/Clothing/Head/Hats/jester_hat2.rsi
+    - type: HideLayerClothing
+      slots:
+      - Hair
 
 - type: entity
   parent: [ClothingHeadBase, BaseCommandContraband]
@@ -969,9 +972,7 @@
     clothingVisuals:
       head:
       - state: equipped-HELMET
-        offset: "0, 0.16"
-    sprite: Clothing/Head/Hats/magician.rsi
-    sprite: _Funkystation/Clothing/Head/Hats/magician_hat.rsi
+        offset: "0, 0.18"
   - type: Item
     size: Small
     sprite: _Funkystation/Clothing/Head/Hats/magician_hat.rsi

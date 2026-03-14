@@ -51,14 +51,13 @@
   description: You put the cake on your head. Brilliant.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Misc/cake.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/cake_hat.rsi
   - type: Clothing
-    sprite: Clothing/Head/Misc/cake.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/cake_hat.rsi
     clothingVisuals:
       head:
       - state: equipped-HELMET
-        offset: "0, 0.16"
-    sprite: _Funkystation/Clothing/Head/Hats/cake_hat.rsi
+        offset: "0, 0.14"
 
 - type: entity
   parent: ClothingHeadBase

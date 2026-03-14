@@ -69,6 +69,7 @@
             Chemist: [ 2, 2 ]
             MedicalIntern: [ 2, 2 ]
             Paramedic: [ 2, 2 ]
+            Psychologist: [ 1, 1 ]
             #science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 3, 5 ]
@@ -100,4 +101,8 @@
             NanotrasenRepresentative: [ 1, 1 ]
             InternalAffairsAgent: [ 2, 3 ]
             Magistrate: [ 1, 1 ]
-            # end Funky
+        - type: StationBlobConfig
+          stageBegin: 40
+          stageCritical: 450
+          stageTheEnd: 900
+          # end Funky

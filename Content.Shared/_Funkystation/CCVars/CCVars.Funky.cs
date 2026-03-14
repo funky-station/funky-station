@@ -79,4 +79,10 @@ public sealed class CCVars_Funky
     /// </summary>
     public static readonly CVarDef<bool> ContentWarningAcknowledged =
         CVarDef.Create("cw.acknowledged", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// All round start species are given the unrevivable trait on spawn.
+    /// </summary>
+    public static readonly CVarDef<bool> EveryoneUnrevivable =
+        CVarDef.Create("game.everyone_unrevivable", false, CVar.SERVERONLY);
 }

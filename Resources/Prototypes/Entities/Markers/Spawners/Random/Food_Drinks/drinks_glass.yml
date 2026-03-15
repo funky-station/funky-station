@@ -183,6 +183,12 @@
       - DrinkGlassQuadrupleSec
       - DrinkGlassNekomimosa
       - DrinkGlassWizzFizz
+      - DrinkBlackJapanGlass
+      - DrinkBruisedMelonGlass
+      - DrinkCoconutSakeColadaGlass
+      - DrinkCosmicAlaskaGlass
+      - DrinkHorsesNeckGlass
+      - DrinkRansomNoteGlass
     chance: 0.8
     offset: 0.0
     #rare

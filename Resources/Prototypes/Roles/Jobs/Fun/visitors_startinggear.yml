@@ -9,8 +9,10 @@
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Tea <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 W.xyz() <84605679+pirakaplant@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -177,7 +179,7 @@
 - type: startingGear
   id: VisitorHOSAlt
   equipment:
-    jumpsuit: ClothingUniformJumpsuitHosFormal
+    jumpsuit: ClothingUniformMessHosBase
     shoes: ClothingShoesBootsCowboyFancyFilled
     gloves: ClothingHandsGlovesColorWhite
     head: ClothingHeadHatCowboyWhite
@@ -266,7 +268,7 @@
 - type: startingGear
   id: VisitorSecurityCadet
   equipment:
-    jumpsuit: ClothingUniformJumpsuitSec
+    jumpsuit: ClothingUniformJumpsuitCadetBase
     shoes: ClothingShoesBootsCombatFilled
     head: ClothingHeadHelmetBasic
     id: VisitorPDA
@@ -283,7 +285,7 @@
 - type: startingGear
   id: VisitorSecurityCadetAlt
   equipment:
-    jumpsuit: ClothingUniformJumpsuitSecGrey
+    jumpsuit: ClothingUniformJumpsuitCadetBase
     shoes: ClothingShoesBootsCombatFilled
     head: ClothingHeadHelmetBasic
     neck: SecurityWhistle
@@ -301,7 +303,7 @@
 - type: startingGear
   id: VisitorSecurityOfficer
   equipment:
-    jumpsuit: ClothingUniformJumpsuitSec
+    jumpsuit: ClothingUniformJumpsuitSecBase
     shoes: ClothingShoesBootsCombatFilled
     head: ClothingHeadHelmetBasic
     id: VisitorPDA
@@ -318,7 +320,7 @@
 - type: startingGear
   id: VisitorSecurityOfficerAlt
   equipment:
-    jumpsuit: ClothingUniformJumpsuitSecGrey
+    jumpsuit: ClothingUniformSecurityDressBase
     shoes: ClothingShoesBootsCombatFilled
     head: ClothingHeadHatCorpsoft
     neck: SecurityWhistle
@@ -372,7 +374,7 @@
 - type: startingGear
   id: VisitorWarden
   equipment:
-    jumpsuit: ClothingUniformJumpsuitWarden
+    jumpsuit: ClothingUniformJumpsuitSecBase
     shoes: ClothingShoesBootsCombatFilled
     gloves: ClothingHandsGlovesCombat
     head: ClothingHeadHatBeretWarden
@@ -392,7 +394,7 @@
 - type: startingGear
   id: VisitorWardenAlt
   equipment:
-    jumpsuit: ClothingUniformJumpsuitWarden
+    jumpsuit: ClothingUniformSecurityDressBase
     shoes: ClothingShoesBootsCombatFilled
     gloves: ClothingHandsGlovesCombat
     head: ClothingHeadHatWarden
@@ -1797,7 +1799,7 @@
 - type: startingGear
   id: ChallengeVictimHOSAlt
   equipment:
-    jumpsuit: ClothingUniformJumpsuitHosFormal
+    jumpsuit: ClothingUniformMessHosBase
     shoes: ClothingShoesBootsCowboyFancyFilled
     gloves: ClothingHandsGlovesColorWhite
     head: ClothingHeadHatCowboyWhite

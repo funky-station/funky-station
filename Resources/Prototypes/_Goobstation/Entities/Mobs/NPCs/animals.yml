@@ -146,7 +146,7 @@
     name: ghost-role-information-SyndiRoach-name
     allowMovement: true
     description: ghost-role-information-SyndiRoach-description
-    rules: ghost-role-information-familiar-rules
+    rules: ghost-role-information-SyndiRoach-rules
     raffle:
       settings: default
   - type: GhostTakeoverAvailable

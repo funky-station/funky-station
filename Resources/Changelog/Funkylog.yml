@@ -7924,3 +7924,9 @@ Entries:
       message: Removed lizard tail wagging
   id: 913
   time: '2026-03-15T20:19:59.0000000+00:00'
+- author: Tea
+  changes:
+    - type: Tweak
+      message: resprited security to a more space-military aesthetic.
+  id: 914
+  time: '2026-03-15T20:20:56.0000000+00:00'

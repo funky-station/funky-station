@@ -10,22 +10,67 @@
     "states":
     [
         {
-            "name": "icon"
+            "name": "icon",
+            "delays":
+            [
+                [
+                    0.3,
+                    0.3,
+                    0.3,
+                    0.3
+                ]
+            ]
         },
         {
             "name": "icon_empty"
         },
         {
-            "name": "fill-1"
+            "name": "fill-1",
+            "delays":
+            [
+                [
+                    0.3,
+                    0.3,
+                    0.3,
+                    0.3
+                ]
+            ]
         },
         {
-            "name": "fill-2"
+            "name": "fill-2",
+            "delays":
+            [
+                [
+                    0.3,
+                    0.3,
+                    0.3,
+                    0.3
+                ]
+            ]
         },
         {
-            "name": "fill-3"
+            "name": "fill-3",
+            "delays":
+            [
+                [
+                    0.3,
+                    0.3,
+                    0.3,
+                    0.3
+                ]
+            ]
         },
         {
-            "name": "fill-4"
+            "name": "fill-4",
+            "delays":
+            [
+                [
+                    0.3,
+                    0.3,
+                    0.3,
+                    0.3
+                ]
+            ]
         }
     ]
 }

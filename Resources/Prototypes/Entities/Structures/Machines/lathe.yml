@@ -203,6 +203,7 @@
 # SPDX-FileCopyrightText: 2026 DoovyADeer <256158135+DoovyADeer@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
+# SPDX-FileCopyrightText: 2026 Tea <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 W.xyz() <84605679+pirakaplant@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 W.xyz() <tptechteam@gmail.com>
@@ -1621,16 +1622,10 @@
     - ClothingUniformJumpskirtHoPSweater
     - ClothingHeadHatBeretHoS
     - ClothingHeadHatHoshat
-    - ClothingUniformJumpsuitHoS
-    - ClothingUniformJumpskirtHoS
-    - ClothingUniformJumpsuitHosFormal
-    - ClothingUniformJumpskirtHosFormal
-    - ClothingUniformJumpsuitHoSAlt
-    - ClothingUniformJumpskirtHoSAlt
-    - ClothingUniformJumpsuitHoSBlue
-    - ClothingUniformJumpsuitHoSGrey
-    - ClothingUniformJumpsuitHoSParadeMale
-    - ClothingUniformJumpskirtHoSParadeMale
+    - ClothingUniformJumpsuitHosBase
+    - ClothingUniformDressHosBase
+    - ClothingUniformMessHosBase
+    - ClothingUniformMessHosDressBase
     - ClothingUniformJumpsuitHydroponics
     - ClothingUniformJumpskirtHydroponics
     - ApronHydroponics # Funky Change
@@ -1674,11 +1669,11 @@
     - ClothingUniformJumpsuitSeniorResearcher
     - ClothingUniformJumpskirtSeniorResearcher
     - ClothingHeadHatBeretSecurity
-    - ClothingUniformJumpsuitSec
-    - ClothingUniformJumpskirtSec
-    - ClothingHeadHatBeretBrigmedic
-    - ClothingUniformJumpsuitBrigmedic
-    - ClothingUniformJumpskirtBrigmedic
+    - ClothingUniformJumpsuitSecBase
+    - ClothingUniformSecurityDressBase
+    - ClothingUniformSecurityDressSkirtBase
+    - ClothingUniformSecurityMessBase
+    - ClothingUniformSecurityMessSkirtBase
     - ClothingHeadHatBeretWarden
     - ClothingHeadHatWarden
     - ClothingUniformJumpsuitWarden

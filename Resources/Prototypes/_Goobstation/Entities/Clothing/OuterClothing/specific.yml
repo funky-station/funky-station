@@ -12,7 +12,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
-  parent: [ClothingOuterHardsuitBase, BaseEngineeringContraband]
+  parent: ClothingOuterHardsuitBase
   id: ClothingOuterSuitHEV
   name: HEV suit
   description: A full-body hazardous environment suit designed to protect its wearer from radiation, energy discharges, blunt-force trauma, and disintegration during the handling of hazardous materials.

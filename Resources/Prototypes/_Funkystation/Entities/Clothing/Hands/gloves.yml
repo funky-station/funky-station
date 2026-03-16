@@ -40,7 +40,7 @@
 
 # Super Duper Mega Hyper Insuls
 - type: entity
-  parent: [ClothingHandsGlovesColorYellow, BaseCommandContraband]
+  parent: ClothingHandsGlovesColorYellow
   id: ClothingHandsGlovesChiefEngineerInsuls
   name: chief engineer's arc gloves
   description: High-quality, heavy-duty insulated arc gloves. These'll keep you safe from just about any voltage.

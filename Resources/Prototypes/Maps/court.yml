@@ -17,8 +17,6 @@
 # SPDX-FileCopyrightText: 2024 NkoKirkto <halloleute640mail.com>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Dusty Plant <34702649+Dusty-Plant@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Dusty-Plant <ytsur2001@gmail.com>
 # SPDX-FileCopyrightText: 2025 Dusty_Plant <34702649+Dusty-Plant@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Evaisa <mail@evaisa.dev>
 # SPDX-FileCopyrightText: 2025 Huhm-1 <cameronhillard40@gmail.com>
@@ -35,6 +33,7 @@
   mapName: 'Court Station'
   mapPath: /Maps/_Funkystation/court.yml
   minPlayers: 30
+  maxPlayers: 70
   stations:
     Court:
       stationProto: StandardNanotrasenStation
@@ -100,3 +99,9 @@
             #silicon
             StationAi: [ 1, 1 ]
             Borg: [ 5, 5 ]
+        # Goobstation blob-config-start HUGE
+        - type: StationBlobConfig
+          stageBegin: 50
+          stageCritical: 350
+          stageTheEnd: 800
+        # Goobstation blob-config-end

@@ -7912,3 +7912,21 @@ Entries:
       message: Added oscilliator as a new nuke and expedition track.
   id: 912
   time: '2026-03-10T11:06:37.0000000+00:00'
+- author: Delta, Thrld, Trixxed
+  changes:
+    - type: Tweak
+      message: Existing lizard markings
+    - type: Tweak
+      message: Fixing moth displacements
+    - type: Add
+      message: New lizard markings
+    - type: Remove
+      message: Removed lizard tail wagging
+  id: 913
+  time: '2026-03-15T20:19:59.0000000+00:00'
+- author: Tea
+  changes:
+    - type: Tweak
+      message: resprited security to a more space-military aesthetic.
+  id: 914
+  time: '2026-03-15T20:20:56.0000000+00:00'

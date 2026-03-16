@@ -50,7 +50,7 @@
             #service
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
-            InternalAffairsAgent: [ 1, 1 ]
+            InternalAffairsAgent: [ 2, 2 ]
             NanotrasenRepresentative: [ 1, 1 ]
             Magistrate: [ 1, 1 ]
             Bartender: [ 1, 1 ]

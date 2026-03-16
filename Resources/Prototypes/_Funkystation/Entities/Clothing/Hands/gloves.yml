@@ -56,7 +56,7 @@
     fiberColor: fibers-black
 
 - type: entity
-  parent: ClothingHandsGlovesColorYellow
+  parent: [ClothingHandsGlovesColorYellow, BaseEngineeringContraband]
   id: ClothingHandsGlovesArcGloves
   name: arc gloves
   description: Industrial-grade arc gloves designed to keep you safe from any high voltages you may encounter. Or, at least, make your funeral open casket.

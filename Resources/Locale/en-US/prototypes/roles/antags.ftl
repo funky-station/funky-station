@@ -35,7 +35,7 @@ roles-antag-generic-team-antagonist-name = Team Antagonist
 
 roles-antag-generic-silicon-antagonist-name = Silicon Antagonist
 ## goob edited
-roles-antag-syndicate-agent-name = Syndicate agent
+roles-antag-syndicate-agent-name = Syndicate Agent
 roles-antag-syndicate-agent-objective = You are an agent for the Syndicate. Infiltrate, adapt, and execute your mission parameters with precision.
     Keep your cover intact, leave no evidence, and eliminate any loose ends.
 

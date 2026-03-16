@@ -123,7 +123,8 @@
           True: { state: on }
           False: { state: off }
   - type: WallMount
-    arc: 180
+    arc: 90
+    direction: 130
   - type: Destructible
     thresholds:
     - trigger:

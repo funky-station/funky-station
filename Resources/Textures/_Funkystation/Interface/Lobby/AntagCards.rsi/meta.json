@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "nuclearoperative (commander+agent) by rosysaturniidae on Discord, wizard by drricky on Discord edited by TrixxedHeart, heretic by TheSecondLord (Github)",
+    "copyright": "nuclearoperative (commander+agent) by rosysaturniidae on Discord, wizard by drricky on Discord edited by TrixxedHeart, heretic by TheSecondLord (Github), cosmiccult by cooliodudio (Discord) edited by AftrLite (Github), sleeperagent by not_macaw (Discord)",
     "size": {
         "x": 32,
         "y": 32
@@ -21,6 +21,12 @@
         },
 		{
             "name": "heretic"
+        },
+		{
+            "name": "cosmiccult"
+        },
+		{
+            "name": "sleeperagent"
         }
     ]
 }

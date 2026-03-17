@@ -1,6 +1,8 @@
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2026 Tea <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2026 W.xyz() <tptechteam@gmail.com>
+# SPDX-FileCopyrightText: 2026 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -84,3 +86,50 @@
   parent: BaseCommandHatRecipe
   id: ClothingHeadHatCEConductor
   result: ClothingHeadHatCEConductor
+
+# Security
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpsuitHosBase
+  result: ClothingUniformJumpsuitHosBase
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformDressHosBase
+  result: ClothingUniformDressHosBase
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformMessHosBase
+  result: ClothingUniformMessHosBase
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformMessHosDressBase
+  result: ClothingUniformMessHosDressBase
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitSecBase
+  result: ClothingUniformJumpsuitSecBase
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformSecurityDressBase
+  result: ClothingUniformSecurityDressBase
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformSecurityDressSkirtBase
+  result: ClothingUniformSecurityDressSkirtBase
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformSecurityMessBase
+  result: ClothingUniformSecurityMessBase
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformSecurityMessSkirtBase
+  result: ClothingUniformSecurityMessSkirtBase

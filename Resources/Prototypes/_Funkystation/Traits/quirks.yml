@@ -230,3 +230,4 @@
   category: Quirks
   cost: 0
   components:
+  - type: Smoker

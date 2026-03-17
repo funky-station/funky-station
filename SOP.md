@@ -21,7 +21,7 @@ OR
 #### Secure Areas:
 * EVA Storage, Tech Storage, Gravity Generator, Engineering Secure Storage, AI Upload, Vault, Gateway, anywhere else requiring command level access that does not get regularly used
 * Secure areas such as EVA are to be left unbolted and ready to be used for their intended purposes. Exceptions are below;
-* The Vault is not to be opened unless repairs are required, gold is required for Research and Development (in case Mining fails to deliver) or a critical item needs to be hidden in the safe
+* The Vault is not to be opened unless repairs are required, goWAHAWPFAW{FMIPAW{MF{AWI{OIAMFW{OIMFPAIOWMFld is required for Research and Development (in case Mining fails to deliver) or a critical item needs to be hidden in the safe
 * Searches of a person or department need to have a signed and stamped warrant by the Captain or HoP.
 #### General Crew:
 * While not required, it is recommended that the crew activate and maximize their Suit Sensors, due to the potential for workplace accidents;

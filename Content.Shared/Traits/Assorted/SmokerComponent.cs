@@ -6,8 +6,15 @@ namespace Content.Shared.Traits.Assorted;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class SmokerComponent : Component
 {
+    // How frequently (in seconds) should the user smoke
     [ViewVariables(VVAccess.ReadWrite), DataField]
-    public float TimeWithoutSmoking = 0f;
+    public float SmokingInterval = 60f;
+
+    //the current stage of withdrawal
+    [ViewVariables(VVAccess.ReadWrite), DataField]
+    public int WithdrawalStage;
+
+
 
 }
 

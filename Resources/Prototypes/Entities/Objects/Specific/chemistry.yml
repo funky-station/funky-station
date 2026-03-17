@@ -723,6 +723,7 @@
   - type: Tag
     tags:
     - Pill
+    - ClothMade # Let Moths take the pills too, c'mon man, #MothLivesMatter
 
 - type: entity
   name: pill canister

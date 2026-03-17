@@ -35,4 +35,4 @@
       - id: ClothingMaskSterile
       - id: ClothingMaskBreathMedical
       - id: Syringe
-      - id: JugAnodynafil
+      - id: DrinkJugAnodynafil # Funky - Regular jug is too large now

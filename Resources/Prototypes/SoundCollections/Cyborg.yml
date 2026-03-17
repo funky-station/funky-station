@@ -6,5 +6,6 @@
 
 - type: soundCollection
   id: CyborgScream
+  # THIS SHIT HAD BETTER FORCE A COPYRIGHT UPDATE 
   files:
   - /Audio/_Funkystation/Voice/Cyborg/Scream/cyborg_scream_1.ogg

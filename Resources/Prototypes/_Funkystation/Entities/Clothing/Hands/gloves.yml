@@ -17,6 +17,9 @@
     fiberMaterial: fibers-rubber
     fiberColor: fibers-yellow
   - type: FingerprintMask
+  - type: Tag
+    tags:
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingHandsButcherable
@@ -36,6 +39,9 @@
     component:
     - type: SurgerySpeedModifier
       speedModifier: 1.75
+  - type: Tag
+    tags:
+    - WhitelistChameleon
 
 # Super Duper Mega Hyper Insuls
 - type: entity
@@ -54,6 +60,9 @@
   - type: Fiber
     fiberMaterial: fibers-insulative
     fiberColor: fibers-black
+  - type: Tag
+    tags:
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingHandsGlovesColorYellow
@@ -71,6 +80,9 @@
   - type: Fiber
     fiberMaterial: fibers-insulative
     fiberColor: fibers-white
+  - type: Tag
+    tags:
+    - WhitelistChameleon
 
 - type: entity
   parent: [ClothingHandsGlovesColorBlack, BaseMajorContraband]
@@ -85,3 +97,58 @@
   - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-insulative
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ ClothingHandsGlovesColorBlack, BaseSecurityContraband ]
+  id: ClothingHandsGlovesCombatSec
+  name: security combat gloves
+  description: These tactical gloves aren't built for insulation, but for riot control. The gloves have knuckles built in for less lethally taking in targets. Knock people down with these, save a life. Maybe. You never know.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Hands/Gloves/combat.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Hands/Gloves/combat.rsi
+  - type: Fiber
+    fiberMaterial: fibers-black
+  - type: MeleeWeapon
+#    attackRate: 1.5 #not speedy since I don't exactly want this to be better than the baton for less lethal work, this is for the seccies who want to keep their arrest targets alive-er while still being worse than the baton
+    damage:
+      types:
+        Blunt: 5
+    bluntStaminaDamageFactor: 4 #throw hands lol #extended baton has 2.5 and has 12 blunt on extend, so it has 30 stam damage/s. this has 20 stam damage/s. Also 5 blunt instead of 12. you lose 1/3rd the stam damage/s for keeping the target alive+it being gloves. Shouldn't be bad. I hope. # tested, you have 25 damage on an urist after arrest vs like 50 from the baton. also gloves need 1 more hit than the baton
+    soundHit:
+      collection: Punch
+    animation: WeaponArcFist
+    mustBeEquippedToUse: true
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ ClothingHandsGlovesColorBlack, BaseCommandContraband ]
+  id: ClothingHandsGlovesCombatHoS
+  name: HoS's combat gloves
+  description: These tactical gloves are fireproof, shock resistant, and have knuckles sewn specially into them, ensuring each punch hurts. Not exactly standard issue, but when push comes to shove, you'll win every engagement with these. Or so you tell yourself.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Hands/Gloves/combat.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Hands/Gloves/combat.rsi
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+  - type: MeleeWeapon
+    attackRate: 1.5
+    damage:
+      types:
+        Blunt: 12 #this literally be insuls+knuckles. Go ball, HoS.
+    soundHit:
+      collection: Punch
+    animation: WeaponArcFist
+    mustBeEquippedToUse: true
+  - type: Tag
+    tags:
+    - WhitelistChameleon

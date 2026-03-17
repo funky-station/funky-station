@@ -149,7 +149,8 @@
         prob: 0.5
       - id: ClothingEyesGlassesSecurity
       - id: ClothingHeadsetAltSecurityRegular # Goobstation
-      - id: ClothingHandsGlovesColorBlack
+#      - id: ClothingHandsGlovesColorBlack #funk swapped for gloves that punch
+      - id: ClothingHandsGlovesCombatSec #funk less lethal gloves, sec can finally take that thief in with less injuries
       - id: ClothingShoesBootsJack
       - id: WeaponMeleeNeedle
         prob: 0.1

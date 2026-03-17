@@ -49,6 +49,7 @@
     ClothingHandsGlovesColorBlack: 3
     ClothingHandsGlovesColorWhite: 3
     ClothingHandsGlovesFingerless: 3
+    ClothingHandsGlovesCombatSec: 3 #might as well make these more plentiful
     ClothingHeadsetAltSecurityRegular: 3 # Goobstation
     ClothingOuterWinterSec: 2
     ClothingOuterArmorBasic: 4

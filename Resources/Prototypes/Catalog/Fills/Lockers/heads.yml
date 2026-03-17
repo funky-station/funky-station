@@ -497,6 +497,7 @@
     - id: HandheldStationMapTactical #funk, all HoS' must find their way
     - id: BreachingCharge #funkystation knock knock, sec's here
     - id: BreachingCharge #funkystation knock knock, sec's here
+    - id: ClothingHandsGlovesCombatHoS #funk hos gets to do police brutality roundstart raghhhh
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

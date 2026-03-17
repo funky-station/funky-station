@@ -12,5 +12,7 @@ If you want to send an email, you can contact us at <telecommunications@spacesta
 If you want to contact us through Discord, you can join [our server](https://discord.gg/MwDDf6t)
 and then **privately** message anyone with the `@Wizard` or `@SS14 Maintainer` role.
 
+yadayadayaadadadaya
+
 In either case, **do not publicly disclose the vulnerability until we explicitly give
 you permission to do so**.

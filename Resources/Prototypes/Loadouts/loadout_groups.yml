@@ -76,9 +76,11 @@
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 tea <xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
+# SPDX-FileCopyrightText: 2026 AirFryerBuyOneGetOneFree <jakoblondon01@gmail.com>
 # SPDX-FileCopyrightText: 2026 Fr0goo <frogoofrog@outlook.com>
 # SPDX-FileCopyrightText: 2026 Frogoo <153249069+Fr0goo@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Tea <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2026 W.xyz() <tptechteam@gmail.com>
@@ -1749,12 +1751,11 @@
   id: HeadofSecurityJumpsuit
   name: loadout-group-head-of-security-jumpsuit
   loadouts:
-  - HeadofSecurityJumpsuit
-  - HeadofSecurityJumpskirt
-  - HeadofSecurityTurtleneck
-  - HeadofSecurityTurtleneckSkirt
+  - HeadofSecurityService
+  - HeadofSecurityDress
+  - HeadofSecurityDressSkirt
   - HeadofSecurityFormalSuit
-  - HeadofSecurityFormalSkirt
+  - HeadofSecurityFormalDress
 
 - type: loadoutGroup
   id: HeadofSecurityNeck
@@ -1772,7 +1773,6 @@
   - HeadofSecurityCoat
   - HeadofSecurityWinterCoat
   - HeadofSecurityArmorVest
-  - HeadofSecurityArmorVestSlim
 
 - type: loadoutGroup #WizDen Weh Job Plush
   id: HeadofSecurityJobTrinkets
@@ -1796,8 +1796,13 @@
   id: WardenJumpsuit
   name: loadout-group-warden-jumpsuit
   loadouts:
-  - WardenJumpsuit
-  - WardenJumpskirt
+  - SecurityFatigues
+  - SecurityDress
+  - SecurityDressSkirt
+  - SecuritySeniorDress
+  - SecuritySeniorDressSkirt
+  - SecurityMess
+  - SecurityMessSkirt
 
 - type: loadoutGroup
   id: WardenNeck
@@ -1805,6 +1810,7 @@
   minLimit: 0
   loadouts:
   - Bodycam # Goobstation - Body cameras
+  - MessTie
 
 - type: loadoutGroup
   id: WardenOuterClothing
@@ -1844,13 +1850,13 @@
   id: SecurityJumpsuit
   name: loadout-group-security-jumpsuit
   loadouts:
-  - SecurityJumpsuit
-  - SecurityJumpskirt
-  - SecurityJumpsuitGrey
-  - SecurityJumpskirtGrey
-  - SeniorOfficerJumpsuit
-  - SeniorOfficerJumpskirt
-  - TrooperUniform
+  - SecurityFatigues
+  - SecurityDress
+  - SecurityDressSkirt
+  - SecuritySeniorDress
+  - SecuritySeniorDressSkirt
+  - SecurityMess
+  - SecurityMessSkirt
 
 - type: loadoutGroup
   id: SecurityBackpack
@@ -1873,13 +1879,13 @@
   minLimit: 0
   loadouts:
   - Bodycam # Goobstation - Body cameras
+  - MessTie
 
 - type: loadoutGroup
   id: SecurityOuterClothing
   name: loadout-group-security-outerclothing
   loadouts:
   - ArmorVest
-  - ArmorVestSlim
   - SecurityOfficerWintercoat
 
 #Funky
@@ -1888,6 +1894,7 @@
   name: loadout-group-security-gloves
   loadouts:
   - BlackGloves
+  - WhiteGloves
 
 - type: loadoutGroup
   id: SecurityShoes
@@ -1965,11 +1972,16 @@
   - LizardPlushieDetective
 
 - type: loadoutGroup
+  id: SecurityCadetHat
+  name: loadout-group-security-cadet-hat
+  loadouts:
+  - CadetHat
+
+- type: loadoutGroup
   id: SecurityCadetJumpsuit
   name: loadout-group-security-cadet-jumpsuit
   loadouts:
-  - RedJumpsuit
-  - RedJumpskirt
+  - CadetUniform
 
 - type: loadoutGroup
   id: SurvivalSecurity

@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 ilyamikcoder <me@ilyamikcoder.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -41,6 +42,10 @@ jobs:
            PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
           set -e # Exit script on first error
+
+          echo "Acquiring the REUSE updater script..."
+          curl -o /tmp/update_pr_reuse_headers.py -s https://raw.githubusercontent.com/${GH_REPO}/refs/heads/master/Tools/update_pr_reuse_headers.py
+
           echo "Fetching files for PR #${PR_NUMBER} in repo ${GH_REPO}"
           PR_FILES_JSON=$(curl -s -f -H "Authorization: token ${GH_TOKEN}" \
             "https://api.github.com/repos/${GH_REPO}/pulls/${PR_NUMBER}/files")
@@ -86,7 +91,7 @@ jobs:
           fi
       - name: Run REUSE Header Update Script
         run: |
-          python Tools/update_pr_reuse_headers.py \
+          python /tmp/update_pr_reuse_headers.py \
             --files-added ${{ env.ADDED_FILES_LIST }} \
             --files-modified ${{ env.MODIFIED_FILES_LIST }} \
             --pr-license ${{ env.PR_LICENSE }} \

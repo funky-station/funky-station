@@ -643,3 +643,7 @@ DrinkKiraSpecial: DrinkOrangeLimeSodaGlass
 Stunbaton: Truncheon
 WeaponDisabler: null
 GunSafeDisabler: GunSafePistolRg2
+
+# 2026-03-17
+GunSafePistolMk58: GunSafePistolPlasma
+GunSafeSubMachineGunDrozd: GunSafeRiflePlasma

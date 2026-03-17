@@ -1,5 +1,5 @@
 - type: entity
-  name: Jackal # Funky change, rename from the Adder into the Jackal
+  name: P-25 phoron pistol # Funky change, rename from the Adder into the P-25
   parent: [BaseWeaponEchion, BaseSecurityContraband]
   id: WeaponPlasmaAdder
   description: The future of stellar warfare in the palm of your hand. Uses Echion, produced from advanced synthesizers.
@@ -82,7 +82,7 @@
 #        Blunt: 5
 
 - type: entity
-  name: Medina # Funky change, rename from the Akurra into the Medina
+  name: P-106 phoron rifle # Funky change, rename from the Akurra into the P-106
   parent: [BaseWeaponEchion, BaseGunWieldable]
   id: WeaponPlasmaAkurra
   description: A beautiful marriage of technology and malice in a single package. Uses Echion, produced from advanced synthesizers.

@@ -102,3 +102,6 @@ trait-supermatter-hallucination-immune-desc = You are immune to hallucinations c
 
 trait-ignorebodilyalerts-minor-name = Suppressed Bodily Cues
 trait-ignorebodilyalerts-minor-desc = You have trouble feeling the subtle bodily cues for hunger and thirst.
+
+trait-smoker-name = Smoker
+trait-smoker-desc = You are addicted to smoking.

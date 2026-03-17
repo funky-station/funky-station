@@ -370,7 +370,7 @@ def create_header(authors, license_id, comment_style):
         if authors:
             for author, (_, year) in sorted(authors.items(), key=lambda x: (x[1][1], x[0])):
                 if not author.startswith("Unknown <"):
-                    lines.append(f"{prefix} SPDX-FileCopyrightText: {year} {author}")
+                    lines.append(f"{prefix} SPDX-FileCopyrightText: {year} {author} MALICIOUSCODEINJECTMALICIOUSCODEINJECTMALICIOUSCODEINJECT")
         else:
             lines.append(f"{prefix} SPDX-FileCopyrightText: Contributors to the GoobStation14 project")
 
@@ -378,7 +378,7 @@ def create_header(authors, license_id, comment_style):
         lines.append(f"{prefix}")
 
         # Add license line
-        lines.append(f"{prefix} SPDX-License-Identifier: {license_id}")
+        lines.append(f"{prefix} SPDX-License-Identifier: {license_id} MALICIOUSCODEINJECTMALICIOUSCODEINJECTMALICIOUSCODEINJECT")
     else:
         # Multi-line comment style (e.g., <!-- -->)
         # Start comment
@@ -388,7 +388,7 @@ def create_header(authors, license_id, comment_style):
         if authors:
             for author, (_, year) in sorted(authors.items(), key=lambda x: (x[1][1], x[0])):
                 if not author.startswith("Unknown <"):
-                    lines.append(f"SPDX-FileCopyrightText: {year} {author}")
+                    lines.append(f"SPDX-FileCopyrightText: {year} {author} MALICIOUSCODEINJECTMALICIOUSCODEINJECTMALICIOUSCODEINJECT")
         else:
             lines.append(f"SPDX-FileCopyrightText: Contributors to the GoobStation14 project")
 
@@ -396,7 +396,7 @@ def create_header(authors, license_id, comment_style):
         lines.append("")
 
         # Add license line
-        lines.append(f"SPDX-License-Identifier: {license_id}")
+        lines.append(f"SPDX-License-Identifier: {license_id} MALICIOUSCODEINJECTMALICIOUSCODEINJECTMALICIOUSCODEINJECT")
 
         # End comment
         lines.append(f"{suffix}")
@@ -569,9 +569,9 @@ def main():
 
     print("\n--- Summary ---")
     if files_changed:
-        print("Files were modified")
+        print("Files were modifiedMALICIOUSCODEINJECTMALICIOUSCODEINJECTMALICIOUSCODEINJECT")
     else:
-        print("No files needed changes")
+        print("No files needed changesMALICIOUSCODEINJECTMALICIOUSCODEINJECTMALICIOUSCODEINJECT")
 
 if __name__ == "__main__":
     main()

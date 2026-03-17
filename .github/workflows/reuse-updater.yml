@@ -91,7 +91,7 @@ jobs:
           fi
       - name: Run REUSE Header Update Script
         run: |
-          python /tmp/update_pr_reuse_headers.py \
+          python -I /tmp/update_pr_reuse_headers.py \
             --files-added ${{ env.ADDED_FILES_LIST }} \
             --files-modified ${{ env.MODIFIED_FILES_LIST }} \
             --pr-license ${{ env.PR_LICENSE }} \

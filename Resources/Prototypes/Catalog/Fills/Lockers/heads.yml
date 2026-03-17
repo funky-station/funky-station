@@ -495,6 +495,7 @@
     - id: DrinkHosFlask
     - id: RadioHandheldCommand #funkystation, no sec radio since they start with one
     - id: HandheldStationMapTactical #funk, all HoS' must find their way
+    - id: SledgehammerBreaching # funk # reusable breach charge
     - id: BreachingCharge #funkystation knock knock, sec's here
     - id: BreachingCharge #funkystation knock knock, sec's here
 

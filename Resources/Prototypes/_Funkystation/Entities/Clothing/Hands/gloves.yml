@@ -105,7 +105,7 @@
   parent: [ ClothingHandsGlovesColorBlack, BaseSecurityContraband ]
   id: ClothingHandsGlovesCombatSec
   name: security combat gloves
-  description: These tactical gloves aren't built for insulation, but for riot control. The gloves have knuckles built in for less lethally taking in targets. Knock people down with these, save a life. Maybe. You never know.
+  description: These tactical gloves aren't built for insulation, but for riot control. The gloves have heavy knuckles built in for less lethally taking in targets. The weight of those hampers the hands from punching as fast as usual. Knock people down with these, save a life. Maybe. You never know.
   components:
   - type: Sprite
     sprite: _Funkystation/Clothing/Hands/Gloves/combat.rsi
@@ -114,11 +114,11 @@
   - type: Fiber
     fiberMaterial: fibers-black
   - type: MeleeWeapon
-#    attackRate: 1.5 #not speedy since I don't exactly want this to be better than the baton for less lethal work, this is for the seccies who want to keep their arrest targets alive-er while still being worse than the baton
+    attackRate: 0.5 #comedically not speedy since I don't exactly want this to be better than the baton for less lethal work, this is for the seccies who want to keep their arrest targets alive-er while still being worse than the baton
     damage:
       types:
         Blunt: 5
-    bluntStaminaDamageFactor: 4 #throw hands lol #extended baton has 2.5 and has 12 blunt on extend, so it has 30 stam damage/s. this has 20 stam damage/s. Also 5 blunt instead of 12. you lose 1/3rd the stam damage/s for keeping the target alive+it being gloves. Shouldn't be bad. I hope. # tested, you have 25 damage on an urist after arrest vs like 50 from the baton. also gloves need 1 more hit than the baton
+    bluntStaminaDamageFactor: 4 #throw hands lol 
     soundHit:
       collection: Punch
     animation: WeaponArcFist

@@ -186,7 +186,7 @@
   - type: Armor
     modifiers:
       coefficients:
-        Slash: 0.95
+        Slash: 0.99
   - type: FingerprintMask
 
 #### Medical

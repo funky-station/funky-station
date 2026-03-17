@@ -295,14 +295,36 @@
     - WhitelistChameleon
 
 - type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitClownAlt
+  name: clown jumpsuit
+  description: HONK!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/clown_jumpsuit.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/clown_jumpsuit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitPolkadotClown
+  name: polka dot jumpsuit
+  description: a colerfull polka dot suit! smells oddly like meat from a meat clown
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/polkadot_clown.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/polkadot_clown.rsi
+
+- type: entity
   parent: ClothingUniformJumpsuitClown
   id: ClothingUniformJumpsuitClownBanana
   name: banana clown suit
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/clown_banana.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/banana.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/clown_banana.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/banana.rsi
   - type: Construction
     graph: BananaClownJumpsuit
     node: jumpsuit
@@ -1156,9 +1178,9 @@
   description: A pirate variation of a space sailor's jumpsuit.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/pirate.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/pirate.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/pirate.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/pirate.rsi
   - type: AddAccentClothing
     accent: PirateAccent
 

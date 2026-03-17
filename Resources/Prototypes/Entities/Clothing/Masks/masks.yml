@@ -329,13 +329,23 @@
 
 - type: entity
   parent: ClothingMaskClown
+  id: ClothingMaskClownSmug
+  name: smug clown mask
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Mask/shiteatinggrin.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Mask/shiteatinggrin.rsi
+
+- type: entity
+  parent: ClothingMaskClown
   id: ClothingMaskClownBanana
   name: banana clown wig and mask
   components:
   - type: Sprite
-    sprite: Clothing/Mask/clown_banana.rsi
+    sprite: _Funkystation/Clothing/Mask/banana.rsi
   - type: Clothing
-    sprite: Clothing/Mask/clown_banana.rsi
+    sprite: _Funkystation/Clothing/Mask/banana.rsi
   - type: Construction
     graph: BananaClownMask
     node: mask

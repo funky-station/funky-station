@@ -311,7 +311,7 @@
   description: A hat made out of a box.
   components:
   - type: Sprite
-    sprite: _FunkystationClothing/Head/Hats/carborghat.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/carborghat.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Head/Hats/carborghat.rsi
   - type: TypingIndicatorClothing
@@ -478,9 +478,9 @@
   description: 'Yo ho ho and a bottle of rum!'
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/pirate.rsi
+    sprite: _funkystation/Clothing/Head/Hats/pirate.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/pirate.rsi
+    sprite: _funkystation/Clothing/Head/Hats/pirate.rsi
 
 - type: entity
   parent: ClothingHeadBase
@@ -1055,9 +1055,9 @@
   description: Spread a joy!
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/party_red.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/red_partyhat.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/party_red.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/red_partyhat.rsi
   - type: Tag
     tags:
       - WhitelistChameleon
@@ -1069,9 +1069,9 @@
   name: yellow party hat
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/party_yellow.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/yellow_partyhat.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/party_yellow.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/yellow_partyhat.rsi
 
 - type: entity
   parent: ClothingHeadHatPartyRed
@@ -1079,9 +1079,9 @@
   name: green party hat
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/party_green.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/green_partyhat.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/party_green.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/green_partyhat.rsi
 
 - type: entity
   parent: ClothingHeadHatPartyRed
@@ -1089,9 +1089,9 @@
   name: blue party hat
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/party_blue.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/blue_partyhat.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/party_blue.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/blue_partyhat.rsi
 
 - type: entity
   parent: ClothingHeadHatPartyRed

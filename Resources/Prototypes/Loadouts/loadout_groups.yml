@@ -975,16 +975,16 @@
   - ClownMaskDevil
   - ClownMaskGamble
   - ClownMaskJuggle
-  - ClownMaskBanana
+  - ClownMaskSmug
 
 - type: loadoutGroup
   id: ClownJumpsuit
   name: loadout-group-clown-jumpsuit
   loadouts:
   - ClownSuit
+  - ClownJumpSuit
+  - PolkadotSuit
   - JesterSuit
-  - JesterAltSuit
-  - BananaClownSuit
   - HawaiBlack
   - HawaiBlue
   - HawaiRed

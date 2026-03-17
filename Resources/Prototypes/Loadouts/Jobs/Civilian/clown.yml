@@ -43,6 +43,11 @@
     mask: ClothingMaskClownJuggle
 
 - type: loadout
+  id: ClownMaskSmug
+  equipment:
+    mask: ClothingMaskClownSmug
+
+- type: loadout
   id: ClownMaskBanana
   equipment:
     mask: ClothingMaskClownBanana
@@ -52,6 +57,18 @@
   id: ClownSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitClown
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: ClownJumpSuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClownAlt
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: PolkadotSuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitPolkadotClown
   groupBy: "jumpsuit"
 
 - type: loadout

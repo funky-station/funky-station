@@ -197,3 +197,7 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 75
+  - type: Item
+    size: Large # Funky
+    shape: # Funky - 3x3
+    - 0,0,2,2

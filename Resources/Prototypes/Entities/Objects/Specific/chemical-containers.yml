@@ -48,7 +48,9 @@
           map: [ "enum.SolutionContainerLayers.Fill" ]
           visible: false
     - type: Item
-      size: Normal
+      size: Large # Funky
+      shape: # Funky - 3x3
+      - 0,0,2,2
       sprite: Objects/Specific/Chemistry/jug.rsi
     - type: MixableSolution
       solution: beaker

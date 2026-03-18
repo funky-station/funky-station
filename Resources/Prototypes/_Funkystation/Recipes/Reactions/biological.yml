@@ -7,13 +7,13 @@
 
 - type: reaction
   id: NaniteSlurryBreakdown
+  source: true
   requiredMixerCategories:
   - Centrifuge
   reactants:
     NaniteSlurry:
       amount: 5
   products:
-    Iron: 1
-    SynthBlood: 2
-    Ice: 1
-    Aluminium: 1
+    Plasma: 2
+    Uranium: 2
+    Silicon: 1

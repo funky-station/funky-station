@@ -24,7 +24,7 @@ figurines-passenger-4 = I'm no tider.
 figurines-passenger-5 = How much for a toolbelt?
 
 figurines-greytider-1 = Man, this party stinks. I fucking hate these people.
-figurines-greytider-2 = Uh-oh, who's lost their stunbaton?
+figurines-greytider-2 = Uh-oh, who's lost their nightstick?
 figurines-greytider-3 = Robust.
 figurines-greytider-4 = I'm not me without a toolbox.
 figurines-greytider-5 = Grey tide station wide!
@@ -100,7 +100,7 @@ figurines-security-1 = I am the law!
 figurines-security-2 = You have violated article 1984.
 figurines-security-3 = Whenever I get bored I use the clown as target practice.
 figurines-security-4 = You have two rights: to remain silent and to cry about it.
-figurines-security-5 = Harmbaton? It sure as hell harms!
+figurines-security-5 = It's called a nightstick because it's gonna beat the living daylights outta you.
 figurines-security-6 = Space law? Never heard of it.
 figurines-security-7 = Random search! Hand it over.
 figurines-security-8 = I love donuts.

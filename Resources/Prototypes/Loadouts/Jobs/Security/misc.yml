@@ -1,0 +1,8 @@
+# SPDX-FileCopyrightText: 2026 Tea <Xerithin@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: loadout
+  id: MessTie
+  equipment:
+    neck: ClothingNeckSecurityBowtie

@@ -479,9 +479,9 @@
   description: 'Yo ho ho and a bottle of rum!'
   components:
   - type: Sprite
-    sprite: _funkystation/Clothing/Head/Hats/pirate.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/pirate.rsi
   - type: Clothing
-    sprite: _funkystation/Clothing/Head/Hats/pirate.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/pirate.rsi
 
 - type: entity
   parent: ClothingHeadBase

@@ -42,6 +42,7 @@
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 wrexbe <wrexbe@protonmail.com>
+// SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
@@ -51,6 +52,7 @@
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2026 W.xyz() <84605679+pirakaplant@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -65,6 +67,7 @@ using Content.Server.Ghost;
 using Content.Server.Spawners.Components;
 using Content.Server.Speech.Components;
 using Content.Server.Station.Components;
+using Content.Shared._Funkystation.CCVars;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
 using Content.Shared.Mind;
@@ -72,6 +75,7 @@ using Content.Shared.Players;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;
+using Content.Shared.Traits.Assorted;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
@@ -338,7 +342,7 @@ namespace Content.Server.GameTicking
             {
                 if (_prototypeManager.TryIndex<JobAlternateTitlePrototype>(altTitleId, out var altTitle))
                 {
-                    jobName = altTitle.LocalizedName;
+                    jobName = altTitle.LocalizedName(character.Gender);
                 }
             }
 
@@ -420,6 +424,13 @@ namespace Content.Server.GameTicking
                 _chatManager.DispatchServerMessage(player,
                     Loc.GetString("job-greet-station-name", ("stationName", metaData.EntityName)));
             }
+
+            // funky - unrevivable cvar start
+            if (_cfg.GetCVar(CCVars_Funky.EveryoneUnrevivable))
+            {
+                EnsureComp<UnrevivableComponent>(mob);
+            }
+            // funky - unrevivable cvar end
 
             // We raise this event directed to the mob, but also broadcast it so game rules can do something now.
             PlayersJoinedRoundNormally++;

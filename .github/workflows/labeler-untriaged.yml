@@ -5,6 +5,7 @@
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2026 Komoni <131829655+Komonighub@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 ParadoxumOfficial <79181105+ParadoxumOfficial@users.noreply.github.com>
 #
 # SPDX-License-Identifier: MIT
 
@@ -14,7 +15,10 @@ on:
   issues:
     types: [opened]
   pull_request_target:
-    types: [opened]
+    types:
+    - opened
+    - reopened
+    - ready_for_review
 
 jobs:
   add_label:

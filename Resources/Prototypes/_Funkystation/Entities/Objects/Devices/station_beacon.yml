@@ -103,6 +103,14 @@
     defaultText: station-beacon-infirmary
     color: "#52B4E9"
 
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconMedicalGenetics
+  suffix: Genetics
+  components:
+  - type: NavMapBeacon
+    color: "#52B4E9"
+
 # Science
 
 - type: entity
@@ -120,14 +128,6 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-xenobio
-
-- type: entity
-  parent: DefaultStationBeaconScience
-  id: DefaultStationBeaconMedicalGenetics
-  suffix: Genetics
-  components:
-  - type: NavMapBeacon
-    defaultText: station-beacon-genetics
 
 # Cargo
 

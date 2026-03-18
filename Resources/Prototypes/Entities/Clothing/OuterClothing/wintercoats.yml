@@ -38,8 +38,8 @@
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 # SPDX-FileCopyrightText: 2026 Doctor-Cpu <77215380+Doctor-Cpu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2026 Fr0goo <frogoofrog@outlook.com>
 # SPDX-FileCopyrightText: 2026 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Tea <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -328,11 +328,10 @@
   description: A sturdy, utilitarian winter coat designed to protect a head of security from any brig-bound threats and hypothermic events.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coathosarmored.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/hos_wintercoat.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coathosarmored.rsi
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHatHoodWinterHOS
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/hos_wintercoat.rsi
+
 ##########################################################
 
 - type: entity
@@ -616,23 +615,12 @@
   parent: [ClothingOuterWinterCoatToggleable, BaseSecurityContraband, AllowBackStorageClothingCombat]
   id: ClothingOuterWinterSec
   name: security winter coat
-  description: A red winter coat outfitted with standard type I armored vest padding with some modifications as to fit both the padding and the insulation.
+  description: A winter coat outfitted with standard type I armored vest padding with some modifications as to fit both the padding and the insulation.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    layers:
-    - state: SEC-icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: SEC-inhand-left
-      right:
-      - state: SEC-inhand-right
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/sec_wintercoat.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: SEC-equipped-OUTERCLOTHING
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/sec_wintercoat.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -673,11 +661,10 @@
   description: A sturdy, utilitarian winter coat designed to protect a warden from any brig-bound threats and hypothermic events.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatwardenarmored.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/ward_wintercoat.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatwardenarmored.rsi
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHatHoodWinterWarden
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/ward_wintercoat.rsi
+
 ################################################################
 
 - type: entity

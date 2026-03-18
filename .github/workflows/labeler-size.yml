@@ -2,11 +2,18 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 ParadoxumOfficial <79181105+ParadoxumOfficial@users.noreply.github.com>
 #
 # SPDX-License-Identifier: MIT
 
 name: "Labels: Size"
-on: pull_request_target
+on:
+  pull_request_target:
+    types:
+    - opened
+    - synchronize
+    - reopened
+    - ready_for_review
 jobs:
   size-label:
     runs-on: ubuntu-latest

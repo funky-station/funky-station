@@ -493,6 +493,22 @@
           Quantity: 15
 
 - type: entity
+  suffix: Dexalin 15u
+  parent: CottonPill
+  id: MothPillDexalin
+  components:
+  - type: Pill
+  - type: Label
+    currentLabel: dexalin 15u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Dexalin
+          Quantity: 15
+
+- type: entity
   name: pill canister
   parent: PillCanister
   id: PillCanisterDexalin
@@ -504,6 +520,8 @@
     contents:
     - id: PillDexalin
       amount: 8
+    - id: MothPillDexalin
+      amount: 2
 
 - type: entity
   name: pill
@@ -526,6 +544,22 @@
           Quantity: 15
 
 - type: entity
+  suffix: Multiver 15u
+  parent: SilkPill
+  id: MothPillMultiver
+  components:
+  - type: Pill
+  - type: Label
+    currentLabel: multiver 15u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Multiver
+          Quantity: 15
+
+- type: entity
   name: pill canister
   parent: PillCanister
   id: PillCanisterMultiver
@@ -537,6 +571,7 @@
     contents:
     - id: PillMultiver
       amount: 8
+    - id: MothPillMultiver
 
 - type: entity
   name: pill
@@ -559,6 +594,22 @@
           Quantity: 15
 
 - type: entity
+  suffix: Hyronalin 15u
+  parent: CottonPill
+  id: MothPillHyronalin
+  components:
+  - type: Pill
+  - type: Label
+    currentLabel: hyronalin 15u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Hyronalin
+          Quantity: 15
+
+- type: entity
   name: pill canister
   parent: PillCanister
   id: PillCanisterHyronalin
@@ -570,6 +621,8 @@
     contents:
     - id: PillHyronalin
       amount: 8
+    - id: MothPillHyronalin
+      amount: 2
 
 - type: entity
   name: pill
@@ -592,6 +645,22 @@
           Quantity: 12
 
 - type: entity
+  suffix: Potassium iodide 12u
+  parent: SilkPill
+  id: MothPillPotassiumIodide
+  components:
+  - type: Pill
+  - type: Label
+    currentLabel: potassium idodide 12u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: PotassiumIodide
+          Quantity: 12
+
+- type: entity
   name: pill canister
   parent: PillCanister
   id: PillCanisterPotassiumIodide
@@ -603,6 +672,8 @@
     contents:
     - id: PillPotassiumIodide
       amount: 8
+    - id: MothPillPotassiumIodide
+      amount: 2
 
 - type: entity
   name: pill
@@ -614,6 +685,22 @@
     pillType: 13
   - type: Sprite
     state: pill14
+  - type: Label
+    currentLabel: iron 10u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Iron
+          Quantity: 10
+
+- type: entity
+  suffix: Iron 10u
+  parent: CottonPill
+  id: MothPillIron
+  components:
+  - type: Pill
   - type: Label
     currentLabel: iron 10u
   - type: SolutionContainerManager
@@ -645,6 +732,22 @@
           Quantity: 10
 
 - type: entity
+  suffix: Copper 10u
+  parent: SilkPill
+  id: MothPillCopper
+  components:
+  - type: Pill
+  - type: Label
+    currentLabel: copper 10u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Copper
+          Quantity: 10
+
+- type: entity
   name: pill canister
   parent: PillCanister
   id: PillCanisterIron
@@ -656,6 +759,8 @@
     contents:
     - id: PillIron
       amount: 8
+    - id: MothPillIron
+      amount: 2
 
 - type: entity
   name: pill canister
@@ -669,6 +774,8 @@
     contents:
     - id: PillCopper
       amount: 8
+    - id: MothPillCopper
+      amount: 2
 
 - type: entity
   name: pill
@@ -691,6 +798,22 @@
           Quantity: 15
 
 - type: entity
+  suffix: Aiuri 15u
+  parent: CottonPill
+  id: MothPillAiuri
+  components:
+  - type: Pill
+  - type: Label
+    currentLabel: aiuri 15u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Aiuri
+          Quantity: 15
+
+- type: entity
   name: pill canister
   parent: PillCanister
   id: PillCanisterAiuri
@@ -702,6 +825,8 @@
     contents:
     - id: PillAiuri
       amount: 8
+    - id: MothPillAiuri
+      amount: 2
 
 - type: entity
   name: pill
@@ -724,6 +849,22 @@
           Quantity: 15
 
 - type: entity
+  suffix: Lenturi 15u
+  parent: SilkPill
+  id: MothPillLenturi
+  components:
+  - type: Pill
+  - type: Label
+    currentLabel: lenturi 15u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Lenturi
+          Quantity: 15
+
+- type: entity
   name: pill canister
   parent: PillCanister
   id: PillCanisterLenturi
@@ -735,6 +876,8 @@
     contents:
     - id: PillLenturi
       amount: 8
+    - id: MothPillLenturi
+      amount: 2
 
 - type: entity
   name: space mirage
@@ -770,6 +913,22 @@
           Quantity: 15
 
 - type: entity
+  suffix: Tricordrazine 15u
+  parent: CottonPill
+  id: MothPillTricordrazine
+  components:
+  - type: Pill
+  - type: Label
+    currentLabel: tricordrazine 15u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Tricordrazine
+          Quantity: 15
+
+- type: entity
   name: pill
   suffix: Granibitulari 20u # Takes like 5 minutes to fully heal at 15, 20 makes sense - Funkychem
   parent: Pill
@@ -779,6 +938,22 @@
     pillType: 9
   - type: Sprite
     state: pill3
+  - type: Label
+    currentLabel: granibitulari 20u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Granibitulari
+          Quantity: 20
+
+- type: entity
+  suffix: Granibitulari 20u
+  parent: SilkPill
+  id: MothPillGranibitulari
+  components:
+  - type: Pill
   - type: Label
     currentLabel: granibitulari 20u
   - type: SolutionContainerManager
@@ -801,19 +976,23 @@
     contents:
     - id: PillTricordrazine
       amount: 8
+    - id: MothPillTricordrazine
+      amount: 2
 
 - type: entity
   name: pill canister
   parent: PillCanister
   id: PillCanisterGranibitulari
-  suffix: Granibitulari 15u
+  suffix: Granibitulari 20u
   components:
   - type: Label
-    currentLabel: granibitulari 15u
+    currentLabel: granibitulari 20u
   - type: StorageFill
     contents:
     - id: PillGranibitulari
       amount: 8
+    - id: MothPillGranibitulari
+      amount: 2
 
 - type: entity
   name: pill
@@ -836,6 +1015,22 @@
           Quantity: 15
 
 - type: entity
+  suffix: Libital 15u
+  parent: CottonPill
+  id: MothPillLibital
+  components:
+  - type: Pill
+  - type: Label
+    currentLabel: libital 15u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Libital
+          Quantity: 15
+
+- type: entity
   name: pill canister
   parent: PillCanister
   id: PillCanisterLibital
@@ -846,7 +1041,9 @@
   - type: StorageFill
     contents:
     - id: PillLibital
-      amount: 5
+      amount: 8
+    - id: MothPillLibital
+      amount: 2
 
 - type: entity
   name: pill
@@ -869,6 +1066,22 @@
           Quantity: 15
 
 - type: entity
+  suffix: Probital 15u
+  parent: SilkPill
+  id: MothPillProbital
+  components:
+  - type: Pill
+  - type: Label
+    currentLabel: probital 15u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Probital
+          Quantity: 15
+
+- type: entity
   name: pill canister
   parent: PillCanister
   id: PillCanisterProbital
@@ -879,7 +1092,9 @@
   - type: StorageFill
     contents:
     - id: PillProbital
-      amount: 5
+      amount: 8
+    - id: MothPillProbital
+      amount: 2
 
 - type: entity
   name: pill
@@ -902,6 +1117,22 @@
           Quantity: 10
 
 - type: entity
+  suffix: Charcoal 10u
+  parent: CottonPill
+  id: MothPillCharcoal
+  components:
+  - type: Pill
+  - type: Label
+    currentLabel: charcoal 10u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Charcoal
+          Quantity: 10
+
+- type: entity
   name: pill canister
   parent: PillCanister
   id: PillCanisterCharcoal
@@ -913,6 +1144,8 @@
     contents:
     - id: PillCharcoal
       amount: 8
+    - id: MothPillCharcoal
+      amount: 2
 
 - type: entity
   name: romerol pill

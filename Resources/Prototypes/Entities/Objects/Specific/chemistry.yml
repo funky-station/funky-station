@@ -673,7 +673,6 @@
     - Syringe
     - Cryosyringe
 
-
 - type: entity
   name: pill
   parent: BaseItem

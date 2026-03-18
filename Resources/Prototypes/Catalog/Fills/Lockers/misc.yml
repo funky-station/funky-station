@@ -199,7 +199,11 @@
   table: !type:AllSelector
     children:
     - id: StrangePill
-      prob: 0.20
+      prob: 0.15
+    - id: CottonStrangePill
+      prob: 0.025
+    - id: SilkStrangePill
+      prob: 0.025
     # Tools
     - !type:NestedSelector
       tableId: MaintToolsTable

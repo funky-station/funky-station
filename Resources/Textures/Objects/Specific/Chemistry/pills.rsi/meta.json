@@ -74,6 +74,12 @@
       "name": "pill17"
     },
     {
+      "name": "pillcloth"
+    },
+    {
+      "name": "pillsilk"
+    },
+    {
       "name": "inhand-left",
       "directions": 4
     },

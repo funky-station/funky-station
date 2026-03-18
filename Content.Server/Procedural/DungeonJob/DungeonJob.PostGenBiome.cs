@@ -4,6 +4,7 @@
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 Terkala <appleorange64@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -72,13 +73,14 @@ public sealed partial class DungeonJob
                 var ent = _entManager.SpawnEntity(entityProto, new EntityCoordinates(_gridUid, node + _grid.TileSizeHalfVector));
                 var xform = xformQuery.Get(ent);
 
-                if (!xform.Comp.Anchored)
+                if (_shouldAnchorEntities && !xform.Comp.Anchored)
                 {
                     _transform.AnchorEntity(ent, xform);
                 }
 
                 // TODO: Engine bug with SpawnAtPosition
-                DebugTools.Assert(xform.Comp.Anchored);
+                if (_shouldAnchorEntities)
+                    DebugTools.Assert(xform.Comp.Anchored);
             }
 
             await SuspendDungeon();

@@ -80,6 +80,7 @@
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Tea <Xerithin@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -131,12 +132,12 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretSecurity
   name: security beret
-  description: A stylish clothing option for security officers.
+  description: A corporate beret with an officer's rank emblem. A stylish clothing option for security officers.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/beret_security.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/security_beret.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/beret_security.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/security_beret.rsi
   - type: Tag
     tags:
     - ClothMade
@@ -150,9 +151,9 @@
   description: A campaign hat for the Nanotrasen Troopers, comes with a case too, but you lost it.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/security_trooper_hat.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/security.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/security_trooper_hat.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/security.rsi
   - type: Tag
     tags:
     - ClothMade
@@ -221,12 +222,12 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretHoS
   name: head of security's beret
-  description: A black beret with a commander's rank emblem. For officers that are more inclined towards style than safety.
+  description: A white beret with a commander's rank emblem.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/beret_hos.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/hos_beret.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/beret_hos.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/hos_beret.rsi
   - type: Tag
     tags:
     - ClothMade
@@ -237,12 +238,12 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretWarden
   name: warden's beret
-  description: A corporate blue beret with a warden's rank emblem. For officers that are more inclined towards style than safety.
+  description: A corporate red beret with a warden's rank emblem. For officers that are more inclined towards style than safety.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/beret_warden.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/warden_beret.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/beret_warden.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/warden_beret.rsi
 
 - type: entity
   parent: ClothingHeadBase
@@ -425,13 +426,13 @@
 - type: entity
   parent: [ClothingHeadBase, BaseCommandContraband]
   id: ClothingHeadHatHoshat
-  name: head of security cap
-  description: The robust standard-issue cap of the Head of Security. For showing the officers who's in charge.
+  name: head of security's hat
+  description: The standard-issue cap of the Head of Security. For showing the officers who's in charge.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/hoshat.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/hos.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/hoshat.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/hos.rsi
   - type: Tag
     tags:
     - ClothMade
@@ -630,13 +631,13 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatWarden
-  name: warden's cap
-  description: A police officer's Hat. This hat emphasizes that you are THE LAW
+  name: warden's hat
+  description: The warden's hat. This hat emphasizes that you are THE LAW
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/warden.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/warden.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/warden.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/warden.rsi
   - type: StealTarget
     stealGroup: ClothingHeadHatWarden
 

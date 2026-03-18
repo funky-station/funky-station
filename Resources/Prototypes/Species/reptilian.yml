@@ -10,6 +10,8 @@
 # SPDX-FileCopyrightText: 2025 hivehum <ketchupfaced@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 unknown <daniel.thomas.staal@gmail.com>
+# SPDX-FileCopyrightText: 2026 unknown <kit.ds.kat@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -36,7 +38,7 @@
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
-    Eyes: MobHumanoidEyes
+    Eyes: MobReptilianEyes
     LArm: MobReptilianLArm
     RArm: MobReptilianRArm
     LHand: MobReptilianLHand
@@ -68,7 +70,7 @@
       points: 2
       required: false
     HeadSide:
-      points: 1
+      points: 2
       required: false
     Chest:
       points: 4 # imp 3<4
@@ -163,3 +165,9 @@
   baseSprite:
     sprite: Mobs/Species/Reptilian/parts.rsi
     state: r_foot
+
+- type: humanoidBaseSprite
+  id: MobReptilianEyes
+  baseSprite:
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: eyes

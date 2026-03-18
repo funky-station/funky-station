@@ -167,9 +167,12 @@
         visible: false
   - type: Inventory
     templateId: arachnid
+    speciesId: arachnid
   - type: Spider
   - type: IgnoreSpiderWeb
   - type: FootprintOwner
+  - type: Carriable # Carrying system from EE.
+
 
 - type: entity
   parent: BaseSpeciesDummy

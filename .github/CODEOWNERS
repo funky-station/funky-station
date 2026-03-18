@@ -12,6 +12,9 @@
 # audio
 /Resources/Audio/ @vectorassembly
 
+# textures
+/Resources/Textures/ @Teasq
+
 # rules
 /Resources/ServerInfo/ @salpphie @Huhm-1
 

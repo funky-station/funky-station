@@ -700,9 +700,9 @@
   description: 'Happy Christmas!'
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/xmascrown.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/xmascrown.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/xmascrown.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/xmascrown.rsi
 
 - type: entity
   parent: ClothingHeadBase

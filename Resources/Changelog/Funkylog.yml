@@ -7930,3 +7930,9 @@ Entries:
       message: resprited security to a more space-military aesthetic.
   id: 914
   time: '2026-03-15T20:20:56.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Tweak
+      message: Snouts now render over Jumpsuits
+  id: 915
+  time: '2026-03-19T22:02:34.0000000+00:00'

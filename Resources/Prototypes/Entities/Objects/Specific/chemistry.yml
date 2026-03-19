@@ -679,6 +679,7 @@
   id: Pill
   description: It's not a suppository.
   components:
+  - type: ClothPillConvertable
   - type: Sprite
     sprite: Objects/Specific/Chemistry/pills.rsi
     state: pill
@@ -736,6 +737,7 @@
     size: Tiny
     sprite: Objects/Specific/Chemistry/pills.rsi
   - type: Pill
+  - type: Label
   - type: Food
     delay: 0.6
     forceFeedDelay: 2
@@ -788,6 +790,7 @@
     size: Tiny
     sprite: Objects/Specific/Chemistry/pills.rsi
   - type: Pill
+  - type: Label
   - type: Food
     delay: 0.6
     forceFeedDelay: 2

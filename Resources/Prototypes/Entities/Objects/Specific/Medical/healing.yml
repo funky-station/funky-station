@@ -572,6 +572,7 @@
     - id: PillMultiver
       amount: 8
     - id: MothPillMultiver
+      amount: 2
 
 - type: entity
   name: pill

@@ -1746,6 +1746,13 @@ entities:
     - type: Transform
       pos: 5.5,-11.5
       parent: 1
+- proto: SpawnPointGhostCBURNLeader
+  entities:
+  - uid: 255
+    components:
+    - type: Transform
+      pos: 2.5,-4.5
+      parent: 1
 - proto: StorageCanister
   entities:
   - uid: 91

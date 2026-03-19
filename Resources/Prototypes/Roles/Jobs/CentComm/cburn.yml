@@ -54,7 +54,7 @@
   playTimeTracker: JobCBURNLeader
   setPreference: false
   startingGear: CBURNLeaderGear
-  icon: "JobIconCBURN"
+  icon: "JobIconCBURNLeader"
   supervisors: job-supervisors-centcom
   canBeAntag: false
   accessGroups:
@@ -64,6 +64,16 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+  # funky - ghostjobs
+  - !type:AddComponentSpecial
+    components:
+    - type: Loadout
+      roleLoadout: [ RoleSurvivalExtended ]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesNukieFirstCommander
+      - NamesMilitaryLast
+  # end funky
 
 - type: startingGear
   id: CBURNLeaderGear

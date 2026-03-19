@@ -557,7 +557,7 @@
   components:
     - type: Loadout
       prototypes: [CBURNGear]
-      roleLoadout: [ RoleSurvivalEVA ]
+      roleLoadout: [ RoleSurvivalExtended ]
     - type: GhostRole
       name: ghost-role-information-cburn-agent-name
       description: ghost-role-information-cburn-agent-description
@@ -586,7 +586,7 @@
   components:
     - type: Loadout
       prototypes: [CBURNLeaderGear]
-      roleLoadout: [ RoleSurvivalEVA ]
+      roleLoadout: [ RoleSurvivalExtended ]
     - type: GhostRole
       name: ghost-role-information-cburn-leader-name
       description: ghost-role-information-cburn-leader-description
@@ -605,7 +605,7 @@
         time: 36000 #10 hrs
     - type: RandomMetadata
       nameSegments:
-      - NamesMilitaryFirst
+      - NamesNukieFirstCommander
       - NamesMilitaryLast
 
 ## Central Command

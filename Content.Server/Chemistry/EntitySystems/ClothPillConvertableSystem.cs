@@ -75,7 +75,7 @@ namespace Content.Server.Chemistry.EntitySystems
                     }
                 }
 
-                _popupSystem.PopupEntity($"You finish wrapping the pill in the material.", newPill, Filter.Entities(user), false, PopupType.Medium);
+                _popupSystem.PopupEntity($"You finish wrapping the pill in the fabric.", newPill, Filter.Entities(user), false, PopupType.Medium);
                 Timer.Spawn(1, () => _entMan.DeleteEntity(uid));
                 Timer.Spawn(1, () =>
                 {

@@ -6,7 +6,9 @@
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Tea <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2026 W.xyz() <tptechteam@gmail.com>
+# SPDX-FileCopyrightText: 2026 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -121,3 +123,19 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+
+# Cadet's hat
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatCadetSecurity
+  name: cadet's white sailor hat
+  description: A clean, white hat for the newly enlisted! Here's hoping it stays clean.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Hats/cadet.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Hats/cadet.rsi
+  - type: Tag
+    tags:
+    - ClothMade

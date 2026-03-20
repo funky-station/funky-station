@@ -5,7 +5,6 @@
 - type: latheRecipe
   id: PrintedDocumentReportStationRecipe
   result: PrintedDocumentReportStation
-  category: Reports
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -14,7 +13,6 @@
 - type: latheRecipe
   id: PrintedDocumentReportOnEliminationOfViolationsRecipe
   result: PrintedDocumentReportOnEliminationOfViolations
-  category: Reports
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -23,7 +21,6 @@
 - type: latheRecipe
   id: PrintedDocumentReportDepartmentRecipe
   result: PrintedDocumentReportDepartment
-  category: Reports
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -32,7 +29,6 @@
 - type: latheRecipe
   id: PrintedDocumentReportEmployeePerformanceRecipe
   result: PrintedDocumentReportEmployeePerformance
-  category: Reports
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -41,7 +37,6 @@
 - type: latheRecipe
   id: PrintedDocumentReportOnTheChaptersMeetingRecipe
   result: PrintedDocumentReportOnTheChaptersMeeting
-  category: Reports
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -50,7 +45,6 @@
 - type: latheRecipe
   id: PrintedDocumentInternalAffairsAgentsReportRecipe
   result: PrintedDocumentInternalAffairsAgentsReport
-  category: Reports
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -59,7 +53,6 @@
 - type: latheRecipe
   id: PrintedDocumentConditionReportRecipe
   result: PrintedDocumentConditionReport
-  category: Reports
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -68,7 +61,6 @@
 - type: latheRecipe
   id: PrintedDocumentReportStudyObjectRecipe
   result: PrintedDocumentReportStudyObject
-  category: Reports
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -77,7 +69,6 @@
 - type: latheRecipe
   id: PrintedDocumentExperimentReportRecipe
   result: PrintedDocumentExperimentReport
-  category: Reports
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -86,7 +77,6 @@
 - type: latheRecipe
   id: PrintedDocumentDisposalReportRecipe
   result: PrintedDocumentDisposalReport
-  category: Reports
   completetime: 2
   applyMaterialDiscount: false
   materials:

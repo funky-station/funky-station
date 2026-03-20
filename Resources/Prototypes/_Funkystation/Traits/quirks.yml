@@ -231,3 +231,4 @@
   cost: 0
   components:
   - type: Smoker
+    SmokingInterval: 185

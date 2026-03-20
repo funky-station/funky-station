@@ -1,10 +1,10 @@
-﻿
-using Content.Shared.Chemistry.Components;
-
+﻿using Content.Shared.Chemistry.Components;
 using Content.Server.Chat.Systems;
+using Content.Shared.Bed.Sleep;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Speech;
+using Content.Shared.Speech.Muting;
 using Content.Shared.Traits.Assorted;
 
 using Robust.Shared.Containers;
@@ -16,9 +16,6 @@ public sealed class SmokerSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-
-
-    private EntityUid _solutionUid = default;
 
     public override void Initialize()
     {
@@ -41,36 +38,42 @@ public sealed class SmokerSystem : EntitySystem
                 continue;
             foreach (var i in containers.Value.ContainedEntities)
             {
-                _solutionUid = i;
-                _popup.PopupEntity(i.ToString(), uid, uid);
+                smoker.ChemicalsContainer = i;
             }
         }
 
 
 
     }
-
+    /// <summary>
+    /// Updates the SmokerSystem.
+    /// </summary>
+    /// <param name="frameTime"></param>
     public override void Update(float frameTime)
     {
-        // it's pretty much same format as the NarcolepsySystem
-        //tries to increment the time spent without smoking and progresses through the stages as the user ignore
-        //smoking (to be implemented)
         base.Update(frameTime);
 
         var smokerQuery = EntityQueryEnumerator<SmokerComponent>();
         while (smokerQuery.MoveNext(out var uid, out var smoker))
         {
+            if (_mobStateSystem.IsIncapacitated(uid) || TryComp<SleepingComponent>(uid,out _))
+                continue;
             smoker.TimeSinceSmoking += frameTime;
-            if(CheckNicotineLevel(uid,_solutionUid,smoker))
+            if(CheckNicotineLevel(uid,smoker.ChemicalsContainer,smoker))
                 continue;
             SetWithdrawalStage(uid,smoker);
         }
     }
-
+    /// <summary>
+    /// Checks the current nicotine levels inside solution@chemicals. If the levels are rising (user is smoking)
+    /// resets the WithdrawalStage and TimeSinceSmoking and return True.
+    /// </summary>
+    /// <param name="uid">User's UId.</param>
+    /// <param name="solutionUid">Uid of the Chemicals solution.</param>
+    /// <param name="smoker">User's SmokerComponent.</param>
+    /// <returns></returns>
     private bool CheckNicotineLevel(EntityUid uid, EntityUid solutionUid, SmokerComponent smoker)
     {
-        // Check the current nicotine levels inside the chemicals container and if it detects that the nicotine is
-        // rising it resets the
         var currentNicotine = smoker.CurrentNicotineLevel;
         if (!TryComp<SolutionComponent>(solutionUid, out var solution))
             return false;
@@ -83,7 +86,6 @@ public sealed class SmokerSystem : EntitySystem
                 smoker.CurrentNicotineLevel = name.Quantity;
                 return false;
             }
-            //_popup.PopupEntity("You are cool...", uid, uid);
             smoker.CurrentNicotineLevel = name.Quantity;
             smoker.TimeSinceSmoking = 0;
             smoker.CurrentSmokingInterval = 0;
@@ -92,46 +94,49 @@ public sealed class SmokerSystem : EntitySystem
         }
         return false;
     }
-
+    /// <summary>
+    /// Check's if the user TimeSinceSmoking is above the threshold and if applicable updates the WithdrawalStage and
+    /// gives an updated time.
+    /// </summary>
+    /// <param name="uid"></param>
+    /// <param name="smoker"></param>
     private void SetWithdrawalStage(EntityUid uid, SmokerComponent smoker)
     {
+        // No dividing by zero.
         if(smoker.WithdrawalStage < 0)
             smoker.WithdrawalStage = 0;
-
-        if (_mobStateSystem.IsIncapacitated(uid))
+        // If it's not the time, continue.
+        if (!(smoker.TimeSinceSmoking >= smoker.SmokingInterval + smoker.CurrentSmokingInterval))
             return;
-
-        var adjustedInterval = smoker.SmokingInterval + smoker.CurrentSmokingInterval;
-        if (!(smoker.TimeSinceSmoking >= adjustedInterval))
-            return;
-        if(smoker.WithdrawalStage < 8)
-            smoker.WithdrawalStage++;
-        smoker.CurrentSmokingInterval += smoker.SmokingInterval/(1+smoker.WithdrawalStage);
+        smoker.WithdrawalStage++;
+        // Ensures that ignoring the need to smoke will get harder longer they go.
+        smoker.CurrentSmokingInterval += smoker.SmokingInterval/(1+Math.Clamp(smoker.WithdrawalStage,0,7));
         switch (smoker.WithdrawalStage)
         {
             case 0:
                 _popup.PopupEntity("All's fine in the world!", uid, uid);
                 break;
             case 1:
-                _popup.PopupEntity("A cigarette would be nice..",uid,uid);
+                _popup.PopupEntity(Loc.GetString("trait-smoker-stage1"),uid,uid);
                 break;
             case 2:
-                _popup.PopupEntity("You feel the need for a smoke break.", uid, uid,PopupType.Medium);
+                _popup.PopupEntity(Loc.GetString("trait-smoker-stage2"), uid, uid,PopupType.Medium);
                 break;
             case 3:
-                _popup.PopupEntity("You must get some nicotine!", uid, uid,PopupType.MediumCaution);
-                if (TryComp<SpeechComponent>(uid,out _))
+                _popup.PopupEntity(Loc.GetString("trait-smoker-stage3"), uid, uid,PopupType.MediumCaution);
+                if (TryComp<SpeechComponent>(uid,out _) && !TryComp<MutedComponent>(uid, out _))
                     _chatSystem.TryEmoteWithChat(uid,"Sigh");
                 break;
             case 4:
-                _popup.PopupEntity("You REALLY need to smoke!", uid, uid,PopupType.MediumCaution);
+                _popup.PopupEntity(Loc.GetString("trait-smoker-stage4"), uid, uid,PopupType.MediumCaution);
+                break;
+            case 5:
+                _popup.PopupEntity(Loc.GetString("trait-smoker-stage5"), uid, uid, PopupType.MediumCaution);
                 break;
             default:
-                _popup.PopupEntity("YOUR WHOLE BODY CRAVES NICOTINE!", uid, uid, PopupType.MediumCaution);
-                if (TryComp<SpeechComponent>(uid, out _)&& smoker.WithdrawalStage % 2 == 0)
+                _popup.PopupEntity(Loc.GetString("trait-smoker-stage6"), uid, uid, PopupType.MediumCaution);
+                if (TryComp<SpeechComponent>(uid, out _)&& !TryComp<MutedComponent>(uid, out _)&& smoker.WithdrawalStage % 3 == 0)
                     _chatSystem.TryEmoteWithChat(uid,"Scream");
-
-
                 break;
         }
     }

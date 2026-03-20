@@ -6,40 +6,41 @@ namespace Content.Shared.Traits.Assorted;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class SmokerComponent : Component
 {
-    // How frequently (in FrameTime) should the user smoke
-    [DataField]
-    public float SmokingInterval =145;
+    /// <summary>
+    /// Time between triggering withdrawal stages when not smoking.
+    /// </summary>
+    [DataField("SmokingInterval",required: true)]
+    public float SmokingInterval =185f;
 
-    [DataField]
+    /// <summary>
+    /// Timer added to the total timer after triggering a WithdrawalStage increase,
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
     public float CurrentSmokingInterval =0f;
 
-    //the current stage of withdrawal
+    /// <summary>
+    /// The current stage of withdrawal of the user. It will determine the effects of the withdrawal.
+    /// </summary>
     [DataField]
     public int WithdrawalStage;
 
-    //how much nicotine is in the system.
+    /// <summary>
+    /// Current nicotine levels inside the user.
+    /// </summary>
     [ViewVariables(VVAccess.ReadOnly), DataField]
     public FixedPoint2 CurrentNicotineLevel;
 
-    [ViewVariables(VVAccess.ReadOnly), DataField]
-    public float NewNicotineLevel;
-
-    //how long since entity last smoked (in FrameTime)
+    /// <summary>
+    /// Current time (in seconds) since the user has consumed nicotine.
+    /// </summary>
     [ViewVariables(VVAccess.ReadOnly), DataField]
     public float TimeSinceSmoking;
 
-    /*[DataField]
-    public List<string> LastStageMessages =
-    [
-        "YOUR HEAD IS KILLING YOU!", "YOUR WHOLE BODY CRAVES NICOTINE!","You feel VERY restless!",
-        "It feels like the whole WORLD'S falling down!",
-    ];
-    */
-
-
-
-
-
+    /// <summary>
+    /// EntityUid of the 'Chemicals' solution of the user.
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public EntityUid ChemicalsContainer;
 }
 
 

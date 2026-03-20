@@ -121,7 +121,6 @@
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellMicroreactor
         disableEject: true
-        swap: false
 
 
 - type: entity

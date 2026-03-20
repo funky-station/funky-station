@@ -345,3 +345,13 @@ accent-italian-words-replace-71 = wise guys
 accent-italian-words-72 = nukie
 accent-italian-words-72-2 = nuclear operative
 accent-italian-words-replace-72 = wise guy 
+
+accent-italian-words-73 = captain
+accent-italian-words-73-2 = station commander
+accent-italian-words-73-3 = commanding officer
+accent-italian-words-73-4 = site manager
+accent-italian-words-73-5 = head of command
+accent-italian-words-73-6 = site director
+accent-italian-words-73-7 = site administrator
+accent-italian-words-73-8 = cap
+accent-italian-words-replace-73 = capitano

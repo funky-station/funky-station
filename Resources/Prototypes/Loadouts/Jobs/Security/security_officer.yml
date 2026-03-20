@@ -14,6 +14,7 @@
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 Frogoo <153249069+Fr0goo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Tea <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <juozas.dringelis@gmail.com>
 #
@@ -88,52 +89,52 @@
 
 # Jumpsuit
 - type: loadout
-  id: SecurityJumpsuit
+  id: SecurityFatigues
   equipment:
-    jumpsuit: ClothingUniformJumpsuitSec
-  groupBy: "jumpsuit"
+    jumpsuit: ClothingUniformJumpsuitSecBase
+  groupBy: "fatigues"
 
 - type: loadout
-  id: SecurityJumpskirt
+  id: SecurityDress
   equipment:
-    jumpsuit: ClothingUniformJumpskirtSec
-  groupBy: "jumpskirt"
+    jumpsuit: ClothingUniformSecurityDressBase
+  groupBy: "dress"
 
 - type: loadout
-  id: SecurityJumpsuitGrey
+  id: SecurityDressSkirt
   equipment:
-    jumpsuit: ClothingUniformJumpsuitSecGrey
-  groupBy: "jumpsuit"
+    jumpsuit: ClothingUniformSecurityDressSkirtBase
+  groupBy: "dress"
 
 - type: loadout
-  id: SecurityJumpskirtGrey
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtSecGrey
-  groupBy: "jumpskirt"
-
-- type: loadout
-  id: TrooperUniform
-  equipment:
-    jumpsuit: ClothingUniformSecurityTrooper
-  groupBy: "jumpsuit"
-
-- type: loadout
-  id: SeniorOfficerJumpsuit
+  id: SecuritySeniorDress
   effects:
   - !type:GroupLoadoutEffect
     proto: SeniorOfficer
   equipment:
-    jumpsuit: ClothingUniformJumpsuitSeniorOfficer
-  groupBy: "jumpsuit"
+    jumpsuit: ClothingUniformSecurityDressSenior
+  groupBy: "dress"
 
 - type: loadout
-  id: SeniorOfficerJumpskirt
+  id: SecuritySeniorDressSkirt
   effects:
   - !type:GroupLoadoutEffect
     proto: SeniorOfficer
   equipment:
-    jumpsuit: ClothingUniformJumpskirtSeniorOfficer
-  groupBy: "jumpskirt"
+    jumpsuit: ClothingUniformSecurityDressSkirtSenior
+  groupBy: "dress"
+
+- type: loadout
+  id: SecurityMess
+  equipment:
+    jumpsuit: ClothingUniformSecurityMessBase
+  groupBy: "mess"
+
+- type: loadout
+  id: SecurityMessSkirt
+  equipment:
+    jumpsuit: ClothingUniformSecurityMessSkirtBase
+  groupBy: "mess"
 
 # Back
 - type: loadout
@@ -223,7 +224,7 @@
   storage:
     back:
     - WeaponEnergyGunEnergyPistol
-    
+
 - type: loadout
   id: SecurityOfficerPistol
   storage:

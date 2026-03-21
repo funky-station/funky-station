@@ -9,17 +9,18 @@ public sealed partial class SmokerComponent : Component
     /// <summary>
     /// Time between triggering withdrawal stages when not smoking.
     /// </summary>
-    [DataField("SmokingInterval",required: true)]
-    public float SmokingInterval =185f;
+    [DataField("WithdrawalInterval",required: true)]
+    public float WithdrawalInterval =185f;
 
     /// <summary>
-    /// Timer added to the total timer after triggering a WithdrawalStage increase,
+    /// Timer added to the total timer after triggering a WithdrawalStage increase.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public float CurrentSmokingInterval =0f;
+    public float NextWithdrawalTime =0f;
 
     /// <summary>
-    /// The current stage of withdrawal of the user. It will determine the effects of the withdrawal.
+    /// The current stage of withdrawal of the user. It will determine the effects of the withdrawal and the frequency
+    /// of the effects.
     /// </summary>
     [DataField]
     public int WithdrawalStage;

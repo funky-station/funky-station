@@ -16,7 +16,8 @@ public sealed class SmokerSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-
+    private const float UpdateInterval = 2f;
+    private float _updateTimer;
     public override void Initialize()
     {
         SubscribeLocalEvent<SmokerComponent, ComponentStartup>(OnStartup);
@@ -27,6 +28,7 @@ public sealed class SmokerSystem : EntitySystem
         smoker.TimeSinceSmoking = 0f;
         smoker.WithdrawalStage = 0;
         smoker.CurrentNicotineLevel = 0f;
+        smoker.NextWithdrawalTime = smoker.WithdrawalInterval;
         EnsureComp<ContainerManagerComponent>(uid);
         if (!TryComp<ContainerManagerComponent>(uid, out var containerManager))
         {
@@ -52,16 +54,21 @@ public sealed class SmokerSystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-
-        var smokerQuery = EntityQueryEnumerator<SmokerComponent>();
-        while (smokerQuery.MoveNext(out var uid, out var smoker))
+        _updateTimer += frameTime;
+        while (_updateTimer >= UpdateInterval)
         {
-            if (_mobStateSystem.IsIncapacitated(uid) || TryComp<SleepingComponent>(uid,out _))
-                continue;
-            smoker.TimeSinceSmoking += frameTime;
-            if(CheckNicotineLevel(uid,smoker.ChemicalsContainer,smoker))
-                continue;
-            SetWithdrawalStage(uid,smoker);
+            _updateTimer -= UpdateInterval;
+
+            var smokerQuery = EntityQueryEnumerator<SmokerComponent>();
+            while (smokerQuery.MoveNext(out var uid, out var smoker))
+            {
+                if (_mobStateSystem.IsIncapacitated(uid) || TryComp<SleepingComponent>(uid, out _))
+                    continue;
+                smoker.TimeSinceSmoking += UpdateInterval;
+                if (CheckNicotineLevel(uid, smoker.ChemicalsContainer, smoker))
+                    continue;
+                SetWithdrawalStage(uid, smoker);
+            }
         }
     }
     /// <summary>
@@ -81,14 +88,15 @@ public sealed class SmokerSystem : EntitySystem
         {
             if (name.Reagent.Prototype != "Nicotine")
                 continue;
-            if (name.Quantity <= currentNicotine || name.Quantity - currentNicotine == 0.45)
+            if (name.Quantity <= currentNicotine || name.Quantity - currentNicotine == 0.45
+                                                 || name.Quantity - currentNicotine == 0.40)
             {
                 smoker.CurrentNicotineLevel = name.Quantity;
                 return false;
             }
             smoker.CurrentNicotineLevel = name.Quantity;
             smoker.TimeSinceSmoking = 0;
-            smoker.CurrentSmokingInterval = 0;
+            smoker.NextWithdrawalTime = smoker.WithdrawalInterval;
             smoker.WithdrawalStage = 0;
             return true;
         }
@@ -106,11 +114,11 @@ public sealed class SmokerSystem : EntitySystem
         if(smoker.WithdrawalStage < 0)
             smoker.WithdrawalStage = 0;
         // If it's not the time, continue.
-        if (!(smoker.TimeSinceSmoking >= smoker.SmokingInterval + smoker.CurrentSmokingInterval))
+        if (!(smoker.TimeSinceSmoking >= smoker.NextWithdrawalTime))
             return;
         smoker.WithdrawalStage++;
         // Ensures that ignoring the need to smoke will get harder longer they go.
-        smoker.CurrentSmokingInterval += smoker.SmokingInterval/(1+Math.Clamp(smoker.WithdrawalStage,0,7));
+        smoker.NextWithdrawalTime += smoker.WithdrawalInterval/(1+Math.Clamp(smoker.WithdrawalStage,0,7));
         switch (smoker.WithdrawalStage)
         {
             case 0:

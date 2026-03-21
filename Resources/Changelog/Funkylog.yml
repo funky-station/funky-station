@@ -7678,3 +7678,261 @@ Entries:
       message: Fixed issue with entities modifying lung gas more than once.
   id: 889
   time: '2026-02-05T18:42:31.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Add
+      message: >-
+        Added the Power Transmission Point and Compressed Matter Fabricator to
+        Packed.
+    - type: Fix
+      message: Fixed direction of evacuation signage in Packed.
+    - type: Tweak
+      message: Reworked the washroom to a laundromat in Packed.
+    - type: Add
+      message: >-
+        Added atmospheric reserves items (AIR computer, gas extractors, money
+        cabinet) to atmospherics in Packed.
+    - type: Add
+      message: Added Geiger counters to various locations in Packed.
+    - type: Remove
+      message: >-
+        Removed excess materials and loot within the Engineering department in
+        Packed.
+    - type: Add
+      message: Added a pipe scrubber to the atmospherics bay in Packed.
+    - type: Fix
+      message: >-
+        Linked a previously unlinked medical scanner and genetics console in
+        Packed.
+    - type: Fix
+      message: Fixed a previously unnamed science fax machine in Packed.
+    - type: Add
+      message: >-
+        Added a station beacon to Genetics and Secondary Evac (Docking Arm) in
+        Packed.
+    - type: Add
+      message: Added extra firelocks in northern maintenance in Packed.
+    - type: Fix
+      message: >-
+        Made the security entrance brig-locked instead of security-locked in
+        Packed.
+    - type: Fix
+      message: Connected the science department's pipenet to distro in Packed.
+    - type: Fix
+      message: Reorganized the chemistry room to move the sink in Packed.
+    - type: Add
+      message: Added a weakness to Captain's room in Packed.
+    - type: Add
+      message: Added a funny door to genpop in Packed.
+  id: 890
+  time: '2026-02-07T19:27:10.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Fix
+      message: Ion storms now actually scramble silicon laws as intended.
+  id: 891
+  time: '2026-02-09T18:19:07.0000000+00:00'
+- author: salpphie
+  changes:
+    - type: Add
+      message: >-
+        Added pipe scrubber, empty cloning room to medical in place of old
+        genetics area, and Laundry room to Eden map
+    - type: Tweak
+      message: Changed genetics to be in science on Eden map
+  id: 892
+  time: '2026-02-10T21:47:39.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Adds laundry to Roid
+    - type: Fix
+      message: Fixed Roids missing lv wire to RnD server
+    - type: Tweak
+      message: >-
+        Roids atmos miners switched to extractors and supplies adjusted for gas
+        purchasing
+  id: 893
+  time: '2026-02-10T21:50:04.0000000+00:00'
+- author: ParadoxumOfficial
+  changes:
+    - type: Fix
+      message: Hopefully fixed the broken Github Labeler
+  id: 894
+  time: '2026-02-11T05:40:13.0000000+00:00'
+- author: TheHolyAegis
+  changes:
+    - type: Add
+      message: >-
+        Added decals on the floor to guide players to some of the further spots
+        on the station.
+    - type: Add
+      message: Added some wallmounted geiger counters in and around engineering.
+    - type: Add
+      message: Replaced one portable scrubber with a pipe scrubber.
+    - type: Add
+      message: Added the Atmospheric Reserves Computer.
+    - type: Tweak
+      message: >-
+        Replaced the standard gas minders with gas extractors, which are
+        connected to the Atmospheric Reserves Computer.
+    - type: Fix
+      message: Fixed the one blast door not being connected on the evacuation shuttle.
+    - type: Fix
+      message: >-
+        Connected the one APC in medical that didn't have an MV cable going to
+        it.
+    - type: Tweak
+      message: Changed some additional minor things to improve the player experience.
+  id: 895
+  time: '2026-02-17T21:58:26.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Fix
+      message: >-
+        The Revolution should now end once all command members are dead or
+        off-station now. 
+  id: 896
+  time: '2026-02-18T01:13:36.0000000+00:00'
+- author: Marigold
+  changes:
+    - type: Fix
+      message: Fixed a typo in Synthetic trait description
+  id: 897
+  time: '2026-02-18T01:24:37.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Add
+      message: Redone pathfinding decals.
+  id: 898
+  time: '2026-02-21T21:39:07.0000000+00:00'
+- author: EmillyCoelho
+  changes:
+    - type: Add
+      message: NSS14 Cyberiad Station added to the game, waiting for playtests!
+  id: 899
+  time: '2026-02-23T20:00:13.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: New content warning pop-up when you first connect.
+  id: 900
+  time: '2026-02-24T21:19:38.0000000+00:00'
+- author: TheHolyAegis
+  changes:
+    - type: Remove
+      message: >-
+        Removed the belt loadout option from the NTR, due to it already spawning
+        with the waistbag and clipboard.
+  id: 901
+  time: '2026-02-27T22:57:15.0000000+00:00'
+- author: pirakaplant
+  changes:
+    - type: Tweak
+      message: The British accent now changes "dick" to "knob".
+  id: 902
+  time: '2026-03-02T23:57:41.0000000+00:00'
+- author: ALooseGoose
+  changes:
+    - type: Fix
+      message: The Nukie's Nuke now starts unanchored
+  id: 903
+  time: '2026-03-05T13:28:06.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Add
+      message: Added nitrous tanks to the operating tables in Medbay. (Packed)
+    - type: Tweak
+      message: Renamed the murder weapon in maintenance. (Packed)
+    - type: Fix
+      message: >-
+        Added missing directional fans to west arrivals and maintenance.
+        (Packed)
+    - type: Add
+      message: Added decals across main hallways. (Packed)
+    - type: Add
+      message: Added drains to the morgue. (Packed)
+    - type: Tweak
+      message: Reinforced the windows around Security and Genpop. (Packed)
+    - type: Tweak
+      message: Replaced the AI turret in the armory with a Security turret. (Packed)
+  id: 904
+  time: '2026-03-05T13:28:55.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Fix
+      message: CC got some necessary not-at-all-hotfixes.
+  id: 905
+  time: '2026-03-05T14:19:40.0000000+00:00'
+- author: Dogman20801
+  changes:
+    - type: Tweak
+      message: MK 58s, and accompanying .35 pistol magazines, have been resprited!
+  id: 906
+  time: '2026-03-08T01:33:49.0000000+00:00'
+- author: chuga-git
+  changes:
+    - type: Fix
+      message: Utility knife now shows its blade when toggled.
+  id: 907
+  time: '2026-03-08T01:35:36.0000000+00:00'
+- author: pirakaplant
+  changes:
+    - type: Tweak
+      message: >-
+        The nuclear outpost's Booze-O-Mat is now a Bruise-O-Mat. No more hacking
+        needed!
+    - type: Tweak
+      message: >-
+        The nuclear outpost now features two chemical payloads, two explosive
+        payloads, and two flash payloads.
+  id: 908
+  time: '2026-03-09T08:30:21.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Fix
+      message: Fixes mentions of LOOC to Help
+  id: 909
+  time: '2026-03-09T17:16:58.0000000+00:00'
+- author: Gorsthir
+  changes:
+    - type: Tweak
+      message: Resized rat lobby art to better fit the lobby screen
+  id: 910
+  time: '2026-03-10T00:52:58.0000000+00:00'
+- author: neadsy
+  changes:
+    - type: Fix
+      message: Fixed wording in the Cosmic Cult Colossus guidebook.
+  id: 911
+  time: '2026-03-10T00:56:22.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Add
+      message: Added oscilliator as a new nuke and expedition track.
+  id: 912
+  time: '2026-03-10T11:06:37.0000000+00:00'
+- author: Delta, Thrld, Trixxed
+  changes:
+    - type: Tweak
+      message: Existing lizard markings
+    - type: Tweak
+      message: Fixing moth displacements
+    - type: Add
+      message: New lizard markings
+    - type: Remove
+      message: Removed lizard tail wagging
+  id: 913
+  time: '2026-03-15T20:19:59.0000000+00:00'
+- author: Tea
+  changes:
+    - type: Tweak
+      message: resprited security to a more space-military aesthetic.
+  id: 914
+  time: '2026-03-15T20:20:56.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Tweak
+      message: Snouts now render over Jumpsuits
+  id: 915
+  time: '2026-03-19T22:02:34.0000000+00:00'

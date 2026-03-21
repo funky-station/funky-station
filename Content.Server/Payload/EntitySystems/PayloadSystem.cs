@@ -14,11 +14,13 @@
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 alex-infdev <185717397+alex-infdev@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Administration.Logs;
 using Content.Server.Explosion.EntitySystems;
+using Content.Server.Fluids.EntitySystems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Database;
 using Content.Shared.Examine;
@@ -38,6 +40,7 @@ public sealed class PayloadSystem : EntitySystem
 {
     [Dependency] private readonly TagSystem _tagSystem = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private readonly PuddleSystem _puddleSystem = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
@@ -82,6 +85,8 @@ public sealed class PayloadSystem : EntitySystem
         {
             RaiseLocalEvent(ent, args, false);
         }
+
+        QueueDel(uid);
     }
 
     private void OnTriggerTriggered(EntityUid uid, PayloadTriggerComponent component, TriggerEvent args)
@@ -188,11 +193,7 @@ public sealed class PayloadSystem : EntitySystem
         _solutionContainerSystem.TryAddSolution(solnA.Value, solutionB);
         _solutionContainerSystem.RemoveAllSolution(solnB.Value);
 
-        // The grenade might be a dud. Redistribute solution:
-        var tmpSol = _solutionContainerSystem.SplitSolution(solnA.Value, solutionA.Volume * solutionB.MaxVolume / solutionA.MaxVolume);
-        _solutionContainerSystem.TryAddSolution(solnB.Value, tmpSol);
-        solutionA.MaxVolume -= solutionB.MaxVolume;
-        _solutionContainerSystem.UpdateChemicals(solnA.Value);
+        _puddleSystem.TrySpillAt(entity.Owner, solutionA, out _);
 
         args.Handled = true;
     }

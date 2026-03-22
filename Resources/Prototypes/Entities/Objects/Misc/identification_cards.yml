@@ -986,6 +986,7 @@
     tags:
     - NuclearOperative
     - SyndicateAgent
+  - type: AgentIDCard #mirrored like how upstream is, makes agent IDs not a must purchase 1000% of the time
   - type: NanoChatCard # DeltaV
     listNumber: false
 

@@ -408,3 +408,39 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
+
+- type: entity
+  parent: [ClothingEyesBase, BaseCommandContraband]
+  id: ClothingEyesGlassesMesonAdvanced #mesons but better
+  name: advanced meson goggles # Changed back to Meson because it sounds cooler.
+  description: Green-tinted goggles based off the classic meson goggles that has a superpowered t-ray projector and scanner built into them, which can scan for structures through walls. Perfect for scanning your surroundings for repairs, or to find weak spots in a structure.
+  suffix: XRay
+  components:
+  - type: Sprite
+    sprite: Clothing/Eyes/Glasses/meson.rsi
+  - type: Clothing
+    sprite: Clothing/Eyes/Glasses/meson.rsi
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: TrayScanner
+    range: 3
+    enabled: false
+#  - type: Tag  #HOWEVER funny it would be, not gonna make CE's goggles convertable into jamgoggles
+#    tags:
+#    - EngiVision #Funky - jamjarrening
+#  - type: GlassesOverlay
+    shader: Goggles
+    color: '#5AB43CCC'
+    enabled: false
+  - type: ShowXRay
+    shader: XRay
+    enabled: false
+    whitelist:
+      components:
+      - Door
+      - Chasm
+      tags:
+      - Wall
+      - Window
+      - Catwalk
+      - XrayVisible

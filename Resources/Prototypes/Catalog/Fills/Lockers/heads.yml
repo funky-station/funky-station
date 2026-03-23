@@ -285,7 +285,8 @@
       prob: 0.15
     - id: ClothingBeltChiefEngineerFilled
     - id: HolotapeProjector #funky!
-    - id: ClothingEyesGlassesMeson
+#    - id: ClothingEyesGlassesMeson #swapped for X-ray goggles/adv mesons
+    - id: ClothingEyesGlassesMesonAdvanced #funky #because CE isn't enough of a lootbag already, but uh on a more serious note, this is a step up from the mesons engis have, more reason to be a CE or acting CE
     - id: ClothingHandsGlovesChiefEngineerInsuls #funky!
     - id: ClothingHeadsetAltEngineering
     - id: DoorRemoteEngineering

@@ -502,7 +502,7 @@
   parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ClothingHeadHelmetHardsuitRd
   name: experimental research hardsuit helmet
-  description: Lightweight hardsuit helmet that doesn't restrict your head movements.
+  description: Lightweight hardsuit helmet that doesn't restrict your head movements. The helmet also has a toggle to lower a night vision visor for special use cases.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/rd.rsi

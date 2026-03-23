@@ -257,7 +257,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
                 if (protoId == "KillRandomHeadObjective")
                 {
                     int number = random.Next(1, 6);
-                    var flavorKey = $"kill-random-head-objective-flavor-{number}";
+                    var flavorKey = $"kill-head-objective-flavor-{number}";
                     var flavorText = Loc.GetString(flavorKey);
                     metaSystem.SetEntityDescription(objective, $"{meta.EntityDescription} {flavorText}");
                 }

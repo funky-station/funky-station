@@ -170,7 +170,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         if (traitorRole is not null)
         {
             AddComp<RoleBriefingComponent>(traitorRole.Value.Owner);
-            Comp<RoleBriefingComponent>(traitorRole.Value.Owner).Briefing = GenerateBriefingCharacter(component.Codewords, code, issuer);
+            Comp<RoleBriefingComponent>(traitorRole.Value.Owner).Briefing = GenerateBriefingCharacter(mind, component.Codewords, code, issuer);
         }
 
         // Send codewords to only the traitor client
@@ -211,7 +211,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
 
         return sb.ToString();
     }
-    private string GenerateBriefingCharacter(string[] codewords, Note[]? uplinkCode, string objectiveIssuer)
+    private string GenerateBriefingCharacter(MindComponent mind, string[] codewords, Note[]? uplinkCode, string objectiveIssuer)
     {
         var sb = new StringBuilder();
         sb.AppendLine("\n" + Loc.GetString($"traitor-{objectiveIssuer}-intro"));
@@ -227,6 +227,169 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
 
         sb.AppendLine("\n" + Loc.GetString($"traitor-role-notes"));
         sb.AppendLine(Loc.GetString($"traitor-{objectiveIssuer}-goal"));
+
+        var objectives = mind.Objectives;
+
+        foreach (var objective in mind.Objectives)
+        {
+            if (EntityManager.TryGetComponent<MetaDataComponent>(objective, out var meta))
+            {
+                var random = new Random();
+                var protoId = meta.EntityPrototype?.ID;
+                var metaSystem = Get<MetaDataSystem>();
+
+                if (protoId == "EscapeShuttleObjective")
+                {
+                    int number = random.Next(1, 11);
+                    var flavorKey = $"escape-shuttle-objective-flavor-{number}";
+                    var flavorText = Loc.GetString(flavorKey);
+                    metaSystem.SetEntityDescription(objective, $"{meta.EntityDescription} {flavorText}");
+                }
+
+                if (protoId == "KillRandomPersonObjective" || protoId == "PermaKillRandomPersonObjective" || protoId == "PermaKillRandomTraitorObjective")
+                {
+                    int number = random.Next(1, 11);
+                    var flavorKey = $"kill-random-person-objective-flavor-{number}";
+                    var flavorText = Loc.GetString(flavorKey);
+                    metaSystem.SetEntityDescription(objective, $"{meta.EntityDescription} {flavorText}");
+                }
+
+                if (protoId == "KillRandomHeadObjective")
+                {
+                    int number = random.Next(1, 6);
+                    var flavorKey = $"kill-random-head-objective-flavor-{number}";
+                    var flavorText = Loc.GetString(flavorKey);
+                    metaSystem.SetEntityDescription(objective, $"{meta.EntityDescription} {flavorText}");
+                }
+
+                if (protoId == "DieObjective")
+                {
+                    int number = random.Next(1, 11);
+                    var flavorKey = $"die-objective-flavor-{number}";
+                    var flavorText = Loc.GetString(flavorKey);
+                    metaSystem.SetEntityDescription(objective, $"{meta.EntityDescription} {flavorText}");
+                }
+
+                if (protoId == "RandomTraitorAliveObjective")
+                {
+                    int number = random.Next(1, 11);
+                    var flavorKey = $"random-traitor-alive-objective-flavor-{number}";
+                    var flavorText = Loc.GetString(flavorKey);
+                    metaSystem.SetEntityDescription(objective, $"{meta.EntityDescription} {flavorText}");
+                }
+
+                if (protoId == "RandomTraitorProgressObjective")
+                {
+                    int number = random.Next(1, 11);
+                    var flavorKey = $"random-traitor-progress-objective-flavor-{number}";
+                    var flavorText = Loc.GetString(flavorKey);
+                    metaSystem.SetEntityDescription(objective, $"{meta.EntityDescription} {flavorText}");
+                }
+
+                if (protoId == "CMOHyposprayStealObjective")
+                {
+                    int number = random.Next(1, 6);
+                    var flavorKey = $"cmo-hypospray-steal-objective-flavor-{number}";
+                    var flavorText = Loc.GetString(flavorKey);
+                    metaSystem.SetEntityDescription(objective, $"{meta.EntityDescription} {flavorText}");
+                }
+
+                if (protoId == "RDHardsuitStealObjective")
+                {
+                    int number = random.Next(1, 6);
+                    var flavorKey = $"rd-hardsuit-steal-objective-flavor-{number}";
+                    var flavorText = Loc.GetString(flavorKey);
+                    metaSystem.SetEntityDescription(objective, $"{meta.EntityDescription} {flavorText}");
+                }
+
+                if (protoId == "HandTeleporterStealObjective")
+                {
+                    int number = random.Next(1, 6);
+                    var flavorKey = $"hand-teleporter-steal-objective-flavor-{number}";
+                    var flavorText = Loc.GetString(flavorKey);
+                    metaSystem.SetEntityDescription(objective, $"{meta.EntityDescription} {flavorText}");
+                }
+
+                if (protoId == "EnergyShotgunStealObjective")
+                {
+                    int number = random.Next(1, 6);
+                    var flavorKey = $"energy-shotgun-steal-objective-flavor-{number}";
+                    var flavorText = Loc.GetString(flavorKey);
+                    metaSystem.SetEntityDescription(objective, $"{meta.EntityDescription} {flavorText}");
+                }
+
+                if (protoId == "MagbootsStealObjective")
+                {
+                    int number = random.Next(1, 6);
+                    var flavorKey = $"magboots-steal-objective-flavor-{number}";
+                    var flavorText = Loc.GetString(flavorKey);
+                    metaSystem.SetEntityDescription(objective, $"{meta.EntityDescription} {flavorText}");
+                }
+
+                if (protoId == "ClipboardStealObjective")
+                {
+                    int number = random.Next(1, 6);
+                    var flavorKey = $"clipboard-steal-objective-flavor-{number}";
+                    var flavorText = Loc.GetString(flavorKey);
+                    metaSystem.SetEntityDescription(objective, $"{meta.EntityDescription} {flavorText}");
+                }
+
+                if (protoId == "KnuckleDustersStealObjective")
+                {
+                    int number = random.Next(1, 6);
+                    var flavorKey = $"knuckle-dusters-steal-objective-flavor-{number}";
+                    var flavorText = Loc.GetString(flavorKey);
+                    metaSystem.SetEntityDescription(objective, $"{meta.EntityDescription} {flavorText}");
+                }
+
+                if (protoId == "CorgiMeatStealObjective")
+                {
+                    int number = random.Next(1, 6);
+                    var flavorKey = $"corgi-meat-steal-objective-flavor-{number}";
+                    var flavorText = Loc.GetString(flavorKey);
+                    metaSystem.SetEntityDescription(objective, $"{meta.EntityDescription} {flavorText}");
+                }
+
+                if (protoId == "CaptainIDStealObjective")
+                {
+                    int number = random.Next(1, 6);
+                    var flavorKey = $"captain-id-steal-objective-flavor-{number}";
+                    var flavorText = Loc.GetString(flavorKey);
+                    metaSystem.SetEntityDescription(objective, $"{meta.EntityDescription} {flavorText}");
+                }
+
+                if (protoId == "CaptainJetpackStealObjective")
+                {
+                    int number = random.Next(1, 6);
+                    var flavorKey = $"captain-jetpack-steal-objective-flavor-{number}";
+                    var flavorText = Loc.GetString(flavorKey);
+                    metaSystem.SetEntityDescription(objective, $"{meta.EntityDescription} {flavorText}");
+                }
+
+                if (protoId == "CaptainGunStealObjective")
+                {
+                    int number = random.Next(1, 6);
+                    var flavorKey = $"captain-gun-steal-objective-flavor-{number}";
+                    var flavorText = Loc.GetString(flavorKey);
+                    metaSystem.SetEntityDescription(objective, $"{meta.EntityDescription} {flavorText}");
+                }
+
+                if (protoId == "NukeDiskStealObjective")
+                {
+                    var flavorKey = $"captain-gun-steal-objective-flavor";
+                    var flavorText = Loc.GetString(flavorKey);
+                    metaSystem.SetEntityDescription(objective, $"{meta.EntityDescription} {flavorText}");
+                }
+
+                if (protoId == "RandomTraitorTargetAliveObjective")
+                {
+                    int number = random.Next(1, 11);
+                    var flavorKey = $"random-traitor-target-alive-objective-flavor-{number}";
+                    var flavorText = Loc.GetString(flavorKey);
+                    metaSystem.SetEntityDescription(objective, $"{meta.EntityDescription} {flavorText}");
+                }
+            }
+        }
 
         return sb.ToString();
     }

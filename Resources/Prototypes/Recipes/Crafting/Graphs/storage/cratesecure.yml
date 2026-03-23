@@ -45,14 +45,14 @@
             - !type:EmptyAllContainers
             - !type:DeleteEntity
 
-# service secure crate
+
 - type: constructionGraph
-  id: CrateHydroSecure
+  id: CrateServiceSecure
   start: start
   graph:
   - node: start
     edges:
-    - to: CrateHydroSecure
+    - to: CrateServiceSecure
       steps:
       - material: Steel
         amount: 5
@@ -61,8 +61,8 @@
         doAfter: 5
 
 
-  - node: CrateHydroSecure
-    entity: CrateHydroSecure
+  - node: CrateServiceSecure
+    entity: CrateServiceSecure
     edges:
     - to: start
       steps:

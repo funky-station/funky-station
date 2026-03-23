@@ -339,6 +339,18 @@
 
 - type: entity
   parent: CrateBaseSecure
+  id: CrateServiceSecure
+  name: secure service crate
+  components:
+  - type: Icon
+    sprite: Structures/Storage/Crates/hydro_secure.rsi
+  - type: Sprite
+    sprite: Structures/Storage/Crates/hydro_secure.rsi
+  - type: AccessReader
+    access: [["Service"]]
+
+- type: entity
+  parent: CrateBaseSecure
   id: CrateWeaponSecure
   name: secure weapon crate
   components:

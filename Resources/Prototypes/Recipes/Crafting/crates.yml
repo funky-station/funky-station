@@ -38,7 +38,7 @@
   objectType: Structure
 
 - type: construction
-  name: unconfigured secure crate
+  name: secure crate
   id: CrateSecure
   graph: CrateSecure
   startNode: start
@@ -50,10 +50,10 @@
 
 - type: construction
   name: service secure crate
-  id: CrateHydroSecure
-  graph: CrateHydroSecure
+  id: CrateServiceSecure
+  graph: CrateServiceSecure
   startNode: start
-  targetNode: CrateHydroSecure
+  targetNode: CrateServiceSecure
   category: construction-category-storage
   description: A secure metal crate for storing things. Set to Service Access by default.
   icon: { sprite: Structures/Storage/Crates/hydro_secure.rsi, state: icon }

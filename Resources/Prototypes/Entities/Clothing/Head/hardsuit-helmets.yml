@@ -442,7 +442,7 @@
   parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ClothingHeadHelmetHardsuitEngineeringWhite
   name: chief engineer's hardsuit helmet
-  description: Special hardsuit helmet, made for the chief engineer of the station.
+  description: Special hardsuit helmet, made for the chief engineer of the station. The helmet seems to have a specially coated visor that can let the wearer weld with welders that have a less harmful flame.
   components:
   - type: Sprite
     sprite: _Funkystation/Clothing/Head/Hardsuits/engineering-white.rsi
@@ -462,6 +462,9 @@
       path: /Audio/Mecha/mechmove03.ogg
     soundToggleOff:
       path: /Audio/Mecha/mechmove03.ogg
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5 #should just give sunglasses level protection, enough for CE's exp welder to not burn their eyeballs
   - type: ComponentToggler
     components:
     - type: IngestionBlocker

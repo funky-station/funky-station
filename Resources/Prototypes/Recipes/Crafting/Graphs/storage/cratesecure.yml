@@ -44,3 +44,227 @@
               amount: 2
             - !type:EmptyAllContainers
             - !type:DeleteEntity
+
+# service secure crate
+- type: constructionGraph
+  id: CrateHydroSecure
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: CrateHydroSecure
+      steps:
+      - material: Steel
+        amount: 5
+      - material: Cable
+        amount: 2
+        doAfter: 5
+
+
+  - node: CrateHydroSecure
+    entity: CrateHydroSecure
+    edges:
+    - to: start
+      steps:
+      - tool: Screwing
+        doAfter: 5
+      conditions:
+      - !type:StorageWelded
+        welded: false
+      - !type:Locked
+        locked: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 5
+      - !type:SpawnPrototype
+        prototype: CableApcStack1
+        amount: 2
+      - !type:EmptyAllContainers
+      - !type:DeleteEntity
+
+
+
+- type: constructionGraph
+  id: CrateWeaponSecure
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: CrateWeaponSecure
+      steps:
+      - material: Steel
+        amount: 5
+      - material: Cable
+        amount: 2
+        doAfter: 5
+
+
+  - node: CrateWeaponSecure
+    entity: CrateWeaponSecure
+    edges:
+    - to: start
+      steps:
+      - tool: Screwing
+        doAfter: 5
+      conditions:
+      - !type:StorageWelded
+        welded: false
+      - !type:Locked
+        locked: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 5
+      - !type:SpawnPrototype
+        prototype: CableApcStack1
+        amount: 2
+      - !type:EmptyAllContainers
+      - !type:DeleteEntity
+
+- type: constructionGraph
+  id: CrateMedicalSecure
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: CrateMedicalSecure
+      steps:
+      - material: Steel
+        amount: 5
+      - material: Cable
+        amount: 2
+        doAfter: 5
+
+
+  - node: CrateMedicalSecure
+    entity: CrateMedicalSecure
+    edges:
+    - to: start
+      steps:
+      - tool: Screwing
+        doAfter: 5
+      conditions:
+      - !type:StorageWelded
+        welded: false
+      - !type:Locked
+        locked: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 5
+      - !type:SpawnPrototype
+        prototype: CableApcStack1
+        amount: 2
+      - !type:EmptyAllContainers
+      - !type:DeleteEntity
+
+- type: constructionGraph
+  id: CrateEngineeringSecure
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: CrateEngineeringSecure
+      steps:
+      - material: Steel
+        amount: 5
+      - material: Cable
+        amount: 2
+        doAfter: 5
+
+
+  - node: CrateEngineeringSecure
+    entity: CrateEngineeringSecure
+    edges:
+    - to: start
+      steps:
+      - tool: Screwing
+        doAfter: 5
+      conditions:
+      - !type:StorageWelded
+        welded: false
+      - !type:Locked
+        locked: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 5
+      - !type:SpawnPrototype
+        prototype: CableApcStack1
+        amount: 2
+      - !type:EmptyAllContainers
+      - !type:DeleteEntity
+
+- type: constructionGraph
+  id: CrateScienceSecure
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: CrateScienceSecure
+      steps:
+      - material: Steel
+        amount: 5
+      - material: Cable
+        amount: 2
+        doAfter: 5
+
+
+  - node: CrateScienceSecure
+    entity: CrateScienceSecure
+    edges:
+    - to: start
+      steps:
+      - tool: Screwing
+        doAfter: 5
+      conditions:
+      - !type:StorageWelded
+        welded: false
+      - !type:Locked
+        locked: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 5
+      - !type:SpawnPrototype
+        prototype: CableApcStack1
+        amount: 2
+      - !type:EmptyAllContainers
+      - !type:DeleteEntity
+
+- type: constructionGraph
+  id: CrateCommandSecure
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: cratecommandsecure
+      steps:
+      - material: Steel
+        amount: 5
+      - material: Cable
+        amount: 2
+        doAfter: 5
+
+  - node: cratecommandsecure
+    entity: CrateCommandSecure
+    edges:
+    - to: start
+      steps:
+      - tool: Screwing
+        doAfter: 5
+      conditions:
+      - !type:StorageWelded
+        welded: false
+      - !type:Locked
+        locked: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 5
+      - !type:SpawnPrototype
+        prototype: CableApcStack1
+        amount: 2
+      - !type:EmptyAllContainers
+      - !type:DeleteEntity

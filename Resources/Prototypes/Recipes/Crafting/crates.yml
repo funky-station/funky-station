@@ -38,7 +38,7 @@
   objectType: Structure
 
 - type: construction
-  name: secure crate
+  name: unconfigured secure crate
   id: CrateSecure
   graph: CrateSecure
   startNode: start
@@ -47,6 +47,75 @@
   description: A secure metal crate for storing things. Requires no special access, can be configured with an Access Configurator.
   icon: { sprite: Structures/Storage/Crates/secure.rsi, state: icon }
   objectType: Structure
+
+- type: construction
+  name: service secure crate
+  id: CrateHydroSecure
+  graph: CrateHydroSecure
+  startNode: start
+  targetNode: CrateHydroSecure
+  category: construction-category-storage
+  description: A secure metal crate for storing things. Set to Service Access by default.
+  icon: { sprite: Structures/Storage/Crates/hydro_secure.rsi, state: icon }
+  objectType: Structure
+
+- type: construction
+  name: security secure crate
+  id: CrateWeaponSecure
+  graph: CrateWeaponSecure
+  startNode: start
+  targetNode: CrateWeaponSecure
+  category: construction-category-storage
+  description: A secure metal crate for storing things. Set to Security Access by default.
+  icon: { sprite: Structures/Storage/Crates/weapon.rsi, state: icon }
+  objectType: Structure
+
+- type: construction
+  name: medical secure crate
+  id: CrateMedicalSecure
+  graph: CrateMedicalSecure
+  startNode: start
+  targetNode: CrateMedicalSecure
+  category: construction-category-storage
+  description: A secure metal crate for storing things. Set to Medical Access by default.
+  icon: { sprite: Structures/Storage/Crates/medicalcrate_secure.rsi, state: icon }
+  objectType: Structure
+
+- type: construction
+  name: engineering secure crate
+  id: CrateEngineeringSecure
+  graph: CrateEngineeringSecure
+  startNode: start
+  targetNode: CrateEngineeringSecure
+  category: construction-category-storage
+  description: A secure metal crate for storing things. Set to Engineering Access by default.
+  icon: { sprite: Structures/Storage/Crates/engicrate_secure.rsi, state: icon }
+  objectType: Structure
+
+- type: construction
+  name: science secure crate
+  id: CrateScienceSecure
+  graph: CrateScienceSecure
+  startNode: start
+  targetNode: CrateScienceSecure
+  category: construction-category-storage
+  description: A secure metal crate for storing things. Set to Science Access by default.
+  icon: { sprite: Structures/Storage/Crates/scicrate_secure.rsi, state: icon }
+  objectType: Structure
+
+- type: construction
+  name: command secure crate
+  id: CrateCommandSecure
+  graph: CrateCommandSecure
+  startNode: start
+  targetNode: cratecommandsecure
+  category: construction-category-storage
+  description: A secure metal crate for storing things. Set to Command Access by default.
+  icon: { sprite: Structures/Storage/Crates/command.rsi, state: icon }
+  objectType: Structure
+
+
+
 
 - type: construction
   name: freezer
@@ -100,7 +169,7 @@
   targetNode: foodboxpizza
   category: construction-category-storage
   description: A box for pizza.
-  icon: 
+  icon:
     sprite: Objects/Consumable/Food/Baked/pizza.rsi
     state: box
   objectType: Item

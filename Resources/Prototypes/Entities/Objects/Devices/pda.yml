@@ -1053,7 +1053,7 @@
   - type: Pda
     id: HoSIDCard
     penSlot: # Funky
-      startingItem: LuxuryPen
+      startingItem: HoloflarePen
       priority: -1
       whitelist:
         tags:

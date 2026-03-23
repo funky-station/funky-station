@@ -1,0 +1,73 @@
+
+# SPDX-License-Identifier: MIT
+
+- type: gameMap
+  id: Bramble
+  mapName: 'Bramble Midway'
+  mapPath: /Maps/_Funkystation/bramble.yml
+  minPlayers: 40
+  stations:
+    Bramble:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Bramble {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/_Funkystation/Shuttles/emergency_bramble.yml
+        - type: StationJobs
+          availableJobs:
+            # central command
+            NanotrasenRepresentative: [ 1, 1 ]
+            InternalAffairsAgent: [ 2, 2 ]
+            Magistrate: [ 1, 1 ]
+            #service
+            Captain: [ 1, 1 ]
+            HeadOfPersonnel: [ 1, 1 ]
+            Bartender: [ 1, 2 ]
+            Botanist: [ 2, 3 ]
+            Chef: [ 2, 2 ]
+            Janitor: [ 2, 3 ]
+            Chaplain: [ 1, 1 ]
+            Librarian: [ 1, 1 ]
+            ServiceWorker: [ 4, 5 ]
+            #engineering
+            ChiefEngineer: [ 1, 1 ]
+            StationEngineer: [ 7, 9 ]
+            TechnicalAssistant: [ 4, 5 ]
+            #medical
+            ChiefMedicalOfficer: [ 1, 1 ]
+            Chemist: [ 2, 3 ]
+            MedicalDoctor: [ 4, 4 ]
+            Paramedic: [ 2, 2 ]
+            MedicalIntern: [ 4, 4 ]
+            Psychologist: [ 1, 1 ]
+            #science
+            ResearchDirector: [ 1, 1 ]
+            Scientist: [ 4, 5 ]
+            Roboticist: [ 1, 1 ]
+            ResearchAssistant: [ 4, 5 ]
+            #security
+            HeadOfSecurity: [ 1, 1 ]
+            Warden: [ 1, 1 ]
+            SecurityOfficer: [ 4, 5 ]
+            Detective: [ 1, 1 ]
+            SecurityCadet: [ 4, 5 ]
+            Lawyer: [ 2, 2 ]
+            #supply
+            Quartermaster: [ 1, 1 ]
+            SalvageSpecialist: [ 3, 3 ]
+            CargoTechnician: [ 4, 4 ]
+            #civilian
+            Zookeeper: [ 1, 1 ]
+            Passenger: [ -1, -1 ]
+            Clown: [ 1, 1 ]
+            Mime: [ 1, 1 ]
+            Musician: [ 1, 1 ]
+            Boxer: [ 1, 1 ]
+            Reporter: [ 1, 2 ]
+            #silicon
+            StationAi: [ 1, 1 ]
+            Borg: [ 4, 5 ]

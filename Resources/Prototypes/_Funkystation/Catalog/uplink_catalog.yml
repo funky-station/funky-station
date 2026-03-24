@@ -146,6 +146,26 @@
   saleLimit: 1
 
 - type: listing
+  id: UplinkDAGDAutoInjectorBundle
+  name: uplink-autoinjector-bundle-name
+  description: uplink-autoinjector-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateCartridgeAutoinjectorBundleFilled
+  cost:
+    Telecrystal: 50
+  categories:
+  - UplinkDAGD
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - DAGDUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+  saleLimit: 1
+
+- type: listing
   id: UplinkSyndieKit
   name: uplink-syndie-kit-name
   description: uplink-syndie-kit-desc
@@ -217,4 +237,4 @@
     Telecrystal: 3 # gives a towel with a mean whip, three TC is probably a good cost for it
   categories:
   - UplinkPointless
-  saleBlacklist: true 
+  saleBlacklist: true

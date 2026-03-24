@@ -25,6 +25,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Server.Mind;
 using Content.Server.Store.Systems;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
@@ -32,6 +33,7 @@ using Content.Shared.PDA;
 using Content.Shared.FixedPoint;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
+using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Traitor.Uplink
@@ -42,6 +44,8 @@ namespace Content.Server.Traitor.Uplink
         [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
         [Dependency] private readonly StoreSystem _store = default!;
+        [Dependency] private readonly MindSystem _mind = default!;
+        [Dependency] private readonly TagSystem _tagSystem = default!;
 
         [ValidatePrototypeId<CurrencyPrototype>]
         public const string TelecrystalCurrencyPrototype = "Telecrystal";
@@ -91,6 +95,24 @@ namespace Content.Server.Traitor.Uplink
             {
                 store.Balance.Clear();
                 _store.TryAddCurrency(new Dictionary<string, FixedPoint2> { { currencyProtoId ?? TelecrystalCurrencyPrototype, balance.Value } }, uplinkEntity.Value, store);
+            }
+
+            if (!_mind.TryGetMind(user, out var mindId, out var mind))
+                return false;
+
+            foreach (var objective in mind.Objectives)
+            {
+                if (EntityManager.TryGetComponent<MetaDataComponent>(objective, out var meta))
+                {
+                    var protoId = meta.EntityPrototype?.ID;
+
+                    if (protoId == "DieObjective")
+                    {
+                        EnsureComp<TagComponent>(uplinkEntity.Value);
+                        _tagSystem.AddTag(uplinkEntity.Value, "DAGDUplink");
+                        _store.TryAddCurrency(new Dictionary<string, FixedPoint2> { { TelecrystalCurrencyPrototype, 50 } }, uplinkEntity.Value, store);
+                    }
+                }
             }
 
             // TODO add BUI. Currently can't be done outside of yaml -_-

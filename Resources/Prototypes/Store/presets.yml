@@ -35,6 +35,7 @@
     - UplinkJob
     - UplinkPointless
     - UplinkSales # WD EDIT
+    - UplinkDAGD
     currencyWhitelist:
     - Telecrystal
     balance:

@@ -428,7 +428,7 @@
 #  - type: Tag  #HOWEVER funny it would be, not gonna make CE's goggles convertable into jamgoggles
 #    tags:
 #    - EngiVision #Funky - jamjarrening
-#  - type: GlassesOverlay
+  - type: GlassesOverlay
     shader: Goggles
     color: '#5AB43CCC'
     enabled: false

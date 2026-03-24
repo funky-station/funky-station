@@ -222,22 +222,20 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     }
 
     // gets all flavor texts from traitor-flavor-objectives.ftl based on the key provided
-    private List<string> GetFlavorKeys(string baseKey)
+    private int GetNumberOfFlavorKeys(string baseKey)
     {
-        var keys = new List<string>();
-        var i = 1;
+        var i = 0;
 
         while (true)
         {
-            var key = $"{baseKey}-{i}";
+            var key = $"{baseKey}-{i + 1}";
             if (!Loc.HasString(key))
                 break;
 
-            keys.Add(key);
             i++;
         }
 
-        return keys;
+        return i;
     }
 
     private string GenerateBriefingCharacter(MindComponent mind, string[] codewords, Note[]? uplinkCode, string objectiveIssuer)
@@ -275,11 +273,16 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
                 protoId = "KillRandomPersonObjective";
 
             var flavorKey = GenerateFlavorKey(protoId); // example: kill-random-person-objective
-            var flavorKeys = GetFlavorKeys(flavorKey); // all flavors of the same key in traitor-flavor-objectives.ftl
+            var numberOfFlavorKeys = GetNumberOfFlavorKeys(flavorKey); // number of flavor texts with the same key
 
-            // Pick a random appropriate random flavor text
-            var randomIndex = _random.Next(1, flavorKeys.Count + 1);
+            // Should never happen
+            if (numberOfFlavorKeys <= 0)
+                continue;
+
+            // Pick a random appropriate flavor text
+            var randomIndex = _random.Next(1, numberOfFlavorKeys + 1);
             var flavorText = Loc.GetString($"{flavorKey}-{randomIndex}");
+
             _metaSystem.SetEntityDescription(objective, $"{meta.EntityDescription} {flavorText}");
         }
 

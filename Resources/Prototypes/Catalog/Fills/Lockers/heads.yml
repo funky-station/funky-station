@@ -299,6 +299,7 @@
     - id: RadioHandheldCommand #funkystation
     - id: NuclearCentrifugeMachineCircuitboard #finally existent
     - id: NuclearFabricatorMachineCircuitboard #why did it not exist in the locker as a failsafe
+    - id: SledgehammerBreaching #funk # breaching!
 # Hardsuit table, used for suit storage as well
 - type: entityTable
   id: FillChiefEngineerHardsuit

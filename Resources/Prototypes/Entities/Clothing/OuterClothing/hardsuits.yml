@@ -439,7 +439,7 @@
 
 #Chief Engineer's Hardsuit
 - type: entity
-  parent: [ClothingOuterHardsuitBase, BaseCommandContraband, AllowBackStorageClothingEngineering]
+  parent: [ClothingOuterHardsuitBase, BaseCommandContraband, AllowBackStorageClothingCombat] #swapping cause i don't understand the backstorage system+CE rarely uses it for RPDs anyway
   id: ClothingOuterHardsuitEngineeringWhite
   name: chief engineer's hardsuit
   description: A special hardsuit that protects against hazardous, low pressure environments, made for the chief engineer of the station.

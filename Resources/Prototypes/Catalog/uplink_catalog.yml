@@ -1058,7 +1058,7 @@
   description: uplink-meds-bundle-desc
   productEntity: ClothingBackpackDuffelSyndicateMedicalBundleFilled
   cost:
-    Telecrystal: 50 # goob
+    Telecrystal: 75 # goob
   categories:
   - UplinkDAGD
   conditions:

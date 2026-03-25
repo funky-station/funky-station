@@ -542,9 +542,9 @@
   id: IonStormLawsets
   weights:
     # its crewsimov by default dont be lame
-    Crewsimov: 0.25
+    Crewsimov: 1
     Corporate: 1
-    NTDefault: 1
+    NTDefault: 0.25
     CommandmentsLawset: 0.5 # Funkystation - Weight Changed.
     PaladinLawset: 0.5 # Funkystation - Weight Changed.
     LiveLetLiveLaws: 1
@@ -553,7 +553,7 @@
     OverlordLawset: 0.5
     DungeonMasterLawset: 0.5
     PainterLawset: 0.1 # Funkystation - Weight Changed.
-    AntimovLawset: 0.25
+    AntimovLawset: 0.375
     NutimovLawset: 0.5
     Drone: 0.5
     Ninja: 0.25

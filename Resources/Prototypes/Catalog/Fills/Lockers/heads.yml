@@ -431,6 +431,7 @@
       prob: 0.15 # GoobStation - RD needs cigs for uhh... science...
     - id: RadioHandheldScience #funkystation
     - id: RadioHandheldCommand #funkystation
+    - id: NTDefaultCircuitBoard #funkystation
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

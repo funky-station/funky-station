@@ -179,6 +179,15 @@
   - CentComPersonalAI
 
 - type: loadoutGroup
+  id: ScientistGlasses
+  name: loadout-group-scientist-glasses
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ScienceNormGoggles
+  - ScienceJamjarGoggles
+
+- type: loadoutGroup
   id: ScienceRoboticistGlasses
   name: loadout-group-roboticist-glasses
   loadouts:

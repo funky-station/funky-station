@@ -50,6 +50,7 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 	private const int ForsakenBootsClothRequired = 5;
 	private const int ForsakenBootsDurathreadRequired = 5;
 	private const int AcolyteArmorPlasteelRequired = 10;
+    private const int WeaponUpgradePlasteelRequired = 5;
 
 	public override void Initialize()
 	{
@@ -78,16 +79,16 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 		// Get all entities on the same tile as the rune - this ensures we check all resources
 		// even if they're just placed on the floor (like a stack of runed glass)
 		var summonLookup = new HashSet<EntityUid>();
-		
+
 		var gridUid = _transform.GetGrid(runeCoords);
 		if (gridUid != null && TryComp<MapGridComponent>(gridUid, out var grid))
 		{
 			var tileIndices = _mapSystem.TileIndicesFor(gridUid.Value, grid, runeCoords);
-			
+
 			// Get all entities on this tile (both anchored and unanchored)
 			// Use Uncontained flag to exclude items in containers
 			_lookup.GetLocalEntitiesIntersecting(gridUid.Value, tileIndices, summonLookup, flags: LookupFlags.Uncontained, gridComp: grid);
-			
+
 			// Also include entities from range-based lookup as a fallback (in case something is slightly off-tile)
 			var rangeLookup = _lookup.GetEntitiesInRange(uid, component.SummonRange, LookupFlags.Uncontained);
 			foreach (var entity in rangeLookup)
@@ -156,19 +157,19 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 			if (TryConsumeMaterials(runedSteelStacks, JuggernautMetalRequired, user))
 			{
 				var juggernautShell = Spawn("CultJuggernautShell", runeCoords);
-				
+
 				// Ensure the shell is not anchored (it should be movable)
 				var shellTransform = Transform(juggernautShell);
 				if (shellTransform.Anchored)
 				{
 					_transform.Unanchor(juggernautShell, shellTransform);
 				}
-				
+
 				_popupSystem.PopupEntity(
 					Loc.GetString("cult-summoning-juggernaut-shell"),
 					user, user, PopupType.Large
 				);
-				
+
 				// Delete the rune after successful summoning
 				QueueDel(uid);
 				args.Handled = true;
@@ -186,7 +187,7 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 			{
 				// Check if it's an outerwear item (has ClothingComponent with OUTERCLOTHING slot flag)
 				// summonLookup already excludes items in containers via LookupFlags.Uncontained
-				if (TryComp<ClothingComponent>(entity, out var clothing) && 
+				if (TryComp<ClothingComponent>(entity, out var clothing) &&
 				    clothing.Slots.HasFlag(SlotFlags.OUTERCLOTHING))
 				{
 					// Found a valid outerwear item
@@ -206,12 +207,12 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 
 				// Spawn bloodcult robes at the rune coordinates
 				var bloodcultRobes = Spawn("ClothingOuterRobesBloodCult", runeCoords);
-					
+
 					_popupSystem.PopupEntity(
 						Loc.GetString("cult-summoning-acolyte-armor"),
 						user, user, PopupType.Large
 					);
-					
+
 					// Delete the rune after successful summoning
 					QueueDel(uid);
 					args.Handled = true;
@@ -236,7 +237,7 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 
 		// Check for Forsaken Boots - can use either 5 plastic + 5 cloth OR 5 durathread
 		// First check if enough materials exist (without consuming)
-		if (HasEnoughMaterials(plasticStacks, ForsakenBootsPlasticRequired) && 
+		if (HasEnoughMaterials(plasticStacks, ForsakenBootsPlasticRequired) &&
 		    HasEnoughMaterials(clothStacks, ForsakenBootsClothRequired))
 		{
 			// Primary method: 5 plastic + 5 cloth
@@ -244,12 +245,12 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 			    TryConsumeMaterials(clothStacks, ForsakenBootsClothRequired, user))
 			{
 				var forsakenBoots = Spawn("ClothingShoesBootsForsaken", runeCoords);
-				
+
 				_popupSystem.PopupEntity(
 					Loc.GetString("cult-summoning-forsaken-boots"),
 					user, user, PopupType.Large
 				);
-				
+
 				// Delete the rune after successful summoning
 				QueueDel(uid);
 				args.Handled = true;
@@ -264,12 +265,12 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 			if (TryConsumeMaterials(durathreadStacks, ForsakenBootsDurathreadRequired, user))
 			{
 				var forsakenBoots = Spawn("ClothingShoesBootsForsaken", runeCoords);
-				
+
 				_popupSystem.PopupEntity(
 					Loc.GetString("cult-summoning-forsaken-boots"),
 					user, user, PopupType.Large
 				);
-				
+
 				// Delete the rune after successful summoning
 				QueueDel(uid);
 				args.Handled = true;
@@ -307,13 +308,69 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 			return;
 		}
 
+        // Check for 5 runedplasteel + serrated cult dagger - spawn Cult Javalin
+        // First check if enough plasteel materials exist (without consuming)
+        if (HasEnoughMaterials(runedPlasteelStacks, WeaponUpgradePlasteelRequired))
+        {
+            // Find serrated cult daggers in range (similar to cosmic cult transmute logic)
+            EntityUid? DaggerType = null;
+            foreach (var entity in summonLookup)
+            {
+                // Check if it's a serrated cult dagger
+                // summonLookup already excludes items in containers via LookupFlags.Uncontained
+                if (TryComp<DaggerTypeComponent>(entity, out var Type)
+                {
+                    // Found a valid cult dagger
+                    DaggerType = entity;
+                    break;
+                }
+            }
+
+            // Need both plasteel and outerwear item
+            if (DaggerType != null && Exists(DaggerType.Value))
+            {
+                // Only consume materials AFTER validation passes
+                if (TryConsumeMaterials(runedPlasteelStacks, WeaponUpgradePlasteelRequired, user))
+                {
+                    // Delete the outerwear item (it's being transformed into acolyte armor)
+                    QueueDel(DaggerType.Value);
+
+                    // Spawn cult javelin at the rune coordinates
+                    var cultJavelin = Spawn("CultJavelin", runeCoords);
+
+                    _popupSystem.PopupEntity(
+                        Loc.GetString("cult-summoning-acolyte-armor"),
+                        user, user, PopupType.Large
+                    );
+
+                    // Delete the rune after successful summoning
+                    QueueDel(uid);
+                    args.Handled = true;
+                    return;
+                }
+            }
+            else
+            {
+                // We have enough plasteel but no cult dagger found
+                // Only show message if activated by a player (not automatic activation)
+                if (isPlayer)
+                {
+                    _popupSystem.PopupEntity(
+                        Loc.GetString("cult-summoning-need-outerwear"),
+                        user, user, PopupType.MediumCaution
+                    );
+                }
+                args.Handled = true;
+                return;
+            }
+        }
 		// Check for 10 runedglass - spawn Pylon anchored
 		// First check if enough materials exist (without consuming)
 		if (HasEnoughMaterials(runedGlassStacks, PylonGlassRequired))
 		{
 			// Perform ALL validation checks BEFORE consuming materials
 			// This ensures materials are never lost if summoning fails
-			
+
 			// First check: Verify we have a valid grid
 			var pylonGridUid = _transform.GetGrid(runeCoords);
 			if (pylonGridUid == null)
@@ -407,7 +464,7 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 					// Pylon didn't anchor - try spawning unanchored nearby as fallback
 					if (Exists(pylon.Value))
 						QueueDel(pylon.Value);
-					
+
 					// Try to find a nearby location to spawn unanchored pylon
 					if (TryFindNearbyLocation(runeCoordsForPylon, out var nearbyLocation))
 					{
@@ -418,7 +475,7 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 							// Ensure it's unanchored
 							_transform.Unanchor(unanchoredPylon, unanchoredXform);
 							unanchoredXform.LocalRotation = runeRotation;
-							
+
 							// Consume materials for unanchored pylon
 							if (TryConsumeMaterials(runedGlassStacks, PylonGlassRequired, user))
 							{
@@ -437,7 +494,7 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 							}
 						}
 					}
-					
+
 					// Fallback failed - show error
 					_popupSystem.PopupEntity(
 						Loc.GetString("cult-summoning-pylon-anchor-failed"),
@@ -457,7 +514,7 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 					args.Handled = true;
 					return;
 				}
-				
+
 				var pylonXformCheck = Transform(pylon.Value);
 				if (!pylonXformCheck.Anchored)
 				{

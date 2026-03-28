@@ -50,7 +50,7 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 	private const int ForsakenBootsClothRequired = 5;
 	private const int ForsakenBootsDurathreadRequired = 5;
 	private const int AcolyteArmorPlasteelRequired = 10;
-    private const int WeaponUpgradePlasteelRequired = 5;
+	private const int CultWeaponPlasteelRequired = 10;
 
 	public override void Initialize()
 	{
@@ -204,16 +204,55 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 				{
 					// Delete the outerwear item (it's being transformed into acolyte armor)
 					QueueDel(outerwearItem.Value);
-
-				// Spawn bloodcult robes at the rune coordinates
-				var bloodcultRobes = Spawn("ClothingOuterRobesBloodCult", runeCoords);
+					Spawn("ClothingOuterRobesBloodCult", runeCoords);
 
 					_popupSystem.PopupEntity(
 						Loc.GetString("cult-summoning-acolyte-armor"),
 						user, user, PopupType.Large
 					);
 
-					// Delete the rune after successful summoning
+					QueueDel(uid);
+					args.Handled = true;
+					return;
+				}
+			}
+			// Enough plasteel for armor but no outerwear: fall through so cult dagger forging can still run
+		}
+
+		// Check for runed plasteel + cult dagger - forge upgraded weapon (own plasteel cost)
+		if (HasEnoughMaterials(runedPlasteelStacks, CultWeaponPlasteelRequired))
+		{
+			EntityUid? cultDagger = null;
+			CultDaggerVariant? daggerVariant = null;
+			foreach (var entity in summonLookup)
+			{
+				if (!TryComp<DaggerTypeComponent>(entity, out var daggerType))
+					continue;
+				cultDagger = entity;
+				daggerVariant = daggerType.Variant;
+				break;
+			}
+
+			if (cultDagger != null && daggerVariant != null)
+			{
+				if (TryConsumeMaterials(runedPlasteelStacks, CultWeaponPlasteelRequired, user))
+				{
+					QueueDel(cultDagger.Value);
+
+					var weaponProto = daggerVariant.Value switch
+					{
+						CultDaggerVariant.Straight => "CultJavelin",
+						CultDaggerVariant.Serrated => "CultBlade",
+						CultDaggerVariant.Curved => "CultGlaive",
+						_ => "CultJavelin"
+					};
+					Spawn(weaponProto, runeCoords);
+
+					_popupSystem.PopupEntity(
+						Loc.GetString("cult-summoning-cult-weapon"),
+						user, user, PopupType.Large
+					);
+
 					QueueDel(uid);
 					args.Handled = true;
 					return;
@@ -221,12 +260,10 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 			}
 			else
 			{
-				// We have enough plasteel but no outerwear item found
-				// Only show message if activated by a player (not automatic activation)
 				if (isPlayer)
 				{
 					_popupSystem.PopupEntity(
-						Loc.GetString("cult-summoning-need-outerwear"),
+						Loc.GetString("cult-summoning-need-plasteel-offering"),
 						user, user, PopupType.MediumCaution
 					);
 				}
@@ -308,62 +345,6 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 			return;
 		}
 
-        // Check for 5 runedplasteel + serrated cult dagger - spawn Cult Javalin
-        // First check if enough plasteel materials exist (without consuming)
-        if (HasEnoughMaterials(runedPlasteelStacks, WeaponUpgradePlasteelRequired))
-        {
-            // Find serrated cult daggers in range (similar to cosmic cult transmute logic)
-            EntityUid? DaggerType = null;
-            foreach (var entity in summonLookup)
-            {
-                // Check if it's a serrated cult dagger
-                // summonLookup already excludes items in containers via LookupFlags.Uncontained
-                if (TryComp<DaggerTypeComponent>(entity, out var Type)
-                {
-                    // Found a valid cult dagger
-                    DaggerType = entity;
-                    break;
-                }
-            }
-
-            // Need both plasteel and outerwear item
-            if (DaggerType != null && Exists(DaggerType.Value))
-            {
-                // Only consume materials AFTER validation passes
-                if (TryConsumeMaterials(runedPlasteelStacks, WeaponUpgradePlasteelRequired, user))
-                {
-                    // Delete the outerwear item (it's being transformed into acolyte armor)
-                    QueueDel(DaggerType.Value);
-
-                    // Spawn cult javelin at the rune coordinates
-                    var cultJavelin = Spawn("CultJavelin", runeCoords);
-
-                    _popupSystem.PopupEntity(
-                        Loc.GetString("cult-summoning-acolyte-armor"),
-                        user, user, PopupType.Large
-                    );
-
-                    // Delete the rune after successful summoning
-                    QueueDel(uid);
-                    args.Handled = true;
-                    return;
-                }
-            }
-            else
-            {
-                // We have enough plasteel but no cult dagger found
-                // Only show message if activated by a player (not automatic activation)
-                if (isPlayer)
-                {
-                    _popupSystem.PopupEntity(
-                        Loc.GetString("cult-summoning-need-outerwear"),
-                        user, user, PopupType.MediumCaution
-                    );
-                }
-                args.Handled = true;
-                return;
-            }
-        }
 		// Check for 10 runedglass - spawn Pylon anchored
 		// First check if enough materials exist (without consuming)
 		if (HasEnoughMaterials(runedGlassStacks, PylonGlassRequired))
@@ -621,7 +602,7 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 			// Only show insufficient materials messages if activated by a player (not automatic activation)
 			if (isPlayer)
 			{
-				if (totalSteel < JuggernautMetalRequired && totalGlass < PylonGlassRequired && totalPlastic < ForsakenBootsPlasticRequired && totalCloth < ForsakenBootsClothRequired && totalDurathread < ForsakenBootsDurathreadRequired && totalPlasteel < AcolyteArmorPlasteelRequired)
+				if (totalSteel < JuggernautMetalRequired && totalGlass < PylonGlassRequired && totalPlastic < ForsakenBootsPlasticRequired && totalCloth < ForsakenBootsClothRequired && totalDurathread < ForsakenBootsDurathreadRequired && totalPlasteel < Math.Max(AcolyteArmorPlasteelRequired, CultWeaponPlasteelRequired))
 				{
 					_popupSystem.PopupEntity(
 						Loc.GetString("cult-summoning-insufficient-materials"),

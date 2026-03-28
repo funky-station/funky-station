@@ -4,19 +4,27 @@
 // SPDX-License-Identifier: MIT
 
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.BloodCult.Components;
 
 /// <summary>
-/// Component that marks a blood cult dagger for upgrading purposes.
+/// Which visual variant of blood cult dagger this entity is; used when transmuting on the summoning rune.
 /// </summary>
-[RegisterComponent, NetworkedComponent]
-public sealed partial class DaggerTypeComponent : Component
+[Serializable, NetSerializable]
+public enum CultDaggerVariant : byte
 {
-    /// <summary>
-    /// The type of dagger.
-    /// </summary>
-    [DataField]
-	public string Type;
+	Straight,
+	Serrated,
+	Curved,
 }
 
+/// <summary>
+/// Marks a blood cult dagger variant for summoning-run upgrades.
+/// </summary>
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
+public sealed partial class DaggerTypeComponent : Component
+{
+	[DataField, AutoNetworkedField]
+	public CultDaggerVariant Variant;
+}

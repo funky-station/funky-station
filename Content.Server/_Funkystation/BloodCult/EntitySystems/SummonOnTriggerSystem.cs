@@ -50,7 +50,7 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 	private const int ForsakenBootsClothRequired = 5;
 	private const int ForsakenBootsDurathreadRequired = 5;
 	private const int AcolyteArmorPlasteelRequired = 10;
-	private const int CultWeaponPlasteelRequired = 10;
+	private const int CultWeaponPlasteelRequired = 5;
 
 	public override void Initialize()
 	{
@@ -241,8 +241,8 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 
 					var weaponProto = daggerVariant.Value switch
 					{
-						CultDaggerVariant.Straight => "CultJavelin",
-						CultDaggerVariant.Serrated => "CultBlade",
+						CultDaggerVariant.Straight => "CultRapier",
+						CultDaggerVariant.Serrated => "CultJavelin",
 						CultDaggerVariant.Curved => "CultGlaive",
 						_ => "CultJavelin"
 					};

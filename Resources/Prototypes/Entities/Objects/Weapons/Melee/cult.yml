@@ -195,7 +195,7 @@
 
 - type: entity
   name: cult glaive
-  description: TODO
+  description: A sickening, more refined bone and metal blade atop a long runed handle. Tar-like ooze drips from the edge, poisoning your foes and protecting allies from your strikes. Immensely powerful as a melee weapon against your foes and walls alike.
   parent: BaseCultBlade
   id: CultGlaive
   components:
@@ -221,10 +221,10 @@
         Structural: 20
 
 - type: entity
-  name: cult blade
-  description: TODO
+  name: cult rapier
+  description: A sickening, more refined bone and metal thin blade. Tar-like ooze drips from the edge, poisoning your foes and protecting allies from your strikes. Immensely powerful as a melee weapon. The edge seems to align with projectiles deflecting some.
   parent: BaseCultBlade
-  id: CultBlade
+  id: CultRapier
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/captain_sabre.rsi
@@ -247,7 +247,7 @@
   name: cult javelin
   parent: BaseCultBlade
   id: CultJavelin
-  description: Definition of a Classic. Keeping murder affordable since 200,000 BCE.
+  description: A sickening, more refined bone and metal bladed tip atop a long runed handle. Tar-like ooze drips from the edge, poisoning your foes and protecting allies from your strikes but not throws. Immensely powerful as a throwing weapon, seemingly bypassing clothes hitting the skin directly.
   components:
   - type: EmbeddableProjectile
     offset: -0.15,0.0

@@ -118,3 +118,6 @@ thaven-mood-corporateconspiracy-desc = You believe there is a hidden connection 
  
 thaven-mood-oppositeday-name = Opposite Day
 thaven-mood-oppositeday-desc = People mean the opposite of what they say. Up is down, and down is up.
+
+thaven-mood-pyromaniac-name = Pyromaniac
+thaven-mood-pyromaniac-desc = The allure of an open flame is intoxicating. You love to set things on fire and watch them burn. The bigger, the better.

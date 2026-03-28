@@ -12,6 +12,7 @@
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 vectorassembly <vectorassembly@icloud.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -23,3 +24,4 @@
     - /Audio/StationEvents/sound_station_14.ogg
 #funkystation
     - /Audio/_Funkystation/StationEvents/split.ogg
+    - /Audio/_Funkystation/StationEvents/osc.ogg

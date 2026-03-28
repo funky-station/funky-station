@@ -146,6 +146,12 @@ Juggernauts are hulking beasts made from juggernaut shells, awakened through the
 
   <Box>
   <GuideEntityEmbed Entity="CultDaggerCurved" Caption="Cult Dagger"/>
+  <GuideEntityEmbed Entity="CultGlaive" Caption="Cult Glaive"/>
+  <GuideEntityEmbed Entity="CultRapier" Caption="Cult Rapier"/>
+  <GuideEntityEmbed Entity="CultJavelin" Caption="Cult Javelin"/>
+  </Box>
+
+  <Box>
 	<GuideEntityEmbed Entity="ClothingOuterArmorCult" Caption="Acolyte Armor"/>
 	<GuideEntityEmbed Entity="ClothingHeadHelmetCult" Caption="Cult Helmet"/>
 	<GuideEntityEmbed Entity="ClothingShoesBootsForsaken" Caption="Forsaken Boots"/>
@@ -156,7 +162,12 @@ The cult dagger is a decent melee weapon that can be used to attack enemies and 
 
 The following items are all constructed via a summoning rune. Place the materials upon the rune to summon them.
 
-Acolyte Armor is a set of armor that will protect you from most attacks. It is made from runed plasteel and outerwear clothing to hold the armor plates. Your Twisted Construction spell allows you to convert plasteel into runed plasteel.
+Upgrading your weapons will help greatly in defending the ritual. All upgrades are made from 5 [color=#bbbbbb]runed plasteel[/color] and one of the daggers granted to you by [color=#ff3333]Her[/color].
+- A glaive can be made out of the curved dagger. It is a great melee weapon and it can tear down walls. However it loses the ability to throw with accuracy.
+- A rapier can be made out of the straight dagger. It is a melee weapon that you can swing with speed. It does also provide protection in the form of deflection of projectiles.
+- A javelin can be made out of the serrated dagger. It is a great throwing weapon, that also bypasses any armor the foe uses. Be careful as your allies can still be hit when throwing.
+
+Acolyte Armor is a set of armor that will protect you from most attacks. It is made from 10 [color=#bbbbbb]runed plasteel[/color] and outerwear clothing to hold the armor plates. Your Twisted Construction spell allows you to convert plasteel into [color=#bbbbbb]runed plasteel[/color].
 Cult Helmet is much as you would expect, and is constructed at the same time as the Acolyte Armor.
 Forsaken Boots are very important for a cultist to have. They allow your boots to grip the ground with unnatural force, and prevent you from slipping. They can be made from 5 plastic and 5 cloth, or simply from 5 durathread.
 

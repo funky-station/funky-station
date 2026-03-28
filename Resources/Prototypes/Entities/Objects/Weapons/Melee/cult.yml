@@ -85,10 +85,9 @@
     transferAmount: 3
     solution: melee
     pierceArmor: true
-  - type: SolutionInjectOnProjectileHit
+  - type: SolutionInjectOnEmbed
     transferAmount: 3
     solution: melee
-    pierceArmor: true
   - type: RefillableSolution
     solution: melee
   - type: InjectableSolution
@@ -105,7 +104,7 @@
     offset: -0.15,0.0
   - type: LandAtCursor
   - type: DamageOtherOnHit
-    ignoreResistances: true
+    ignoreResistances: false
     damage:
       types:
         Slash: 10
@@ -114,8 +113,7 @@
     angle: 225
 
 - type: entity
-  name: cult dagger
-  suffix: Curved
+  name: curved cult dagger
   parent: CultDagger
   id: CultDaggerCurved
   components:
@@ -125,8 +123,7 @@
     sprite: _Funkystation/Objects/Weapons/Melee/bloodcult_dagger_curved.rsi
 
 - type: entity
-  name: cult dagger
-  suffix: Serrated
+  name: serrated cult dagger
   parent: CultDagger
   id: CultDaggerSerrated
   components:
@@ -134,10 +131,11 @@
     sprite: _Funkystation/Objects/Weapons/Melee/bloodcult_dagger_serrated.rsi
   - type: Clothing
     sprite: _Funkystation/Objects/Weapons/Melee/bloodcult_dagger_serrated.rsi
+  - type: DaggerType
+    daggerType: serrated
 
 - type: entity
-  name: cult dagger
-  suffix: Straight
+  name: straight cult dagger
   parent: CultDagger
   id: CultDaggerStraight
   components:
@@ -145,6 +143,167 @@
     sprite: _Funkystation/Objects/Weapons/Melee/bloodcult_dagger_straight.rsi
   - type: Clothing
     sprite: _Funkystation/Objects/Weapons/Melee/bloodcult_dagger_straight.rsi
+
+# Upgraded Weapons
+- type: entity
+  abstract: true
+  parent: [ BaseItem, BaseBloodCultContraband ]
+  id: BaseCultBlade
+  components:
+  - type: Sharp
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Melee/bloodcult_dagger_curved.rsi
+    state: icon
+  - type: BloodCultMeleeWeapon
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    size: Small
+  - type: Clothing
+    sprite: _Funkystation/Objects/Weapons/Melee/bloodcult_dagger_curved.rsi
+    quickEquip: false
+    slots:
+    - back
+  - type: DisarmMalus
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 20
+        reagents:
+        - ReagentId: EdgeEssentia
+          Quantity: 20
+  - type: MeleeChemicalInjector
+    transferAmount: 5
+    solution: melee
+    pierceArmor: true
+  - type: RefillableSolution
+    solution: melee
+  - type: InjectableSolution
+    solution: melee
+  - type: SolutionTransfer
+    maxTransferAmount: 5
+  - type: ReagentAutoRefill
+    solution: melee
+    reagent: EdgeEssentia
+    refillRate: 0.5
+    maxAmount: 20
+
+- type: entity
+  name: cult glaive
+  description: TODO
+  parent: BaseCultBlade
+  id: CultGlaive
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/crusher_glaive.rsi
+  - type: Clothing
+    sprite: Objects/Weapons/Melee/crusher_glaive.rsi
+  - type: Item
+    size: Huge
+    sprite: Objects/Weapons/Melee/crusher-inhands.rsi
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 1.0
+    angle: 100
+    damage:
+      types:
+        Slash: 10
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Slash: 32
+        Structural: 20
+
+- type: entity
+  name: cult rapier
+  description: TODO
+  parent: BaseCultBlade
+  id: CultRapier
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/captain_sabre.rsi
+  - type: Item
+    size: Large
+  - type: Reflect
+    reflectProb: 0.3
+    spread: 90
+  - type: MeleeWeapon
+    angle: 10
+    wideAnimationRotation: -135
+    animation: WeaponArcThrust
+    attackRate: 2.0
+    damage:
+      types:
+        Slash: 5
+        Piercing: 8
+
+- type: entity
+  name: cult javelin
+  parent: BaseCultBlade
+  id: CultJavelin
+  description: Definition of a Classic. Keeping murder affordable since 200,000 BCE.
+  components:
+  - type: EmbeddableProjectile
+    offset: -0.15,0.0
+  - type: ThrowingAngle
+    angle: 225
+  - type: LandAtCursor
+  - type: Tag
+    tags:
+    - Spear
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PolygonShape
+          vertices:
+            - -0.40,-0.30
+            - -0.30,-0.40
+            - 0.40,0.30
+            - 0.30,0.40
+        density: 20
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+  - type: Sharp
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/spear.rsi
+    layers:
+    - state: spear
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 0.75
+    damage:
+      types:
+        Piercing: 6
+    angle: 0
+    animation: WeaponArcThrust
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: DamageOtherOnHit
+    ignoreResistances: true
+    damage:
+      types:
+        Piercing: 35
+  - type: Item
+    size: Huge
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+    - backStorage
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Piercing: 10
+  - type: SolutionInjectOnEmbed
+    transferAmount: 10
+    solution: melee
+  - type: UseDelay
+  - type: Appearance
 
 # Legacy Cult Items
 - type: entity

@@ -1,5 +1,7 @@
 # SPDX-FileCopyrightText: 2025 Sadie <147350443+Sadie-silly@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 vectorassembly <vectorassembly@icloud.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -17,3 +19,8 @@
   license: "MIT"
   copyright: "Created by Sola (mistsofnowh3r3 on Discord)"
   source: "https://noisyrejects.bandcamp.com/track/dft"
+
+- files: ["osc.ogg"]
+  license: "CC-BY-NC-4.0"
+  copyright: "vectorassembly"
+  source: "https://vectorassembly.org"

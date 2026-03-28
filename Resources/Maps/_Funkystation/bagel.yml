@@ -12964,9 +12964,6 @@ entities:
     - type: GridPathfinding
     - type: NavMap
     - type: ImplicitRoof
-    - type: DnaScannerDiscoveryTracker
-      gridDiscoveredMutations: []
-      gridResearchProgress: {}
   - uid: 3201
     components:
     - type: MetaData

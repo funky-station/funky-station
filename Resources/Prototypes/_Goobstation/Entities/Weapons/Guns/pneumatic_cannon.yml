@@ -67,4 +67,10 @@
     containers:
       storagebase: !type:Container
         ents: []
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+  - type: AltFireMelee
+    attackType: Light
 

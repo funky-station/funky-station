@@ -166,3 +166,14 @@
   description: Upgraded glasses that provide a medical HUD.
   icon: { sprite: _Funkystation/Clothing/Eyes/Glasses/medglasses.rsi, state: icon }
   objectType: Item
+
+- type: construction
+  name: prescription sun glasses
+  id: ClothingEyesSunglassesPrescription
+  graph: SunglassesPrescription
+  startNode: start
+  targetNode: prescriptionSunglasses
+  category: construction-category-clothing
+  description: For when you want to see clearly in both style and flash-immunity.
+  icon: { sprite: Clothing/Eyes/Glasses/sunglasses.rsi, state: icon }
+  objectType: Item

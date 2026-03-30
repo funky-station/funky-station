@@ -7936,3 +7936,11 @@ Entries:
       message: Snouts now render over Jumpsuits
   id: 915
   time: '2026-03-19T22:02:34.0000000+00:00'
+- author: Dusty-Plant
+  changes:
+    - type: Tweak
+      message: >-
+        changed Court station max pop from infinite to 70, modified blob
+        thresholds and added some features to the map.
+  id: 916
+  time: '2026-03-30T01:56:01.0000000+00:00'

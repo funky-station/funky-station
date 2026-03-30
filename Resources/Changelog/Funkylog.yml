@@ -8004,3 +8004,27 @@ Entries:
       message: (Core) Removed Nuclear Reactor
   id: 918
   time: '2026-03-30T02:02:00.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Add
+      message: >-
+        Added snack and drink vending machines to maintenance in various
+        locations in Packed
+    - type: Add
+      message: Added decals to the surgery rooms in medical in Packed
+    - type: Remove
+      message: Removed the station beacon for genetics in Packed
+    - type: Tweak
+      message: Replaced windows with standard windows in various locations in Packed
+    - type: Fix
+      message: >-
+        Fixed the incorrect/duplicitous warp points for evacuation, arrivals,
+        and the nuclear reactor in Packed
+    - type: Fix
+      message: Fixed the plasma extractor not mining any plasma in Packed
+    - type: Fix
+      message: Fixed the northeastern evac pod not showing up in Packed
+    - type: Add
+      message: Added directional fans to various locations in Packed
+  id: 919
+  time: '2026-03-30T04:22:11.0000000+00:00'

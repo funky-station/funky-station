@@ -7952,3 +7952,55 @@ Entries:
       message: Fixed box station not having a way to recycle waste gasses.
   id: 917
   time: '2026-03-30T01:59:01.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Add
+      message: (Core) Revamped Service Lounge
+    - type: Add
+      message: (Core) Added Laundromat
+    - type: Add
+      message: (Core) Added PTP
+    - type: Add
+      message: (Core) Added more station maps
+    - type: Add
+      message: (Core) Added Psychologist's office
+    - type: Add
+      message: (Core) Added Psychologist Job
+    - type: Add
+      message: (Core) Added mailing system
+    - type: Add
+      message: (Core) More maints
+    - type: Tweak
+      message: (Core) Vox box bluespace vendor is actually linked now
+    - type: Tweak
+      message: (Core) Moved Clown's room
+    - type: Tweak
+      message: (Core) Moved Chapel
+    - type: Tweak
+      message: (Core) Moved fireaxe into command conference room
+    - type: Tweak
+      message: (Core) Moved NTRep office
+    - type: Tweak
+      message: (Core) IAA office now has meteor shielding
+    - type: Tweak
+      message: (Core) Moved grav gen to treat vault
+    - type: Tweak
+      message: (Core) Old NTRep office turned into maints
+    - type: Tweak
+      message: (Core) A SmartFridge has been added to the Medbay's treatment room
+    - type: Tweak
+      message: (Core) Simplified Science's artifact atmos setup
+    - type: Fix
+      message: (Core) Made Bridge harder to break into via disposals
+    - type: Fix
+      message: (Core) Removed unnecessary sets of doors in hallways
+    - type: Fix
+      message: (Core) Removed duplicate disposal chute in Cargo
+    - type: Fix
+      message: (Core) Replaced Magistrate's windows with Uranium windows
+    - type: Remove
+      message: (Core) Removed Genetics Lab
+    - type: Remove
+      message: (Core) Removed Nuclear Reactor
+  id: 918
+  time: '2026-03-30T02:02:00.0000000+00:00'

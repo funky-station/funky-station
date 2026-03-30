@@ -7944,3 +7944,11 @@ Entries:
         thresholds and added some features to the map.
   id: 916
   time: '2026-03-30T01:56:01.0000000+00:00'
+- author: neadsy
+  changes:
+    - type: Add
+      message: Added a supermatter and its required components to box station!
+    - type: Fix
+      message: Fixed box station not having a way to recycle waste gasses.
+  id: 917
+  time: '2026-03-30T01:59:01.0000000+00:00'

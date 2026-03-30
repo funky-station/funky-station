@@ -51,6 +51,17 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtResearchDirector
 
+- type: loadout
+  id: ResearchDirectorRoboJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitRoboticist
+
+- type: loadout
+  id: ResearchDirectorRoboJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtRoboticist
+
+
 # OuterClothing
 - type: loadout
   id: ResearchDirectorLabCoat

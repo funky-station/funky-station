@@ -1565,6 +1565,8 @@
   loadouts:
   - ResearchDirectorJumpsuit
   - ResearchDirectorJumpskirt
+  - RoboticistJumpsuit
+  - RoboticistJumpskirt
 
 - type: loadoutGroup
   id: ResearchDirectorOuterClothing

@@ -16,8 +16,8 @@
     Heat: 0.8
   flatReductions:
     Blunt: 5
-    Slash: 5
-    Piercing: 5
+    Slash: 1
+    Piercing: 1
 
 - type: damageModifierSet
   id: SiliconProtected

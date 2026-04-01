@@ -13,6 +13,8 @@
 - type: damageModifierSet
   id: Silicon
   coefficients:
+    Slash: 0.8
+    Piercing: 0.8
     Heat: 0.8
   flatReductions:
     Blunt: 5

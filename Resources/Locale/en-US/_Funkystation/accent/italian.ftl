@@ -355,3 +355,43 @@ accent-italian-words-73-6 = site director
 accent-italian-words-73-7 = site administrator
 accent-italian-words-73-8 = cap
 accent-italian-words-replace-73 = capitano
+
+accent-italian-words-74 = quartermaster
+accent-italian-words-74-2 = qm 
+accent-italian-words-74-3 = requisitions officer
+accent-italian-words-74-4 = deck chief 
+accent-italian-words-74-5 = warehouse supervisor
+accent-italian-words-74-6 = supply foreman
+accent-italian-words-74-7 = logistics coordinator
+accent-italian-words-replace-74 = coordinatore logistica
+
+accent-italian-words-75 = cargo technician
+accent-italian-words-75-2 = courier
+accent-italian-words-75-3 = shuttle pilot 
+accent-italian-words-75-4 = logistics clerk
+accent-italian-words-75-5 = warehouse technician
+accent-italian-words-75-6 = deck worker 
+accent-italian-words-75-7 = inventory associate
+accent-italian-words-75-8 = delivery associate
+accent-italian-words-75-9 = cargo tech
+accent-italian-words-replace-75 = tecnico della logistica
+
+accent-italian-words-76 = salvage specialist 
+accent-italian-words-76-2 = shaft miner
+accent-italian-words-76-3 = blasting specialist 
+accent-italian-words-76-4 = field geologist
+accent-italian-words-76-5 = drill technician 
+accent-italian-words-76-6 = shipbreaking specialist 
+accent-italian-words-76-7 = salvage
+accent-italian-words-76-8 = salv 
+accent-italian-words-replace-76 = salvare
+
+accent-italian-words-77 = cargo
+accent-italian-words-replace-77 = logistica
+
+accent-italian-words-78 = goodbye
+accent-italian-words-78-2 = farewell
+accent-italian-words-78-3 = see ya
+accent-italian-words-78-4 = bye
+accent-italian-words-replace-78 = arrivederci
+

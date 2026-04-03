@@ -30,7 +30,7 @@ namespace Content.Shared.Chat;
 
 public abstract class SharedChatSystem : EntitySystem
 {
-    public const char RadioCommonPrefix = '<';
+    public const char RadioCommonPrefix = ';';
     public const char RadioChannelPrefix = ':';
     public const char RadioChannelAltPrefix = '.';
     public const char LocalPrefix = '>';
@@ -42,12 +42,12 @@ public abstract class SharedChatSystem : EntitySystem
     public const char EmotesAltPrefix = '*';
     public const char AdminPrefix = ']';
     public const char WhisperPrefix = ',';
-    public const char DefaultChannelKey = ';';
+    public const char DefaultChannelKey = 'h';
 
     [ValidatePrototypeId<RadioChannelPrototype>]
     public const string CommonChannel = "Common";
 
-    public static string DefaultChannelPrefix = $"{DefaultChannelKey}";
+    public static string DefaultChannelPrefix = $"{RadioChannelPrefix}{DefaultChannelKey}";
 
     [ValidatePrototypeId<SpeechVerbPrototype>]
     public const string DefaultSpeechVerb = "Default";

@@ -1331,15 +1331,24 @@
     accent-euphemist-words-430: accent-euphemist-replacement-430
     accent-euphemist-words-431: accent-euphemist-replacement-431
 
-- type: accent
+- type: accent #The curse of multiword replacements having to be placed first
   id: italian
   wordReplacements:
-    accent-italian-words-66: accent-italian-words-replace-66 #The curse of multiword replacements having to be placed first
+    accent-italian-words-66: accent-italian-words-replace-66 
     accent-italian-words-66-2: accent-italian-words-replace-66
     accent-italian-words-66-3: accent-italian-words-replace-66
     accent-italian-words-66-4: accent-italian-words-replace-66
     accent-italian-words-66-5: accent-italian-words-replace-66
     accent-italian-words-66-6: accent-italian-words-replace-66
+    accent-italian-words-75: accent-italian-words-replace-75
+    accent-italian-words-75-2: accent-italian-words-replace-75
+    accent-italian-words-75-3: accent-italian-words-replace-75
+    accent-italian-words-75-4: accent-italian-words-replace-75
+    accent-italian-words-75-5: accent-italian-words-replace-75
+    accent-italian-words-75-6: accent-italian-words-replace-75
+    accent-italian-words-75-7: accent-italian-words-replace-75
+    accent-italian-words-75-8: accent-italian-words-replace-75
+    accent-italian-words-75-9: accent-italian-words-replace-75
     accent-italian-words-51: accent-italian-words-replace-51
     accent-italian-words-51-2: accent-italian-words-replace-51
     accent-italian-words-51-3: accent-italian-words-replace-51
@@ -1546,4 +1555,25 @@
     accent-italian-words-73-6: accent-italian-words-replace-73
     accent-italian-words-73-7: accent-italian-words-replace-73
     accent-italian-words-73-8: accent-italian-words-replace-73
+    accent-italian-words-74: accent-italian-words-replace-74
+    accent-italian-words-74-2: accent-italian-words-replace-74
+    accent-italian-words-74-3: accent-italian-words-replace-74
+    accent-italian-words-74-4: accent-italian-words-replace-74
+    accent-italian-words-74-5: accent-italian-words-replace-74
+    accent-italian-words-74-6: accent-italian-words-replace-74
+    accent-italian-words-74-7: accent-italian-words-replace-74
+    accent-italian-words-76: accent-italian-words-replace-76
+    accent-italian-words-76-2: accent-italian-words-replace-76
+    accent-italian-words-76-3: accent-italian-words-replace-76
+    accent-italian-words-76-4: accent-italian-words-replace-76
+    accent-italian-words-76-5: accent-italian-words-replace-76
+    accent-italian-words-76-6: accent-italian-words-replace-76
+    accent-italian-words-76-7: accent-italian-words-replace-76
+    accent-italian-words-76-8: accent-italian-words-replace-76
+    accent-italian-words-77: accent-italian-words-replace-77
+    accent-italian-words-78: accent-italian-words-replace-78
+    accent-italian-words-78-2: accent-italian-words-replace-78
+    accent-italian-words-78-3: accent-italian-words-replace-78 
+    accent-italian-words-78-4: accent-italian-words-replace-78
+
 

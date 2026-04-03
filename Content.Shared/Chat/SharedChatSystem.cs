@@ -161,12 +161,10 @@ public abstract class SharedChatSystem : EntitySystem
             var ev = new GetDefaultRadioChannelEvent();
             RaiseLocalEvent(source, ev);
 
+            output = SanitizeMessageCapital(input[1..].TrimStart());
             if (ev.Channel != null)
-            {
-                output = SanitizeMessageCapital(input[1..].TrimStart());
                 _prototypeManager.TryIndex(ev.Channel, out channel);
-                return true;
-            }
+            return true;
         }
 
         if (!(input.StartsWith(RadioChannelPrefix) || input.StartsWith(RadioChannelAltPrefix)))

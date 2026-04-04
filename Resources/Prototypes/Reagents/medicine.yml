@@ -1340,6 +1340,13 @@
         amount: 2.5
       - !type:HealthChange
         conditions:
+        - !type:IsBloodCultist
+        ignoreResistances: false
+        damage:
+          types:
+            Heat: 1
+      - !type:HealthChange
+        conditions:
         - !type:TotalDamage
           max: 50
         damage:
@@ -1361,18 +1368,6 @@
       methods: [ Touch ]
       effects:
       - !type:ExtinguishReaction
-    CultistPurge:
-      methods: [ Touch ]
-      effects:
-      - !type:HealthChange
-        conditions:
-        - !type:IsBloodCultist
-        damage:
-          types:
-            Heat: 8
-            Holy: 5
-      - !type:DeCultify
-        amount: 2.5
     Acidic:
       methods: [ Touch ]
       effects:

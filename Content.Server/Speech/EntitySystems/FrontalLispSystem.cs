@@ -28,7 +28,7 @@ public sealed class FrontalLispSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<FrontalLispComponent, AccentGetEvent>(OnAccent);
+        SubscribeLocalEvent<FrontalLispComponent, AccentGetEvent>(OnAccent, after: new[] {typeof(BostonAccentSystem)}); // Funky - Fixes a weird conflict with the Boston accent
     }
 
     private void OnAccent(EntityUid uid, FrontalLispComponent component, AccentGetEvent args)

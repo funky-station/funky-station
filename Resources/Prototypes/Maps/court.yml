@@ -35,6 +35,7 @@
   mapName: 'Court Station'
   mapPath: /Maps/_Funkystation/court.yml
   minPlayers: 30
+  maxPlayers: 70
   stations:
     Court:
       stationProto: StandardNanotrasenStation
@@ -100,3 +101,9 @@
             #silicon
             StationAi: [ 1, 1 ]
             Borg: [ 5, 5 ]
+        # Goobstation blob-configstart HUGE
+        - type: StationBlobConfig
+          stageBegin: 30
+          stageCritical: 450
+          stageTheEnd: 900
+        # Goobstation blob-config-end

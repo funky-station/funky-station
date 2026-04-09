@@ -248,28 +248,6 @@
     Telecrystal: 30
   categories:
     - UplinkImplants
-  conditions:
-    - !type:StoreWhitelistCondition
-      blacklist:
-        tags:
-          - NukeOpsUplink # i guess we dont let nukies have this, they have to mutch TC
-  saleLimit: 1
-  
-- type: listing
-  id: UplinkMindcontrolImplanterNukie
-  name: uplink-mindcontrol-implant-name
-  description: uplink-mindcontrol-implant-desc
-  icon: { sprite: /Textures/Objects/Specific/Medical/syndi_implanter.rsi, state: implanter0 }
-  productEntity: MindcontrolImplanter
-  cost:
-    Telecrystal: 65
-  categories:
-    - UplinkImplants
-  conditions:
-    - !type:StoreWhitelistCondition
-        whitelist:
-            tags:
-            - NukeOpsUplink # _Funkystation - they can have it, as a treat
   saleLimit: 1
 
 - type: listing

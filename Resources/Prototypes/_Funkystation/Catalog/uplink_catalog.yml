@@ -206,6 +206,23 @@
       - NukeOpsUplink # I don't really wanna mess with nukie balancing
   saleLimit: 1
 
+# Implants
+
+- type: listing
+  id: UplinkFastDrawImplanter
+  name: Fast Draw implanter
+  description: A syringe with tools for quick implant removal. It has small gold stars on its body.
+  productEntity: RevsFastDrawImplanter
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkImplants
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
 # Pointless
 
 - type: listing

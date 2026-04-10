@@ -46,6 +46,16 @@
 
 # Eyes - Funky
 - type: loadout
+  id: ScienceNormGoggles
+  equipment:
+    eyes: ClothingEyesGlassesSafety
+
+- type: loadout
+  id: ScienceJamjarGoggles
+  equipment:
+    eyes: ClothingEyesGlassesSafetyJamjar
+
+- type: loadout
   id: ScienceRoboNormGlasses
   equipment:
     eyes: ClothingEyesHudDiagnostic

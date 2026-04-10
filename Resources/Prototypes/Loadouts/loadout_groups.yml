@@ -944,6 +944,39 @@
   loadouts:
   - JesterHat
   - JesterAltHat
+  - XmasCrown
+  - Sombrero
+  - MaidenWig
+  - CakeHat
+  - SkubHead
+  - ConeHead
+  - FakeWizard
+  - SantaHat
+  - BunnyEars
+  - PartyHatRed
+  - PartyHatBlue
+  - PartyHatGreen
+  - PropellerHat
+  - GladiatorHat
+  - ChickenHead
+  - DoYouLikeHurtingPeople
+  - RedRacoonHead
+  - CarborgHead
+  - PaperSack
+  - PaperSackSmile
+  - PumpkinHead
+  - SquidHead
+  - LooongTopHat
+  - FedoraBrown
+  - FedoraGrey
+  - OutlawHat
+  - PirateHat
+  - PirateTricord
+  - CowboyWhite
+  - CowboyGrey
+  - CowboyBlack
+  - CowboyBrown
+  - CowboyRed
 
 - type: loadoutGroup # - Funkystation
   id: ClownMask
@@ -953,15 +986,28 @@
   - ClownMaskDevil
   - ClownMaskGamble
   - ClownMaskJuggle
+  - ClownMaskSmug
 
 - type: loadoutGroup
   id: ClownJumpsuit
   name: loadout-group-clown-jumpsuit
   loadouts:
   - ClownSuit
-  - ClownSkirt
+  - ClownJumpSuit
+  - PolkadotSuit
   - JesterSuit
-  - JesterAltSuit
+  - HawaiBlack
+  - HawaiBlue
+  - HawaiRed
+  - HawaiYellow
+  - PirateSuit
+  - GladiatorSuit
+  - TacticoolSuit
+  - ContractKillerSuit
+  - Yakuza
+  - ClownSkirt
+  - TacticoolSkirt
+  - ContractKillerSkirt
 
 - type: loadoutGroup
   id: ClownBackpack
@@ -978,6 +1024,32 @@
   loadouts:
   - ClownRobes
   - ClownWintercoat
+  - PonchoClassic
+  - Poncho
+  - ChickenSuit
+  - GhostSheet
+  - SkubSuit
+  - CarBorgBody
+  - SantaSuit
+  - MonkeySuit
+  - CarpSuit
+  - ShrineMaiden
+  - WitchRobes
+  - BlueWizardRobes
+  - PirateCoat
+  - YakuzaCoat
+  - HopsitalGown
+  - HighVisVest
+  - GreyHoodie
+  - BlackHoodie
+  - BomberJacket
+  - BikerJacket
+  - TrenchCoat
+  - GentleCoat
+  - JensenCoat
+  - FlannelRed
+  - FlannelBlue
+  - FlannelGreen
 
 - type: loadoutGroup
   id: ClownShoes
@@ -985,6 +1057,24 @@
   loadouts:
   - ClownShoes
   - JesterShoes
+  - Sandals
+  - YakuzaShoes
+  - BrownCowboyBoots
+  - WhiteCowboyBoots
+  - BlackCowboyBoots
+  - Flippers
+  - Slippers
+  - DuckSlippers
+  - LizardSlippers
+  - BlackShoes
+  - WhiteShoes
+  - BrownShoes
+  - LaceupShoes
+  - WinterBoots
+  - SalvageBoots
+  - CargoWinterBoots
+  - WorkBoots
+  - EngineeringWinterBoots
 
 - type: loadoutGroup
   id: SurvivalClown
@@ -1005,6 +1095,44 @@
   loadouts:
   - LizardPlushieClown
   - ClownLighter # Funky Change
+
+- type: loadoutGroup
+  id: Toys
+  name: loadout-group-jobtoys
+  minLimit: 0
+  maxLimit: 2
+  loadouts:
+  - FoamCutlass
+  - FoamBlade
+  - ToySword
+  - FoamCrossbow
+  - Capgun
+  - ToyHammer
+  - WhoopieCushion
+  - RubberChicken
+  - Skub
+  - SnapPopBox
+  - MrChips
+  - MrDips
+  - PonderingOrb
+  - Basketball
+  - Football
+  - BeachBall
+  - BalloonSyn
+  - BalloonNT
+  - BalloonCorgi
+  - CarpPlush
+  - SnakePlushie
+  - RubberDuckToy
+
+- type: loadoutGroup
+  id: MimeHead
+  name: loadout-group-mime-head
+  minLimit: 0
+  loadouts:
+  - MimeHead
+  - MimeFrenchBeret
+  - MimeCap
 
 - type: loadoutGroup
   id: MimeMask

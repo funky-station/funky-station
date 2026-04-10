@@ -38,6 +38,7 @@ loadout-group-jobtrinkets = Job trinkets
 loadout-group-glasses = Glasses
 loadout-group-backpack = Backpack
 loadout-group-instruments = Instruments
+loadout-group-jobtoys = Toys
 loadout-group-survival-basic = Survival Box
 loadout-group-survival-extended = Extended Survival Box
 loadout-group-survival-salvage-extended = Extended Survival Box
@@ -195,6 +196,7 @@ loadout-group-scientist-shoes = Scientist shoes
 loadout-group-scientist-id = Scientist ID
 loadout-group-roboticist-id = Roboticist ID
 loadout-group-roboticist-glasses = Diagnostics glasses
+loadout-group-scientist-glasses = Scientist eyewear
 
 loadout-group-research-assistant-jumpsuit = Research Assistant jumpsuit
 

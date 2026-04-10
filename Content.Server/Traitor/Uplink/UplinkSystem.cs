@@ -26,6 +26,7 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Mind;
+using Content.Server.Objectives.Components;
 using Content.Server.Store.Systems;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
@@ -102,17 +103,12 @@ namespace Content.Server.Traitor.Uplink
 
             foreach (var objective in mind.Objectives)
             {
-                if (EntityManager.TryGetComponent<MetaDataComponent>(objective, out var meta))
-                {
-                    var protoId = meta.EntityPrototype?.ID;
-
-                    if (protoId == "DieObjective")
+                    if (HasComp<DieConditionComponent>(objective))
                     {
-                        EnsureComp<TagComponent>(uplinkEntity.Value);
-                        _tagSystem.AddTag(uplinkEntity.Value, "DAGDUplink");
-                        _store.TryAddCurrency(new Dictionary<string, FixedPoint2> { { TelecrystalCurrencyPrototype, 50 } }, uplinkEntity.Value, store);
+                        DAGDUplinkExpansion(user, balance, currencyProtoId, storePreset, uplinkEntity);
+                        break;
                     }
-                }
+
             }
 
             // TODO add BUI. Currently can't be done outside of yaml -_-
@@ -124,6 +120,19 @@ namespace Content.Server.Traitor.Uplink
         public bool AddUplink(EntityUid user, FixedPoint2? balance, EntityUid? uplinkEntity = null)
         {
             return AddUplink(user, balance, null, null, uplinkEntity);
+        }
+
+        public bool DAGDUplinkExpansion(EntityUid user, FixedPoint2? balance, EntProtoId? currencyProtoId, EntProtoId? storePreset, EntityUid? uplinkEntity = null) // All uplink changes for people that roll DAGD go here
+        {
+            if (uplinkEntity == null)
+                return false;
+
+            var store = EnsureComp<StoreComponent>(uplinkEntity.Value);
+
+            EnsureComp<TagComponent>(uplinkEntity.Value);
+            _tagSystem.AddTag(uplinkEntity.Value, "DAGDUplink"); // Adds the new Martyr tab
+            _store.TryAddCurrency(new Dictionary<string, FixedPoint2> { { TelecrystalCurrencyPrototype, 50 } }, uplinkEntity.Value, store); // Adds 50 TC
+            return true;
         }
 
         /// <summary>

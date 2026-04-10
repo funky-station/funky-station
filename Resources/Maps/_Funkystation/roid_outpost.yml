@@ -1,73 +1,11 @@
-# SPDX-FileCopyrightText: 2021 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 E F R <602406+Efruit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Elijahrane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Mith-randalf <84274729+Mith-randalf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2021 buletsponge <96000213+buletsponge@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 wrexbe <81056464+wrexbe@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 0x6273 <0x40@keemail.me>
-# SPDX-FileCopyrightText: 2022 20kdc <asdd2808@gmail.com>
-# SPDX-FileCopyrightText: 2022 Cheackraze <71046427+Cheackraze@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Morbo <14136326+Morb0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Myctai <108953437+Myctai@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 TaralGit <76408146+TaralGit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 TimrodDX <timrod@gmail.com>
-# SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
-# SPDX-FileCopyrightText: 2022 and_a <and_a@DESKTOP-RJENGIR>
-# SPDX-FileCopyrightText: 2022 corentt <36075110+corentt@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 moonheart08 <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Checkraze <71046427+Cheackraze@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Eoin Mcloughlin <helloworld@eoinrul.es>
-# SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
-# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Scribbles0 <91828755+Scribbles0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 WIN-AOO91TUKDC7\geniy <bogdanilchev@yandex.ru>
-# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2023 not-gavnaed <114421346+not-gavnaed@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Aineias1 <142914808+Aineias1@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Hobbitmax <91288081+Hobbitmax@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 OrangeMoronage9622 <whyteterry0092@gmail.com>
-# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 rottenheadphones <juaelwe@outlook.com>
-# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2026 mkanke-real <mikekanke@gmail.com>
-#
-# SPDX-License-Identifier: MIT
-
 meta:
   format: 7
   category: Map
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/07/2026 23:25:27
-  entityCount: 20879
+  time: 03/18/2026 02:16:04
+  entityCount: 20866
 maps:
 - 1
 grids:
@@ -13233,6 +13171,22 @@ entities:
       - 17101
       - 13198
       - 6308
+  - uid: 175
+    components:
+    - type: Transform
+      pos: -1.5,13.5
+      parent: 2
+    - type: DeviceList
+      devices:
+      - 12631
+      - 12630
+      - 12629
+      - 12627
+      - 12622
+      - 12623
+      - 13706
+      - 17057
+      - 20482
   - uid: 403
     components:
     - type: Transform
@@ -13292,22 +13246,6 @@ entities:
       - 16578
       - 8185
       - 8186
-  - uid: 3197
-    components:
-    - type: Transform
-      pos: -1.5,13.5
-      parent: 2
-    - type: DeviceList
-      devices:
-      - 12623
-      - 12622
-      - 12627
-      - 12629
-      - 12630
-      - 12631
-      - 17057
-      - 13706
-      - 20482
   - uid: 3203
     components:
     - type: Transform
@@ -13984,9 +13922,9 @@ entities:
     - type: Transform
       pos: 25.5,14.5
       parent: 2
-- proto: AirlockCentralCommandCommandLocked
+- proto: AirlockCentralCommandLocked
   entities:
-  - uid: 3239
+  - uid: 3197
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -14086,12 +14024,6 @@ entities:
       parent: 2
 - proto: AirlockEngineeringGlass
   entities:
-  - uid: 175
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -47.5,14.5
-      parent: 2
   - uid: 8582
     components:
     - type: Transform
@@ -14159,6 +14091,12 @@ entities:
     components:
     - type: Transform
       pos: -10.5,19.5
+      parent: 2
+  - uid: 3239
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -47.5,14.5
       parent: 2
   - uid: 6689
     components:
@@ -14649,7 +14587,7 @@ entities:
       pos: -10.5,-40.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -184833.56
+      secondsUntilStateChange: -185869.58
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14826,7 +14764,7 @@ entities:
       pos: -7.5,-7.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -364376.84
+      secondsUntilStateChange: -365412.84
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -15347,7 +15285,7 @@ entities:
       pos: -27.5,10.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -542779.8
+      secondsUntilStateChange: -543815.8
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -16599,6 +16537,12 @@ entities:
     components:
     - type: Transform
       pos: 33.5,10.5
+      parent: 2
+  - uid: 8049
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 0.5,14.5
       parent: 2
   - uid: 8137
     components:
@@ -27448,6 +27392,11 @@ entities:
     - type: Transform
       pos: 4.5,0.5
       parent: 2
+  - uid: 5717
+    components:
+    - type: Transform
+      pos: 2.5,12.5
+      parent: 2
   - uid: 6001
     components:
     - type: Transform
@@ -27457,6 +27406,16 @@ entities:
     components:
     - type: Transform
       pos: 15.5,-14.5
+      parent: 2
+  - uid: 6583
+    components:
+    - type: Transform
+      pos: 0.5,14.5
+      parent: 2
+  - uid: 6869
+    components:
+    - type: Transform
+      pos: -14.5,13.5
       parent: 2
   - uid: 6872
     components:
@@ -27502,6 +27461,16 @@ entities:
     components:
     - type: Transform
       pos: -43.5,-7.5
+      parent: 2
+  - uid: 8183
+    components:
+    - type: Transform
+      pos: 2.5,13.5
+      parent: 2
+  - uid: 8198
+    components:
+    - type: Transform
+      pos: 2.5,14.5
       parent: 2
   - uid: 8273
     components:
@@ -42936,6 +42905,11 @@ entities:
     - type: Transform
       pos: -25.5,-26.5
       parent: 2
+  - uid: 7820
+    components:
+    - type: Transform
+      pos: 0.5,14.5
+      parent: 2
   - uid: 8257
     components:
     - type: Transform
@@ -46655,7 +46629,7 @@ entities:
     - type: Transform
       pos: -34.5,14.5
       parent: 2
-  - uid: 5142
+  - uid: 4835
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -63457,7 +63431,7 @@ entities:
       parent: 2
     - type: DeviceNetwork
       deviceLists:
-      - 3197
+      - 175
   - uid: 16897
     components:
     - type: Transform
@@ -65071,7 +65045,7 @@ entities:
       parent: 2
     - type: DeviceNetwork
       deviceLists:
-      - 3197
+      - 175
   - uid: 12623
     components:
     - type: Transform
@@ -65079,7 +65053,7 @@ entities:
       parent: 2
     - type: DeviceNetwork
       deviceLists:
-      - 3197
+      - 175
   - uid: 12624
     components:
     - type: Transform
@@ -65111,7 +65085,7 @@ entities:
       parent: 2
     - type: DeviceNetwork
       deviceLists:
-      - 3197
+      - 175
   - uid: 12630
     components:
     - type: Transform
@@ -65120,7 +65094,7 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 6856
-      - 3197
+      - 175
   - uid: 12631
     components:
     - type: Transform
@@ -65129,7 +65103,7 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 6856
-      - 3197
+      - 175
   - uid: 13736
     components:
     - type: Transform
@@ -68887,11 +68861,23 @@ entities:
       color: '#990000FF'
 - proto: GasPipeManifold
   entities:
+  - uid: 5365
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -58.5,22.5
+      parent: 2
   - uid: 6587
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -50.5,25.5
+      parent: 2
+  - uid: 6927
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -54.5,22.5
       parent: 2
   - uid: 6928
     components:
@@ -68903,18 +68889,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -50.5,24.5
-      parent: 2
-  - uid: 8638
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -53.5,22.5
-      parent: 2
-  - uid: 8667
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -60.5,22.5
       parent: 2
   - uid: 9500
     components:
@@ -69214,6 +69188,12 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#0055CCFF'
+  - uid: 5142
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -53.5,22.5
+      parent: 2
   - uid: 5243
     components:
     - type: Transform
@@ -72812,6 +72792,12 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -52.5,30.5
       parent: 2
+  - uid: 8047
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -60.5,22.5
+      parent: 2
   - uid: 8057
     components:
     - type: Transform
@@ -73020,6 +73006,12 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#0055CCFF'
+  - uid: 8197
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -59.5,22.5
+      parent: 2
   - uid: 8231
     components:
     - type: Transform
@@ -83991,7 +83983,7 @@ entities:
       parent: 2
     - type: DeviceNetwork
       deviceLists:
-      - 3197
+      - 175
     - type: AtmosPipeColor
       color: '#0055CCFF'
   - uid: 17061
@@ -84951,7 +84943,7 @@ entities:
       parent: 2
     - type: DeviceNetwork
       deviceLists:
-      - 3197
+      - 175
     - type: AtmosPipeColor
       color: '#990000FF'
   - uid: 13707
@@ -85419,7 +85411,7 @@ entities:
       configurators:
       - 9040
       deviceLists:
-      - 3197
+      - 175
     - type: AtmosPipeColor
       color: '#990000FF'
   - uid: 20557
@@ -87379,111 +87371,25 @@ entities:
     - type: Transform
       pos: -53.5,-27.5
       parent: 2
-- proto: HeatExchanger
-  entities:
-  - uid: 6671
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -59.5,22.5
-      parent: 2
-  - uid: 6869
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -58.5,22.5
-      parent: 2
-  - uid: 7820
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -56.5,22.5
-      parent: 2
-  - uid: 8183
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -52.5,25.5
-      parent: 2
-  - uid: 8197
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -51.5,24.5
-      parent: 2
-  - uid: 8437
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -52.5,24.5
-      parent: 2
-  - uid: 8441
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -57.5,22.5
-      parent: 2
-  - uid: 8590
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -55.5,22.5
-      parent: 2
-  - uid: 8630
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -54.5,22.5
-      parent: 2
-  - uid: 8668
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -51.5,25.5
-      parent: 2
 - proto: HeatExchangerAlt1
   entities:
-  - uid: 4835
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -54.5,22.5
-      parent: 2
-  - uid: 5365
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -52.5,24.5
-      parent: 2
   - uid: 6670
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -59.5,22.5
+      rot: 1.5707963267948966 rad
+      pos: -57.5,22.5
+      parent: 2
+  - uid: 6929
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -55.5,22.5
       parent: 2
   - uid: 8146
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -51.5,25.5
-      parent: 2
-  - uid: 8439
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -55.5,22.5
-      parent: 2
-  - uid: 8440
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -57.5,22.5
-      parent: 2
-  - uid: 8591
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -52.5,25.5
       parent: 2
   - uid: 8640
     components:
@@ -87497,12 +87403,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -51.5,24.5
       parent: 2
-  - uid: 9852
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -58.5,22.5
-      parent: 2
 - proto: HeatExchangerAlt2
   entities:
   - uid: 5376
@@ -87511,34 +87411,16 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -57.5,22.5
       parent: 2
-  - uid: 5717
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -52.5,24.5
-      parent: 2
-  - uid: 6583
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -59.5,22.5
-      parent: 2
-  - uid: 6927
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -52.5,25.5
-      parent: 2
-  - uid: 8047
+  - uid: 7037
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -51.5,25.5
       parent: 2
-  - uid: 8049
+  - uid: 8200
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
+      rot: 1.5707963267948966 rad
       pos: -55.5,22.5
       parent: 2
   - uid: 8438
@@ -87547,65 +87429,39 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -51.5,24.5
       parent: 2
-  - uid: 8589
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -58.5,22.5
-      parent: 2
   - uid: 8631
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -56.5,22.5
       parent: 2
-  - uid: 8641
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -54.5,22.5
-      parent: 2
-- proto: HeatExchangerBend
-  entities:
-  - uid: 7037
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -53.5,25.5
-      parent: 2
-  - uid: 8200
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -53.5,24.5
-      parent: 2
 - proto: HeatExchangerBendAlt1
   entities:
-  - uid: 8198
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -53.5,24.5
-      parent: 2
-  - uid: 8629
+  - uid: 6671
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -53.5,25.5
+      pos: -52.5,25.5
+      parent: 2
+  - uid: 8437
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -52.5,24.5
       parent: 2
 - proto: HeatExchangerBendAlt2
   entities:
-  - uid: 6929
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -53.5,24.5
-      parent: 2
-  - uid: 8642
+  - uid: 8439
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -53.5,25.5
+      pos: -52.5,25.5
+      parent: 2
+  - uid: 8440
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -52.5,24.5
       parent: 2
 - proto: HeliumCanister
   entities:
@@ -90735,8 +90591,10 @@ entities:
   - uid: 9041
     components:
     - type: Transform
-      pos: 24.2774,8.7488785
+      pos: 24.1547,8.736283
       parent: 2
+    - type: NetworkConfigurator
+      linkModeActive: False
     - type: Physics
       angularDamping: 0
       linearDamping: 0
@@ -134392,13 +134250,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -35.5,-2.5
-      parent: 2
-- proto: WeaponDisabler
-  entities:
-  - uid: 18033
-    components:
-    - type: Transform
-      pos: 11.061051,-25.306484
       parent: 2
 - proto: WeaponEnergyTurretAI
   entities:

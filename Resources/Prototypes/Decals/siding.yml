@@ -1,0 +1,127 @@
+- type: decal
+  id: SidingCornerOverlay
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/siding.rsi
+    state: siding_corner
+
+- type: decal
+  id: SidingCornerOverlay2
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/siding.rsi
+    state: siding_corner_2
+
+- type: decal
+  id: SidingCornerOverlay3
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/siding.rsi
+    state: siding_corner_3
+
+- type: decal
+  id: SidingCornerOverlay4
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/siding.rsi
+    state: siding_corner_4
+
+- type: decal
+  id: SidingEndOverlay
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/siding.rsi
+    state: siding_end
+
+- type: decal
+  id: SidingEndOverlay2
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/siding.rsi
+    state: siding_end_2
+
+- type: decal
+  id: SidingEndOverlay3
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/siding.rsi
+    state: siding_end_3
+
+- type: decal
+  id: SidingEndOverlay4
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/siding.rsi
+    state: siding_end_4
+
+- type: decal
+  id: SidingCornerAltOverlay
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/siding.rsi
+    state: siding_corner_alt
+
+- type: decal
+  id: SidingCornerAlt2verlay
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/siding.rsi
+    state: siding_corner_alt_2
+
+- type: decal
+  id: SidingCornerAlt3verlay
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/siding.rsi
+    state: siding_corner_alt_3
+
+- type: decal
+  id: SidingCornerAlt4verlay
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/siding.rsi
+    state: siding_corner_alt_4
+
+- type: decal
+  id: SidingLineOverlay
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/siding.rsi
+    state: siding_line
+
+- type: decal
+  id: SidingLine2verlay
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/siding.rsi
+    state: siding_line_2
+
+- type: decal
+  id: SidingLine3verlay
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/siding.rsi
+    state: siding_line_3
+
+- type: decal
+  id: SidingLine4verlay
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/siding.rsi
+    state: siding_line_4

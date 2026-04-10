@@ -28,7 +28,7 @@ store-category-allies = Allies
 store-category-job = Job
 store-category-wearables = Wearables
 store-category-pointless = Pointless
-store-category-dagd = DAGD
+store-category-dagd = Martyr
 
 # Revenant
 store-category-abilities = Abilities

@@ -1505,9 +1505,9 @@
 - type: listing
   id: UplinkDAGDReinforcementRadioSyndicateCyborgAssault
   name: uplink-reinforcement-radio-cyborg-assault-name
-  description: uplink-reinforcement-radio-cyborg-assault-desc
+  description: uplink-reinforcement-radio-cyborg-assault-dagd-desc
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-borg-assault }
-  productEntity: ReinforcementRadioSyndicateCyborgAssault
+  productEntity: ClothingBackpackDuffelSyndicateFilledSyndicateCyborgAssault
   cost:
     Telecrystal: 165 # goob
   categories:

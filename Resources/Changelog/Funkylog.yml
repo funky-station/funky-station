@@ -8034,3 +8034,13 @@ Entries:
       message: Added safety goggles and safety jamgoggles.
   id: 920
   time: '2026-04-10T18:00:39.0000000+00:00'
+- author: Fr0goo
+  changes:
+    - type: Add
+      message: polka dot jumpsuit, clown jumpsuit, smug clown mask!
+    - type: Tweak
+      message: resprited tons of clown/tider clothes!
+    - type: Tweak
+      message: resprited holoclown
+  id: 921
+  time: '2026-04-10T18:03:23.0000000+00:00'

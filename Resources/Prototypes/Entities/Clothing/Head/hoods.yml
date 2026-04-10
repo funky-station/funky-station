@@ -277,9 +277,9 @@
   description: A gnarly hood adorned with plastic space carp teeth.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/carpsuit.rsi
+    sprite: _Funkystation/Clothing/Head/Hoods/carp.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hoods/carpsuit.rsi
+    sprite: _Funkystation/Clothing/Head/Hoods/carp.rsi
   - type: HideLayerClothing
     slots:
     - Hair

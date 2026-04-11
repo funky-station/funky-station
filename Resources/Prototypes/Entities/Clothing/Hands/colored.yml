@@ -301,21 +301,21 @@
     sprite: _Funkystation/Clothing/Hands/Gloves/color.rsi
     layers:
     - state: icon
-      color: "#EAE8E8"
+      color: "#E6E7F0"
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#EAE8E8"
+        color: "#E6E7F0"
       right:
       - state: inhand-right
-        color: "#EAE8E8"
+        color: "#E6E7F0"
   - type: Clothing
     sprite: _Funkystation/Clothing/Hands/Gloves/color.rsi
     clothingVisuals:
       gloves:
       - state: equipped-HAND
-        color: "#EAE8E8"
+        color: "#E6E7F0"
   - type: Fiber
     fiberColor: fibers-white
 

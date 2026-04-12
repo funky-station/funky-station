@@ -1,4 +1,6 @@
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Daniel Vernandes <df303949@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -25,3 +27,34 @@
         Heat: 0.6 # 0.2 more than a web vest, because it's an apron I guess
   - type: ExplosionResistance
     damageCoefficient: 0.9
+
+- type: entity
+  parent: [ClothingOuterBaseLarge, AllowBackStorageClothingCombat, BaseCentcommContraband]
+  id: ClothingOuterArmorCorporateCarapace
+  name: "corporate carapace"
+  description: "An armored chestpiece that provides high protection whilst still offering maximum mobility and flexibility. Issued only to the corporation's finest. surprisingly comfortable for a piece of armor."
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Misc/centralcommand_carapace.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Misc/centralcommand_carapace.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
+        Heat: 0.4
+        Caustic: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.65
+  - type: StaminaResistance
+    damageCoefficient: 0.75
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: HeldSpeedModifier
+  - type: GroupExamine
+  - type: Tag
+    tags:
+    - SpecialArmor

@@ -120,6 +120,7 @@ public abstract class SharedBorgSwitchableTypeSystem : EntitySystem
         if (TryComp(entity, out InteractionPopupComponent? popup))
         {
             _interactionPopup.SetInteractSuccessString((entity.Owner, popup), prototype.PetSuccessString);
+            _interactionPopup.SetInteractPerceivedByOthersString((entity.Owner, popup), prototype.PetSuccessOthersString);
             _interactionPopup.SetInteractFailureString((entity.Owner, popup), prototype.PetFailureString);
         }
 

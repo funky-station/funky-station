@@ -143,3 +143,6 @@
 
 - type: Tag
   id: FitsInMedDispenser
+  
+- type: Tag
+  id: SafetyGogglesBase

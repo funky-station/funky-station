@@ -325,6 +325,23 @@
   saleLimit: 1 # WD EDIT
 
 - type: listing
+  id: UplinkDAGDEshield
+  name: uplink-eshield-name
+  description: uplink-eshield-desc
+  icon: { sprite: /Textures/Objects/Weapons/Melee/e_shield.rsi, state: eshield-on }
+  productEntity: EnergyShield
+  cost:
+    Telecrystal: 40 # goob
+  categories:
+  - UplinkDAGD
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - DAGDUplink
+  saleLimit: 1 # WD EDIT
+
+- type: listing
   id: UplinkSniperBundle
   name: uplink-sniper-bundle-name
   description: uplink-sniper-bundle-desc
@@ -434,6 +451,27 @@
   - !type:WarOpsCondition
   saleBlacklist: true
 
+- type: listing
+  id: UplinkDAGDGrenadeLauncherBundle
+  name: uplink-grenade-launcher-bundle-name
+  description: uplink-grenade-launcher-bundle-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Launchers/china_lake.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledGrenadeLauncher
+  cost:
+    Telecrystal: 150 # goob
+  categories:
+  - UplinkDAGD
+  conditions:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - DAGDUplink
+  saleLimit: 1 # WD EDIT
+
 
 # Funky duplicate to fix surplus bundle, this one cannot be bought ignore
 - type: listing
@@ -465,6 +503,27 @@
   conditions: # Funky war ops whitelisting
   - !type:WarOpsCondition
   saleLimit: 1
+
+- type: listing
+  id: UplinkDAGDL6SawBundle
+  name: uplink-l6-saw-bundle-name
+  description: uplink-l6-saw-bundle-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/LMGs/l6.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledLMG
+  cost:
+    Telecrystal: 100 # goob
+  categories:
+  - UplinkDAGD
+  conditions:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - DAGDUplink
+  saleLimit: 1 # WD EDIT
 
 
 # Explosives
@@ -576,6 +635,22 @@
     whitelist:
       tags:
       - NukeOpsUplink
+  saleLimit: 1 # WD EDIT
+
+- type: listing
+  id: UplinkDAGDGrenadierRig
+  name: uplink-grenadier-rig-name
+  description: uplink-grenadier-rig-desc
+  productEntity: ClothingBeltMilitaryWebbingGrenadeFilled
+  cost:
+    Telecrystal: 50 # goob
+  categories:
+  - UplinkDAGD
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - DAGDUplink
   saleLimit: 1 # WD EDIT
 
 - type: listing
@@ -793,6 +868,25 @@
         components:
           - SurplusBundle
 
+- type: listing
+  id: UplinkDAGDAmmoBundle
+  name: uplink-ammo-bundle-name
+  description: uplink-ammo-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateAmmoFilled
+  cost:
+    Telecrystal: 50 # goob
+  categories:
+  - UplinkDAGD
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - DAGDUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+
 #Chemicals
 
 - type: listing
@@ -850,6 +944,27 @@
     blacklist:
       components:
       - SurplusBundle
+
+- type: listing
+  id: UplinkDAGDZombieBundle
+  name: uplink-zombie-bundle-name
+  description: uplink-zombie-bundle-desc
+  icon: { sprite: /Textures/Structures/Wallmounts/signs.rsi, state: bio }
+  productEntity: ClothingBackpackDuffelZombieBundle
+  cost:
+    Telecrystal: 325 # goob
+  categories:
+  - UplinkDAGD
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - DAGDUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkNocturineChemistryBottle
@@ -935,6 +1050,26 @@
       blacklist:
         components:
           - SurplusBundle
+  saleLimit: 1 # WD EDIT
+
+- type: listing
+  id: UplinkDAGDMedsBundle
+  name: uplink-meds-bundle-name
+  description: uplink-meds-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateMedicalBundleFilled
+  cost:
+    Telecrystal: 75 # goob
+  categories:
+  - UplinkDAGD
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - DAGDUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
   saleLimit: 1 # WD EDIT
 
 # Deception
@@ -1368,6 +1503,27 @@
   saleLimit: 1 # WD EDIT
 
 - type: listing
+  id: UplinkDAGDReinforcementRadioSyndicateCyborgAssault
+  name: uplink-reinforcement-radio-cyborg-assault-name
+  description: uplink-reinforcement-radio-cyborg-assault-dagd-desc
+  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-borg-assault }
+  productEntity: ClothingBackpackDuffelSyndicateFilledSyndicateCyborgAssault
+  cost:
+    Telecrystal: 165 # goob
+  categories:
+  - UplinkDAGD
+  conditions:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - DAGDUplink
+  saleLimit: 1 # WD EDIT
+
+- type: listing
   id: UplinkReinforcementRadioSyndicateAncestor
   name: uplink-reinforcement-radio-ancestor-name
   description: uplink-reinforcement-radio-ancestor-desc
@@ -1545,6 +1701,27 @@
   saleLimit: 1 # WD EDIT
 
 - type: listing
+  id: UplinkDAGDMicroBombImplanter
+  name: uplink-micro-bomb-implanter-name
+  description: uplink-micro-bomb-implanter-desc
+  icon: { sprite: /Textures/Actions/Implants/implants.rsi, state: explosive }
+  productEntity: MicroBombImplanter
+  cost:
+    Telecrystal: 10 # goob
+  categories:
+  - UplinkDAGD
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - DAGDUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+  saleLimit: 1 # WD EDIT
+
+- type: listing
   id: UplinkMacroBombImplanter
   name: uplink-macro-bomb-implanter-name
   description: uplink-macro-bomb-implanter-desc
@@ -1563,6 +1740,27 @@
       blacklist:
         components:
           - SurplusBundle
+  saleLimit: 1 # WD EDIT
+
+- type: listing
+  id: UplinkDAGDMacroBombImplanter
+  name: uplink-macro-bomb-implanter-name
+  description: uplink-macro-bomb-implanter-desc
+  icon: { sprite: /Textures/Actions/Implants/implants.rsi, state: explosive }
+  productEntity: MacroBombImplanter
+  cost:
+    Telecrystal: 65 # goob
+  categories:
+  - UplinkDAGD
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - DAGDUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
   saleLimit: 1 # WD EDIT
 
 - type: listing
@@ -1801,6 +1999,23 @@
     whitelist:
       tags:
       - NukeOpsUplink
+  saleLimit: 1 # WD EDIT
+
+- type: listing
+  id: UplinkDAGDClothingOuterArmorRaid
+  name: uplink-syndie-raid-name
+  description: uplink-syndie-raid-desc
+  icon: { sprite: /Textures/Clothing/OuterClothing/Armor/syndie-raid.rsi, state: icon }
+  productEntity: ClothingBackpackSyndicateRaidBundle
+  cost:
+    Telecrystal: 30 # funky
+  categories:
+  - UplinkDAGD
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - DAGDUplink
   saleLimit: 1 # WD EDIT
 
 - type: listing
@@ -2621,6 +2836,27 @@
       - NukeOpsUplink
   saleLimit: 1
 
+- type: listing
+  id: UplinkDAGDDarkGygax
+  name: uplink-mech-teleporter-assault-name
+  description: uplink-mech-teleporter-assault-desc
+  icon: { sprite: /Textures/Objects/Specific/Mech/mecha.rsi, state: darkgygax }
+  productEntity: CrateCybersunDarkGygaxBundle
+  cost:
+    Telecrystal: 150 # goob
+  categories:
+  - UplinkDAGD
+  conditions:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - DAGDUplink
+  saleLimit: 1 # WD EDIT
+
 
 # Funky duplicate to fix surplus bundle, this one cannot be bought ignore
 - type: listing
@@ -2657,3 +2893,24 @@
       tags:
       - NukeOpsUplink
   saleLimit: 1
+
+- type: listing
+  id: UplinkDAGDMauler
+  name: uplink-mech-teleporter-heavy-name
+  description: uplink-mech-teleporter-heavy-desc
+  icon: { sprite: /Textures/Objects/Specific/Mech/mecha.rsi, state: mauler }
+  productEntity: CrateCybersunMaulerBundle
+  cost:
+    Telecrystal: 225 #Funky
+  categories:
+  - UplinkDAGD
+  conditions:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - DAGDUplink
+  saleLimit: 1 # WD EDIT

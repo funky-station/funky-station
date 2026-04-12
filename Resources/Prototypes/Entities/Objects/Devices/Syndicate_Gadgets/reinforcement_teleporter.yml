@@ -148,3 +148,16 @@
         settings: default
     - type: GhostRoleMobSpawner
       prototype: PlayerBorgSyndicateAssaultBattery
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledSyndicateCyborgAssault
+  name: Syndicate Assault Cyborg bundle
+  description: "A lean, mean killing machine with access to an Energy Sword, LMG, Cryptographic Sequencer, and a Pinpointer. Comes bundled with a few Syndicate IDs for you and your buddies, just to make sure you're on the Cyborg's good side."
+  components:
+  - type: StorageFill
+    contents:
+    - id: ReinforcementRadioSyndicateCyborgAssault
+    - id: SyndicateIDCard
+    - id: SyndicateIDCard
+    - id: SyndicateIDCard

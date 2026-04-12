@@ -8044,3 +8044,9 @@ Entries:
       message: resprited holoclown
   id: 921
   time: '2026-04-10T18:03:23.0000000+00:00'
+- author: EmillyCoelho
+  changes:
+    - type: Tweak
+      message: Oasis eng section reworked to have Nuclear Reactor, SM and HFR Area.
+  id: 922
+  time: '2026-04-12T17:50:36.0000000+00:00'

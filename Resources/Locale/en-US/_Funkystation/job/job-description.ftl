@@ -1,0 +1,2 @@
+job-description-ertlawyer = Represent CentCom's interests and keep order on the station via legal means.
+job-description-ccinvestigator = Investigate corruption, scandals and other misdeeds in the name of Central Command.

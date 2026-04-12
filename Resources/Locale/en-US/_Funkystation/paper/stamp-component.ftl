@@ -6,3 +6,5 @@
 stamp-component-stamped-name-iaa = Internal Affairs
 stamp-component-stamped-name-borg = Cyborg
 stamp-component-stamped-name-cci = Central Command Intern
+stamp-component-stamped-name-investigator = Central Command Investigator
+stamp-component-stamped-name-ert-lawyer = ERT Lawyer

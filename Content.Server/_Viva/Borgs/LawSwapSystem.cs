@@ -4,11 +4,15 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 using Content.Server.DoAfter;
+using Content.Server.Mind;
 using Content.Server.Popups;
 using Content.Server.Silicons.Laws;
 using Content.Shared._Viva.Silicon;
 using Content.Shared.DoAfter;
+using Content.Shared.Emag.Components;
 using Content.Shared.Interaction;
+using Content.Shared.Mind;
+using Content.Shared.Roles;
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Wires;
 using Robust.Shared.Audio;
@@ -21,6 +25,8 @@ public sealed class LawSwapSystem : EntitySystem
     [Dependency] private readonly SiliconLawSystem _siliconLawSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
+    [Dependency] private readonly MindSystem _mindSystem = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -79,6 +85,20 @@ public sealed class LawSwapSystem : EntitySystem
             _popupSystem.PopupEntity("You finish reprogramming the borg's laws.",
                 args.User,
                 args.User);
+            
+            RemComp<EmaggedComponent>(args.Target.Value);
+
+            // Return Role Type to Standard Silicon
+            var mindId = _mindSystem.GetMind(args.Target.Value);
+            if (mindId != null && TryComp<MindComponent>(mindId.Value, out var mind))
+            {
+                mind.RoleType = "Silicon";
+                Dirty(mindId.Value, mind);
+
+                // UI update event
+                if (_mindSystem.TryGetSession(mindId.Value, out var session))
+                    RaiseNetworkEvent(new MindRoleTypeChangedEvent(), session.Channel);
+            }
         }
         else
         {

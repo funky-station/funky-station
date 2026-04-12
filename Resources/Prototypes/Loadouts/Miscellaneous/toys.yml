@@ -1,0 +1,140 @@
+# SPDX-FileCopyrightText: 2026 Fr0goo <frogoofrog@outlook.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+
+
+
+
+#toyyssss :D
+- type: loadout
+  id: FoamCutlass
+  storage:
+    back:
+    - FoamCutlass
+
+- type: loadout
+  id: FoamBlade
+  storage:
+    back:
+    - FoamBlade
+
+- type: loadout
+  id: ToySword
+  storage:
+    back:
+    - ToySword
+
+- type: loadout
+  id: FoamCrossbow
+  storage:
+    back:
+    - FoamCrossbow
+
+- type: loadout
+  id: Capgun
+  storage:
+    back:
+    - RevolverCapGun
+
+- type: loadout
+  id: ToyHammer
+  storage:
+    back:
+    - ToyHammer
+
+- type: loadout
+  id: WhoopieCushion
+  storage:
+    back:
+    - WhoopieCushion
+
+- type: loadout
+  id: SnapPopBox
+  storage:
+    back:
+    - SnapPopBox
+
+- type: loadout
+  id: RubberChicken
+  storage:
+    back:
+    - RubberChicken
+
+- type: loadout
+  id: Skub
+  storage:
+    back:
+    - Skub
+
+- type: loadout
+  id: MrChips
+  storage:
+    back:
+    - MrChips
+
+- type: loadout
+  id: MrDips
+  storage:
+    back:
+    - MrDips
+
+- type: loadout
+  id: PonderingOrb
+  storage:
+    back:
+    - PonderingOrb
+
+- type: loadout
+  id: Basketball
+  storage:
+    back:
+    - Basketball
+
+- type: loadout
+  id: Football
+  storage:
+    back:
+    - Football
+
+- type: loadout
+  id: BeachBall
+  storage:
+    back:
+    - BeachBall
+
+- type: loadout
+  id: BalloonSyn
+  storage:
+    back:
+    - BalloonSyn
+
+- type: loadout
+  id: BalloonNT
+  storage:
+    back:
+    - BalloonNT
+
+- type: loadout
+  id: BalloonCorgi
+  storage:
+    back:
+    - BalloonCorgi
+
+- type: loadout
+  id: CarpPlush
+  storage:
+    back:
+    - PlushieCarp
+
+- type: loadout
+  id: SnakePlushie
+  storage:
+    back:
+    - PlushieSnake
+
+- type: loadout
+  id: RubberDuckToy
+  storage:
+    back:
+    - ToyRubberDuck

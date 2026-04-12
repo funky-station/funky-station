@@ -1,7 +1,12 @@
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneGuy227@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: CrateServiceBulkCleanerGranades
   parent: CratePlastic
-  name: bulk clenades box 
+  name: bulk clenades box
   description: When just a mop is not enough to do the job.
   components:
   - type: StorageFill
@@ -22,10 +27,23 @@
 - type: entity
   id: CrateServiceColoredLightBulb
   parent: CratePlastic
-  name: colored lightbulb box 
+  name: colored lightbulb box
   description: Contains a set of diffrent colored light bulbs.
   components:
   - type: StorageFill
     contents:
     - id: BoxLightBulbColored
 
+- type: entity
+  id: CrateServiceWashingMachineSet
+  parent: CardboardBoxLarge
+  name: DIY washing machine kit
+  description: Tired of wringing your clothes out by hand? This do-it-yourself washing machine set has you covered.
+  components:
+  - type: StorageFill
+    contents:
+    - id: SheetSteel1
+      amount: 6
+    - id: CableApcStack10
+    - id: MicroManipulatorStockPart
+    - id: WashingMachineCircuitboard

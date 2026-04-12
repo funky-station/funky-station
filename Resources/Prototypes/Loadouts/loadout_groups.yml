@@ -76,9 +76,11 @@
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 tea <xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
+# SPDX-FileCopyrightText: 2026 AirFryerBuyOneGetOneFree <jakoblondon01@gmail.com>
 # SPDX-FileCopyrightText: 2026 Fr0goo <frogoofrog@outlook.com>
 # SPDX-FileCopyrightText: 2026 Frogoo <153249069+Fr0goo@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Tea <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2026 W.xyz() <tptechteam@gmail.com>
@@ -148,6 +150,7 @@
   - TowelColorWhite
   - TowelColorYellow
   # Begin DeltaV Additions
+  - AACTablet
   - TapeRecorder
   # End DeltaV Additions
 
@@ -340,6 +343,10 @@
   - GreyJumpskirt
   - AncientJumpsuit
   - RainbowJumpsuit
+  - HawaiBlack
+  - HawaiBlue
+  - HawaiRed
+  - HawaiYellow
   - ServiceJumpsuitDressWhite
   - ServiceJumpsuitDressBlue
   - ServiceJumpsuitDressTied
@@ -403,14 +410,6 @@
   minLimit: 0
   loadouts:
   - Mantle
-
-- type: loadoutGroup
-  id: PassengerOuterClothing
-  name: loadout-group-passenger-outerclothing
-  minLimit: 0
-  loadouts:
-  - PassengerWintercoat
-  - BikerJacket
 
 - type: loadoutGroup
   id: PassengerShoes
@@ -533,6 +532,33 @@
   - TealGloves
   - BlueGloves
   - PurpleGloves
+
+- type: loadoutGroup
+  id: GenericOuterClothing
+  name: loadout-group-generic-outerclothing
+  minLimit: 0
+  loadouts:
+  - WintercoatGray
+  - WintercoatWhite
+  - WintercoatBlack
+  - WintercoatRed
+  - WintercoatOrange
+  - WintercoatYellow
+  - WintercoatGreen
+  - WintercoatBlue
+  - WintercoatPurple
+  - WintercoatLightBrown
+  - WintercoatBrown
+  - GreyHoodie
+  - BlackHoodie
+  - BomberJacket
+  - BikerJacket
+  - TrenchCoat
+  - GentleCoat
+  - JensenCoat
+  - FlannelRed
+  - FlannelBlue
+  - FlannelGreen
 
 - type: loadoutGroup #WizDen Weh Job Plush
   id: BartenderJobTrinkets
@@ -842,6 +868,7 @@
   name: loadout-group-botanist-head
   minLimit: 0
   loadouts:
+  - StrawHat
   - BandanaBlack
   - BandanaBlue
   - BandanaGold
@@ -884,8 +911,16 @@
   name: loadout-group-botanist-outerclothing
   minLimit: 0
   loadouts:
-  - BotanistApron
   - BotanistWintercoat
+  - WintercoatGreen
+  - WintercoatLightBrown
+  - WintercoatBrown
+  - WintercoatBlue
+  - WintercoatPurple
+  - BotanistApron
+  - FlannelRed
+  - FlannelBlue
+  - FlannelGreen
 
 - type: loadoutGroup #WizDen Weh Job Plush
   id: BotanistJobTrinkets
@@ -901,6 +936,39 @@
   loadouts:
   - JesterHat
   - JesterAltHat
+  - XmasCrown
+  - Sombrero
+  - MaidenWig
+  - CakeHat
+  - SkubHead
+  - ConeHead
+  - FakeWizard
+  - SantaHat
+  - BunnyEars
+  - PartyHatRed
+  - PartyHatBlue
+  - PartyHatGreen
+  - PropellerHat
+  - GladiatorHat
+  - ChickenHead
+  - DoYouLikeHurtingPeople
+  - RedRacoonHead
+  - CarborgHead
+  - PaperSack
+  - PaperSackSmile
+  - PumpkinHead
+  - SquidHead
+  - LooongTopHat
+  - FedoraBrown
+  - FedoraGrey
+  - OutlawHat
+  - PirateHat
+  - PirateTricord
+  - CowboyWhite
+  - CowboyGrey
+  - CowboyBlack
+  - CowboyBrown
+  - CowboyRed
 
 - type: loadoutGroup # - Funkystation
   id: ClownMask
@@ -910,15 +978,28 @@
   - ClownMaskDevil
   - ClownMaskGamble
   - ClownMaskJuggle
+  - ClownMaskSmug
 
 - type: loadoutGroup
   id: ClownJumpsuit
   name: loadout-group-clown-jumpsuit
   loadouts:
   - ClownSuit
-  - ClownSkirt
+  - ClownJumpSuit
+  - PolkadotSuit
   - JesterSuit
-  - JesterAltSuit
+  - HawaiBlack
+  - HawaiBlue
+  - HawaiRed
+  - HawaiYellow
+  - PirateSuit
+  - GladiatorSuit
+  - TacticoolSuit
+  - ContractKillerSuit
+  - Yakuza
+  - ClownSkirt
+  - TacticoolSkirt
+  - ContractKillerSkirt
 
 - type: loadoutGroup
   id: ClownBackpack
@@ -935,6 +1016,32 @@
   loadouts:
   - ClownRobes
   - ClownWintercoat
+  - PonchoClassic
+  - Poncho
+  - ChickenSuit
+  - GhostSheet
+  - SkubSuit
+  - CarBorgBody
+  - SantaSuit
+  - MonkeySuit
+  - CarpSuit
+  - ShrineMaiden
+  - WitchRobes
+  - BlueWizardRobes
+  - PirateCoat
+  - YakuzaCoat
+  - HopsitalGown
+  - HighVisVest
+  - GreyHoodie
+  - BlackHoodie
+  - BomberJacket
+  - BikerJacket
+  - TrenchCoat
+  - GentleCoat
+  - JensenCoat
+  - FlannelRed
+  - FlannelBlue
+  - FlannelGreen
 
 - type: loadoutGroup
   id: ClownShoes
@@ -942,6 +1049,24 @@
   loadouts:
   - ClownShoes
   - JesterShoes
+  - Sandals
+  - YakuzaShoes
+  - BrownCowboyBoots
+  - WhiteCowboyBoots
+  - BlackCowboyBoots
+  - Flippers
+  - Slippers
+  - DuckSlippers
+  - LizardSlippers
+  - BlackShoes
+  - WhiteShoes
+  - BrownShoes
+  - LaceupShoes
+  - WinterBoots
+  - SalvageBoots
+  - CargoWinterBoots
+  - WorkBoots
+  - EngineeringWinterBoots
 
 - type: loadoutGroup
   id: SurvivalClown
@@ -962,6 +1087,35 @@
   loadouts:
   - LizardPlushieClown
   - ClownLighter # Funky Change
+
+- type: loadoutGroup
+  id: Toys
+  name: loadout-group-jobtoys
+  minLimit: 0
+  maxLimit: 2
+  loadouts:
+  - FoamCutlass
+  - FoamBlade
+  - ToySword
+  - FoamCrossbow
+  - Capgun
+  - ToyHammer
+  - WhoopieCushion
+  - RubberChicken
+  - Skub
+  - SnapPopBox
+  - MrChips
+  - MrDips
+  - PonderingOrb
+  - Basketball
+  - Football
+  - BeachBall
+  - BalloonSyn
+  - BalloonNT
+  - BalloonCorgi
+  - CarpPlush
+  - SnakePlushie
+  - RubberDuckToy
 
 - type: loadoutGroup
   id: MimeHead
@@ -1049,6 +1203,9 @@
   minLimit: 0
   loadouts:
   - MusicianWintercoat
+  - BikerJacket
+  - GentleCoat
+  - JensenCoat
 
 - type: loadoutGroup
   id: Instruments
@@ -1662,12 +1819,11 @@
   name: loadout-group-scientist-outerclothing
   minLimit: 0
   loadouts:
+  - ScienceWintercoat
+  - RoboticistWintercoat
   - RegularLabCoat
   - ScienceLabCoat
-  - ScienceWintercoat
-  - BikerJacket
   - RoboticistLabCoat
-  - RoboticistWintercoat
   - SeniorResearcherLabCoat
 
 - type: loadoutGroup
@@ -1748,12 +1904,11 @@
   id: HeadofSecurityJumpsuit
   name: loadout-group-head-of-security-jumpsuit
   loadouts:
-  - HeadofSecurityJumpsuit
-  - HeadofSecurityJumpskirt
-  - HeadofSecurityTurtleneck
-  - HeadofSecurityTurtleneckSkirt
+  - HeadofSecurityService
+  - HeadofSecurityDress
+  - HeadofSecurityDressSkirt
   - HeadofSecurityFormalSuit
-  - HeadofSecurityFormalSkirt
+  - HeadofSecurityFormalDress
 
 - type: loadoutGroup
   id: HeadofSecurityNeck
@@ -1771,7 +1926,6 @@
   - HeadofSecurityCoat
   - HeadofSecurityWinterCoat
   - HeadofSecurityArmorVest
-  - HeadofSecurityArmorVestSlim
 
 - type: loadoutGroup #WizDen Weh Job Plush
   id: HeadofSecurityJobTrinkets
@@ -1795,8 +1949,13 @@
   id: WardenJumpsuit
   name: loadout-group-warden-jumpsuit
   loadouts:
-  - WardenJumpsuit
-  - WardenJumpskirt
+  - SecurityFatigues
+  - SecurityDress
+  - SecurityDressSkirt
+  - SecuritySeniorDress
+  - SecuritySeniorDressSkirt
+  - SecurityMess
+  - SecurityMessSkirt
 
 - type: loadoutGroup
   id: WardenNeck
@@ -1804,6 +1963,7 @@
   minLimit: 0
   loadouts:
   - Bodycam # Goobstation - Body cameras
+  - MessTie
 
 - type: loadoutGroup
   id: WardenOuterClothing
@@ -1843,13 +2003,13 @@
   id: SecurityJumpsuit
   name: loadout-group-security-jumpsuit
   loadouts:
-  - SecurityJumpsuit
-  - SecurityJumpskirt
-  - SecurityJumpsuitGrey
-  - SecurityJumpskirtGrey
-  - SeniorOfficerJumpsuit
-  - SeniorOfficerJumpskirt
-  - TrooperUniform
+  - SecurityFatigues
+  - SecurityDress
+  - SecurityDressSkirt
+  - SecuritySeniorDress
+  - SecuritySeniorDressSkirt
+  - SecurityMess
+  - SecurityMessSkirt
 
 - type: loadoutGroup
   id: SecurityBackpack
@@ -1872,13 +2032,13 @@
   minLimit: 0
   loadouts:
   - Bodycam # Goobstation - Body cameras
+  - MessTie
 
 - type: loadoutGroup
   id: SecurityOuterClothing
   name: loadout-group-security-outerclothing
   loadouts:
   - ArmorVest
-  - ArmorVestSlim
   - SecurityOfficerWintercoat
 
 #Funky
@@ -1887,6 +2047,7 @@
   name: loadout-group-security-gloves
   loadouts:
   - BlackGloves
+  - WhiteGloves
 
 - type: loadoutGroup
   id: SecurityShoes
@@ -1964,11 +2125,16 @@
   - LizardPlushieDetective
 
 - type: loadoutGroup
+  id: SecurityCadetHat
+  name: loadout-group-security-cadet-hat
+  loadouts:
+  - CadetHat
+
+- type: loadoutGroup
   id: SecurityCadetJumpsuit
   name: loadout-group-security-cadet-jumpsuit
   loadouts:
-  - RedJumpsuit
-  - RedJumpskirt
+  - CadetUniform
 
 - type: loadoutGroup
   id: SurvivalSecurity
@@ -2310,8 +2476,8 @@
   name: loadout-group-paramedic-outerclothing
   minLimit: 0
   loadouts:
-  - ParamedicWindbreaker
   - ParamedicWintercoat
+  - ParamedicWindbreaker
 
 - type: loadoutGroup
   id: ParamedicShoes

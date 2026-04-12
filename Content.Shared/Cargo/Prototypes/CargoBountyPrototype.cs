@@ -4,6 +4,7 @@
 // SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Gansu <68031780+GansuLalan@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Gansu <peat.allan13@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 aa5g21 <aa5g21@soton.ac.uk>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
@@ -11,6 +12,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Shared.Atmos;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Research.Prototypes;
 using Content.Shared.Whitelist;
@@ -133,5 +135,17 @@ public partial record CargoReagentBountyItemEntry : CargoBountyItemEntry
     /// </summary>
     [DataField(required: true)]
     public ProtoId<ReagentPrototype> Reagent { get; set; }
+}
+
+[DataDefinition, Serializable, NetSerializable]
+public partial record CargoGasBountyItemEntry : CargoBountyItemEntry
+{
+    /// <summary>
+    /// What gas reagent will satisfy the entry.
+    /// I hate gases, this needs to be set as per the entries in the Gas enum in <see cref="Content.Shared.Atmos.Atmospherics"/>
+    /// I pray someone smarter than I knows a better way to do this
+    /// </summary>
+    [DataField(required: true)]
+    public Gas Gas { get; set; }
     // End of Funky Station edits
 }

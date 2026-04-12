@@ -995,7 +995,7 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
         var query = EntityQueryEnumerator<ZombieTumorInfectionComponent>();
         while (query.MoveNext(out var uid, out _))
         {
-            if (!_mobState.IsDead(uid))
+            if (!_mobState.IsDead(uid) || HasComp<ZombieTumorInfectionComponent>(uid))
                 continue;
             if (!HasTumorOrgan(uid))
                 SpawnTumorOrgan(uid);

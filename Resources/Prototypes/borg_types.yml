@@ -76,7 +76,7 @@
   - Science
 
   # Visual
-  inventoryTemplateId: borgShort
+  inventoryTemplateId: borg
   spriteBodyState: engineer
   spriteHasMindState: engineer_e
   spriteNoMindState: engineer_e_r
@@ -220,7 +220,7 @@
     speedModifier: 1.8 #moderately faster than a regular doctor w/ gloves (1.75)
 
   # Visual
-  inventoryTemplateId: borgDutch
+  inventoryTemplateId: borg
   spriteBodyState: medical
   spriteBodyMovementState: medical_moving
   spriteHasMindState: medical_e

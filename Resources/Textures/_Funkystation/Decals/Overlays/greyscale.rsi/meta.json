@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "threequartertechtile and halftechtile overlays created by _emillycoelho (Discord) for Funkystation, halftechtile alt overlays taken from BeeStation",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+	{
+      "name": "threequartertechtile_overlay"
+    },
+    {
+      "name": "threequartertechtile_overlay_90"
+    },
+    {
+      "name": "threequartertechtile_overlay_180"
+    },
+    {
+      "name": "threequartertechtile_overlay_270"
+    },
+    {
+      "name": "halftechtile_overlay"
+    },
+    {
+      "name": "halftechtile_overlay_90"
+    },
+    {
+      "name": "halftechtile_overlay_180"
+    },
+    {
+      "name": "halftechtile_overlay_270"
+    },
+    {
+      "name": "halftechtile_overlay_alt"
+    },
+    {
+      "name": "halftechtile_overlay_alt_90"
+    },
+    {
+      "name": "halftechtile_overlay_alt_180"
+    },
+    {
+      "name": "halftechtile_overlay_alt_270"
+    },
+    {
+      "name": "threequartertechtile_overlay_alt"
+    },
+    {
+      "name": "threequartertechtile_overlay_alt_90"
+    },
+    {
+      "name": "threequartertechtile_overlay_alt_180"
+    },
+    {
+      "name": "threequartertechtile_overlay_alt_270"
+    }
+  ]
+}

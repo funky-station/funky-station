@@ -373,3 +373,21 @@ reagent-desc-whiskey-sour = What's the secret ingredient? Eggs. It's eggs.
 
 reagent-name-zombiecocktail = Zombie
 reagent-desc-zombiecocktail = It gets in your head. Your he-eyeh-ead.
+
+reagent-name-black-japan = Black Japan
+reagent-desc-black-japan = A novel concoction of stout and melon liqueur. Kanpai!
+
+reagent-name-bruised-melon = bruised melon
+reagent-desc-bruised-melon = It still remains a mystery how someone would bruise a cocktail.
+
+reagent-name-coconut-sake-colada = coconut sake colada
+reagent-desc-coconut-sake-colada = A Japanese twist on the Pina Colada.
+
+reagent-name-cosmic-alaska = Cosmic Alaska
+reagent-desc-cosmic-alaska = The national drink of Gliese 1132b.
+
+reagent-name-horses-neck = horse's neck
+reagent-desc-horses-neck = Despite the name, it doesn’t contain any horses. However, if a horse can make the drink is a question still debated by mixologists to this day.
+
+reagent-name-ransom-note = ransom note
+reagent-desc-ransom-note = What’s being held hostage, you ask? Your sobriety, of course.

@@ -22,8 +22,9 @@
 # SPDX-FileCopyrightText: 2024 spanky-spanky <scott@wearejacob.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 salpphie <53307242+salpphie@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 salpphie <alyssa.thomas51@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 salpphie <alyssa.thomas51@gmail.com>
+# SPDX-FileCopyrightText: 2026 willow <willowzeta632146@proton.me>
 # SPDX-FileCopyrightText: 2026 wilowzeta <willowzeta632146@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -50,7 +51,7 @@
             #service
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
-            InternalAffairsAgent: [ 1, 1 ]
+            InternalAffairsAgent: [ 2, 2 ]
             NanotrasenRepresentative: [ 1, 1 ]
             Magistrate: [ 1, 1 ]
             Bartender: [ 1, 1 ]

@@ -142,3 +142,6 @@
 
 - type: Tag
   id: DAGDUplink
+
+- type: Tag
+  id: SafetyGogglesBase

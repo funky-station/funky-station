@@ -11,9 +11,9 @@
   description: The perfect outfit for blending in at any event, office, or space station.
   components:
   - type: Sprite
-    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/hitmansuit.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/contract_killer_skirt.rsi
   - type: Clothing
-    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/hitmansuit.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/contract_killer_skirt.rsi
 
 - type: entity
   parent: [ClothingUniformBase]

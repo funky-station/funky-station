@@ -83,6 +83,7 @@
 # SPDX-FileCopyrightText: 2026 Tea <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2026 W.xyz() <84605679+pirakaplant@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 W.xyz() <tptechteam@gmail.com>
 # SPDX-FileCopyrightText: 2026 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
@@ -1341,6 +1342,7 @@
   - SeniorCargoTechnicianBeret #Funky!
   - RedBeret
   - BlackBeret
+  - CargoTechnicianHardhat # Funky
 
 - type: loadoutGroup
   id: CargoTechnicianNeck
@@ -1387,6 +1389,7 @@
   - CargoTechnicianWindbreaker #Funky!
   - SeniorCargoTechnicianWindbreaker #Funky!
   - CargoTechnicianWintercoatMail # Goob/DeltaV - Mail
+  - StationEngineerOuterVest # Funky
 
 - type: loadoutGroup
   id: CargoTechnicianShoes

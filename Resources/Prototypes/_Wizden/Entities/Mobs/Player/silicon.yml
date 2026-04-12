@@ -1,4 +1,6 @@
+# SPDX-FileCopyrightText: 2026 A-Loose-Goose <237446272+A-Loose-Goose@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 ALooseGoose <ALooseGoosey@gmail.com>
+# SPDX-FileCopyrightText: 2026 beck <163376292+widgetbeck@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -23,7 +25,7 @@
   - type: Damageable
     damageContainer: Inorganic
   - type: Bloodstream
-    bloodReagent: Oil
+    bloodReagent: NaniteSlurry # Funkystation - Only Replicators use this so yeah, change to smth else once/if something else uses this, maybe Synthblood?
     bloodlossDamage:
       types:
         Bloodloss:
@@ -82,3 +84,6 @@
   - type: StandingState
   - type: Alerts
   - type: ProtectedFromStepTriggers
+  - type: Inventory
+    speciesId: replicator
+    templateId: replicator

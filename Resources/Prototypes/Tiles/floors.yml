@@ -693,6 +693,65 @@
   heatCapacity: 10000
   tileRipResistance: 50
 
+# Funky - New Tiles
+
+- type: tile
+  id: FloorSmoothSteel
+  name: tiles-steel-floor-smooth
+  sprite: /Textures/_Funkystation/Tiles/smooth.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemSteel
+  heatCapacity: 10000
+  tileRipResistance: 50
+
+- type: tile
+  id: FloorDarkTech
+  name: tiles-dark-floor-tech
+  sprite: /Textures/_Funkystation/Tiles/dark_tech.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemDark
+  heatCapacity: 10000
+  tileRipResistance: 50
+
+- type: tile
+  id: FloorDarkMonoTextured
+  name: tiles-dark-floor-mono-textured
+  sprite: /Textures/_Funkystation/Tiles/dark_mono_textured.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemDarkMono
+  heatCapacity: 10000
+  tileRipResistance: 50
+
 - type: tile
   id: FloorTechMaint
   name: tiles-techmaint-floor

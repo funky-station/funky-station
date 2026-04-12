@@ -978,6 +978,7 @@
   - ClownMaskDevil
   - ClownMaskGamble
   - ClownMaskJuggle
+  - ClownMaskSmug
 
 - type: loadoutGroup
   id: ClownJumpsuit
@@ -986,6 +987,9 @@
   - ClownSuit
   - JesterSuit
   - JesterAltSuit
+  - ClownJumpSuit
+  - PolkadotSuit
+  - JesterSuit
   - HawaiBlack
   - HawaiBlue
   - HawaiRed

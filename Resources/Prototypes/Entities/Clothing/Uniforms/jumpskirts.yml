@@ -945,9 +945,9 @@
   description: HONK!
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/clown.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/clown_skirt.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/clown.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/clown_skirt.rsi
   - type: Tag
     tags:
     - ClownSuit

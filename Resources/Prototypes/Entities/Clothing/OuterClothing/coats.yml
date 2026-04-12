@@ -398,9 +398,9 @@
   description: Yarr.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/pirate.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Misc/pirate.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/pirate.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Misc/pirate.rsi
 
 - type: entity
   parent: [ClothingOuterArmorWarden, ClothingOuterStorageBase, BaseSecurityContraband]

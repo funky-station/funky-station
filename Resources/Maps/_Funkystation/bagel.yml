@@ -162724,10 +162724,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -16.5,-7.5
       parent: 60
-    - type: DisposalUnit
-      recentlyEjected:
-      - invalid
-      - invalid
   - uid: 13229
     components:
     - type: Transform

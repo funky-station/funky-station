@@ -9,5 +9,14 @@
 # maps
 /Resources/Maps/ @willowzeta
 
+# audio
+/Resources/Audio/ @vectorassembly
+
+# textures
+/Resources/Textures/ @Teasq
+
 # rules
-/Resources/ServerInfo/ @JoulesBerg
+/Resources/ServerInfo/ @salpphie @Huhm-1
+
+# github
+/.github/ @taydeo @Komonighub

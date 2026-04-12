@@ -1,0 +1,161 @@
+## Keys must be: {objective-id-kebab}-flavor-{n}
+## ids are here: Resources/Prototypes/Objectives/traitor.yml
+
+## Objective: EscapeShuttleObjective
+escape-shuttle-objective-flavor-1 = We need you to get out alive because your mission is being used for training purposes. Make sure you set an example.
+escape-shuttle-objective-flavor-2 = We need you to get out alive because the higher ups are using this mission for routine inspection. Don't screw this up for the rest of us.
+escape-shuttle-objective-flavor-3 = We need you to get out alive because we've betted on your safe return. Your escape will net us a profit.
+escape-shuttle-objective-flavor-4 = We need you to get out alive because you were sent on this mission accidentally due to a clerical error. We don't want to lose an agent to an accident.
+escape-shuttle-objective-flavor-5 = We need you to get out alive because you're too good an agent to lose. You are one of our best. So prove it to us.
+escape-shuttle-objective-flavor-6 = We need you to get out alive because future operations stem off of your survival. Stay sharp and make it back safely.
+escape-shuttle-objective-flavor-7 = You should get out alive because this is your last mission before we retire you. We won't have your back anymore if you wind up in cuffs.
+escape-shuttle-objective-flavor-8 = We need you to get out alive because you've gotten some valuable intel recently. We need you to get back safely so you can log it for us. We can't afford to lose this.
+escape-shuttle-objective-flavor-9 = We need you to get out alive because we're sending a team to destroy this station soon. If you're still on it by next shift, then you're screwed.
+escape-shuttle-objective-flavor-10 = We need you to get out alive because we can't afford to hire new agents. Losing you would force us to take budget cuts.
+
+## Objective: DieObjective
+die-objective-flavor-1 = We need you gone because the higherups at Nanotrasen are onto you. You might as well go guns blazing before your cover is blown.
+die-objective-flavor-2 = We sent you to do this because we believe you have what it takes to wreak havoc across this station. Show them what we're made of, and show them no mercy.
+die-objective-flavor-3 = We need you gone because we're retiring you. And we retire our heroes by letting them go wild for their final mission. Make us proud.
+die-objective-flavor-4 = We sent you to do this because everyone at this station thinks we're a joke. Make sure you get the message across that our agents aren't even afraid of death itself.
+die-objective-flavor-5 = We need you gone because you're infamous amongst the members of the Syndicate. We don't want a target on our backs. If you're going to go down, do it on your own terms.
+die-objective-flavor-6 = We want you gone because this will be your final mission. You've proven your worth already, earn your place in our hall of fame. Good luck.
+die-objective-flavor-7 = We want you gone because you no longer hold any strategic value. This mission will be your greatest one yet. Make sure this mission is of good value.
+die-objective-flavor-8 = We need you gone because our higher ups want a demonstration of your bravery. Show them you aren't afraid to give your life for our cause.
+die-objective-flavor-9 = We need you gone to cover up the tracks of other operatives. The entirety of the Syndicate is in deep waters. Your death must serve as a distraction for Nanotrasen. Make sure you put up a show.
+die-objective-flavor-10 = We need you gone because we need to set a standard for the rookies. Your mission will be used to set an example of our expectations. Show the newbies that we need to be willing to die for the cause.
+
+## Objective: KillRandomPersonObjective or PermaKillRandomPersonObjective or PermaKillRandomTraitorObjective
+kill-random-person-objective-flavor-1 = We need this person gone because they once became the sole reason that a fellow agent once failed their mission. Make sure this liability won't get in the way again.
+kill-random-person-objective-flavor-2 = We need this person gone because they once unknowingly got one of our agents killed. We won't allow for this. An eye for an eye is fitting, don't you think?
+kill-random-person-objective-flavor-3 = We want this person gone because there is a huge bounty on their head. Ensuring they're killed would give us a huge payout.
+kill-random-person-objective-flavor-4 = We want this person gone because they thought it was funny to leave a prank call on our headquaters. We won't allow this kind of mockery to go without punishment.
+kill-random-person-objective-flavor-5 = We need this person gone because we caught wind that Nanotrasen is fond of their loyalty. We believe disposing of one of their more loyal assets would leave a good message to the higher ups.
+kill-random-person-objective-flavor-6 = We would like this person gone because one of our agents failed to kill them before. Make sure this time they're properly disposed of. They can only evade us for so long.
+kill-random-person-objective-flavor-7 = We would like this person gone because they caused one of our agents to fall into custody. Avenge our fallen comrades by making sure this person never comes back.
+kill-random-person-objective-flavor-8 = We need this person gone because they started rumors about our high command. We will not stand for this. Make sure that our name is still feared by murdering the one that tried making us a joke.
+kill-random-person-objective-flavor-9 = We would like this person gone because we need to look productive. We don't have anyone else on our hitlist but we need to look good in the eyes of our high commanders. This person just got unlucky.
+kill-random-person-objective-flavor-10 = We need this person gone because an anonymous person offered to help with our funding in return for their head. This 'sponsorship' will allow us to afford higher quality equipment. Try to get it done.
+
+## Objective: KillRandomHeadObjective
+kill-random-head-objective-flavor-1 = We need this member of command gone because they got one of our undercover agents fired. This has caused said agent severe issues in their work. Try to get revenge for them.
+kill-random-head-objective-flavor-2 = We need this member of command gone because we need to infiltrate deeper. Leaving a commanding member role open will open up a slot for an agent to take lower down the ladder. If we can get a better foothold, our operations here will be far easier.
+kill-random-head-objective-flavor-3 = We need this member of command gone because they have too much intel on us. If they get back to Central Command, then we may be at risk. Make sure this doesn't happen.
+kill-random-head-objective-flavor-4 = We need this member of command gone because they managed to escape our custody. If we can't keep them in captivity, then Nanotrasen can't keep them at all. Make sure they're not breathing.
+kill-random-head-objective-flavor-5 = We need this member of command gone because they refused to hire our undercover agents. Such audacity has not gone unnoticed. Make sure they pay for this.
+
+## Objective: RandomTraitorAliveObjective
+random-traitor-alive-objective-flavor-1 = We need this traitor alive because they saved one of our agents before. Pay this favor back by protecting them.
+random-traitor-alive-objective-flavor-2 = We need this traitor alive because they have valuable intel on our enemies. If we can establish an alliance, we may be able to get it from them. Try not to make this obvious to them, though.
+random-traitor-alive-objective-flavor-3 = We need this traitor alive because their employer has started to lose trust in us. Try to earn our repautation back by protecting them.
+random-traitor-alive-objective-flavor-4 = We need this traitor alive because they took the fall for one of our agents in another shift. This bold action deserves a reward. Help protect them.
+random-traitor-alive-objective-flavor-5 = We need this traitor alive because they managed to stop a previous agent from blowing their cover. They deserve protection for their assistance.
+random-traitor-alive-objective-flavor-6 = We need this traitor alive because we want to establish an alliance with their faction. More ties will make our cause stronger. Try to protect them. Hopefully they put in a good word for us.
+random-traitor-alive-objective-flavor-7 = We need this traitor alive because their employer has paid us to protect them. Try to honor this as best as you can.
+random-traitor-alive-objective-flavor-8 = We need this traitor alive because we would like to try and recruit them. We can't get them on our side if they are dead. Make sure they don't die before we can get into negotiations.
+random-traitor-alive-objective-flavor-9 = We want this traitor alive because they are far more important than you. You are more expendable than them, they have proven to be a more valuable asset across the Syndicate. Make sure they stay alive.
+random-traitor-alive-objective-flavor-10 = We need this traitor alive because they possess skills that are hard to replace. We don't want to waste their talent. If they die then it will be hard to find a replacement. Make sure they stay alive.
+
+## Objective: RandomTraitorProgressObjective
+random-traitor-progress-objective-flavor-1 = We need this traitor to succeed because they've been a critical asset in one of our previous agents mission. It is only fair their help is paid back with our help.
+random-traitor-progress-objective-flavor-2 = We need this traitor to succeed because we need more hands. Ideally helping them will lead to them giving us a favor. It is a risk, but it is worth the risk.
+random-traitor-progress-objective-flavor-3 = We need this traitor to succeed because their employer has started to lose trust in us. We need to earn our repautation back by assisting them.
+random-traitor-progress-objective-flavor-4 = We need this traitor to succeed because we want to build a false sense of security with their employer. It will be easier to exploit them for our gain if there is a level of trust. Make sure they succeed.
+random-traitor-progress-objective-flavor-5 = We need this traitor to succeed because their employer has paid us to assist them. Try to honor this by supporting them in their objectives.
+random-traitor-progress-objective-flavor-6 = We need this traitor to succeed because one of our future missions stems off of their success. Our mission will be a failure before it even starts if you let them fail.
+random-traitor-progress-objective-flavor-7 = We need this traitor to succeed because you are both under performance review. If both of you fail, your jobs may both be at stake. If you both want to keep working for the Syndicate, you need to make sure this mission is a success.
+random-traitor-progress-objective-flavor-8 = We need this traitor to succeed because our stakeholders have invested in their success. If they fail, this investment may not pay off as much. Their success will give us a much stronger payout.
+random-traitor-progress-objective-flavor-9 = We need this traitor to succeed because they've shown signs of incompetence. We're using this mission to evaluate this. If you can help them in their objectives, you will be helping us evaluate their value.
+random-traitor-progress-objective-flavor-10 = We need this traitor to succeed because our budget is falling slim. We can't afford to give as many objectives to all our operatives. To allow for continued productivity, you will be taking on the same objectives as this traitor.
+
+## Objective: CMOHyposprayStealObjective
+cmo-hypospray-steal-objective-flavor-1 = We need their hypospray because we want to study it. We need to figure out how to improve our hyposprays to be on par with Nanotrasen's in terms of efficiency. Make sure it is in your possession.
+cmo-hypospray-steal-objective-flavor-2 = We want their hypospray because the CMO let one of our agents rot. We want to give them a warning for the future. Make sure their prized possession is in our hands to send this message.
+cmo-hypospray-steal-objective-flavor-3 = We want their hypospray because the CMO let on of our agents die in surgery. We want to give them a warning for the future. Make sure their prized possession is in our hands to send this message.
+cmo-hypospray-steal-objective-flavor-4 = We need their hypospray because our medical teams have been falling behind. Ideally, taking their hypospray will improve the efficiency of our medical workers. It is highly important that we get this out.
+cmo-hypospray-steal-objective-flavor-5 = We need their hypospray because we can't afford to replace our hyposprays. Taking the CMO's hypospray will help us cut corners.
+
+## Objective: RDHardsuitStealObjective
+rd-hardsuit-steal-objective-flavor-1 = We need their hardsuit because we want to study it. We need to figure out how to improve our hardsuits to be on par with Nanotrasen's in terms of efficiency. Make sure it is in your possession.
+rd-hardsuit-steal-objective-flavor-2 = We need their hardsuit because we want to sell it on the black market. We have made contact on the black market with a hardsuit collector, and they are willing to pay the big bucks for this hardsuit. We could do with the money.
+rd-hardsuit-steal-objective-flavor-3 = We want their hardsuit because the RD caused the death of one of our agents recklessly to an Artifact. This kind of insult deserves a warning. Make sure their hardsuit is in our hands to send this message.
+rd-hardsuit-steal-objective-flavor-4 = We want their hardsuit because the RD let an anomaly kill one of our agents. We do not make excuses for them, there are no accidents. Make sure their hardsuit is in our hands to send a warning message.
+rd-hardsuit-steal-objective-flavor-5 = We want their hardsuit because the RD's research compromised one of our missions in the past. Try to give them a warning to quit while they're ahead by stealing their hardsuit.
+
+## Objective: HandTeleporterStealObjective
+hand-teleporter-steal-objective-flavor-1 = We need their hand teleporter because it can prove to be a valuable asset. Teleportation can very heavily assist future missions. Try to make sure we have a copy that we can hand out to those that need it.
+hand-teleporter-steal-objective-flavor-2 = We need their hand teleporter because we want to begin researching into bluespace technology. This can prove a powerful asset across the entire Syndicate. Their teleporter will give us a good starting point to research into bluespace technology.
+hand-teleporter-steal-objective-flavor-3 = We want their hand teleporter because the RD caused the death of one of our agents recklessly to an Artifact. This kind of insult deserves a warning. Make sure their hand teleporter is in our hands to send this message.
+hand-teleporter-steal-objective-flavor-4 = We want their hand teleporter because the RD let an anomaly kill one of our agents. We do not make excuses for them, there are no accidents. Make sure their hand teleporter is in our hands to send a warning message.
+hand-teleporter-steal-objective-flavor-5 = We want their hand teleporter because the RD's research compromised one of our missions in the past. Try to give them a warning to quit while they're ahead by stealing their hand teleporter.
+
+## Objective: EnergyShotgunStealObjective
+energy-shotgun-steal-objective-flavor-1 = We need their energy shotgun because we want to begin research into energy weapons. Energy weapons have proved to be powerful in the past. This will give us a good starting point to begin our research if we can get the energy shotgun in our hands.
+energy-shotgun-steal-objective-flavor-2 = We need their energy shotgun because we want to sell it on the black market. We have made contact on the black market with a firearms collector, and they are willing to pay the big bucks for this shotgun. We could do with the money.
+energy-shotgun-steal-objective-flavor-3 = We want their energy shotgun because the Warden has perma'd one too many of our agents. It costs a lot to break each one out of perma. This Warden is costing us far too much. Send a message that we're coming for them by stealing their prized possession.
+energy-shotgun-steal-objective-flavor-4 = We want their energy shotgun because the Warden neglected our agents that were taken into custody. This has been taken as a threat to our high command. We want their energy shotgun to send a message that they're on thin ice.
+energy-shotgun-steal-objective-flavor-5 = We want their energy shotgun because the Warden executed one of our agents in the past. We won't allow the Warden to simply walk over our agents and think they can get away with it. Send a message that they're in trouble by stealing their prized possession.
+
+## Objective: MagbootsStealObjective
+magboots-steal-objective-flavor-1 = We need their magboots because we want to study it. We need to figure out how to improve our magboots to be on par with Nanotrasen's in terms of efficiency. Make sure it is in your possession.
+magboots-steal-objective-flavor-2 = We need their magboots because we want to sell them on the black market. We have made a contact on the black market with a shoe collector, and they are willing to pay the big bucks for this pair of magboots. We could do with the money.
+magboots-steal-objective-flavor-3 = We want their magboots because the CE killed one of our agents in a spacing. This kind of recklessness can't go unseen. Send the message that they are in trouble by stealing their prized possession.
+magboots-steal-objective-flavor-4 = We want their magboots because the CE killed one of our agents in an accident with the power engines. We do not make excuses for them, there are no accidents. Make sure their magboots are in our hands to send a warning message.
+magboots-steal-objective-flavor-5 = We want their magboots because the CE attacked one of our agents with the axe when they broke into engineering. If they want to attack us, we can attack them. Send a message that we're coming for them by stealing their magboots.
+
+## Objective: ClipboardStealObjective
+clipboard-steal-objective-flavor-1 = We need their digiboard because it can prove to be a valuable asset. Being able to remotely purchase supplies can heavily assist in future missions. Try to make sure we have a copy that we can hand out to those that need it.
+clipboard-steal-objective-flavor-2 = We need their digiboard because we want to connect it to the black market. Being able to connect to the black market more remotely can heavily assist our cargo departments. Getting the digiboard out is of the upmost importance.
+clipboard-steal-objective-flavor-3 = We want their digiboard because the QM refused to supply one of our agents with the resources needed for their mission. This made the mission a complete failure, and having a liability to our interests will not be accepted. Send a message that they're on thin ice by stealing their prized possession.
+clipboard-steal-objective-flavor-4 = We want their digiboard because the QM supplies caused one of our agents to fail their mission in the past. They are getting in the way of our cause, and we won't allow this. Send a message that they're on thin ice by stealing their prized possession.
+clipboard-steal-objective-flavor-5 = We want their digiboard because the QM abandoned one of our agents in space. If they are willing to let people die so easily, then they will get what they deserve. Send a message that we're coming for them by stealing their prized possession.
+
+## Objective: KnuckleDustersStealObjective
+knuckle-dusters-steal-objective-flavor-1 = We need their knuckle dusters because we want to sell them on the black market. We have made a contact on the black market with a gold collector, and they are willing to pay the big bucks for this set of gold. We could do with the money.
+knuckle-dusters-steal-objective-flavor-2 = We want their knuckle dusters because the QM beat one of our agents to death using them. We need to make sure this doesn't happen again. Ensure it by stealing them=.
+knuckle-dusters-steal-objective-flavor-3 = We want their knuckle dusters because the QM refused to supply one of our agents with the resources needed for their mission. This made the mission a complete failure, and having a liability to our interests will not be accepted. Send a message that they're on thin ice by stealing their prized possession.
+knuckle-dusters-steal-objective-flavor-4 = We want their knuckle dusters because the QM's supplies caused one of our agents to fail their mission in the past. They are getting in the way of our cause, and we won't allow this. Send a message that they're on thin ice by stealing their prized possession.
+knuckle-dusters-steal-objective-flavor-5 = We want their knuckle dusters because the QM abandoned one of our agents in space. If they are willing to let people die so easily, then they will get what they deserve. Send a message that we're coming for them by stealing their prized possession.
+
+## Objective: CorgiMeatStealObjective
+corgi-meat-steal-objective-flavor-1 = We want the corgi meat because our high commanders really love the taste of money. They want the expensive stuff. Get this premium meat for our chefs to make a meal that is worthy of our commanders attention.
+corgi-meat-steal-objective-flavor-2 = We want the corgi meat because we want to see Nanotrasen suffer. That corgi is Nanotrasens most beloved pet. Show them we mean business by killing that dog. Bring back the meat as proof of you doing this.
+corgi-meat-steal-objective-flavor-3 = We want the corgi meat because the HoP has continually allowed our agents to get fired. Punish this by killing their most beloved pet. Bring back the corgi's meat as proof.
+corgi-meat-steal-objective-flavor-4 = We want the corgi meat because the HoP has forced unnecessary paperwork on our agents. There is no bigger insult than Bureaucracy. Punish this by killing their most beloved pet. Bring back the corgi's meat as proof.
+corgi-meat-steal-objective-flavor-5 = We want the corgi meat because Nanotrasen has attempted to send an attack on our headquaters beloved cat. Punish this an attack by attacking their beloved corgi. An eye for an eye.
+
+## Objective: CaptainIDStealObjective
+captain-id-steal-objective-flavor-1 = We need the Captain's ID because we want to sell it on the black market. We have made a contact on the black market with a card collector. They are willing to pay the big bucks for this ID Card. We could do with the money.
+captain-id-steal-objective-flavor-2 = We need the Captain's ID because it can prove to be a valuable asset. Being able to distribute all access to our agents can heavily assist in future mission. Try to make sure we have a copy that we can hand out to those that need it.
+captain-id-steal-objective-flavor-3 = We want the Captain's ID because we need to send a message to Nanotrasen overall. Make sure they know death is innevitable by taking the Captain's ID Card.
+captain-id-steal-objective-flavor-4 = We want the Captain's ID because a fellow member of the Syndicate has paid for it. We must try to honor this as best as we can. Try to make sure you get one of the IDs out.
+captain-id-steal-objective-flavor-5 = We want the Captain's ID because they authorized the execution of one of our agents recently. We cannot stand for this. Make sure the captain knows their actions have consequences by stealing their ID.
+
+## Objective: CaptainJetpackStealObjective
+captain-jetpack-steal-objective-flavor-1 = We need their jetpack because we want to sell it on the black market. we have made a contact on the black market with a gold collector. They are willing to pay the big bucks for this jetpack. We could do with the money.
+captain-jetpack-steal-objective-flavor-2 = We need their jetpack because we cannot afford to repalce our jetpacks. Taking the Captain's jetpack will help us cut corners.
+captain-jetpack-steal-objective-flavor-3 = We want their jetpack because we need to send a message to Nanotrasen overall. Make sure they know death is innevitable by taking the Captain's ID Card.
+captain-jetpack-steal-objective-flavor-4 = We need their jetpack because it can prove to be a valuable asset. Being able to provide jetpacks to our space faring agents can heavily assist in future missions. Try to make sure we have a copy that we can hand out to those that need it.
+captain-jetpack-steal-objective-flavor-5 = We want their jetpack because they authorized the execution of one of our agents recently. We cannot stand for this. Make sure the captain knows their actions have consequences by stealing their Jetpack.
+
+## Objective: CaptainGunStealObjective
+captain-gun-steal-objective-flavor-1 = We need their antique laser pistol because we want to begin research into energy weapons. Energy weapons have proved to be powerful in the past. This will give us a good starting point to begin our research if we can get the antique laser pistol in our hands.
+captain-gun-steal-objective-flavor-2 = We need their antique laser pistol because we want to begin research into self-recharging batteries. This kind of battery can improve our devices tenfold. This will give us a good starting point to begin our research if we can get the antique laser pistol in our hands.
+captain-gun-steal-objective-flavor-3 = We need their antique laser pistol because we want to sell it on the black market. We have made contact on the black market with a firearms collector, and they are willing to pay the big bucks for this pistol. We could do with the money.
+captain-gun-steal-objective-flavor-4 = We need their antique laser pistol because it can prove to be a valuable asset. Being able to have an infinite magazine for our footsoldiers can heavily assist in future missions. Try to make sure we have a copy that we can hand out to those that need it.
+captain-gun-steal-objective-flavor-5 = We want their antique laser pistol because they authorized the execution of one of our agents recently. We cannot stand for this. Make sure the captain knows their actions have consequences by stealing the Captain's Laser pistol.
+
+## Objective: NukeDiskStealObjective
+nuke-disk-steal-objective-flavor-1 = We need the nuke disk because we are preparing to destroy this station. Though that was likely obvious to you. It is of the upmost importance the nuke disk is in our hands.
+
+## Objective: RandomTraitorTargetAliveObjective
+random-traitor-target-alive-objective-flavor-1 = We need this target alive because they have valuable intel on our rivals. We can't get this intel off of them if they are dead. Make sure they stay alive. Don't let anyone kill them.
+random-traitor-target-alive-objective-flavor-2 = We need this target alive because they have unknowingly assisted our agents in the past. Even if they did not know it, they have been a crucial asset. And such assets remain under our protection, no matter what.
+random-traitor-target-alive-objective-flavor-3 = We need this target alive because we were paid to protect them. Try to honor this by protecting this target at all costs.
+random-traitor-target-alive-objective-flavor-4 = We want this target alive because we want to create a false sense of security with Nanotrasen. If we can paint ourselves as the good guys, perhaps we can get a head start against them. Make sure this person stays alive to do so.
+random-traitor-target-alive-objective-flavor-5 = We want this target alive because we want to sabotage the faction attempting to kill them. We've lost trust in the faction after this person's head. Sabotage the hostile Syndicate faction by protecting this person.
+random-traitor-target-alive-objective-flavor-6 = We want this target alive because we have a big mission planned stemming off of this person remaining alive. If they are killed, our plan will crumble apart. Make sure they are alive, our future mission stems off of their safety.
+random-traitor-target-alive-objective-flavor-7 = We would like you to protect this person as a demonstration of how to protect a target. This mission is being used for training purposes, and setting an example of how to protect others, and that not all Syndicate agents are friendly, will be crucial for training our rookies.
+random-traitor-target-alive-objective-flavor-8 = We would like you to protect this person because...Wait we actually don't know. Who wrote them in our protection list? Whatever, just make sure they're alive. They must be here for a good reason. Maybe try to talk to them and figure out why.
+random-traitor-target-alive-objective-flavor-9 = We would like you to protect this person as they are being observed. We are studying their activities to get an understanding of Nanotrasen's station and inner functions. If they die then our observation will go to waste. Make sure they aren't killed.
+random-traitor-target-alive-objective-flavor-10 = We would like you to protect this person as we have deemed them as a potential recruit for the future. Nanotrasen seems to disvalue their loyalty and they may be elligible to join our cause. We don't want to waste potential recruits. Stop them from dying.

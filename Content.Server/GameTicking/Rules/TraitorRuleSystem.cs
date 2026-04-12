@@ -59,6 +59,7 @@ using Content.Shared.PDA;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Roles.RoleCodeword;
+using Robust.Shared.Utility;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
@@ -86,6 +87,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     [Dependency] private readonly SharedRoleCodewordSystem _roleCodewordSystem = default!;
     [Dependency] private readonly SharedRoleSystem _roleSystem = default!;
     [Dependency] private readonly UplinkSystem _uplink = default!;
+    [Dependency] private readonly MetaDataSystem _metaSystem = default!;
 
     public override void Initialize()
     {
@@ -170,7 +172,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         if (traitorRole is not null)
         {
             AddComp<RoleBriefingComponent>(traitorRole.Value.Owner);
-            Comp<RoleBriefingComponent>(traitorRole.Value.Owner).Briefing = GenerateBriefingCharacter(component.Codewords, code, issuer);
+            Comp<RoleBriefingComponent>(traitorRole.Value.Owner).Briefing = GenerateBriefingCharacter(mind, component.Codewords, code, issuer);
         }
 
         // Send codewords to only the traitor client
@@ -211,14 +213,40 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
 
         return sb.ToString();
     }
-    private string GenerateBriefingCharacter(string[] codewords, Note[]? uplinkCode, string objectiveIssuer)
+
+    // example: turns "KillRandomPersonObjective" into "kill-random-person-objective-flavor"
+    private static string GenerateFlavorKey(string objectiveId)
+    {
+        var baseKey = CaseConversion.PascalToKebab(objectiveId);
+        return $"{baseKey}-flavor";
+    }
+
+    // gets all flavor texts from traitor-flavor-objectives.ftl based on the key provided
+    private int GetNumberOfFlavorKeys(string baseKey)
+    {
+        var i = 0;
+
+        while (true)
+        {
+            var key = $"{baseKey}-{i + 1}";
+            if (!Loc.HasString(key))
+                break;
+
+            i++;
+        }
+
+        return i;
+    }
+
+    private string GenerateBriefingCharacter(MindComponent mind, string[] codewords, Note[]? uplinkCode, string objectiveIssuer)
     {
         var sb = new StringBuilder();
         sb.AppendLine("\n" + Loc.GetString($"traitor-{objectiveIssuer}-intro"));
 
         if (uplinkCode != null)
             sb.AppendLine(Loc.GetString($"traitor-role-uplink-code-short", ("code", string.Join("-", uplinkCode).Replace("sharp", "#"))));
-        else sb.AppendLine("\n" + Loc.GetString($"traitor-role-nouplink"));
+        else
+            sb.AppendLine("\n" + Loc.GetString($"traitor-role-nouplink"));
 
         sb.AppendLine(Loc.GetString($"traitor-role-codewords-short", ("codewords", string.Join(", ", codewords))));
 
@@ -227,6 +255,36 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
 
         sb.AppendLine("\n" + Loc.GetString($"traitor-role-notes"));
         sb.AppendLine(Loc.GetString($"traitor-{objectiveIssuer}-goal"));
+
+        var objectives = mind.Objectives;
+
+        foreach (var objective in objectives)
+        {
+            if (!EntityManager.TryGetComponent<MetaDataComponent>(objective, out var meta))
+                continue;
+
+            var protoId = meta.EntityPrototype?.ID;
+
+            if (protoId is null)
+                continue;
+
+            // TODO: handle these better? currently, the ftlKey is the same for all of these
+            if (protoId == "KillRandomPersonObjective" || protoId == "PermaKillRandomPersonObjective" || protoId == "PermaKillRandomTraitorObjective")
+                protoId = "KillRandomPersonObjective";
+
+            var flavorKey = GenerateFlavorKey(protoId); // example: kill-random-person-objective
+            var numberOfFlavorKeys = GetNumberOfFlavorKeys(flavorKey); // number of flavor texts with the same key
+
+            // Should never happen
+            if (numberOfFlavorKeys <= 0)
+                continue;
+
+            // Pick a random appropriate flavor text
+            var randomIndex = _random.Next(1, numberOfFlavorKeys + 1);
+            var flavorText = Loc.GetString($"{flavorKey}-{randomIndex}");
+
+            _metaSystem.SetEntityDescription(objective, $"{meta.EntityDescription} {flavorText}");
+        }
 
         return sb.ToString();
     }

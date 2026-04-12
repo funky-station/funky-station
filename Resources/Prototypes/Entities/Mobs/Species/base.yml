@@ -415,6 +415,12 @@
     - SoftCritical
     - HardCritical
     - Dead
+  - type: MobStateActions
+    actions:
+      HardCritical:
+      - ActionCritSuccumb
+      - ActionCritFakeDeath
+      - ActionCritLastWords
   - type: Tag
     tags:
     - CanPilot

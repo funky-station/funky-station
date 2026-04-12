@@ -24,6 +24,8 @@
 // SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 2DSiggy <siggymaxwell@gmail.com>
+// SPDX-FileCopyrightText: 2026 TheFlyingSentry <170261226+TheFlyingSentry@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -296,9 +298,6 @@ public sealed partial class DragonSystem : EntitySystem
     {
         if (!Resolve(uid, ref comp))
             return;
-
-        // do reset the rift count since crew destroyed the rift, not deleted by the dragon dying.
-        DeleteRifts(uid, true, comp);
 
         // We can't predict the rift being destroyed anyway so no point adding weakened to shared.
         comp.WeakenedAccumulator = comp.WeakenedDuration;

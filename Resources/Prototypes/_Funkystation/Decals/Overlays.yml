@@ -1,0 +1,79 @@
+- type: decal
+  id: ThreeQuarterTechTileOverlay
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/greyscale.rsi
+    state: threequartertechtile_overlay
+
+- type: decal
+  id: ThreeQuarterTechTileOverlay90
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/greyscale.rsi
+    state: threequartertechtile_overlay_90
+
+- type: decal
+  id: ThreeQuarterTechTileOverlay180
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/greyscale.rsi
+    state: threequartertechtile_overlay_180
+
+- type: decal
+  id: ThreeQuarterTechTileOverlay270 
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/greyscale.rsi
+    state: threequartertechtile_overlay_270
+
+- type: decal
+  id: HalfTechTileOverlay
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/greyscale.rsi
+    state: halftechtile_overlay
+
+- type: decal
+  id: HalfTechAltTileOverlay
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/greyscale.rsi
+    state: halftechtile_overlay_alt
+
+- type: decal
+  id: ThreeQuarterTechAltTileOverlay
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/greyscale.rsi
+    state: threequartertechtile_overlay_alt
+
+- type: decal
+  id: ThreeQuarterTechAltTileOverlay90
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/greyscale.rsi
+    state: threequartertechtile_overlay_alt_90
+
+- type: decal
+  id: ThreeQuarterTechAltTileOverlay180
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/greyscale.rsi
+    state: threequartertechtile_overlay_alt_180
+
+- type: decal
+  id: ThreeQuarterTechAltTileOverlay270
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/greyscale.rsi
+    state: threequartertechtile_overlay_alt_270

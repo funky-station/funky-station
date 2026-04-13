@@ -51,6 +51,8 @@
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Tea <Xerithin@gmail.com>
+# SPDX-FileCopyrightText: 2026 alex <185717397+alex-infdev@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 alex-infdev <185717397+alex-infdev@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 amauralex <185717397+alex-infdev@users.noreply.github.com>
 #
@@ -261,9 +263,9 @@
   description: Upgraded sunglasses that provide flash immunity and a security HUD.
   components:
   - type: Sprite
-    sprite: Clothing/Eyes/Glasses/secglasses.rsi
+    sprite: _Funkystation/Clothing/Eyes/Glasses/sec.rsi
   - type: Clothing
-    sprite: Clothing/Eyes/Glasses/secglasses.rsi
+    sprite: _Funkystation/Clothing/Eyes/Glasses/sec.rsi
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5

@@ -4,13 +4,12 @@
 # SPDX-FileCopyrightText: 2025 DESKTOP-0V0K4HQ\Rosy <rosysaturniidae@gmail.com>
 # SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 RosySaturniidae <rosysaturniidae@gmail.com>
+# SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 tea <xerithin@gmail.com>
-# SPDX-FileCopyrightText: 2026 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2026 W.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -347,3 +346,44 @@
     - Sunglasses
     - WhitelistChameleon
 
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesSafety # Following naming conventions for goggles already in the game
+  name: safety goggles
+  description: "Critical anomalies, exploding xenoartifacts, rifts in the fabric of spacetime: these goggles will protect you against absolutely none of that."
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Eyes/Glasses/safety_goggles.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Eyes/Glasses/safety_goggles.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.99 # lol
+  - type: Tag
+    tags:
+    - SafetyGogglesBase
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingEyesGlassesJamjar
+  id: ClothingEyesGlassesSafetyJamjar
+  name: safety jamgoggles
+  description: These retro goggles remind you of activating the "station destruction" node.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Eyes/Jamjars/safetyjar.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Eyes/Jamjars/safetyjar.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.99 # lmao even
+  - type: VisionCorrection
+  - type: Construction
+    graph: jamjarGlassesSafety
+    node: safetyjarGlasses
+  - type: Tag
+    tags:
+    - WhitelistChameleon

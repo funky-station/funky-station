@@ -39,9 +39,11 @@
 # SPDX-FileCopyrightText: 2025 ArionGekkota <58326140+ArionGekkota@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Schuyler Duryee <skywd7766@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 chuga <98280110+chuga-git@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -414,7 +416,13 @@
     tags:
     - Knife
     - UtilityKnife
-  - type: ToggleableVisuals
+  - type: ItemTogglePointLight
+  - type: PointLight
+    enabled: false
+    radius: 0
+    energy: 0
+    netsync: false
+  - type: ToggleableLightVisuals
     spriteLayer: blade
     inhandVisuals:
       left:

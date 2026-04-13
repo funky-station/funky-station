@@ -263,3 +263,26 @@
         doAfter: 5
   - node: sunjarGlasses
     entity: ClothingEyesGlassesSunjar
+
+- type: constructionGraph
+  id: jamjarGlassesSafety
+  start: start
+  graph:
+  - node: start
+    edges:
+      - to: safetyjarGlasses
+        steps:
+        - tag: JamjarBase
+          name: jamjar glasses
+          icon:
+            sprite: Clothing/Eyes/Glasses/jamjar.rsi
+            state: icon
+          doAfter: 5
+        - tag: SafetyGogglesBase
+          name: safety goggles
+          icon:
+            sprite: _Funkystation/Clothing/Eyes/Glasses/safety_goggles.rsi
+            state: icon
+          doAfter: 5
+  - node: safetyjarGlasses
+    entity: ClothingEyesGlassesSafetyJamjar

@@ -177,3 +177,14 @@
   description: These retro goggles remind you of activating the "station destruction" node.
   icon: { sprite: _Funkystation/Clothing/Eyes/Jamjars/safetyjar.rsi, state: icon }
   objectType: Item
+
+- type: construction
+  name: prescription sun glasses
+  id: ClothingEyesSunglassesPrescription
+  graph: SunglassesPrescription
+  startNode: start
+  targetNode: prescriptionSunglasses
+  category: construction-category-clothing
+  description: For when you want to see clearly in both style and flash-immunity.
+  icon: { sprite: Clothing/Eyes/Glasses/sunglasses.rsi, state: icon }
+  objectType: Item

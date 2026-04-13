@@ -8044,3 +8044,21 @@ Entries:
       message: resprited holoclown
   id: 921
   time: '2026-04-10T18:03:23.0000000+00:00'
+- author: EmillyCoelho
+  changes:
+    - type: Tweak
+      message: Oasis eng section reworked to have Nuclear Reactor, SM and HFR Area.
+  id: 922
+  time: '2026-04-12T17:50:36.0000000+00:00'
+- author: Fr0goo
+  changes:
+    - type: Add
+      message: Added LOTS of costumes for the clown!
+    - type: Add
+      message: >-
+        Clowns now have toys they start with that they can select in their
+        loadout!
+    - type: Add
+      message: Added new role name for clown!
+  id: 923
+  time: '2026-04-12T19:56:24.0000000+00:00'

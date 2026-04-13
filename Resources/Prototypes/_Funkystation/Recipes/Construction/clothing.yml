@@ -168,6 +168,17 @@
   objectType: Item
 
 - type: construction
+  name: safety jamgoggles
+  id: ClothingEyesGlassesSafetyJamjar
+  graph: jamjarGlassesSafety
+  startNode: start
+  targetNode: safetyjarGlasses
+  category: construction-category-clothing
+  description: These retro goggles remind you of activating the "station destruction" node.
+  icon: { sprite: _Funkystation/Clothing/Eyes/Jamjars/safetyjar.rsi, state: icon }
+  objectType: Item
+
+- type: construction
   name: prescription sun glasses
   id: ClothingEyesSunglassesPrescription
   graph: SunglassesPrescription

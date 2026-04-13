@@ -305,6 +305,47 @@
     - HudMedical
 
 - type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesSafety # Following naming conventions for goggles already in the game
+  name: safety goggles
+  description: "Critical anomalies, exploding xenoartifacts, rifts in the fabric of spacetime: these goggles will protect you against absolutely none of that."
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Eyes/Glasses/safety_goggles.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Eyes/Glasses/safety_goggles.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.99 # lol
+  - type: Tag
+    tags:
+    - SafetyGogglesBase
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingEyesGlassesJamjar
+  id: ClothingEyesGlassesSafetyJamjar
+  name: safety jamgoggles
+  description: These retro goggles remind you of activating the "station destruction" node.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Eyes/Jamjars/safetyjar.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Eyes/Jamjars/safetyjar.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.99 # lmao even
+  - type: VisionCorrection
+  - type: Construction
+    graph: jamjarGlassesSafety
+    node: safetyjarGlasses
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
   parent: ClothingEyesGlasses
   id: ClothingEyesSunglassesPrescription
   name: prescription sun glasses

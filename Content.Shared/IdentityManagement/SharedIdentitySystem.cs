@@ -27,6 +27,7 @@ public abstract class SharedIdentitySystem : EntitySystem
         SubscribeLocalEvent<IdentityComponent, ComponentInit>(OnComponentInit);
         SubscribeLocalEvent<IdentityBlockerComponent, SeeIdentityAttemptEvent>(OnSeeIdentity);
         SubscribeLocalEvent<IdentityBlockerComponent, InventoryRelayedEvent<SeeIdentityAttemptEvent>>((e, c, ev) => OnSeeIdentity(e, c, ev.Args));
+        SubscribeLocalEvent<IdentityBlockerComponent, ItemHeadToggledEvent>(OnHeadToggled); // THIS
         SubscribeLocalEvent<IdentityBlockerComponent, ItemMaskToggledEvent>(OnMaskToggled);
     }
 
@@ -45,10 +46,16 @@ public abstract class SharedIdentitySystem : EntitySystem
         component.IdentityEntitySlot = _container.EnsureContainer<ContainerSlot>(uid, SlotName);
     }
 
+    private void OnHeadToggled(Entity<IdentityBlockerComponent> ent, ref ItemHeadToggledEvent args) // THIS
+    {
+        ent.Comp.Enabled = !args.IsToggled;
+    }
+
     private void OnMaskToggled(Entity<IdentityBlockerComponent> ent, ref ItemMaskToggledEvent args)
     {
         ent.Comp.Enabled = !args.IsToggled;
     }
+    
 }
 /// <summary>
 ///     Gets called whenever an entity changes their identity.

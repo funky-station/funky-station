@@ -27,6 +27,7 @@ public abstract class SharedIdentitySystem : EntitySystem
         SubscribeLocalEvent<IdentityComponent, ComponentInit>(OnComponentInit);
         SubscribeLocalEvent<IdentityBlockerComponent, SeeIdentityAttemptEvent>(OnSeeIdentity);
         SubscribeLocalEvent<IdentityBlockerComponent, InventoryRelayedEvent<SeeIdentityAttemptEvent>>((e, c, ev) => OnSeeIdentity(e, c, ev.Args));
+        SubscribeLocalEvent<IdentityBlockerComponent, ItemHeadToggledEvent>(OnHeadToggled);
         SubscribeLocalEvent<IdentityBlockerComponent, ItemMaskToggledEvent>(OnMaskToggled);
     }
 
@@ -45,6 +46,10 @@ public abstract class SharedIdentitySystem : EntitySystem
         component.IdentityEntitySlot = _container.EnsureContainer<ContainerSlot>(uid, SlotName);
     }
 
+    private void OnHeadToggled(Entity<IdentityBlockerComponent> ent, ref ItemHeadToggledEvent args)
+    {
+        ent.Comp.Enabled = !args.IsToggled;
+    }
     private void OnMaskToggled(Entity<IdentityBlockerComponent> ent, ref ItemMaskToggledEvent args)
     {
         ent.Comp.Enabled = !args.IsToggled;

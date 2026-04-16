@@ -88,8 +88,8 @@ public sealed class SmokerSystem : EntitySystem
         {
             if (name.Reagent.Prototype != "Nicotine")
                 continue;
-            if (name.Quantity <= currentNicotine || name.Quantity - currentNicotine == 0.45
-                                                 || name.Quantity - currentNicotine == 0.40)
+            if (name.Quantity <= currentNicotine || name.Quantity - currentNicotine <= 0.50
+                                                 && name.Quantity - currentNicotine >= 0.40)
             {
                 smoker.CurrentNicotineLevel = name.Quantity;
                 return false;

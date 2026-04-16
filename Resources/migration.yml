@@ -656,3 +656,9 @@ ClothingOuterArmorBasicSlim: ClothingOuterArmorBasic
 # 2026-03-17
 GunSafePistolMk58: GunSafePistolPlasma
 GunSafeSubMachineGunDrozd: GunSafeRiflePlasma
+SpeedLoaderPistol: EchionCanister
+WeaponSubMachineGunDrozd: WeaponPlasmaAkurra
+MagazineRifle: EchionCanister
+SpeedLoaderMagnumEmpty: EchionCanister
+WeaponPistolMk58: WeaponPlasmaAdder
+MagazinePistol: EchionCanister

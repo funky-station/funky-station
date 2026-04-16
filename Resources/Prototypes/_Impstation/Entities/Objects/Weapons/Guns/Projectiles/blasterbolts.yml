@@ -20,6 +20,11 @@
     soundHit:
       collection: WeakHit
     forceSound: true
+  - type: PointLight
+    enabled: true
+    color: "#c800ff"
+    radius: 1.5
+    energy: 3.5
 
 - type: entity
   name: akurra plasma bolt

@@ -32,7 +32,7 @@
   - type: Gun
     clumsyProof: false
     cameraRecoilScalar: 1
-    fireRate: 3.5
+    fireRate: 3
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -109,7 +109,7 @@
   - type: Gun # Funky change, weapon made from full auto into a burst fire gun
     clumsyProof: false
     cameraRecoilScalar: 1
-    fireRate: 5
+    fireRate: 4
     burstFireRate: 12
     selectedMode: Burst
     availableModes:

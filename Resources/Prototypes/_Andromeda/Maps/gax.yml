@@ -1,15 +1,16 @@
 # SPDX-FileCopyrightText: 2025 EmillyCoelho <167008606+Ichaie@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Ichaie <ichaicoelho@gmail.com>
+# SPDX-FileCopyrightText: 2026 Ichaie <ichaicoelho@gmail.com>
+# SPDX-FileCopyrightText: 2026 willow <willowzeta632146@proton.me>
 # SPDX-FileCopyrightText: 2026 wilowzeta <willowzeta632146@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: gameMap
   id: Gax
-  mapName: 'NTVS Gax'
+  mapName: 'Guariní'
   mapPath: /Maps/_Andromeda/gax.yml
-  minPlayers: 15
-  maxPlayers: 65
+  minPlayers: 25
+  maxPlayers: 75
   stations:
     NTVS Gax:
       stationProto: StandardNanotrasenStation
@@ -17,7 +18,7 @@
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/emergency_omega.yml
         - type: StationNameSetup
-          mapNameTemplate: '{0} Gax {1}'
+          mapNameTemplate: '{0} Guariní {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: 'VS'
@@ -54,8 +55,8 @@
             #Security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
-            SecurityOfficer: [ 3, 4 ]
-            SecurityCadet: [ 3, 4 ]
+            SecurityOfficer: [ 4, 5 ]
+            SecurityCadet: [ 4, 5 ]
             Detective: [ 1, 1 ]
             Lawyer: [ 1, 2 ]
             #Supply
@@ -70,3 +71,9 @@
             #Silicon
             StationAi: [ 1, 1 ]
             Borg: [ 2, 3 ]
+        # Goobstation blob-config-start HUGE
+        - type: StationBlobConfig
+          stageBegin: 40
+          stageCritical: 450
+          stageTheEnd: 900
+        # Goobstation blob-config-end

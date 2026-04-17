@@ -72,18 +72,18 @@
       tags:
       - NukeOpsUplink
 
-- type: listing
-  id: uplinkLeviathan
-  name: uplink-leviathan-name
-  description: uplink-leviathan-desc
-  productEntity: WeaponLauncherBazooka
+#- type: listing
+#  id: uplinkLeviathan
+#  name: uplink-leviathan-name
+#  description: uplink-leviathan-desc
+#  productEntity: WeaponLauncherBazooka
 #  discountCategory: veryRareDiscounts
 #  discountDownTo:
 #    Telecrystal: 85
-  cost:
-    Telecrystal: 100
-  categories:
-    - UplinkWeaponry
+#  cost:
+#    Telecrystal: 100
+#  categories:
+#    - UplinkWeaponry
 
 - type: listing
   id: UplinkMagazinePhoron

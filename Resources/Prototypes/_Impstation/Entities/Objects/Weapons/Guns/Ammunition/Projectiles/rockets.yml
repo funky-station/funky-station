@@ -27,7 +27,7 @@
 - type: entity
   id: BulletBazookaCon
   name: rocket
-  parent: ImpstationBaseBullet
+  parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

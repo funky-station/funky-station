@@ -44,18 +44,18 @@
   categories:
     - UplinkWeaponry
 
-- type: listing
-  id: uplinkOuroboros
-  name: uplink-ouroboros-name
-  description: uplink-ouroboros-desc
-  productEntity: WeaponSpecialOuroboros
+#- type: listing
+#  id: uplinkOuroboros
+#  name: uplink-ouroboros-name
+#  description: uplink-ouroboros-desc
+#  productEntity: WeaponSpecialOuroboros
 #  discountCategory: veryRareDiscounts
 #  discountDownTo:
 #    Telecrystal: 50
-  cost:
-    Telecrystal: 60
-  categories:
-    - UplinkWeaponry
+#  cost:
+#    Telecrystal: 60
+#  categories:
+#    - UplinkWeaponry
 
 - type: listing
   id: UplinkMixedRejects

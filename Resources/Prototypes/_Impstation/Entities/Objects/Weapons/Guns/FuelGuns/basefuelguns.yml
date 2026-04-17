@@ -180,12 +180,12 @@
       chamber:
         reagents:
         - ReagentId: Nutriment
-          Quantity: 32
-        maxVol: 24 #8 shots
+          Quantity: 100
+        maxVol: 100 #8 shots
   - type: SolutionAmmoProvider
     solutionId: chamber
     proto: BulletOuroboros
-    fireCost: 3
+    fireCost: 12.5
   - type: FoodReagentExtractor
     solutionId: chamber
     extractionReagents:

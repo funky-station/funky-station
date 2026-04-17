@@ -107,35 +107,35 @@
   categories:
   - UplinkAmmo
 
-- type: listing
-  id: UplinkExplosiveRocketBundle
-  name: uplink-rocketexp-name
-  description: uplink-rocketexp-desc
-  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Projectiles/bazooka.rsi, state: explosive }
-  productEntity: LeviathanExplosiveRocketBox
-  cost:
-    Telecrystal: 25
-  categories:
-    - UplinkAmmo
+#- type: listing
+ # id: UplinkExplosiveRocketBundle
+ # name: uplink-rocketexp-name
+ # description: uplink-rocketexp-desc
+ # icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Projectiles/bazooka.rsi, state: explosive }
+ # productEntity: LeviathanExplosiveRocketBox
+ # cost:
+ #   Telecrystal: 25
+ # categories:
+ #   - UplinkAmmo
 
-- type: listing
-  id: UplinkIncendiaryRocketBundle
-  name: uplink-rocketinc-name
-  description: uplink-rocketinc-desc
-  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Projectiles/bazooka.rsi, state: incendiary }
-  productEntity: LeviathanIncendiaryRocketBox
-  cost:
-    Telecrystal: 25
-  categories:
-    - UplinkAmmo
+#- type: listing
+#  id: UplinkIncendiaryRocketBundle
+#  name: uplink-rocketinc-name
+#  description: uplink-rocketinc-desc
+#  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Projectiles/bazooka.rsi, state: incendiary }
+#  productEntity: LeviathanIncendiaryRocketBox
+#  cost:
+#    Telecrystal: 25
+#  categories:
+#    - UplinkAmmo
 
-- type: listing
-  id: UplinkConcussiveRocketBundle
-  name: uplink-rocketcon-name
-  description: uplink-rocketcon-desc
-  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Projectiles/bazooka.rsi, state: concussion }
-  productEntity: LeviathanConcussionRocketBox
-  cost:
-    Telecrystal: 25
-  categories:
-    - UplinkAmmo
+#- type: listing
+#  id: UplinkConcussiveRocketBundle
+#  name: uplink-rocketcon-name
+#  description: uplink-rocketcon-desc
+#  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Projectiles/bazooka.rsi, state: concussion }
+#  productEntity: LeviathanConcussionRocketBox
+#  cost:
+#    Telecrystal: 25
+#  categories:
+#    - UplinkAmmo

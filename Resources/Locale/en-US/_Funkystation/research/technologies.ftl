@@ -9,3 +9,7 @@ research-technology-instruments = Instrument Production
 research-technology-weapon-energy-gun = Compact Energy Weaponry 
 
 research-technology-experimental-tesla-gun = Experimental Tesla Gun 
+
+research-technology-weapon-plasma-pistol = Experimental Plasma Weaponry  
+
+research-technology-weapon-plasma-rifle = Weaponized Plasma Manipulation

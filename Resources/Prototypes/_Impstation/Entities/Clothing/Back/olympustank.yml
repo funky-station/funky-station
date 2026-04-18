@@ -1,0 +1,47 @@
+- type: entity
+  parent: [Clothing, ClothingSlotBase]
+  id: FuelTankOlympus
+  name: flamethrower fuel tank
+  description: Holds a large amount of fuel. Compatible with the FG10 Olympus, which fits in a storage slot on the underside of the tank.
+  components:
+  - type: Tag
+    tags:
+    - OlympusBackTank
+  - type: Sprite
+    sprite: _Impstation/Clothing/Back/Backpacks/burntank.rsi
+    state: icon
+  - type: Item
+    size: Ginormous
+  - type: Clothing
+    slots: backStorage
+    sprite: _Impstation/Clothing/Back/Backpacks/burntank.rsi
+  - type: ItemSlots
+    slots:
+      item:
+        startingItem: WeaponFlamerOlympus
+        priority: 2
+        whitelist:
+          tags:
+          - OlympusFlamer
+#  - type: ItemMapper
+#    mapLayers:
+#     icon-filled:
+#        whitelist:
+#          tags:
+#            - OlympusFlamer
+#  - type: Appearance
+#  - type: SolutionAmmoProvider
+#    solutionId: tank
+#    proto: BulletFlamethrower
+#    fireCost: 3
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 900
+        maxVol: 900
+  - type: SolutionItemStatus
+    solution: tank
+  - type: ExaminableSolution
+    solution: tank

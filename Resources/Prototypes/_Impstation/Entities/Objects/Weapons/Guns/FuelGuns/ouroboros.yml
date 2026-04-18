@@ -1,0 +1,43 @@
+# The infamous bee gun that loves to cause problems on the development end
+- type: entity
+  name: Ouroboros
+  parent: [BaseWeaponMuncherGun, BaseGunWieldable, BaseSyndicateContraband]
+  id: WeaponSpecialOuroboros
+  description: You can feel a murderous hunger buzzing from deep within the weapon's frame. Its contained creatures demands food for its services.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/ouroboros.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-1
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Item
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/ouroboros.rsi
+    size: Huge
+  - type: GunRequiresWield
+  - type: Gun
+    projectileSpeed: 19
+    fireRate: 4
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot:
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/beecannon2.ogg
+  - type: FoodReagentExtractor
+    solutionId: chamber
+    extractionReagents:
+    - Nutriment
+    - UncookedAnimalProteins
+    - Protein
+    - Vitamin
+    - Slime
+    edibleBlacklist:
+      tags:
+        - Pill
+        - Bucket
+        - GlassBeaker
+    extractSound: /Audio/_Impstation/Weapons/Guns/Cock/beecharge.ogg
+  - type: Appearance
+

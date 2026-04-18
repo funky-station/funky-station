@@ -1,0 +1,16 @@
+# CBURN
+- type: entity
+  id: LockerCBURN
+  parent: LockerBaseSecure
+  name: CBURN equipment locker
+  description: Everything an emergency responder would need to disinfect a station.
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _Impstation/Structures/Storage/Lockers/Cburn.rsi
+  - type: AccessReader
+    access: [["CentralCommand"]]
+  - type: EntityStorageVisuals
+    stateBaseClosed: cburn_secure
+    stateDoorOpen: cburn_open
+    stateDoorClosed: cburn_door

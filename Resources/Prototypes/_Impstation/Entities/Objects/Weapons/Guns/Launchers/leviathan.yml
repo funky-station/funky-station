@@ -96,7 +96,7 @@
     whitelist:
       tags:
         - CartridgeBazooka
-    proto: CartridgeBazookaExp
+#    proto: CartridgeBazookaExp
     capacity: 1
     soundInsert:
      path: /Audio/_Impstation/Weapons/Guns/Cock/beecharge.ogg

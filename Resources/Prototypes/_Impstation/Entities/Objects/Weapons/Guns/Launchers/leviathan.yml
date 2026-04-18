@@ -96,7 +96,7 @@
     whitelist:
       tags:
         - CartridgeBazooka
-#    proto: CartridgeBazookaExp
+    proto: CartridgeBazookaExp
     capacity: 1
     soundInsert:
      path: /Audio/_Impstation/Weapons/Guns/Cock/beecharge.ogg
@@ -110,7 +110,7 @@
          Blunt: 8
     stunChance: 1
     stunSeconds: 5
-    popupText: damage-on-shoot-leviathan
+#    popupText: damage-on-shoot-leviathan
     damageSound: /Audio/Weapons/boxingpunch3.ogg
   - type: Appearance
   - type: MeleeWeapon

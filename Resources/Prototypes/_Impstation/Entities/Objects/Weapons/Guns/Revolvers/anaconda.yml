@@ -47,7 +47,7 @@
     damage:
       types:
         Blunt: 10
-    popupText: null
+#    popupText: null
     ignoreResistances: true
     damageSound: /Audio/Weapons/boxingpunch3.ogg
   - type: MeleeWeapon

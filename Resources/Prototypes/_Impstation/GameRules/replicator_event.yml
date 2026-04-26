@@ -1,4 +1,5 @@
-# SPDX-FileCopyrightText: 2025 beck <163376292+widgetbeck@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 A-Loose-Goose <237446272+A-Loose-Goose@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 beck <163376292+widgetbeck@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -7,12 +8,13 @@
 # the original Bingle PR can be found here: https://github.com/Goob-Station/Goob-Station/pull/1519
 - type: entity
   id: ReplicatorSpawn
-  parent: BaseStationEventShortDelay
+  parent: BaseGameRule
   components:
   - type: StationEvent
     earliestStart: 20
-    weight: 8 # currently not referenced in any scheduler, for testing purposes.
-    duration: 50
-    minimumPlayers: 15
+    weight: 6.5
+    duration: null
+    minimumPlayers: 25
+    maxOccurrences: 1
   - type: RandomSpawnRule
     prototype: SpawnPointGhostReplicatorQueen

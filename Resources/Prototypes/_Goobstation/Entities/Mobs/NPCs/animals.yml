@@ -6,6 +6,7 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2026 DimFlower <157099920+DimFlower@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 IdemFromidemland <fromidemland@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -130,7 +131,7 @@
   name: syndiroach
   id: MobMothSyndy
   parent: MobMothroach
-  description: Explosive moth.
+  description: Oh hey looks its a mothroach! wait... is that a bomb?
   components:
   - type: Sprite
     sprite: _Goobstation/Mobs/Animals/syndiroach.rsi

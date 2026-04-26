@@ -4,11 +4,42 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 NathanRosica <nathanrosica@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Terkala <appleorange64@gmail.com>
 # SPDX-FileCopyrightText: 2026 W.xyz() <84605679+pirakaplant@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+- type: entity
+  id: ActionSummonMiniDragon
+  name: Summon Mini Dragon
+  description: Summons a loyal mini dragon familiar to aid you in your magical endeavors.
+  components:
+  - type: Magic
+    requiresClothes: true
+  - type: InstantAction
+    useDelay: 600
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Funkystation/Mobs/Pets/minidragon.rsi
+      state: icon
+    event: !type:InstantSpawnSpellEvent
+      prototype: MobMiniDragonFamiliar
+      posData: !type:TargetCasterPos
+
+- type: entity
+  id: ActionMiniDragonTeleportToWizard
+  name: Teleport to Wizard
+  description: Teleport to your wizard master's location.
+  components:
+  - type: InstantAction
+    useDelay: 300
+    itemIconStyle: BigAction
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: blink
+    event: !type:MiniDragonTeleportToWizardEvent
 
 - type: entity
   id: ActionSummonGhosts

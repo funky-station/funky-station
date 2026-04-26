@@ -1,5 +1,6 @@
-// SPDX-FileCopyrightText: 2025 ALooseGoose <ALooseGoosey@gmail.com>
-// SPDX-FileCopyrightText: 2025 beck <163376292+widgetbeck@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2026 A-Loose-Goose <237446272+A-Loose-Goose@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2026 ALooseGoose <ALooseGoosey@gmail.com>
+// SPDX-FileCopyrightText: 2026 beck <163376292+widgetbeck@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -8,6 +9,7 @@
 // the original Bingle PR can be found here: https://github.com/Goob-Station/Goob-Station/pull/1519
 
 using Content.Server.Actions;
+using Content.Server.Audio;
 using Content.Server.GameTicking;
 using Content.Server.Pinpointer;
 using Content.Server.Popups;
@@ -18,6 +20,9 @@ using Content.Shared.Destructible;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Events;
+using Content.Shared.Objectives.Components;
+using Content.Shared.Pinpointer;
+using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Stunnable;
 using Robust.Server.Containers;
@@ -25,6 +30,9 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using System.Linq;
+using Content.Shared.Tag;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._Impstation.Replicator;
 
@@ -41,6 +49,7 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
 
     public override void Initialize()
     {
@@ -127,30 +136,32 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
                 RemCompDeferred<ReplicatorNestFallingComponent>(uid);
         }
 
-        // Figure out who the queen is & which replicators belonging to this nest are still alive.
+        // Figure out what replicators remain, filter tier 3 Replicators
         EntityUid? queen = null;
+        List<EntityUid> tier3Replicators = new();
         HashSet<Entity<ReplicatorComponent>> livingReplicators = [];
-        foreach (var replicator in ent.Comp.SpawnedMinions)
+        var entities = EntityQueryEnumerator<ReplicatorComponent>();
+        while (entities.MoveNext(out var replicator, out var replicatorComp))
         {
-            if (!TryComp<ReplicatorComponent>(replicator, out var replicatorComp))
-                continue;
-
             if (!_mobState.IsAlive(replicator))
                 continue;
 
-            if (replicatorComp.Queen)
-                queen = replicator;
+            if (!EntityManager.TryGetComponent<MetaDataComponent>(replicator, out var meta))
+                continue;
+
+            if (meta.EntityPrototype?.ID == "MobReplicatorTier3")
+                tier3Replicators.Add(replicator);
 
             livingReplicators.Add((replicator, replicatorComp));
 
             _popup.PopupEntity(Loc.GetString("replicator-nest-destroyed"), replicator, replicator);
         }
-        // if there are living replicators, select one and give the action to create a new nest.
-        if (livingReplicators.Count > 0)
+        // if there are living tier 3 replicators, select one and give the action to create a new nest.
+        if (tier3Replicators.Count > 0)
         {
             // if there's no queen, pick a new one
             if (queen == null)
-                queen = _random.Pick(livingReplicators);
+                queen = _random.Pick(tier3Replicators);
 
             var comp = EnsureComp<ReplicatorComponent>((EntityUid)queen);
             comp.Queen = true;

@@ -4,6 +4,7 @@
 // SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 alex-infdev <185717397+alex-infdev@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -40,9 +41,12 @@ public sealed class JointVisualsOverlay : Overlay
 
         args.DrawingHandle.SetTransform(Matrix3x2.Identity);
 
-        while (joints.MoveNext(out var visuals, out var xform))
+        while (joints.MoveNext(out var uid, out var visuals, out var xform))
         {
             if (xform.MapID != args.MapId)
+                continue;
+
+            if (_entManager.TryGetComponent<SpriteComponent>(uid, out var visualsSpriteComp) && !visualsSpriteComp.Visible)
                 continue;
 
             var other = _entManager.GetEntity(visuals.Target);

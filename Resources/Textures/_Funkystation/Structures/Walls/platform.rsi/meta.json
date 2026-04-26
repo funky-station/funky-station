@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Created by _emillycoelho (discord) to FunkyStation.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "corner"
+    },
+    {
+      "name": "corner2"
+    },
+    {
+      "name": "corner3"
+    },
+    {
+      "name": "corner4"
+    },
+    {
+      "name": "corneralt"
+    },
+    {
+      "name": "corneralt2"
+    },
+    {
+      "name": "corneralt3"
+    },
+    {
+      "name": "corneralt4"
+    },
+    {
+      "name": "side"
+    },
+    {
+      "name": "side2"
+    },
+    {
+      "name": "side3"
+    },
+    {
+      "name": "side4"
+    }
+  ]
+}

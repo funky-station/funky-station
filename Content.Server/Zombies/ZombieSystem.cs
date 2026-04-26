@@ -311,13 +311,14 @@ namespace Content.Server.Zombies
                                 // Bite infections start at stage 1 (Early)
                                 _zombieTumor.InfectEntity(entity, ZombieTumorInfectionStage.Early);
                             }
-                        }
-                        else
-                        {
-                            // For crit/dead players, keep the old behavior
-                            EnsureComp<ZombieTumorInfectionComponent>(entity);
-                            // Ensure StatusIconComponent exists so infection status can be displayed in UI
-                            EnsureComp<StatusIconComponent>(entity);
+                            else
+                            {
+                                // For crit/dead players, keep the old behavior
+                                EnsureComp<PendingZombieComponent>(entity);
+                                EnsureComp<ZombifyOnDeathComponent>(entity);
+                                // Ensure StatusIconComponent exists so infection status can be displayed in UI
+                                EnsureComp<StatusIconComponent>(entity);
+                            }
                         }
                     }
                 }

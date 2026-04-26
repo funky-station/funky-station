@@ -341,7 +341,7 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
         if (infection.Stage == ZombieTumorInfectionStage.TumorFormed && infection.NextCough <= curTime)
         {
             // Schedule next cough/beep at a random interval between 15-45 seconds
-            infection.NextCough = curTime + TimeSpan.FromSeconds(_random.Next(15, 46));
+            infection.NextCough = curTime + TimeSpan.FromSeconds(_random.Next(15, 45));
 
             // Make the entity cough (organics) or beep (IPCs)
             if (hasRoboTumor)

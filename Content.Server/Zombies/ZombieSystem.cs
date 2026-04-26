@@ -106,6 +106,9 @@ namespace Content.Server.Zombies
 
             SubscribeLocalEvent<IncurableZombieComponent, MapInitEvent>(OnPendingMapInit);
 
+            SubscribeLocalEvent<ZombifyOnDeathComponent, MobStateChangedEvent>(OnDamageChanged);
+            SubscribeLocalEvent<ZombieComponent, DamageModifyEvent>(OnDamageModified);
+
         }
 
         private void OnBeforeRemoveAnomalyOnDeath(Entity<PendingZombieComponent> ent, ref BeforeRemoveAnomalyOnDeathEvent args)
@@ -262,6 +265,8 @@ namespace Content.Server.Zombies
             var min = component.MinZombieInfectionChance;
             //gets a value between the max and min based on how many items the entity is wearing
             var chance = (max - min) * ((total - items) / total) + min;
+            //multiplies infection chance by set multiplier
+            chance *= component.ZombieInfectionChanceMultiplier;
             return chance;
         }
 
@@ -372,6 +377,11 @@ namespace Content.Server.Zombies
         private void OnZombieCloning(Entity<ZombieComponent> ent, ref CloningEvent args)
         {
             UnZombify(ent.Owner, args.CloneUid, ent.Comp);
+        }
+
+        private void OnDamageModified(Entity<ZombieComponent> ent, ref DamageModifyEvent args)
+        {
+            args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, ent.Comp.DamageModifier);
         }
     }
 }

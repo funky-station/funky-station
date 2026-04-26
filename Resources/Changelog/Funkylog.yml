@@ -8050,3 +8050,31 @@ Entries:
       message: Oasis eng section reworked to have Nuclear Reactor, SM and HFR Area.
   id: 922
   time: '2026-04-12T17:50:36.0000000+00:00'
+- author: Fr0goo
+  changes:
+    - type: Add
+      message: Added LOTS of costumes for the clown!
+    - type: Add
+      message: >-
+        Clowns now have toys they start with that they can select in their
+        loadout!
+    - type: Add
+      message: Added new role name for clown!
+  id: 923
+  time: '2026-04-12T19:56:24.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: >-
+        Changed Bagels perma to have more ingredients for a better cooking
+        experience
+  id: 924
+  time: '2026-04-19T20:33:26.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Add
+      message: >-
+        Added the crimes of Fraud and Grand Fraud to Space Law. They punish
+        trickery and deceptive behavior.
+  id: 925
+  time: '2026-04-26T20:12:24.0000000+00:00'

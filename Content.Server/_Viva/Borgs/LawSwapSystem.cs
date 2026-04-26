@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2025 misghast <51974455+misterghast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 ALooseGoose <ALooseGoosey@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -63,28 +64,27 @@ public sealed class LawSwapSystem : EntitySystem
 
     private void WhenFinishedLawboard(EntityUid entity, SiliconLawBoundComponent component, DoAfterEvent args)
     {
-        if (args.Handled || args.Cancelled || !args.Target.HasValue)
+        if (args.Handled || args.Cancelled || !args.Target.HasValue || !args.Used.HasValue)
             return;
 
-        TryComp<SiliconLawProviderComponent>(args.Used, out var lawBoardProvComp);
-        TryComp<WiresPanelComponent>(args.Target, out var wirePanelComp);
+        TryComp<SiliconLawProviderComponent>(args.Used.Value, out var lawBoardProvComp);
+        TryComp<WiresPanelComponent>(args.Target.Value, out var wirePanelComp);
         if (lawBoardProvComp == null || wirePanelComp == null)
             return;
 
-        if (wirePanelComp.Open)
-        {
-            _siliconLawSystem.SetLaws(_siliconLawSystem.GetLawset(lawBoardProvComp.Laws).Laws,
-                args.Target.Value,
-                lawBoardProvComp.LawUploadSound);
-            _popupSystem.PopupEntity("You finish reprogramming the borg's laws.",
-                args.User,
-                args.User);
-        }
-        else
+        if (!wirePanelComp.Open)
         {
             _popupSystem.PopupEntity("You have to open their panel to change their laws!",
                 args.User,
                 args.User);
+            return;
         }
+
+        var lawsToApply = _siliconLawSystem.GetLaws(args.Used.Value);
+        _siliconLawSystem.SetLaws(lawsToApply.Laws, args.Target.Value, lawBoardProvComp.LawUploadSound);
+
+        _popupSystem.PopupEntity("You finish reprogramming the borg's laws.",
+            args.User,
+            args.User);
     }
 }

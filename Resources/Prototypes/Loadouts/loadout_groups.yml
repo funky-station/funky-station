@@ -1529,10 +1529,11 @@
   id: ChiefEngineerJobTrinkets
   name: loadout-group-jobtrinkets
   minLimit: 0
-  maxLimit: 2
+  maxLimit: 3
   loadouts:
   - LizardPlushieChiefEngineer
   - CommandLighter # Funky Change
+  - TrainWhistleChiefEngineer # Funky
 
 - type: loadoutGroup
   id: TechnicalAssistantJumpsuit

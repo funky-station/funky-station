@@ -590,6 +590,12 @@
   components:
   - type: Pda
     id: QuartermasterIDCard
+    penSlot: # Funky
+      startingItem: LuxuryPen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
@@ -829,6 +835,12 @@
   components:
   - type: Pda
     id: CEIDCard
+    penSlot: # Funky
+      startingItem: LuxuryPen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
@@ -867,6 +879,12 @@
   components:
   - type: Pda
     id: CMOIDCard
+    penSlot: # Funky
+      startingItem: LuxuryPen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
@@ -958,6 +976,12 @@
   components:
   - type: Pda
     id: RDIDCard
+    penSlot: # Funky
+      startingItem: LuxuryPen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
@@ -1028,6 +1052,12 @@
   components:
   - type: Pda
     id: HoSIDCard
+    penSlot: # Funky
+      startingItem: HoloflarePen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:

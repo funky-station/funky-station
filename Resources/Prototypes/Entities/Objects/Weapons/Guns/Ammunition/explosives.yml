@@ -23,6 +23,7 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -73,7 +74,7 @@
 - type: entity
   id: BaseGrenade
   name: base grenade
-  parent: [BaseItem, BaseMajorContraband]
+  parent: [BaseItem, BaseSecurityContraband]
   abstract: true
   components:
   - type: Tag
@@ -86,8 +87,12 @@
 - type: entity
   id: GrenadeBaton
   name: baton grenade
+  description: Bonk!
   parent: BaseGrenade
   components:
+  - type: Tag
+    tags:
+    - GrenadeLessLethal
   - type: CartridgeAmmo
     proto: BulletGrenadeBaton
   - type: Sprite
@@ -103,6 +108,7 @@
 - type: entity
   id: GrenadeBlast
   name: blast grenade
+  description: To whom it WILL concern.
   parent: BaseGrenade
   components:
   - type: CartridgeAmmo
@@ -120,8 +126,12 @@
 - type: entity
   id: GrenadeFlash
   name: flash grenade
+  description: Suprisingly, is actually non lethal!
   parent: BaseGrenade
   components:
+  - type: Tag
+    tags:
+    - GrenadeLessLethal
   - type: CartridgeAmmo
     proto: BulletGrenadeFlash
   - type: Sprite
@@ -137,6 +147,7 @@
 - type: entity
   id: GrenadeFrag
   name: frag grenade
+  description: To whom it WILL concern.
   parent: BaseGrenade
   components:
   - type: CartridgeAmmo
@@ -154,8 +165,12 @@
 - type: entity
   id: GrenadeEMP
   name: EMP grenade
+  description: A cartridge purpose built to kill any electronics the target holds dear.
   parent: BaseGrenade
   components:
+  - type: Tag
+    tags:
+    - GrenadeLessLethal
   - type: CartridgeAmmo
     proto: BulletGrenadeEMP
   - type: Sprite
@@ -166,6 +181,27 @@
   - type: Appearance
   - type: SpentAmmoVisuals
     state: frag
+    suffix: false
+
+- type: entity
+  id: GrenadeTearGas
+  name: tear gas grenade
+  description: The coughing and screams means good impact on target.
+  parent: BaseGrenade
+  components:
+  - type: Tag
+    tags:
+    - GrenadeLessLethal
+  - type: CartridgeAmmo
+    proto: BulletGrenadeTear
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    layers:
+    - state: flash
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+    state: flash
     suffix: false
 
 # Cannon Balls

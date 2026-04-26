@@ -38,8 +38,10 @@
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 # SPDX-FileCopyrightText: 2026 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 EmillyCoelho <167008606+EmilyCoelhoBR@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 Ichaie <ichaicoelho@gmail.com>
 # SPDX-FileCopyrightText: 2026 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Scrambledking  <118861382+Scrambledking@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -144,6 +146,7 @@
       - id: MedkitOxygenFilled
       - id: HolofanProjector
       - id: DoorRemoteFirefight # Goobstation - re adding fire door remote
+      - id: RPD #funkystation
       - id: ClothingBackpackFirefighterTank
       - id: AirGrenade
 
@@ -162,6 +165,7 @@
       - id: MedkitOxygenFilled
       - id: HolofanProjector
       - id: DoorRemoteFirefight # Goobstation - re adding fire door remote
+      - id: RPD #funkystation
       - id: ClothingBackpackFirefighterTank
       - id: AirGrenade
 
@@ -221,7 +225,6 @@
       - id: ClothingMaskGas
       - id: ClothingShoesBootsMag
       - id: RCD
-      - id: RPD #funkystation
       - id: RCDAmmo
       - id: BoxInflatable # funky
       - id: MaterialBag #funky!
@@ -239,7 +242,6 @@
       - id: ClothingMaskGas
       - id: trayScanner
       - id: RCD
-      - id: RPD #funkystation
       - id: RCDAmmo
       - id: BoxInflatable # funky
       - id: MaterialBag #funky!

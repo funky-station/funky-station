@@ -22,8 +22,8 @@
 - type: entity
   id: BookSOP
   parent: BaseGuidebook
-  name: SOP 101
-  description: A book about Standard Operating Procedure written by Nanotrasen. A few pages seem to be missing.
+  name: A comprehensive collection of NanoTrasen Standard Operating Procedures
+  description: Even looking at the title gives you a headache, you cannot bear looking at the size of the book.
   components:
   - type: Sprite
     layers:
@@ -35,9 +35,10 @@
     - state: icon_briefcase
   - type: MeleeWeapon
     wideAnimationRotation: 180
+    attackRate: 0.10 # VERY slow attack speed so it cannot be used as an actual weapon but can still be used to bash the clown over the head
     damage:
       types:
-        Blunt: 6
+        Blunt: 10
   - type: GuideHelp
     guides:
     - LegalSOP
@@ -46,4 +47,7 @@
     - EngineeringSOP
     - CargoSOP
     - ScienceSOP
-    - AlertLevelsSOP
+    - CommandSOP # No idea why this was not in here before
+    - OrderOfSuccession # I find that this counts as SOP, good for an IAA to have
+    - SecuritySOP # Sec SOP
+    - AlertLevelsSOP # All alert level SOPs

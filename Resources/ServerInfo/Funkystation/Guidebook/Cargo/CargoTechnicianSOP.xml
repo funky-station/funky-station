@@ -8,26 +8,22 @@ SPDX-License-Identifier: MIT
 <Document>
 # Cargo Technician SOP
 
-[bold]1.[/bold] Cargo Technicians must ensure that every approved order is delivered within 15 minutes of having been placed and approved;
+  [bold]1.[/bold][color=#F52900]🟥[/color] Cargo Techs are responsible for distributing the materials salvage sends, usually sent to cargo via fulton. These materials are meant to reduce the drain on departmental finances and keep the station running smoothly. A baseline of one stack of each material should be provided to the Cargo Medical, Security and Engineering Silo, although medical should not get Uranium unless specifically requested. Science should also be provided materials, but supplies from salvage must be distributed equally amongst departments until Security, Medical, and Engineering Silos all have one stack of each material. Cargo’s Silo acts both for Cargo and as a backup supply for unexpected crew needs. Resources should be delivered at minimum 4 times per shift, and not be reliant on a department requesting them;
 
-[bold]2.[/bold] Cargo Technicians are bound to the same rules as the [color=#1b67a5]Quartermaster[/color] regarding restricted crates;
+  [bold]2.[/bold][color=#F52900]🟥[/color] Cargo Techs are not permitted to order security items. If a security member provides an order slip, the Tech may approve the order, If the order includes weapons or armor, it must be confirmed with the Head of Security or Quartermaster before approving the order. Security orders should be approved when there is personnel on the Trade Station ready to pick them up. If a security order is modified or lost in transit then the tech who approved them (or the one who picked them up if the order was picked up) can be considered an accessory to the theft if these procedures were not followed;
 
-[bold]3.[/bold] Cargo Technicians are [bold]not[/bold] permitted to order items for sole personal use with the supply department account without express consent from the [color=#1b67a5]Quartermaster[/color]. Exception is made if there are more than 10,000 spesos available and no outstanding orders. Cargo Technicians may not deplete the entire department account balance for this;
-<!-- maybe make this 15k?-->
+  [bold]3.[/bold][color=#F52900]🟥[/color] Cargo Techs must make sure bounty slips are being dropped off at the appropriate desks to have them worked on. Cargo Techs should also construct the appropriate lockbox for the bounty, at the same time. Bounties should be worked on consistently through the shift;
 
-[bold]4.[/bold] Cargo Technicians are [bold]not[/bold] permitted to order non-essential items using the supply account (such as cats, or clothing) without express consent from the [color=#1b67a5]Quartermaster[/color];
+  [bold]4.[/bold][color=#0066F5]🔶[/color] Cargo Techs are not allowed to order anything for non-work use without the Quartermaster’s approval. Use of funds exceeding 30% of the service account at the time of ordering, or in excess of 6000 spesos combined, can be considered sabotage of the station as well as being referred to IAA and Security. Morale is not a valid excuse to consider an order “work use”;
 
-[bold]5.[/bold] Cargo Technicians are [bold]not[/bold] permitted to force and/or break open locked crates. The same applies to the [color=#1b67a5]Quartermaster[/color]. Exception is made for Abandoned Crates found by Salvage Specialists;
+  [bold]5.[/bold][color=#0066F5]🔶[/color] Cargo Techs must make sure there is a Mail Clerk to handle the Mail Teleporter and mail delivery, if there is not a staffing shortage. If there is insufficient staff, all Cargo Techs are responsible for making sure the Mail Teleporter remains offline. If there is sufficient staff but no one accepts the assignment, it must be noted but is not cause for demotion or punishment. If there is a Mail Clerk but they are needed elsewhere, the Clerk is responsible for making sure the Mail Teleporter is offline;
 
-[bold]6.[/bold] Cargo Technicians are [bold]not[/bold] permitted to authorize non-departmental orders (such as a Medical Doctor asking for Insulated Gloves) without express permission from the [color=#1b67a5]Quartermaster[/color];
+  [bold]6.[/bold][color=#0CBF00]⚙[/color] Cargo Technicians must ensure that orders placed through the ordering console are delivered within 15 minutes of approving the order;
 
-[bold]7.[/bold] Cargo Technicians must ensure at least one copy of every Order Form (ie, the forms produced by the Requests Console) is kept inside Cargo;
+  [bold]7.[/bold][color=#0CBF00]⚙[/color] Cargo Techs should not approve any orders by other departments unless it has been stamped by the appropriate Departmental Head. This is not needed if the order is for items strictly for work use (such as a doctor ordering a chemvend restock for chemlab, or a scientist ordering a plasma crate);
 
-[bold]8.[/bold] Cargo Technicians must ensure resources brought by salvagers are distributed to the rest of the station.
+  [bold]8.[/bold][color=#0CBF00]⚙[/color] Cargo Techs must ensure that the blue slip of every order is signed by the recipient of the order before handing over the items. Once the delivery is complete, the blue slip must be provided to the QM or left in the folder the QM has designated for blue slips. If there is a risk of the slip being damaged (such as by a fire anomaly nearby) a copy should be made. Faxing the blue slip to IAA is considered a valid way to make a copy;
 
-[bold]9.[/bold] Cargo Technicians are [bold]not[/bold] permitted to ask for spesos in exchange for legal cargo crate orders or autolathe requests from crew members;
+  [bold]9.[/bold][color=#0CBF00]⚙[/color] Cargo Techs are not permitted to demand trades or money for orders. If a department lacks the funds, they can request the difference be provided, but extorting crewmembers is not permitted;
 
-[bold]10.[/bold] Cargo Technicians are [bold]not[/bold] permitted to trade items and/or favors in exchange for items with regular personnel without express consent from the [color=#1b67a5]Quartermaster[/color];
-
-[bold]11.[/bold] Cargo Technicians should ensure that at least one person is handling mail delivery, should the mail teleporter be turned on and functioning.
 </Document>

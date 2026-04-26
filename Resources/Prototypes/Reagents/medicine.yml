@@ -77,6 +77,7 @@
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2026 Mora <46364955+TrixxedHeart@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 QueerCats <jansencheng3@gmail.com>
 # SPDX-FileCopyrightText: 2026 Terkala <appleorange64@gmail.com>
 # SPDX-FileCopyrightText: 2026 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 #
@@ -879,7 +880,7 @@
           immunityLevel: 5
           conditions:
             - !type:ReagentThreshold
-              min: 10
+              min: 5
 
 - type: reagent
   id: AmbuzolPlus
@@ -1340,6 +1341,13 @@
         amount: 2.5
       - !type:HealthChange
         conditions:
+        - !type:IsBloodCultist
+        ignoreResistances: false
+        damage:
+          types:
+            Heat: 1
+      - !type:HealthChange
+        conditions:
         - !type:TotalDamage
           max: 50
         damage:
@@ -1361,18 +1369,6 @@
       methods: [ Touch ]
       effects:
       - !type:ExtinguishReaction
-    CultistPurge:
-      methods: [ Touch ]
-      effects:
-      - !type:HealthChange
-        conditions:
-        - !type:IsBloodCultist
-        damage:
-          types:
-            Heat: 8
-            Holy: 5
-      - !type:DeCultify
-        amount: 2.5
     Acidic:
       methods: [ Touch ]
       effects:

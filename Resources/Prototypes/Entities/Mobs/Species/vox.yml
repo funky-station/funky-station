@@ -67,6 +67,7 @@
     hideLayersOnEquip: #imp
     - HeadSide
     - Hair
+    - Tail
     #- type: VoxAccent # Not yet coded
   - type: Speech
     speechVerb: Vox
@@ -151,9 +152,9 @@
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-    - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "mask" ]
     - map: [ "head" ]
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
     - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
@@ -274,13 +275,13 @@
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-    - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "mask" ]
     - map: [ "enum.PaperLabelVisuals.Layer" ] # Funky edit
       sprite: "_DV/Objects/Misc/stickies.rsi"
       state: "sticky_face-VOX"
       visible: false
     - map: [ "head" ]
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
     - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]

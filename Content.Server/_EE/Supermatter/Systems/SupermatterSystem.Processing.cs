@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2025 BrightNibbleston <218794821+BrightNibbleston@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 BrightNibbleston <brightnibbleston@gmail.com>
 // SPDX-FileCopyrightText: 2025 Do You Like Beans <bowenjonathan407@gmail.com>
+// SPDX-FileCopyrightText: 2025 Homingpenguins <59744509+Homingpenguins@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Homingpenguins <asadellace4@gmail.com>
 // SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
@@ -10,6 +11,7 @@
 // SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 MeowVal <meowval@catkatnya.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -847,7 +849,15 @@ public sealed partial class SupermatterSystem
                 _paracusia.SetSounds(mob, paracusiaSounds, paracusia);
                 _paracusia.SetTime(mob, paracusiaMinTime, paracusiaMaxTime, paracusia);
                 _paracusia.SetDistance(mob, paracusiaDistance, paracusia);
+                sm.Hallucinating.Add(mob);
             }
+        }
+
+        foreach (var mob in sm.Hallucinating.Except(lookup).ToList())
+        {
+            // Mob left the hallucination area of the supermatter
+            RemComp<ParacusiaComponent>(mob);
+            sm.Hallucinating.Remove(mob);
         }
 
         sm.PsyCoefficient = Math.Clamp(sm.PsyCoefficient + psyDiff, 0f, 1f);

@@ -5,6 +5,7 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fenn <162015305+TooSillyFennec@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
@@ -12,6 +13,8 @@
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 WhityCyssius <pkmnwhity@gmail.com>
+# SPDX-FileCopyrightText: 2026 whitycyssius <pkmnwhity@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -25,7 +28,7 @@
     BoxBeaker: 1
     JugAluminium: 2
     JugCarbon: 4
-    JugChlorine: 1
+    JugChlorine: 2
     JugCopper: 2
     JugEthanol: 2
     JugFluorine: 1
@@ -62,7 +65,7 @@
     BoxBeaker: 1
     JugAluminium: 2
     JugCarbon: 4
-    JugChlorine: 1
+    JugChlorine: 2
     JugCopper: 2
     JugEthanol: 2
     JugFluorine: 1

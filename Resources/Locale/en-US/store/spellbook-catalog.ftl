@@ -82,6 +82,9 @@ spellbook-staff-animation-description = Bring inanimate objects to life!
 
 # Events
 
+spellbook-event-summon-mini-dragon-name = Summon Mini Dragon
+spellbook-event-summon-mini-dragon-description = Summon a loyal mini dragon familiar to aid you in your magical endeavors.
+
 spellbook-event-summon-ghosts-name = Summon Ghosts
 spellbook-event-summon-ghosts-description = Who ya gonna call?
 

@@ -1,4 +1,7 @@
 // SPDX-FileCopyrightText: 2025 AirFryerBuyOneGetOneFree <airfryerbuyonegetonefree@gmail.com>
+// SPDX-FileCopyrightText: 2025 beck <163376292+widgetbeck@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2026 AirFryerBuyOneGetOneFree <jakoblondon01@gmail.com>
+// SPDX-FileCopyrightText: 2026 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -17,13 +20,23 @@ public sealed class AACBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUs
     protected override void Open()
     {
         base.Open();
-        _window?.Close();
-        _window = this.CreateWindow<AACWindow>();
+        _window = new AACWindow(Owner);
+        _window.OpenCentered();
+        _window.OnClose += Close;
         _window.PhraseButtonPressed += OnPhraseButtonPressed;
     }
 
     private void OnPhraseButtonPressed(List<ProtoId<QuickPhrasePrototype>> phraseId)
     {
         SendMessage(new AACTabletSendPhraseMessage(phraseId));
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+        base.Dispose(disposing);
+        if (!disposing)
+            return;
+
+        _window?.Parent?.RemoveChild(_window);
     }
 }

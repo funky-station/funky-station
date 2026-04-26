@@ -19,7 +19,7 @@
       map: [ "blade" ]
   - type: ToggleCellDraw
   - type: PowerCellDraw
-    drawRate: 35
+    drawRate: 17 # Don't set that too high or it becomes barely usable.
   - type: PowerCellSlot
     cellSlotId: cell_slot
   - type: ItemSlots
@@ -64,7 +64,7 @@
         variation: 0.125
     activatedDamage:
       types:
-        Slash: 6
+        Slash: 8 # Ajusted according to testing i did on a localhost
         Heat: 10
         Structural: 5
   - type: MeleeWeapon

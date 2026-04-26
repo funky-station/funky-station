@@ -2,12 +2,17 @@
 // SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 beck <163376292+widgetbeck@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Server._Impstation.Borgs.FreeformLaws;
 using Content.Server.Administration.Managers;
 using Content.Server.EUI;
+using Content.Server.NPC.Queries.Considerations;
+using Content.Server.Station.Components;
 using Content.Shared.Administration;
 using Content.Shared.Eui;
 using Content.Shared.Silicons.Laws;
@@ -27,12 +32,14 @@ public sealed class SiliconLawEui : BaseEui
     private ISawmill _sawmill = default!;
     private EntityUid _target;
 
-    public SiliconLawEui(SiliconLawSystem siliconLawSystem, EntityManager entityManager, IAdminManager manager)
+    public SiliconLawEui(SiliconLawSystem siliconLawSystem, EntityManager entityManager, IAdminManager manager, EntityUid? target = null) // imp - added target param
     {
         _siliconLawSystem = siliconLawSystem;
         _adminManager = manager;
         _entityManager = entityManager;
         _sawmill = Logger.GetSawmill("silicon-law-eui");
+        if (target != null) // imp - added test for target, so that the eui can be fed a specific target
+            _target = target.Value;
     }
 
     public override EuiStateBase GetNewState()
@@ -69,6 +76,10 @@ public sealed class SiliconLawEui : BaseEui
     private bool IsAllowed()
     {
         var adminData = _adminManager.GetAdminData(Player);
+        // imp - added check for FreeformLawEntryComponent so that players *can* access this EUI on freeform lawboards
+        if (_entityManager.HasComponent<FreeformLawEntryComponent>(_target))
+            return true;
+
         if (adminData == null || !adminData.HasFlag(AdminFlags.Moderator))
         {
             _sawmill.Warning("Player {0} tried to open / use silicon law UI without permission.", Player.UserId);

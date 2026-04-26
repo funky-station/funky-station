@@ -107,7 +107,6 @@ namespace Content.Server.Zombies
             SubscribeLocalEvent<IncurableZombieComponent, MapInitEvent>(OnPendingMapInit);
 
             SubscribeLocalEvent<ZombifyOnDeathComponent, MobStateChangedEvent>(OnDamageChanged);
-
             SubscribeLocalEvent<ZombieComponent, DamageModifyEvent>(OnDamageModified);
 
         }
@@ -316,8 +315,7 @@ namespace Content.Server.Zombies
                         else
                         {
                             // For crit/dead players, keep the old behavior
-                            EnsureComp<PendingZombieComponent>(entity);
-                            EnsureComp<ZombifyOnDeathComponent>(entity);
+                            EnsureComp<ZombieTumorInfectionComponent>(entity);
                             // Ensure StatusIconComponent exists so infection status can be displayed in UI
                             EnsureComp<StatusIconComponent>(entity);
                         }

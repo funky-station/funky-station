@@ -82,7 +82,7 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ZombieTumorInfectionComponent, MobStateChangedEvent>(OnInfectionMobStateChanged);
+        // SubscribeLocalEvent<ZombieTumorInfectionComponent, MobStateChangedEvent>(OnInfectionMobStateChanged);
         SubscribeLocalEvent<ZombieTumorInfectionComponent, ComponentRemove>(OnInfectionRemoved);
         SubscribeLocalEvent<ZombieTumorInfectionComponent, BeingGibbedEvent>(OnEntityWithInfectionBeingGibbed);
         SubscribeLocalEvent<BodyComponent, BeingGibbedEvent>(OnBodyBeingGibbed);
@@ -116,6 +116,9 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
 
         // Remove expired tiered immunity
         UpdateExpiredTieredImmunity(curTime);
+
+        // Temp, zombify corpses
+        ZombifyDead();
     }
 
     private void UpdateInfectionProgression(TimeSpan curTime)
@@ -338,7 +341,7 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
         if (infection.Stage == ZombieTumorInfectionStage.TumorFormed && infection.NextCough <= curTime)
         {
             // Schedule next cough/beep at a random interval between 15-45 seconds
-            infection.NextCough = curTime + TimeSpan.FromSeconds(_random.Next(10, 30));
+            infection.NextCough = curTime + TimeSpan.FromSeconds(_random.Next(15, 45));
 
             // Make the entity cough (organics) or beep (IPCs)
             if (hasRoboTumor)
@@ -426,9 +429,10 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
             if (protoId != null)
             {
                 // Check if this prototype or any parent is PartAnimal
-                foreach (var parent in _prototypeManager.EnumerateParents<EntityPrototype>(protoId))
+                foreach (var parent in _prototypeManager.EnumerateParents<EntityPrototype>(protoId, true))
                 {
-                    if (parent.ID == "PartAnimal")
+                    // Incredibly hack, but works. EnumerateParents doesn't seem to work recursively
+                    if (parent.ID.Contains("Animal"))
                         return true; // This is an animal
                 }
             }
@@ -955,6 +959,8 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
         _popup.PopupEntity(Loc.GetString(message), target, target);
     }
 
+    /*
+    Disabled until someone fixes
     private void OnInfectionMobStateChanged(Entity<ZombieTumorInfectionComponent> ent, ref MobStateChangedEvent args)
     {
         // Check if this is an IPC (has Silicon component AND Bloodstream - to exclude borgs)
@@ -980,6 +986,26 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
             // Remove infection component since zombification is complete
             // The tumor organ itself remains and continues to spread infection
             RemComp<ZombieTumorInfectionComponent>(ent.Owner);
+        }
+    }
+    */
+
+    private void ZombifyDead()
+    {
+        var query = EntityQueryEnumerator<ZombieTumorInfectionComponent>();
+        while (query.MoveNext(out var uid, out _))
+        {
+            if (!_mobState.IsDead(uid) || HasComp<ZombieTumorInfectionComponent>(uid))
+                continue;
+            if (!HasTumorOrgan(uid))
+                SpawnTumorOrgan(uid);
+
+            // Zombify - the tumor organ will remain and continue spreading infection
+            _zombieSystem.ZombifyEntity(uid);
+
+            // Remove infection component since zombification is complete
+            // The tumor organ itself remains and continues to spread infection
+            RemComp<ZombieTumorInfectionComponent>(uid);
         }
     }
 

@@ -5,6 +5,7 @@
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -22,6 +23,7 @@
     whitelist:
       tags:
         - Grenade
+        - GrenadeLessLethal
     capacity: 5
     soundRack:
       path: /Audio/Weapons/Guns/Bolt/lmg_bolt_closed.ogg
@@ -95,3 +97,11 @@
   components:
   - type: BallisticAmmoProvider
     proto: GrenadeBaton
+
+- type: entity
+  id: MagazineGrenadeTearGas
+  name: tear gas grenade cartridge
+  parent: BaseMagazineGrenade
+  components:
+  - type: BallisticAmmoProvider
+    proto: GrenadeTearGas

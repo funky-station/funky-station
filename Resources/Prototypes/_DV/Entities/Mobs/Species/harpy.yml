@@ -103,7 +103,6 @@
       - map: [ "back" ]
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
       - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
-      - map: [ "enum.HumanoidVisualLayers.Tail" ]
       - map: [ "pocket1" ]
       - map: [ "pocket2" ]
       - map: [ "clownedon" ] # Dynamically generated
@@ -121,6 +120,7 @@
       - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
       - map: [ "mask" ]
       - map: [ "head" ]
+      - map: [ "enum.HumanoidVisualLayers.Tail" ]
       - map: [ "singingLayer" ]
         sprite: _DV/Effects/harpysinger.rsi
         state: singing_music_notes
@@ -234,7 +234,6 @@
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
       - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
       - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-      - map: [ "enum.HumanoidVisualLayers.Tail" ]
       - map: [ "pocket1" ]
       - map: [ "pocket2" ]
       - map: [ "clownedon" ] # Dynamically generated
@@ -251,6 +250,7 @@
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
       - map: [ "mask" ]
       - map: [ "head" ]
+      - map: [ "enum.HumanoidVisualLayers.Tail" ]
 
 - type: entity
   id: ActionHarpyPlayMidi

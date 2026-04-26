@@ -2,12 +2,12 @@
 # SPDX-FileCopyrightText: 2025 IronDragoon <you@example.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 thecopbennet <bennetgood@gmail.com>
 # SPDX-FileCopyrightText: 2025 thecopbennet <thecopbennet@proton.me>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -247,6 +247,23 @@
       - DAGDUplink
   saleLimit: 1 # WD EDIT
 
+# Implants
+
+- type: listing
+  id: UplinkFastDrawImplanter
+  name: Fast Draw implanter
+  description: A syringe with tools for quick implant removal. It has small gold stars on its body.
+  productEntity: RevsFastDrawImplanter
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkImplants
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
 # Pointless
 
 - type: listing
@@ -256,6 +273,17 @@
   productEntity: TowelColorSyndicate
   cost:
     Telecrystal: 3 # gives a towel with a mean whip, three TC is probably a good cost for it
+  categories:
+  - UplinkPointless
+  saleBlacklist: true
+
+- type: listing
+  id: UplinkPinpointerUniversalSyndicate
+  name: uplink-pinpointer-name
+  description: uplink-pinpointer-desc
+  productEntity: PinpointerUniversalSyndicate #ideally, used for nukies for cohesion, for protect targets OR for steal items where you plant it somewhere
+  cost:
+    Telecrystal: 5
   categories:
   - UplinkPointless
   saleBlacklist: true

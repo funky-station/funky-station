@@ -83,6 +83,7 @@
 # SPDX-FileCopyrightText: 2026 Teasq <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2026 W.xyz() <84605679+pirakaplant@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 W.xyz() <tptechteam@gmail.com>
 # SPDX-FileCopyrightText: 2026 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
@@ -162,6 +163,7 @@
   - Glasses
   - CheapSunglasses
   - GlassesJamjar
+  - GlassesCheapSunjar
   - GlassesJensen
 
 - type: loadoutGroup
@@ -580,6 +582,13 @@
   minLimit: 0
   loadouts:
   - ChefHead
+  - BandanaBlack
+  - BandanaBlue
+  - BandanaGold
+  - BandanaGreen
+  - BandanaRed
+  - BandanaSkull
+  - BandanaBrown
 
 - type: loadoutGroup
   id: ChefMask
@@ -831,6 +840,7 @@
   minLimit: 0
   loadouts:
   - JanitorWintercoat
+  - WintercoatPurple
   - RainCoat
 
 - type: loadoutGroup
@@ -1120,15 +1130,6 @@
   - RubberDuckToy
 
 - type: loadoutGroup
-  id: MimeHead
-  name: loadout-group-mime-head
-  minLimit: 0
-  loadouts:
-  - MimeHead
-  - MimeFrenchBeret
-  - MimeCap
-
-- type: loadoutGroup
   id: MimeMask
   name: loadout-group-mime-mask
   loadouts:
@@ -1157,6 +1158,8 @@
   minLimit: 0
   loadouts:
   - MimeWintercoat
+  - WintercoatBlack
+  - WintercoatWhite
 
 - type: loadoutGroup
   id: MimeBelt
@@ -1343,6 +1346,7 @@
   - SeniorCargoTechnicianBeret #Funky!
   - RedBeret
   - BlackBeret
+  - CargoTechnicianHardhat # Funky
 
 - type: loadoutGroup
   id: CargoTechnicianNeck
@@ -1389,6 +1393,7 @@
   - CargoTechnicianWindbreaker #Funky!
   - SeniorCargoTechnicianWindbreaker #Funky!
   - CargoTechnicianWintercoatMail # Goob/DeltaV - Mail
+  - StationEngineerOuterVest # Funky
 
 - type: loadoutGroup
   id: CargoTechnicianShoes
@@ -1526,10 +1531,11 @@
   id: ChiefEngineerJobTrinkets
   name: loadout-group-jobtrinkets
   minLimit: 0
-  maxLimit: 2
+  maxLimit: 3
   loadouts:
   - LizardPlushieChiefEngineer
   - CommandLighter # Funky Change
+  - TrainWhistleChiefEngineer # Funky
 
 - type: loadoutGroup
   id: TechnicalAssistantJumpsuit

@@ -1,5 +1,8 @@
 # SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
+# SPDX-FileCopyrightText: 2026 Terkala <appleorange64@gmail.com>
+# SPDX-FileCopyrightText: 2026 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -80,5 +83,18 @@
     state: cpu_engineering
   - type: ComputerBoard
     prototype: ComputerCargoOrdersAtmospherics
+  - type: StaticPrice
+    price: 750
+
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: ResourceOverviewConsoleCircuitboard
+  name: resource overview computer board
+  description: A computer printed circuit board for a resource overview console.
+  components:
+  - type: Sprite
+    state: cpu_supply
+  - type: ComputerBoard
+    prototype: ComputerResourceOverview
   - type: StaticPrice
     price: 750

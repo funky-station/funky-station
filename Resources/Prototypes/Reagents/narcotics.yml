@@ -293,11 +293,11 @@
           reagent: Nicotine
           min: 20
         reagent: Nicotine
-        amount: 0.45
+        amount: 0.475 #how did i never fucking notice that you can't tick up nicotine in this state FMLLLLLLLLL, this was 0.45. When like, the reagent was slowly processing 0.05 per tick, and cigs insert 0.1u per two ticks...
       - !type:Emote
         conditions:
         - !type:ReagentThreshold
-          min: 40
+          min: 25 #should take like a bit of time smoking after hitting the 20u part to hit here, first warning state
         emote: Cough
         probability: 0.05
       - !type:HealthChange

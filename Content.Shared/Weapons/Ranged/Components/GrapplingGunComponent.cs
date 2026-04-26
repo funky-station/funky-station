@@ -3,6 +3,7 @@
 // SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Roudenn <149893554+Roudenn@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 alex-infdev <185717397+alex-infdev@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -27,6 +28,12 @@ public sealed partial class GrapplingGunComponent : Component
 
     [DataField, AutoNetworkedField]
     public EntityUid? Projectile;
+
+    /// <summary>
+    /// Tracks the client-side predicted projectile entity so it can be cleaned up cleanly on the client visually.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public EntityUid? ClientProjectile;
 
     [ViewVariables(VVAccess.ReadWrite), DataField("reeling"), AutoNetworkedField]
     public bool Reeling;

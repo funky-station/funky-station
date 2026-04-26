@@ -142,6 +142,9 @@
   id: MailEnvelope
 
 - type: Tag
+  id: FitsInMedDispenser
+  
+- type: Tag
   id: GrenadeLessLethal
   
 - type: Tag  

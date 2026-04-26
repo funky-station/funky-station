@@ -1701,7 +1701,7 @@
     state: pda-seniorphysician
 
 - type: entity
-  parent: [BaseSecurityPDA, BaseCivilianContraband]
+  parent: [BaseSecurityPDA, BaseSecurityContraband]
   id: SeniorOfficerPDA
   name: senior officer PDA
   description: Beaten, battered and broken, but just barely useable.

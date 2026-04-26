@@ -48,6 +48,7 @@
 
   # Pet
   petSuccessString: petting-success-generic-cyborg
+  petSuccessOthersString: petting-success-generic-others
   petFailureString: petting-failure-generic-cyborg
 
 
@@ -84,6 +85,7 @@
 
   # Pet
   petSuccessString: petting-success-engineer-cyborg
+  petSuccessOthersString: petting-success-generic-others
   petFailureString: petting-failure-engineer-cyborg
 
 
@@ -128,6 +130,7 @@
 
   # Pet
   petSuccessString: petting-success-salvage-cyborg
+  petSuccessOthersString: petting-success-generic-others
   petFailureString: petting-failure-salvage-cyborg
 
 
@@ -163,6 +166,7 @@
 
   # Pet
   petSuccessString: petting-success-janitor-cyborg
+  petSuccessOthersString: petting-success-generic-others
   petFailureString: petting-failure-janitor-cyborg
 
 
@@ -229,6 +233,7 @@
 
   # Pet
   petSuccessString: petting-success-medical-cyborg
+  petSuccessOthersString: petting-success-generic-others
   petFailureString: petting-failure-medical-cyborg
 
   # Sounds
@@ -270,4 +275,5 @@
 
   # Pet
   petSuccessString: petting-success-service-cyborg
+  petSuccessOthersString: petting-success-generic-others
   petFailureString: petting-failure-service-cyborg

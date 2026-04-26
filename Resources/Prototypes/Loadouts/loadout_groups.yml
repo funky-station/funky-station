@@ -582,6 +582,13 @@
   minLimit: 0
   loadouts:
   - ChefHead
+  - BandanaBlack
+  - BandanaBlue
+  - BandanaGold
+  - BandanaGreen
+  - BandanaRed
+  - BandanaSkull
+  - BandanaBrown
 
 - type: loadoutGroup
   id: ChefMask
@@ -833,6 +840,7 @@
   minLimit: 0
   loadouts:
   - JanitorWintercoat
+  - WintercoatPurple
   - RainCoat
 
 - type: loadoutGroup
@@ -1122,15 +1130,6 @@
   - RubberDuckToy
 
 - type: loadoutGroup
-  id: MimeHead
-  name: loadout-group-mime-head
-  minLimit: 0
-  loadouts:
-  - MimeHead
-  - MimeFrenchBeret
-  - MimeCap
-
-- type: loadoutGroup
   id: MimeMask
   name: loadout-group-mime-mask
   loadouts:
@@ -1159,6 +1158,8 @@
   minLimit: 0
   loadouts:
   - MimeWintercoat
+  - WintercoatBlack
+  - WintercoatWhite
 
 - type: loadoutGroup
   id: MimeBelt

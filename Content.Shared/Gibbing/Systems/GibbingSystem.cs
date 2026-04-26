@@ -324,6 +324,9 @@ public sealed class GibbingSystem : EntitySystem
     private void FlingDroppedEntity(EntityUid target, Vector2? direction, float impulse, float impulseVariance,
         Angle scatterConeAngle)
     {
+        if (!TryComp<PhysicsComponent>(target, out var physics))
+            return;
+
         var scatterAngle = direction?.ToAngle() ?? _random.NextAngle();
         var scatterVector = _random.NextAngle(scatterAngle - scatterConeAngle / 2, scatterAngle + scatterConeAngle / 2)
             .ToVec() * (impulse + _random.NextFloat(impulseVariance));

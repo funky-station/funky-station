@@ -67,6 +67,7 @@ using Content.Server.Ghost;
 using Content.Server.Spawners.Components;
 using Content.Server.Speech.Components;
 using Content.Server.Station.Components;
+using Content.Shared._Funkystation.CCVars;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
 using Content.Shared.Mind;
@@ -74,6 +75,7 @@ using Content.Shared.Players;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;
+using Content.Shared.Traits.Assorted;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
@@ -422,6 +424,13 @@ namespace Content.Server.GameTicking
                 _chatManager.DispatchServerMessage(player,
                     Loc.GetString("job-greet-station-name", ("stationName", metaData.EntityName)));
             }
+
+            // funky - unrevivable cvar start
+            if (_cfg.GetCVar(CCVars_Funky.EveryoneUnrevivable))
+            {
+                EnsureComp<UnrevivableComponent>(mob);
+            }
+            // funky - unrevivable cvar end
 
             // We raise this event directed to the mob, but also broadcast it so game rules can do something now.
             PlayersJoinedRoundNormally++;

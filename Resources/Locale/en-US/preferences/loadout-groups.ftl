@@ -38,6 +38,7 @@ loadout-group-jobtrinkets = Job trinkets
 loadout-group-glasses = Glasses
 loadout-group-backpack = Backpack
 loadout-group-instruments = Instruments
+loadout-group-jobtoys = Toys
 loadout-group-survival-basic = Survival Box
 loadout-group-survival-extended = Extended Survival Box
 loadout-group-survival-salvage-extended = Extended Survival Box
@@ -82,6 +83,7 @@ loadout-group-bartender-outerclothing = Bartender outer clothing
 loadout-group-generic-hats = Hats
 loadout-group-service_jumpsuit = Service jumpsuit
 loadout-group-gloves = Gloves
+loadout-group-generic-outerclothing = Outer clothing
 loadout-group-generic-shoes = Shoes
 
 loadout-group-chef-head = Chef head
@@ -194,6 +196,7 @@ loadout-group-scientist-shoes = Scientist shoes
 loadout-group-scientist-id = Scientist ID
 loadout-group-roboticist-id = Roboticist ID
 loadout-group-roboticist-glasses = Diagnostics glasses
+loadout-group-scientist-glasses = Scientist eyewear
 
 loadout-group-research-assistant-jumpsuit = Research Assistant jumpsuit
 
@@ -227,6 +230,7 @@ loadout-group-detective-outerclothing = Detective outer clothing
 loadout-group-detective-id = Detective ID
 loadout-group-detective-weapon = Detective Weapon
 
+loadout-group-security-cadet-hat = Security cadet hat
 loadout-group-security-cadet-jumpsuit = Security cadet jumpsuit
 loadout-group-security-star = Security Star
 

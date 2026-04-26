@@ -30,6 +30,7 @@
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 pre-commit-ci[bot] <66853113+pre-commit-ci[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Tea <Xerithin@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -89,9 +90,9 @@
   description: A heads-up display that scans the humanoids in view and provides accurate data about their ID status and security records.
   components:
   - type: Sprite
-    sprite: Clothing/Eyes/Hud/sec.rsi
+    sprite: _Funkystation/Clothing/Eyes/Hud/sec.rsi
   - type: Clothing
-    sprite: Clothing/Eyes/Hud/sec.rsi
+    sprite: _Funkystation/Clothing/Eyes/Hud/sec.rsi
   - type: Tag
     tags:
     - HudSecurity
@@ -290,9 +291,9 @@
   description: A heads-up display that scans the humanoids in view and provides accurate data about their ID status and security records. For true patriots.
   components:
   - type: Sprite
-    sprite: Clothing/Eyes/Hud/secpatch.rsi
+    sprite: _Funkystation/Clothing/Eyes/Patches/sec.rsi
   - type: Clothing
-    sprite: Clothing/Eyes/Hud/secpatch.rsi
+    sprite: _Funkystation/Clothing/Eyes/Patches/sec.rsi
 
 - type: entity
   parent: [ClothingEyesEyepatchHudSecurity,  ClothingHeadEyeBaseFlipped]

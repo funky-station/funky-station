@@ -216,3 +216,13 @@
   cost: 0
   components:
   - type: IgnoreMinorBodilyAlerts
+
+- type: trait
+  id: Smoker
+  name: trait-smoker-name
+  description: trait-smoker-desc
+  category: Quirks
+  cost: 0
+  components:
+  - type: Smoker
+    WithdrawalInterval: 185

@@ -40,6 +40,8 @@
   - Medical
   - Research
   - Lawyer
+  extendedAccess:
+  - Command
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

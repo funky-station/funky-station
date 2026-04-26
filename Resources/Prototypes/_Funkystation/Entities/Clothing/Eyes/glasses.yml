@@ -62,7 +62,7 @@
 - type: entity
   parent: ClothingEyesGlassesJamjar
   id: ClothingEyesGlassesChemjar
-  name: chemical analysis jamgogs
+  name: chemical analysis jamgoggles
   description: These retro goggles remind you of breaking SOP by making explosives.
   components:
   - type: Sprite
@@ -107,7 +107,7 @@
 - type: entity
   parent: [ClothingEyesGlassesJamjar, BaseEngineeringSalvageContraband]
   id: ClothingEyesGlassesJamgog
-  name: engineering jamgoggles
+  name: meson jamgoggles
   description: These retro glasses remind you of setting the tesla loose.
   components:
   - type: Sprite
@@ -303,3 +303,87 @@
     tags:
     - WhitelistChameleon
     - HudMedical
+
+- type: entity
+  parent: ClothingEyesGlassesJamjar
+  id: ClothingEyesGlassesCheapSunjar
+  name: cheap sunjar glasses
+  description: These retro glasses remind you of the time you thought you had flash protection, but actually didn't.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Eyes/Jamjars/sunjar.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Eyes/Jamjars/sunjar.rsi
+  - type: VisionCorrection
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Construction
+    graph: JamjarGlassesCheapSun
+    node: cheapSunjarGlasses
+  - type: Tag
+    tags:
+    - CheapSunglasses
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingEyesGlassesCheapSunjar
+  id: ClothingEyesGlassesSunjar
+  name: sunjar glasses
+  description: These retro glasses remind you of dork chic.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Eyes/Jamjars/sunjar.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Eyes/Jamjars/sunjar.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+  - type: Construction
+    graph: JamjarGlassesSun
+    node: sunjarGlasses
+  - type: Tag
+    tags:
+    - Sunglasses
+    - WhitelistChameleon
+
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesSafety # Following naming conventions for goggles already in the game
+  name: safety goggles
+  description: "Critical anomalies, exploding xenoartifacts, rifts in the fabric of spacetime: these goggles will protect you against absolutely none of that."
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Eyes/Glasses/safety_goggles.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Eyes/Glasses/safety_goggles.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.99 # lol
+  - type: Tag
+    tags:
+    - SafetyGogglesBase
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingEyesGlassesJamjar
+  id: ClothingEyesGlassesSafetyJamjar
+  name: safety jamgoggles
+  description: These retro goggles remind you of activating the "station destruction" node.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Eyes/Jamjars/safetyjar.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Eyes/Jamjars/safetyjar.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.99 # lmao even
+  - type: VisionCorrection
+  - type: Construction
+    graph: jamjarGlassesSafety
+    node: safetyjarGlasses
+  - type: Tag
+    tags:
+    - WhitelistChameleon

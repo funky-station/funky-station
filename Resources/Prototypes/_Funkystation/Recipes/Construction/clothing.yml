@@ -6,6 +6,9 @@
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 W.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -80,7 +83,7 @@
   objectType: Item
 
 - type: construction
-  name: chemical analysis jamjar glasses
+  name: chemical analysis jamjar goggles
   id: ClothingEyesGlassesChemjar
   graph: jamjarGlassesChem
   startNode: start
@@ -102,7 +105,7 @@
   objectType: Item
 
 - type: construction
-  name: engineering jamgoggles
+  name: meson jamgoggles
   id: ClothingEyesGlassesJamgog
   graph: jamjarGlassesEngi
   startNode: start
@@ -165,4 +168,37 @@
   category: construction-category-clothing
   description: Upgraded glasses that provide a medical HUD.
   icon: { sprite: _Funkystation/Clothing/Eyes/Glasses/medglasses.rsi, state: icon }
+  objectType: Item
+
+- type: construction
+  name: cheap sunjar glasses
+  id: ClothingEyesGlassesCheapSunjar
+  graph: JamjarGlassesCheapSun
+  startNode: start
+  targetNode: cheapSunjarGlasses
+  category: construction-category-clothing
+  description: These retro glasses remind you of the time you thought you had flash protection, but actually didn't.
+  icon: { sprite: _Funkystation/Clothing/Eyes/Jamjars/sunjar.rsi, state: icon }
+  objectType: Item
+
+- type: construction
+  name: sunjar glasses
+  id: ClothingEyesGlassesSunjar
+  graph: JamjarGlassesSun
+  startNode: start
+  targetNode: sunjarGlasses
+  category: construction-category-clothing
+  description: These retro glasses remind you of dork chic.
+  icon: { sprite: _Funkystation/Clothing/Eyes/Jamjars/sunjar.rsi, state: icon }
+  objectType: Item
+
+- type: construction
+  name: safety jamgoggles
+  id: ClothingEyesGlassesSafetyJamjar
+  graph: jamjarGlassesSafety
+  startNode: start
+  targetNode: safetyjarGlasses
+  category: construction-category-clothing
+  description: These retro goggles remind you of activating the "station destruction" node.
+  icon: { sprite: _Funkystation/Clothing/Eyes/Jamjars/safetyjar.rsi, state: icon }
   objectType: Item

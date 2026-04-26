@@ -31,6 +31,10 @@ ghost-role-information-mini-dragon-rules = You are a Mini Dragon. You want to ga
                                         You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc.
                                         You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
 
+ghost-role-information-mini-dragon-familiar-name = Wizard's Mini Dragon Familiar
+ghost-role-information-mini-dragon-familiar-description = A mini dragon summoned by a wizard to serve as a loyal familiar.
+ghost-role-information-mini-dragon-familiar-rules = You are a wizard's familiar. Follow your wizard's commands.
+
 ghost-role-information-mini-dragon-friendly-name = Domesticated Mini Dragon
 ghost-role-information-mini-dragon-friendly-description = A small dragon-like creature that likes to create hoards. This one seems to have been domesticated!
 ghost-role-information-mini-dragon-friendly-rules = You are a Domesticated Mini Dragon. Help the crew gather wealth!

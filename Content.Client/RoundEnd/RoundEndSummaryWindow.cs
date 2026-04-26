@@ -19,19 +19,25 @@
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Janet Blackquill <uhhadd@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tobias Berger <toby@tobot.dev>
+// SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 phmnsx <lynnwastinghertime@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
-using System.Linq;
-using System.Numerics;
 using Content.Client.Message;
+using Content.Client.Stylesheets;
 using Content.Client.UserInterface.RichText; // DeltaV - Limit what tags can be used in custom objective summaries
 using Content.Shared.GameTicking;
+using Content.Shared.IdentityManagement;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Client.UserInterface.RichText; // DeltaV - Limit what tags can be used in custom objective summaries
 using Robust.Shared.Utility;
+using System.Linq;
+using System.Numerics;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
 
 namespace Content.Client.RoundEnd
@@ -128,7 +134,7 @@ namespace Content.Client.RoundEnd
 
             return roundEndSummaryTab;
         }
-
+        //Modified for funkystation
         private BoxContainer MakePlayerManifestTab(RoundEndMessageEvent.RoundEndPlayerInfo[] playersInfo)
         {
             var playerManifestTab = new BoxContainer
@@ -153,54 +159,103 @@ namespace Content.Client.RoundEnd
             //Create labels for each player info.
             foreach (var playerInfo in sortedPlayersInfo)
             {
+                var panel = new PanelContainer
+                {
+                    StyleClasses = { StyleClass.BackgroundPanel },
+                };
                 var hBox = new BoxContainer
                 {
                     Orientation = LayoutOrientation.Horizontal,
+                    VerticalExpand = true
                 };
-
-                var playerInfoText = new RichTextLabel
+                var vBox = new BoxContainer
                 {
-                    VerticalAlignment = VAlignment.Center,
+                    Orientation = LayoutOrientation.Vertical,
                     VerticalExpand = true,
+                    SeparationOverride = 2,
                 };
-                /* This causes so much lag holy fuck
-                if (playerInfo.PlayerNetEntity != null)
+                //This causes so much lag holy fuck
+                //Draw player sprites , causes lag?
+                if (playerInfo.LastEntity != null)
                 {
-                    hBox.AddChild(new SpriteView(playerInfo.PlayerNetEntity.Value, _entityManager)
-                        {
-                            OverrideDirection = Direction.South,
-                            VerticalAlignment = VAlignment.Center,
-                            SetSize = new Vector2(32, 32),
-                            VerticalExpand = true,
-                        });
+                    hBox.AddChild(new SpriteView(playerInfo.LastEntity.Value, _entityManager)
+                    {
+                        OverrideDirection = Direction.South,
+                        VerticalAlignment = VAlignment.Center,
+                        SetSize = new Vector2(64, 64),
+                        Stretch = SpriteView.StretchMode.Fill,
+                        VerticalExpand = true,
+                    });
                 }
-                */
+                //align the boxes
+                else
+                {
+                    hBox.Margin = new Thickness(64, 0, 0, 0);
+                }
+                // Make the phrase containing the role and name of the player
+                var playerTitleBox = new BoxContainer
+                {
+                    Orientation = LayoutOrientation.Horizontal,
+                    VerticalAlignment = VAlignment.Top
+                };
                 if (playerInfo.PlayerICName != null)
                 {
-                    if (playerInfo.Observer)
+                    var playerName = new Label
                     {
-                        playerInfoText.SetMarkup(
-                            Loc.GetString("round-end-summary-window-player-info-if-observer-text",
-                                          ("playerOOCName", playerInfo.PlayerOOCName),
-                                          ("playerICName", playerInfo.PlayerICName)));
-                    }
-                    else
-                    {
-                        //TODO: On Hover display a popup detailing more play info.
-                        //For example: their antag goals and if they completed them sucessfully.
-                        var icNameColor = playerInfo.Antag ? "red" : "white";
-                        playerInfoText.SetMarkup(
-                            Loc.GetString("round-end-summary-window-player-info-if-not-observer-text",
-                                ("playerOOCName", playerInfo.PlayerOOCName),
-                                ("icNameColor", icNameColor),
-                                ("playerICName", playerInfo.PlayerICName),
-                                ("playerRole", Loc.GetString(playerInfo.Role))));
-                    }
-                }
-                hBox.AddChild(playerInfoText);
-                playerInfoContainer.AddChild(hBox);
-            }
+                        VerticalAlignment = VAlignment.Bottom,
+                        StyleClasses = { StyleClass.LabelHeading },
+                        Text = playerInfo.PlayerICName,
+                        Margin = new Thickness(0, 0, 6, 0),
+                    };
+                    playerTitleBox.AddChild(playerName);
+                    var role = Loc.GetString(playerInfo.Role);
 
+                    var playerRoleText = new RichTextLabel
+                    {
+                        VerticalAlignment = VAlignment.Bottom,
+                        StyleClasses = { StyleClass.LabelSubText },
+                        Margin = new Thickness(0, 0, 0, 2)
+                    };
+                    if (role != "Unknown")
+                        playerRoleText.SetMarkup(Loc.GetString("round-end-manifest-known-role",
+                            ("player", playerInfo.PlayerOOCName), ("role", role), ("icNameColor", playerInfo.Antag ? "red" : "white")));
+                    else if (playerInfo.Observer)
+                        playerRoleText.SetMarkup(Loc.GetString("round-end-manifest-observer"));
+                    else
+                        playerRoleText.SetMarkup(Loc.GetString("round-end-manifest-uknown-role",
+                            ("player", playerInfo.PlayerOOCName)));
+                    playerTitleBox.AddChild(playerRoleText);
+                    vBox.AddChild(playerTitleBox);
+                    var lastMessageText = new RichTextLabel
+                    {
+                        VerticalAlignment = VAlignment.Top,
+                        VerticalExpand = true,
+                        Margin = new Thickness(4, 0, 0, 0)
+                    };
+                    lastMessageText.SetMarkup(Loc.GetString("round-end-manifest-last-message",
+                        ("lastMessage", playerInfo.LastMessage)));
+                    vBox.AddChild(lastMessageText);
+                }
+                // Display the "damage status" of the dead person
+                var playerDeathText = new RichTextLabel
+                {
+                    VerticalAlignment = VAlignment.Bottom,
+                    StyleClasses = { StyleClass.LabelSubText },
+                    Margin = new Thickness(6, 0, 0, 0),
+                };
+                if (playerInfo.IsDead && playerInfo.DamageMessage != null)
+                    playerDeathText.SetMarkup(playerInfo.DamageMessage);
+                if (playerInfo.IsInvalid && !playerInfo.Observer)
+                    playerDeathText.SetMarkup(Loc.GetString("round-end-manifest-missing-corpse"));
+                else
+                    playerDeathText.SetMarkup(string.Empty);
+
+                vBox.AddChild(playerDeathText);
+                hBox.AddChild(vBox);
+                panel.AddChild(hBox);
+                playerInfoContainer.AddChild(panel);
+            }
+            //endloop
             playerInfoContainerScrollbox.AddChild(playerInfoContainer);
             playerManifestTab.AddChild(playerInfoContainerScrollbox);
 

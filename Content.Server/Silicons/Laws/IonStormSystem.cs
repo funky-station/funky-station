@@ -9,16 +9,20 @@
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
+// SPDX-FileCopyrightText: 2025 mq <113324899+mqole@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2026 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2026 zergologist <114537969+Chedd-Error@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
 using Content.Server.StationEvents.Components;
+using Content.Server.StationEvents.Events; // imp add
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Dataset;
 using Content.Shared.FixedPoint;
-using Content.Shared.GameTicking.Components;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Silicons.Laws;
@@ -35,6 +39,20 @@ public sealed class IonStormSystem : EntitySystem
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SiliconLawSystem _siliconLaw = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+        SubscribeLocalEvent<IonStormTargetComponent, IonStormEvent>(OnIonStorm);
+    }
+
+    private void OnIonStorm(EntityUid uid, IonStormTargetComponent component, ref IonStormEvent args)
+    {
+        if (!TryComp<SiliconLawBoundComponent>(uid, out var lawBound))
+            return;
+
+        IonStormTarget((uid, lawBound, component), args.Adminlog);
+    }
 
     // funny
     [ValidatePrototypeId<DatasetPrototype>]
@@ -77,12 +95,12 @@ public sealed class IonStormSystem : EntitySystem
     /// <summary>
     /// Randomly alters the laws of an individual silicon.
     /// </summary>
-    public void IonStormTarget(Entity<SiliconLawBoundComponent, IonStormTargetComponent> ent, bool adminlog = true)
+    public void IonStormTarget(Entity<SiliconLawBoundComponent, IonStormTargetComponent> ent, bool adminlog = true) // imp edit, its an event subscription now
     {
-        var lawBound = ent.Comp1;
-        var target = ent.Comp2;
-        if (!_robustRandom.Prob(target.Chance))
-            return;
+        var lawBound = ent.Comp1; // imp
+        EnsureComp<IonStormTargetComponent>(ent, out var target); // imp
+        // if (!_robustRandom.Prob(target.Chance)) // imp move to ionstormrule
+        //     return;
 
         var laws = _siliconLaw.GetLaws(ent, lawBound);
         if (laws.Laws.Count == 0)
@@ -167,7 +185,7 @@ public sealed class IonStormSystem : EntitySystem
         }
 
         // adminlog is used to prevent adminlog spam.
-        if (adminlog)
+        if (adminlog) // imp edit
             _adminLogger.Add(LogType.Mind, LogImpact.High, $"{ToPrettyString(ent):silicon} had its laws changed by an ion storm to {laws.LoggingString()}");
 
         // laws unique to this silicon, dont use station laws anymore

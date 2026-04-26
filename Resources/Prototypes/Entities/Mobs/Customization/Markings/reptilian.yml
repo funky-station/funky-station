@@ -12,6 +12,7 @@
 # SPDX-FileCopyrightText: 2024 pigeonpeas <147350443+pigeonpeas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 unknown <daniel.thomas.staal@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -90,15 +91,6 @@
     state: frills_neckfull
 
 - type: marking
-  id: LizardHornsAngler
-  bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [Reptilian]
-  sprites:
-  - sprite: Mobs/Customization/reptilian_parts.rsi
-    state: horns_angler
-
-- type: marking
   id: LizardHornsCurled
   bodyPart: HeadTop
   markingCategory: HeadTop
@@ -161,7 +153,9 @@
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
-    state: tail_large
+    state: tail_large_primary
+  - sprite: Mobs/Customization/reptilian_parts.rsi
+    state: tail_large_secondary
 
 - type: marking
   id: LizardTailSpikes
@@ -170,45 +164,46 @@
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
-    state: tail_spikes
+    state: tail_spikes_primary
+  - sprite: Mobs/Customization/reptilian_parts.rsi
+    state: tail_spikes_secondary
+  - sprite: Mobs/Customization/reptilian_parts.rsi
+    state: tail_spikes_tertiary
 
 - type: marking
-  id: LizardTailLTiger
+  id: LizardTailTiger
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
-    state: tail_ltiger
-
-- type: marking
-  id: LizardTailDTiger
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Reptilian]
-  sprites:
+    state: tail_tiger_primary
   - sprite: Mobs/Customization/reptilian_parts.rsi
-    state: tail_dtiger
+    state: tail_tiger_secondary
+  - sprite: Mobs/Customization/reptilian_parts.rsi
+    state: tail_tiger_tertiary
 
 - type: marking
   id: LizardSnoutRound
   bodyPart: Snout
   markingCategory: Snout
-  forcedColoring: true
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
-    state: snout_round
+    state: snout_round_primary
+  - sprite: Mobs/Customization/reptilian_parts.rsi
+    state: snout_round_secondary
 
 - type: marking
   id: LizardSnoutSharp
   bodyPart: Snout
   markingCategory: Snout
-  forcedColoring: true
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
-    state: snout_sharp
+    state: snout_sharp_primary
+  - sprite: Mobs/Customization/reptilian_parts.rsi
+    state: snout_sharp_secondary
 
 - type: marking
   id: LizardSnoutSplotch

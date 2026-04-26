@@ -28,10 +28,12 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -198,6 +200,16 @@
     sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
     storedRotation: 90
     heldPrefix: laser
+  - type: MeleeWeapon
+    wideAnimationRotation: 90
+    swingLeft: true
+    attackRate: 1.5
+    damage:
+      types:
+        Slash: 6
+        Heat: 2 #laser
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
   - type: Scalpel # Shitmed
     speed: 1.5
   # TODO: prevent bleeding from incisions
@@ -483,6 +495,7 @@
   name: medical multitool
   id: OmnimedTool
   parent: BaseToolSurgery
+  description: A high end surgery tool that has all the needed surgery tools built in inside it, it's the end of the line for surgeons looking for better tools.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/omnimed.rsi
@@ -493,25 +506,25 @@
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/saw.ogg
   - type: Hemostat
-    speed: 0.75  # funkystation
+    speed: 1.25  # funkystation #nobody ever uses these cause of the speed malus, bumping up to 1.5 from 0.75, they're T3 for god's sake, it should just be better. #now in 1.25 mode
   - type: Scalpel
-    speed: 0.75  # funkystation
+    speed: 1.25  # funkystation
   - type: Drill
-    speed: 0.75  # funkystation
+    speed: 1.25  # funkystation
   - type: BoneSetter
-    speed: 0.75  # funkystation
+    speed: 1.25  # funkystation
   - type: Retractor
-    speed: 0.75  # funkystation
+    speed: 1.25  # funkystation
   - type: Cautery
-    speed: 0.75  # funkystation
+    speed: 1.25  # funkystation
   - type: BoneGel
-    speed: 0.75  # funkystation
+    speed: 1.25  # funkystation
   - type: BoneSaw
-    speed: 0.75  # funkystation
+    speed: 1.25  # funkystation
   - type: Tweezers
-    speed: 0.75  # funkystation
+    speed: 1.25  # funkystation
   - type: Tending
-    speed: 0.75  # funkystation
+    speed: 1.25  # funkystation
   - type: Tag
     tags:
     - AdvancedSurgeryTool
@@ -519,9 +532,30 @@
 - type: entity
   parent: [ OmnimedTool, BaseSyndicateContraband ]
   id: OmnimedToolSyndie
+  description: A higher end surgery tool that has all the needed surgery tools built in inside it, it's the end of the line for evil surgeons looking for better tools. Seems to be of Interdyne make.
   components:
   - type: Sprite
     state: evil
+  - type: Hemostat
+    speed: 2  # funkystation # Interdyne just makes better tools
+  - type: Scalpel
+    speed: 2  # funkystation
+  - type: Drill
+    speed: 2  # funkystation
+  - type: BoneSetter
+    speed: 2  # funkystation
+  - type: Retractor
+    speed: 2  # funkystation
+  - type: Cautery
+    speed: 2  # funkystation
+  - type: BoneGel
+    speed: 2  # funkystation
+  - type: BoneSaw
+    speed: 2  # funkystation
+  - type: Tweezers
+    speed: 2  # funkystation
+  - type: Tending
+    speed: 2  # funkystation
   - type: Item
     size: Small
     heldPrefix: evil

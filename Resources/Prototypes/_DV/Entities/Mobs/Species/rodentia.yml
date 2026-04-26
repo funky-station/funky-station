@@ -22,10 +22,12 @@
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 coolbloxxie <30777998+coolbloxxie@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 emmawantsblahaj <coolbloxxie@yahoo.com.au>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 W.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -53,18 +55,18 @@
     speechVerb: Rodentia
     speechSounds: Squeak
     allowedEmotes: ['Squeak']
-  - type: Fixtures
-    fixtures: # TODO: This needs a second fixture just for mob collisions.
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.28
-        density: 140
-        restitution: 0.0
-        mask:
-        - MobMask
-        layer:
-        - MobLayer
+  #- type: Fixtures # Funky - Removed to be consistent with full scaled rodentia
+    #fixtures: # TODO: This needs a second fixture just for mob collisions.
+      #fix1:
+        #shape:
+          #!type:PhysShapeCircle
+          #radius: 0.28
+        #density: 100
+        #restitution: 0.0
+        #mask:
+        #- MobMask
+        #layer:
+        #- MobLayer
   - type: Sprite
     #scale: 0.8, 0.8 - Funkystation hehehell naw
     layers:
@@ -104,9 +106,9 @@
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
       - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
       - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-      - map: [ "enum.HumanoidVisualLayers.Tail" ]
       - map: [ "mask" ]
       - map: [ "head" ]
+      - map: [ "enum.HumanoidVisualLayers.Tail" ]
       - map: [ "pocket1" ]
       - map: [ "pocket2" ]
       - map: [ "clownedon" ] # Dynamically generated

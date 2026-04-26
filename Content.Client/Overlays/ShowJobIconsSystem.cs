@@ -3,6 +3,7 @@
 // SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 QueerCats <jansencheng3@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -21,8 +22,7 @@ public sealed class ShowJobIconsSystem : EquipmentHudSystem<ShowJobIconsComponen
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly AccessReaderSystem _accessReader = default!;
 
-    [ValidatePrototypeId<JobIconPrototype>]
-    private const string JobIconForNoId = "JobIconNoId";
+    private const string NullIcon = "";
 
     public override void Initialize()
     {
@@ -36,7 +36,7 @@ public sealed class ShowJobIconsSystem : EquipmentHudSystem<ShowJobIconsComponen
         if (!IsActive)
             return;
 
-        var iconId = JobIconForNoId;
+        var iconId = NullIcon;
 
         if (_accessReader.FindAccessItemsInventory(uid, out var items))
         {

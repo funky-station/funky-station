@@ -42,12 +42,12 @@
 # SPDX-FileCopyrightText: 2025 Noah Leach <77765510+BearWithMe18@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
 # SPDX-FileCopyrightText: 2025 SharkSnake98 <peanutbuttersharky@gmail.com>
-# SPDX-FileCopyrightText: 2025 SharkSnake98 <sharksnake87@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 kosticia <kosticia46@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 SharkSnake98 <sharksnake87@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -1580,3 +1580,85 @@
       amount: 1
   products:
     ZombieCocktail: 4
+
+- type: reaction
+  id: BlackJapan
+  reactants:
+    Ale:
+      amount: 1
+    MelonLiquor:
+      amount: 2
+  products:
+    BlackJapan: 3
+
+- type: reaction
+  id: BruisedMelon
+  requiredMixerCategories:
+  - Shake
+  reactants:
+    Sake:
+      amount: 2
+    MelonLiquor:
+      amount: 1
+    Vodka:
+      amount: 1
+  products:
+    BruisedMelon: 4
+
+- type: reaction
+  id: CoconutSakeColada
+  requiredMixerCategories:
+  - Shake
+  reactants:
+    Sake:
+      amount: 2
+    CreamOfCoconut:
+      amount: 1
+    JuiceLime:
+      amount: 1
+    JuicePineapple:
+      amount: 1
+  products:
+    CoconutSakeColada: 5
+
+- type: reaction
+  id: CosmicAlaska
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    Martini:
+      amount: 3
+    Vodka:
+      amount: 2
+    MelonLiquor:
+      amount: 1
+  products:
+    CosmicAlaska: 6
+
+- type: reaction
+  id: HorsesNeck
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    SolDry:
+      amount: 2
+    Cognac:
+      amount: 1
+  products:
+    HorsesNeck: 3
+
+- type: reaction
+  id: RansomNote
+  requiredMixerCategories:
+  - Shake
+  reactants:
+    Gin:
+      amount: 2
+    Mead:
+      amount: 1
+    Sugar:
+      amount: 1
+    JuiceLemon:
+      amount: 1
+  products:
+    RansomNote: 5

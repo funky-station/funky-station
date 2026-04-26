@@ -6,3 +6,6 @@
 
 reagent-name-machine-oil = machine oil
 reagent-desc-machine-oil = The blood of machinery.
+
+reagent-name-nanite-slurry = nanite slurry
+reagent-desc-nanite-slurry = You can see thousands upon thousands of tiny microscopic robots scurrying around...

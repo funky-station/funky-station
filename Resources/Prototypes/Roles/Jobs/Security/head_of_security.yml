@@ -61,6 +61,7 @@
 # SPDX-FileCopyrightText: 2026 SharkSnake98 <peanutbuttersharky@gmail.com>
 # SPDX-FileCopyrightText: 2026 SharkSnake98 <sharksnake87@gmail.com>
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 W.xyz() <84605679+pirakaplant@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 willow <willowzeta632146@proton.me>
@@ -90,6 +91,7 @@
       - Pacifist
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"
+  joinNotifyCrew: true
   supervisors: job-supervisors-captain
   canBeAntag: false
   access:

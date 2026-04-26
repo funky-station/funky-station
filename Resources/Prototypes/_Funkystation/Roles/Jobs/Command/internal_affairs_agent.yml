@@ -25,6 +25,10 @@
     - !type:RoleTimeRequirement
       role: JobLawyer
       time: 18000 #5 hrs
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 36000 #10 hours, this'll assure the IAA's are at least used to some responsibility and the CTM
+  weight: 20
   startingGear: InternalAffairsAgentGear
   icon: "JobIconInternalAffairsAgent"
   requireAdminNotify: false
@@ -42,6 +46,8 @@
   - Medical
   - Research
   - Lawyer
+  extendedAccess:
+  - Command
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

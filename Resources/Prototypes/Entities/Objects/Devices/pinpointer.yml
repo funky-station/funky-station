@@ -14,6 +14,7 @@
 # SPDX-FileCopyrightText: 2024 ShadowCommander <shadowjjt@gmail.com>
 # SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -86,6 +87,26 @@
   - type: Pinpointer
     component: NukeDisk
     targetName: nuclear authentication disk
+
+- type: entity
+  name: syndicate universal pinpointer
+  description: A handheld tracking device that locks onto any physical entity while off. Keep upright to retain accuracy. Built with Gorlex military standards.
+  id: PinpointerUniversalSyndicate
+  parent: PinpointerSyndicateNuclear
+  components:
+  - type: Sprite
+    layers:
+    - state: pinpointer-syndicate
+      map: ["enum.PinpointerLayers.Base"]
+    - state: pinonnull
+      map: ["enum.PinpointerLayers.Screen"]
+      shader: unshaded
+      visible: false
+  - type: Icon
+    state: pinpointer-syndicate
+  - type: Pinpointer
+    updateTargetName: true
+    canRetarget: true
 
 - type: entity
   name: universal pinpointer

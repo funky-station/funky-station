@@ -25,3 +25,6 @@ uplink-PDA-agent-desc = A spare PDA from an agent, this can be used to show your
 # Pointless
 uplink-towel-syndicate-name = Syndicate Towel
 uplink-towel-syndicate-desc = A highly versatile, malicious-looking black towel. Has a meaner whip than most other towels. For the Syndicates's strongest shower warriors.
+
+uplink-pinpointer-name = Universal Pinpointer
+uplink-pinpointer-desc = A pinpointer built to last by Gorlex, best used to keep tabs on important people or on mission critical items.

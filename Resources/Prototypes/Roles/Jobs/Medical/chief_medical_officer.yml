@@ -49,6 +49,7 @@
 # SPDX-FileCopyrightText: 2026 SharkSnake98 <peanutbuttersharky@gmail.com>
 # SPDX-FileCopyrightText: 2026 SharkSnake98 <sharksnake87@gmail.com>
 # SPDX-FileCopyrightText: 2026 willow <willowzeta632146@proton.me>
+# SPDX-FileCopyrightText: 2026 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -71,6 +72,7 @@
       time: 90000 #25 hrs
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"
+  joinNotifyCrew: true
   supervisors: job-supervisors-captain
   canBeAntag: false
   access:

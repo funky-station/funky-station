@@ -35,6 +35,8 @@
 ## Petting animals
 
 petting-success-generic = You pet {THE($target)} on {POSS-ADJ($target)} head.
+petting-success-generic-others = { CAPITALIZE(THE($user)) } pets {THE($target)}.
+
 petting-success-soft-floofy = You pet {THE($target)} on {POSS-ADJ($target)} soft floofy head.
 
 petting-success-bingus = You pet {THE($target)} on {POSS-ADJ($target)} wrinkly little head.

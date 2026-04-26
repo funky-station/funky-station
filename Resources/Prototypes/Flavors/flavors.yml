@@ -39,11 +39,11 @@
 # SPDX-FileCopyrightText: 2025 Noah Leach <77765510+BearWithMe18@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
 # SPDX-FileCopyrightText: 2025 SharkSnake98 <peanutbuttersharky@gmail.com>
-# SPDX-FileCopyrightText: 2025 SharkSnake98 <sharksnake87@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ultimite <138839119+UltimiteTheHog@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 SharkSnake98 <sharksnake87@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -1507,6 +1507,36 @@
   id: zombiecocktail
   flavorType: Complex
   description: flavor-complex-zombiecocktail
+
+- type: flavor
+  id: cosmicalaska
+  flavorType: Complex
+  description: flavor-complex-cosmic-alaska
+
+- type: flavor
+  id: coconutsakecolada
+  flavorType: Complex
+  description: flavor-complex-coconut-sake-colada
+
+- type: flavor
+  id: bruisedmelon
+  flavorType: Complex
+  description: flavor-complex-bruised-melon
+
+- type: flavor
+  id: blackjapan
+  flavorType: Complex
+  description: flavor-complex-black-japan
+
+- type: flavor
+  id: horsesneck
+  flavorType: Complex
+  description: flavor-complex-horses-neck
+
+- type: flavor
+  id: ransomnote
+  flavorType: Complex
+  description: flavor-complex-ransom-note
 
 # not implemented yet
 

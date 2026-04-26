@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "sprites taken from BeeStation",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+	{
+      "name": "siding_corner"
+    },
+    {
+      "name": "siding_corner_2"
+    },
+    {
+      "name": "siding_corner_3"
+    },
+    {
+      "name": "siding_corner_4"
+    },
+    {
+      "name": "siding_corner_alt"
+    },
+    {
+      "name": "siding_corner_alt_2"
+    },
+    {
+      "name": "siding_corner_alt_3"
+    },
+    {
+      "name": "siding_corner_alt_4"
+    },
+    {
+      "name": "siding_end"
+    },
+    {
+      "name": "siding_end_2"
+    },
+    {
+      "name": "siding_end_3"
+    },
+    {
+      "name": "siding_end_4"
+    },
+    {
+      "name": "siding_line"
+    },
+    {
+      "name": "siding_line_2"
+    },
+    {
+      "name": "siding_line_3"
+    },
+    {
+      "name": "siding_line_4"
+    }
+  ]
+}

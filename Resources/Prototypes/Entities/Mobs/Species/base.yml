@@ -415,6 +415,12 @@
     - SoftCritical
     - HardCritical
     - Dead
+  - type: MobStateActions
+    actions:
+      HardCritical:
+      - ActionCritSuccumb
+      - ActionCritFakeDeath
+      - ActionCritLastWords
   - type: Tag
     tags:
     - CanPilot
@@ -541,9 +547,9 @@
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-    - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "mask" ]
     - map: [ "head" ]
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
   - type: Appearance

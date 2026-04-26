@@ -19,9 +19,13 @@ SPDX-License-Identifier: MIT
 
 [bold]5.[/bold] The Research Director is permitted to change the Station AIs laws, provided they receive approval from the [color=#1b67a5]Captain[/color];
 
-[bold]6.[/bold] The Research Director must keep a log of all anomalies and eliminate any anomalies that may pose an immediate danger to crewmembers;
+[bold]6.[/bold] The Research Director is [bold]not[/bold] permitted, under any circumstances, to allow Non-Command members to possess the Freeform Law Board. It must be stored securely on a Command Member's person, or in the Research Director's locker at all times.
 
-[bold]7.[/bold] The Research Director, along with the [color=#f39f27]Chief Engineer[/color], must ensure telecommunications is properly maintained.
+[bold]7.[/bold] The Research Director may [bold]not[/bold] change any Silicon's laws using the Freeform Law Board, both the AI and Cyborgs, to conflict with the interests of Nanotrasen. Such includes forcing the Silicon to directly harm Nanotrasen Employees or freeing the Silicon of its laws. Doing so is a breach of Standard Operating Procedure and grounds for termination.
+
+[bold]8.[/bold] The Research Director must keep a log of all anomalies and eliminate any anomalies that may pose an immediate danger to crewmembers;
+
+[bold]9.[/bold] The Research Director, along with the [color=#f39f27]Chief Engineer[/color], must ensure telecommunications is properly maintained.
 
 ## Code Blue
 
@@ -32,4 +36,6 @@ SPDX-License-Identifier: MIT
 [bold]1.[/bold] All guidelines carry over from Code Blue;
 
 [bold]2.[/bold] In addition to a flash, the Research Director is permitted to carry a single weapon created in the Protolathe, provided they recieve authorization from the [color=#cb0000]Head of Security[/color]. An exception is made during extreme emergencies;
+
+[bold]3.[/bold] The Research Director is permitted, under extreme circumstances, to relaw the AI or any Cyborg without consulting with the [color=#1b67a5]Captain[/color], either using their Freeform Law Board or one of the Law Boards provided, but only if such a situation requires it. The AI or Cyborg must be returned to it's previous lawset once the alert level is lowered, assuming the [color=#1b67a5]Captain[/color] does not approve of the current lawset being kept.
 </Document>

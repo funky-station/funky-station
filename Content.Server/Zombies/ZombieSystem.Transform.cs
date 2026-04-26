@@ -39,6 +39,7 @@
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 tetkala <appleorange64@gmail.com>
+// SPDX-FileCopyrightText: 2026 QueerCats <jansencheng3@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -115,16 +116,6 @@ public sealed partial class ZombieSystem
 
     private static readonly ProtoId<TagPrototype> InvalidForGlobalSpawnSpellTag = "InvalidForGlobalSpawnSpell";
     private static readonly ProtoId<TagPrototype> CannotSuicideTag = "CannotSuicide";
-    /// <summary>
-    /// Handles an entity turning into a zombie when they die or go into crit
-    /// </summary>
-    private void OnDamageChanged(EntityUid uid, ZombifyOnDeathComponent component, MobStateChangedEvent args)
-    {
-        if (args.NewMobState == MobState.Dead)
-        {
-            ZombifyEntity(uid, args.Component);
-        }
-    }
 
     /// <summary>
     ///     This is the general purpose function to call if you want to zombify an entity.

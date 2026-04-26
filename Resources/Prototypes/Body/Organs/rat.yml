@@ -10,6 +10,7 @@
 # SPDX-FileCopyrightText: 2023 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 W.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -43,3 +44,9 @@
       # Funky change ends
   - type: Sprite
     state: stomach
+  - type: Metabolizer
+    maxReagents: 3
+    metabolizerTypes: [ Human ] # Funky
+    groups:
+    - id: Food
+    - id: Drink

@@ -145,4 +145,7 @@
   id: FitsInMedDispenser
   
 - type: Tag
+  id: GrenadeLessLethal
+  
+- type: Tag  
   id: SafetyGogglesBase

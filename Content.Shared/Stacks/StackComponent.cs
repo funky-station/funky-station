@@ -22,6 +22,7 @@
 // SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 2DSiggy <siggymaxwell@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -105,6 +106,13 @@ namespace Content.Shared.Stacks
         [DataField("layerStates")]
         [ViewVariables(VVAccess.ReadWrite)]
         public List<string> LayerStates = new();
+
+        /// <summary>
+        /// An optional function to convert the amounts used to adjust a stack's appearance.
+        /// Useful for different denominations of cash, for example.
+        /// </summary>
+        [DataField]
+        public StackLayerFunction LayerFunction = StackLayerFunction.None;
     }
 
     [Serializable, NetSerializable]
@@ -121,5 +129,20 @@ namespace Content.Shared.Stacks
             MaxCount = maxCount;
             Lingering = lingering;
         }
+    }
+
+    [Serializable, NetSerializable]
+    public enum StackLayerFunction : byte
+    {
+        // <summary>
+        // No operation performed.
+        // </summary>
+        None,
+
+        // <summary>
+        // Arbitrarily thresholds the stack amount for each layer.
+        // Expects entity to have StackLayerThresholdComponent.
+        // </summary>
+        Threshold
     }
 }

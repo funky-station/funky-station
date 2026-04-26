@@ -46,7 +46,6 @@
 # SPDX-FileCopyrightText: 2025 DESKTOP-0V0K4HQ\Rosy <rosysaturniidae@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fr0goo <153249069+Fr0goo@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fr0goo <frogoofrog@outlook.com>
-# SPDX-FileCopyrightText: 2025 Frogoo <153249069+Fr0goo@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 # SPDX-FileCopyrightText: 2025 RosySaturniidae <rosysaturniidae@gmail.com>
@@ -56,6 +55,8 @@
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Frogoo <153249069+Fr0goo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Tea <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -157,7 +158,7 @@
         name: multiphase_HoS
         whitelist:
           tags:
-          - Multiphase   
+          - Multiphase
 
 - type: entity
   abstract: true
@@ -175,6 +176,7 @@
     damageCoefficient: 0.9
   - type: StaminaResistance
     damageCoefficient: 0.8
+
 - type: entity
   parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseSecurityCommandContraband]
   id: ClothingOuterCoatHoSTrench
@@ -182,9 +184,9 @@
   description: A greatcoat enhanced with a special alloy for some extra protection and style for those with a commanding presence.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/hos_trenchcoat.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/hos.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/hos_trenchcoat.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/hos.rsi
 
 - type: entity
   parent: ClothingOuterStorageToggleableBase
@@ -396,9 +398,9 @@
   description: Yarr.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/pirate.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Misc/pirate.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/pirate.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Misc/pirate.rsi
 
 - type: entity
   parent: [ClothingOuterArmorWarden, ClothingOuterStorageBase, BaseSecurityContraband]
@@ -407,9 +409,9 @@
   description: A sturdy, utilitarian jacket designed to protect a warden from any brig-bound threats.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/warden.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/warden.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/warden.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/warden.rsi
 
 - type: entity
   parent: ClothingOuterStorageBase

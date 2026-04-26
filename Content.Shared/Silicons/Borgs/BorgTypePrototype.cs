@@ -144,6 +144,13 @@ public sealed partial class BorgTypePrototype : IPrototype
     public string PetSuccessString { get; set; } = "petting-success-generic-cyborg";
 
     /// <summary>
+    /// String to use on petting success, using MessagePerceivedByOthers.
+    /// </summary>
+    /// <seealso cref="InteractionPopupComponent"/>
+    [DataField]
+    public string PetSuccessOthersString { get; set; } = "petting-success-generic-others";
+
+    /// <summary>
     /// String to use on petting failure.
     /// </summary>
     /// <seealso cref="InteractionPopupComponent"/>

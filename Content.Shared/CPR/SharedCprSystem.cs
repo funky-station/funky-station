@@ -26,6 +26,8 @@ using Content.Shared.Traits.Assorted;
 using Content.Shared._Shitmed.Targeting;
 // Shitmed forced me to add this to apply damage to only the torso
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.FixedPoint;
+using Robust.Shared.Serialization.Manager.Exceptions;
 
 namespace Content.Shared.Cpr;
 
@@ -55,7 +57,7 @@ public abstract partial class SharedCprSystem : EntitySystem
     public const float CprManualThreshold = 1.5f;
     public const float CprReviveChance = 0.05f;
 
-    public const float CprAirlossHealThreshold = 190f; // The damage threshold above which CPR will start healing airloss on a dead patient
+    public const float CprAirlossHealThresholdPercent = 0.95f; // The damage threshold above which CPR will start healing airloss on a dead patient
     public const float CprAirlossHealAmount = 1f; // The amount of airloss to heal per CPR pump
     public const string AirlossDamageType = "Asphyxiation";
 
@@ -133,18 +135,21 @@ public abstract partial class SharedCprSystem : EntitySystem
         // if the patient is dead, roll for a revive chance
         if (_mobState.IsDead(ent.Owner, mobState))
         {
+
+            // try to get the dead threshold, if it's missing, we just proceed anyways
+            bool hasDeadThreshold = _mobThreshold.TryGetThresholdForState(ent.Owner, MobState.Dead, out var deadThreshold);
+            bool isHealedEnough = !hasDeadThreshold || damage.TotalDamage < deadThreshold;
+            deadThreshold ??= 200f;
+                var cprAirlossHealThreshold = CprAirlossHealThresholdPercent * deadThreshold;
+
             // heal airloss if the patient is dead and has high total damage
-            if (damage.TotalDamage > CprAirlossHealThreshold)
+            if (damage.TotalDamage > cprAirlossHealThreshold)
             {
                 var airlossHeal = new DamageSpecifier();
                 airlossHeal.DamageDict.Add(AirlossDamageType, -CprAirlossHealAmount);
 
                 _damage.TryChangeDamage(ent.Owner, airlossHeal, interruptsDoAfters: false, ignoreResistances: true, damageable: damage);
             }
-
-            // try to get the dead threshold, if it's missing, we just proceed anyways
-            bool hasDeadThreshold = _mobThreshold.TryGetThresholdForState(ent.Owner, MobState.Dead, out var threshold);
-            bool isHealedEnough = !hasDeadThreshold || damage.TotalDamage < threshold;
 
             // only revive if they don't have the revivable component, aren't rotting, are above 200 damage, and have rolled lucky on the revive chance
             if (!HasComp<UnrevivableComponent>(ent) &&

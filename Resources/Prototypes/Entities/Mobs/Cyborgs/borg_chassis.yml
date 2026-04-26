@@ -51,6 +51,7 @@
   - type: InteractionPopup
     interactSuccessString: petting-success-generic-cyborg
     interactFailureString: petting-failure-generic-cyborg
+    messagePerceivedByOthers: petting-success-generic-others
   - type: BorgSwitchableType
     inherentRadioChannels:
     - Common
@@ -138,6 +139,7 @@
   - type: InteractionPopup
     interactSuccessString: petting-success-syndicate-cyborg
     interactFailureString: petting-failure-syndicate-cyborg
+    messagePerceivedByOthers: petting-success-generic-others
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
 
@@ -173,6 +175,7 @@
   - type: InteractionPopup
     interactSuccessString: petting-success-syndicate-cyborg
     interactFailureString: petting-failure-syndicate-cyborg
+    messagePerceivedByOthers: petting-success-generic-others
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
   - type: SolutionScanner
@@ -217,6 +220,7 @@
   - type: InteractionPopup
     interactSuccessString: petting-success-syndicate-cyborg
     interactFailureString: petting-failure-syndicate-cyborg
+    messagePerceivedByOthers: petting-success-generic-others
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
 
@@ -249,5 +253,6 @@
   - type: InteractionPopup
     interactSuccessString: petting-success-derelict-cyborg
     interactFailureString: petting-failure-derelict-cyborg
+    messagePerceivedByOthers: petting-success-generic-others
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg

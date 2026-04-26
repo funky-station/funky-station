@@ -42,11 +42,12 @@
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2026 A-Loose-Goose <237446272+A-Loose-Goose@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 ALooseGoose <ALooseGoosey@gmail.com>
-# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Terkala <appleorange64@gmail.com>
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 august-sun <45527070+august.sun@users.noreply.github.com>
-#
+# 
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
@@ -231,7 +232,7 @@
         Blunt: 7
 
 - type: entity
-  name: Lecter # Funky change, swapped from .20 rifle to .30 rifle, made semi auto only, given a scope. 
+  name: Lecter # Funky change, swapped from .20 rifle to .30 rifle, made semi auto only
   parent: [BaseWeaponRifle, BaseSecurityContraband]
   id: WeaponRifleLecter
   description: A high end military grade assault rifle. Uses .30 rifle ammo.
@@ -292,10 +293,6 @@
     damage:
       types:
         Blunt: 7
-  - type: CursorOffsetRequiresWield
-  - type: EyeCursorOffset
-    maxOffset: 2
-    pvsIncrease: 0.3
 
 
 - type: entity

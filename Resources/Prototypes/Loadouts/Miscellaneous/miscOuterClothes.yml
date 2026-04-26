@@ -1,0 +1,205 @@
+# SPDX-FileCopyrightText: 2026 Fr0goo <frogoofrog@outlook.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+
+# this is for outerclothes and other stuff that dont fit into any department and stuff so it doesnt take up space elsewhere
+
+# WinterCoats
+- type: loadout
+  id: WintercoatGray
+  equipment:
+    outerClothing: ClothingOuterWinterColorGray
+  groupBy: "Wintercoat"
+
+- type: loadout
+  id: WintercoatWhite
+  equipment:
+    outerClothing: ClothingOuterWinterColorWhite
+  groupBy: "Wintercoat"
+
+- type: loadout
+  id: WintercoatBlack
+  equipment:
+    outerClothing: ClothingOuterWinterColorBlack
+  groupBy: "Wintercoat"
+
+- type: loadout
+  id: WintercoatRed
+  equipment:
+    outerClothing: ClothingOuterWinterColorRed
+  groupBy: "Wintercoat"
+
+- type: loadout
+  id: WintercoatOrange
+  equipment:
+    outerClothing: ClothingOuterWinterColorOrange
+  groupBy: "Wintercoat"
+
+- type: loadout
+  id: WintercoatYellow
+  equipment:
+    outerClothing: ClothingOuterWinterColorYellow
+  groupBy: "Wintercoat"
+
+- type: loadout
+  id: WintercoatGreen
+  equipment:
+    outerClothing: ClothingOuterWinterColorGreen
+  groupBy: "Wintercoat"
+
+- type: loadout
+  id: WintercoatBlue
+  equipment:
+    outerClothing: ClothingOuterWinterColorBlue
+  groupBy: "Wintercoat"
+
+- type: loadout
+  id: WintercoatPurple
+  equipment:
+    outerClothing: ClothingOuterWinterColorPurple
+  groupBy: "Wintercoat"
+
+- type: loadout
+  id: WintercoatLightBrown
+  equipment:
+    outerClothing: ClothingOuterWinterColorLightBrown
+  groupBy: "Wintercoat"
+
+- type: loadout
+  id: WintercoatBrown
+  equipment:
+    outerClothing: ClothingOuterWinterColorBrown
+  groupBy: "Wintercoat"
+
+# OuterClothes
+- type: loadout
+  id: GreyHoodie
+  equipment:
+    outerClothing: ClothingOuterHoodieGrey
+
+- type: loadout
+  id: BlackHoodie
+  equipment:
+    outerClothing: ClothingOuterHoodieBlack
+
+- type: loadout
+  id: BomberJacket
+  equipment:
+    outerClothing: ClothingOuterCoatBomber
+
+- type: loadout
+  id: BikerJacket
+  equipment:
+    outerClothing: ClothingOuterCoatBiker
+
+- type: loadout
+  id: TrenchCoat
+  equipment:
+    outerClothing: ClothingOuterCoatTrench
+
+- type: loadout
+  id: GentleCoat
+  equipment:
+    outerClothing: ClothingOuterCoatGentle
+
+- type: loadout
+  id: JensenCoat
+  equipment:
+    outerClothing: ClothingOuterCoatJensen
+
+- type: loadout
+  id: FlannelRed
+  equipment:
+    outerClothing: ClothingOuterFlannelRed
+
+- type: loadout
+  id: FlannelBlue
+  equipment:
+    outerClothing: ClothingOuterFlannelBlue
+
+- type: loadout
+  id: FlannelGreen
+  equipment:
+    outerClothing: ClothingOuterFlannelGreen
+
+# Misc
+- type: loadout
+  id: PonchoClassic
+  equipment:
+    outerClothing: ClothingOuterPonchoClassic
+
+- type: loadout
+  id: Poncho
+  equipment:
+    outerClothing: ClothingOuterPoncho
+
+- type: loadout
+  id: ChickenSuit
+  equipment:
+    outerClothing: ClothingOuterSuitChicken
+
+- type: loadout
+  id: GhostSheet
+  equipment:
+    outerClothing: ClothingOuterGhostSheet
+
+- type: loadout
+  id: SkubSuit
+  equipment:
+    outerClothing: ClothingOuterSkub
+
+- type: loadout
+  id: CarBorgBody
+  equipment:
+    outerClothing: ClothingOuterCardborg
+
+- type: loadout
+  id: SantaSuit
+  equipment:
+    outerClothing: ClothingOuterSanta
+
+- type: loadout
+  id: MonkeySuit
+  equipment:
+    outerClothing: ClothingOuterSuitMonkey
+
+- type: loadout
+  id: CarpSuit
+  equipment:
+    outerClothing: ClothingOuterSuitCarp
+
+- type: loadout
+  id: ShrineMaiden
+  equipment:
+    outerClothing: ClothingOuterSuitShrineMaiden
+
+- type: loadout
+  id: WitchRobes
+  equipment:
+    outerClothing: ClothingOuterSuitWitchRobes
+
+- type: loadout
+  id: BlueWizardRobes
+  equipment:
+    outerClothing: ClothingOuterWizard
+
+- type: loadout
+  id: PirateCoat
+  equipment:
+    outerClothing: ClothingOuterCoatPirate
+
+- type: loadout
+  id: YakuzaCoat
+  equipment:
+    outerClothing: ClothingOuterDameDane
+
+- type: loadout
+  id: HopsitalGown
+  equipment:
+    outerClothing: ClothingOuterHospitalGown
+
+- type: loadout
+  id: HighVisVest
+  equipment:
+    outerClothing: ClothingOuterVestHazard

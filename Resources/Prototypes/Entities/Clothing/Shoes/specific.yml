@@ -73,9 +73,9 @@
   description: "The prankster's standard-issue clowning shoes. Damn they're huge!"
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Specific/clown.rsi
+    sprite: _Funkystation/Clothing/Shoes/Misc/clown.rsi
   - type: Clothing
-    sprite: Clothing/Shoes/Specific/clown.rsi
+    sprite: _Funkystation/Clothing/Shoes/Misc/clown.rsi
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepClown
@@ -307,9 +307,9 @@
   description: A court jester's shoes, updated with modern squeaking technology.
   components:
     - type: Sprite
-      sprite: Clothing/Shoes/Specific/jester.rsi
+      sprite: _Funkystation/Clothing/Shoes/Misc/jester.rsi
     - type: Clothing
-      sprite: Clothing/Shoes/Specific/jester.rsi
+      sprite: _Funkystation/Clothing/Shoes/Misc/jester.rsi
     - type: FootstepModifier
       footstepSoundCollection:
         collection: FootstepJester
@@ -337,9 +337,9 @@
   components:
   - type: Sprite
     state: "icon"
-    sprite: Clothing/Shoes/Specific/large_clown.rsi
+    sprite: _Funkystation/Clothing/Shoes/Misc/clown_big.rsi
   - type: Clothing
-    sprite: Clothing/Shoes/Specific/large_clown.rsi
+    sprite: _Funkystation/Clothing/Shoes/Misc/clown_big.rsi
     clothingVisuals:
       shoes:
       - state: equipped-FEET

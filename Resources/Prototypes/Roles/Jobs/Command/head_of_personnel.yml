@@ -54,7 +54,9 @@
 # SPDX-FileCopyrightText: 2025 ilyamikcoder <me@ilyamikcoder.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 SharkSnake98 <peanutbuttersharky@gmail.com>
 # SPDX-FileCopyrightText: 2026 SharkSnake98 <sharksnake87@gmail.com>
+# SPDX-FileCopyrightText: 2026 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -75,6 +77,7 @@
   weight: 20
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"
+  joinNotifyCrew: true
   supervisors: job-supervisors-captain
   canBeAntag: false
   access:

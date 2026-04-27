@@ -33,7 +33,12 @@ namespace Content.Server.Heretic.Ritual;
 
         var mix = _atmos.GetTileMixture(args.Platform);
 
-        if (mix == null || mix.TotalMoles == 0) // just accept space as it is
+        if (mix == null)
+            return true;
+
+        // treat near-vacuum as space
+        // because breathing can temporarily leave residual gas in space before it gets removed
+        if (mix.TotalMoles <= 0.1)
             return true;
 
         if (mix.Temperature > Atmospherics.T0C + MaxThreshold)

@@ -171,9 +171,9 @@
           state: "sticky_face"
           visible: false
         - map: ["head"]
+        - map: ["enum.HumanoidVisualLayers.Tail"]
         - map: ["pocket1"]
         - map: ["pocket2"]
-        - map: ["enum.HumanoidVisualLayers.Tail"]
         - map: ["clownedon"] # Dynamically generated
           sprite: "Effects/creampie.rsi"
           state: "creampie_human"

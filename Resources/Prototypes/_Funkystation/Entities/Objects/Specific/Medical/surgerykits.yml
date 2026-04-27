@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 Catazeus <200477155+Catazeus@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 W.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -34,3 +35,19 @@
     state: surgerykitsyndicate
   - type: Item
     heldPrefix: surgerykitsyndicate
+
+# Regular anodynafil jug is too large, so we'll just use a beverage jug instead. I mean, are you gonna use the whole 200 units anyway?
+- type: entity
+  parent: CustomDrinkJug
+  suffix: anodynafil
+  id: DrinkJugAnodynafil
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Label
+    currentLabel: reagent-name-anodynafil
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: Anodynafil
+          Quantity: 150

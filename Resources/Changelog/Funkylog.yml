@@ -8070,3 +8070,19 @@ Entries:
         experience
   id: 924
   time: '2026-04-19T20:33:26.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Add
+      message: >-
+        Added the crimes of Fraud and Grand Fraud to Space Law. They punish
+        trickery and deceptive behavior.
+  id: 925
+  time: '2026-04-26T20:12:24.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Tweak
+      message: >-
+        Command and CC jobs no longer roll first, instead rolling as all other
+        jobs do.
+  id: 926
+  time: '2026-04-26T20:41:02.0000000+00:00'

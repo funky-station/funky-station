@@ -1,17 +1,58 @@
-# SPDX-FileCopyrightText: 2025 beck <163376292+widgetbeck@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 A-Loose-Goose <237446272+A-Loose-Goose@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 ALooseGoose <ALooseGoosey@gmail.com>
+# SPDX-FileCopyrightText: 2026 beck <163376292+widgetbeck@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: startingGear
+  id: StartingGearReplicator
+  equipment:
+    pocket1: PinpointerReplicatorUnremoveable
+  inhand:
+  - ReplicatorT1Weapon
+
+- type: startingGear
   id: StartingGearReplicatorTools
+  equipment:
+    pocket1: PinpointerReplicatorUnremoveable
   inhand:
     - OmnitoolUnremoveable
-    - WelderExperimentalUnremoveable
+
+- type: startingGear
+  id: StartingGearReplicatorDefence
+  equipment:
+    pocket1: PinpointerReplicatorUnremoveable
+  inhand:
+  - ReplicatorT2AltMeleeWeapon
 
 - type: startingGear
   id: StartingGearReplicatorWeapon
   inhand:
     - ReplicatorT3Weapon
+  equipment:
+    pocket1: PinpointerReplicatorUnremoveable
+
+- type: entity
+  id: ReplicatorT2AltMeleeWeapon
+  parent: ReplicatorT3Weapon
+  name: defender whip
+  description: You are a weapon.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Replicator/replicator.rsi
+    state: t2altmelee
+  - type: MeleeWeapon
+    attackRate: 1.2
+    wideAnimationRotation: 180
+    soundHit:
+      collection: MetalThud
+    animation: WeaponArcSlash
+    damage:
+      types:
+        Slash: 8
+        Shock: 4
+        Structural: 15
 
 - type: entity
   id: ReplicatorT3Weapon
@@ -29,15 +70,15 @@
   - type: MeleeWeapon
     attackRate: 0.7
     wideAnimationRotation: 180
-    soundHit: 
+    soundHit:
       path: "/Audio/Effects/metal_slam4.ogg"
     animation: WeaponArcSlash
     damage:
       types:
         Blunt: 25
-        Structural: 30
+        Structural: 45
   - type: StaminaDamageOnHit
-    damage: 5
+    damage: 10
   - type: Unremoveable
   - type: Prying
     pryPowered: true
@@ -45,3 +86,91 @@
     speedModifier: 1
     useSound:
       path: /Audio/Items/crowbar.ogg
+
+- type: entity
+  id: ReplicatorT1Weapon
+  parent: BaseItem
+  name: drone stun prod
+  description: You are a non-lethal weapon.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Replicator/replicator.rsi
+    state: t1weapon
+  - type: MeleeWeapon
+    attackRate: 1
+    wideAnimationRotation: 225
+    wideAnimation: WeaponArcThrust
+    soundHit:
+      path: "/Audio/Items/wirecutter.ogg"
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Blunt: 0
+  - type: StaminaDamageOnHit
+    damage: 20
+  - type: Unremoveable
+
+- type: entity
+  parent: PinpointerBase
+  id: PinpointerReplicator
+  name: internal gyroscope
+  suffix: ReplicatorNest
+  description: Locates the Nest. Turn it on and off again to reloacte the Nest.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Devices/pinpointer_replicator.rsi
+    layers:
+    - sprite: _Impstation/Objects/Devices/pinpointer_replicator.rsi
+      state: pinpointer-replicator
+      map: ["enum.PinpointerLayers.Base"]
+    - sprite: Objects/Devices/pinpointer.rsi
+      state: pinonnull
+      map: ["enum.PinpointerLayers.Screen"]
+      shader: unshaded
+      visible: false
+  - type: Icon
+    sprite: _Impstation/Objects/Devices/pinpointer_replicator.rsi
+    state: pinpointer-replicator
+  - type: Pinpointer
+    component: ReplicatorNest
+    targetName: replicator nest
+
+- type: entity
+  parent: PinpointerReplicator
+  id: PinpointerReplicatorUnremoveable
+  categories: [HideSpawnMenu]
+  components:
+  - type: Unremoveable
+
+- type: entity
+  parent: AACTablet
+  id: ReplicatorAAC
+  name: verbal interface
+  description: Communication.
+  components:
+  - type: AACTablet
+    phraseGroup: ReplicatorPhrases
+  - type: VoiceMask
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: SyndieBorg
+  - type: Sprite
+    sprite: _Impstation/Mobs/Replicator/replicator_tablet.rsi
+    state: aac_tablet
+  - type: Item
+  - type: Unremoveable
+
+- type: inventoryTemplate
+  id: replicator
+  slots:
+  - name: pocket1
+    slotTexture: pocket
+    fullTextureName: template_small
+    slotFlags: POCKET
+    slotGroup: MainHotbar
+    stripTime: 3
+    uiWindowPos: 0,3
+    strippingWindowPos: 0,4
+    displayName: Pocket 1
+    stripHidden: true

@@ -139,3 +139,22 @@
 #    Telecrystal: 25
 #  categories:
 #    - UplinkAmmo
+
+- type: listing
+  id: UplinkDAGDMixedRejectsCarton
+  name: uplink-mixed-rejects-carton-name
+  description: uplink-mixed-rejects-carton-desc
+  productEntity: CigCartonMixedRejects
+  cost:
+    Telecrystal: 75
+  categories:
+  - UplinkDAGD
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - DAGDUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle

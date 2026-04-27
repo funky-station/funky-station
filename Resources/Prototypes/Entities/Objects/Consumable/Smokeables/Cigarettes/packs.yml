@@ -83,6 +83,10 @@
   - type: Storage
     grid:
     - 0,0,4,1
+    whitelist:
+      tags:
+        - Matchstick
+        - Cigarette
   - type: StorageFill
     contents:
     - id: Cigarette
@@ -152,6 +156,10 @@
   - type: Storage
     grid:
     - 0,0,4,1
+    whitelist:
+      tags:
+        - Matchstick
+        - Cigarette
   - type: StorageFill
     contents:
     - id: CigaretteRandom

@@ -78,30 +78,7 @@ public sealed class LawSwapSystem : EntitySystem
         if (lawBoardProvComp == null || wirePanelComp == null)
             return;
 
-        if (wirePanelComp.Open)
-        {
-            _siliconLawSystem.SetLaws(_siliconLawSystem.GetLawset(lawBoardProvComp.Laws).Laws,
-                args.Target.Value,
-                lawBoardProvComp.LawUploadSound);
-            _popupSystem.PopupEntity("You finish reprogramming the borg's laws.",
-                args.User,
-                args.User);
-            
-            RemComp<EmaggedComponent>(args.Target.Value);
-
-            // Return Role Type to Standard Silicon
-            var mindId = _mindSystem.GetMind(args.Target.Value);
-            if (mindId != null && TryComp<MindComponent>(mindId.Value, out var mind))
-            {
-                mind.RoleType = "Silicon";
-                Dirty(mindId.Value, mind);
-
-                // UI update event
-                if (_mindSystem.TryGetSession(mindId.Value, out var session))
-                    RaiseNetworkEvent(new MindRoleTypeChangedEvent(), session.Channel);
-            }
-        }
-        else
+        if (!wirePanelComp.Open)
         {
             _popupSystem.PopupEntity("You have to open their panel to change their laws!",
                 args.User,
@@ -115,5 +92,19 @@ public sealed class LawSwapSystem : EntitySystem
         _popupSystem.PopupEntity("You finish reprogramming the borg's laws.",
             args.User,
             args.User);
+
+        RemComp<EmaggedComponent>(args.Target.Value);
+
+        // Return Role Type to Standard Silicon
+        var mindId = _mindSystem.GetMind(args.Target.Value);
+        if (mindId != null && TryComp<MindComponent>(mindId.Value, out var mind))
+        {
+            mind.RoleType = "Silicon";
+            Dirty(mindId.Value, mind);
+
+            // UI update event
+            if (_mindSystem.TryGetSession(mindId.Value, out var session))
+                RaiseNetworkEvent(new MindRoleTypeChangedEvent(), session.Channel);
+        }
     }
 }

@@ -4,6 +4,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
+using Content.Server._Impstation.Borgs.FreeformLaws;
 using Content.Server.DoAfter;
 using Content.Server.Mind;
 using Content.Server.Popups;
@@ -86,8 +87,15 @@ public sealed class LawSwapSystem : EntitySystem
             return;
         }
 
-        var lawsToApply = _siliconLawSystem.GetLaws(args.Used.Value);
-        _siliconLawSystem.SetLaws(lawsToApply.Laws, args.Target.Value, lawBoardProvComp.LawUploadSound);
+
+        if (TryComp<FreeformLawEntryComponent>(args.Used.Value, out var freeformVar))
+        {
+            _siliconLawSystem.SetLaws(_siliconLawSystem.GetFreeformLaws(args.Used.Value).Laws, args.Target.Value, lawBoardProvComp.LawUploadSound);
+        }
+        else
+        {
+            _siliconLawSystem.SetLaws(_siliconLawSystem.GetLawset(lawBoardProvComp.Laws).Laws, args.Target.Value, lawBoardProvComp.LawUploadSound);
+        }
 
         _popupSystem.PopupEntity("You finish reprogramming the borg's laws.",
             args.User,

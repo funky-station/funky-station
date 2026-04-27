@@ -39,6 +39,7 @@
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 vectorassembly <vctrssmly@icloud.com>
+# SPDX-FileCopyrightText: 2026 W.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -1261,6 +1262,17 @@
   components:
   - type: Sprite
     state: atmos_waste
+
+# Funky
+- type: entity
+  parent: BaseSign
+  id: WarningH2O
+  name: H2O warning sign
+  description: WARNING! H2O flow tube. Ensure the flow is disengaged before working.
+  components:
+  - type: Sprite
+    state: atmos_h2o
+
 
 - type: entity
   parent: BaseSign

@@ -15,3 +15,6 @@ devour-action-popup-message-fail-target-not-valid = That doesn't look particular
 devour-action-popup-message-fail-target-alive = You can't consume creatures that are alive!
 
 dragon-spawn-action-popup-message-fail-no-eggs = You don't have the stamina to do that!
+
+action-mini-dragon-teleport-to-wizard-name = Teleport to Wizard
+action-mini-dragon-teleport-to-wizard-description = Teleport to your wizard master's location.

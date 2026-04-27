@@ -2,11 +2,13 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Shared.Gravity;
+using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Stunnable;
-using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Hands.Components;
 using Content.Shared.Wieldable.Components;
+using Robust.Shared.Physics.Components;
 
 namespace Content.Shared.Traits.Assorted;
 
@@ -17,11 +19,15 @@ public sealed class ImpairedMobilitySystem : EntitySystem
 {
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _speedModifier = default!;
+    [Dependency] private readonly SharedGravitySystem _gravity = default!;
+
     public override void Initialize()
     {
         SubscribeLocalEvent<ImpairedMobilityComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<ImpairedMobilityComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<ImpairedMobilityComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovementSpeed);
+        SubscribeLocalEvent<ImpairedMobilityComponent, EntParentChangedMessage>(OnEntParentChanged);
+        SubscribeLocalEvent<GravityChangedEvent>(OnGravityChanged);
     }
 
     private void OnInit(Entity<ImpairedMobilityComponent> ent, ref ComponentInit args)
@@ -34,10 +40,30 @@ public sealed class ImpairedMobilitySystem : EntitySystem
         _speedModifier.RefreshMovementSpeedModifiers(ent);
     }
 
+    private void OnEntParentChanged(EntityUid uid, ImpairedMobilityComponent comp, ref EntParentChangedMessage args)
+    {
+        _speedModifier.RefreshMovementSpeedModifiers(uid);
+    }
+
+    private void OnGravityChanged(ref GravityChangedEvent args)
+    {
+        var query = EntityQueryEnumerator<ImpairedMobilityComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var comp, out var xform))
+        {
+            if (xform.GridUid == args.ChangedGridIndex)
+            {
+                _speedModifier.RefreshMovementSpeedModifiers(uid);
+            }
+        }
+    }
+
     // Handles movement speed for entities with impaired mobility.
     // Applies a speed penalty, but counteracts it if the entity is holding a non-wielded mobility aid.
     private void OnRefreshMovementSpeed(Entity<ImpairedMobilityComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
     {
+        if (_gravity.IsWeightless(ent))
+            return;
+
         if (HasMobilityAid(ent.Owner))
             return;
 

@@ -11,6 +11,7 @@
 // SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 QueerCats <jansencheng3@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -46,7 +47,7 @@ public sealed partial class ZombieRuleComponent : Component
     /// Multiplier for airborne infection spread from zombie tumor organs.
     /// </summary>
     [DataField]
-    public float InfectionSpreadMultiplier = 1.0f;
+    public float InfectionSpreadMultiplier = 1.15f;
 
     // goob edit
     public bool StartAnnounced = false;

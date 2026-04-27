@@ -8092,3 +8092,13 @@ Entries:
       message: Targeted Cigarette Packs, not Cartons
   id: 927
   time: '2026-04-27T16:28:08.0000000+00:00'
+- author: ALooseGoose
+  changes:
+    - type: Tweak
+      message: EXPERIMENTAL - DAGD Traitors now start with 50 extra TC
+    - type: Tweak
+      message: >-
+        EXPERIMENTAL - DAGD Traitors can now buy stronger items previously
+        exclusive to Nuke and War ops
+  id: 928
+  time: '2026-04-27T16:29:10.0000000+00:00'

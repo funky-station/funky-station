@@ -8086,3 +8086,9 @@ Entries:
         jobs do.
   id: 926
   time: '2026-04-26T20:41:02.0000000+00:00'
+- author: Scrambledking
+  changes:
+    - type: Fix
+      message: Targeted Cigarette Packs, not Cartons
+  id: 927
+  time: '2026-04-27T16:28:08.0000000+00:00'

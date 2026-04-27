@@ -2928,7 +2928,6 @@
   saleLimit: 1
 
 - type: listing
-  
   id: UplinkDAGDMauler
   name: uplink-mech-teleporter-heavy-name
   description: uplink-mech-teleporter-heavy-desc
@@ -2948,7 +2947,8 @@
       tags:
       - DAGDUplink
   saleLimit: 1 # WD EDIT
-  
+
+- type: listing
   id: uplinkHiddenUplinkRadioBotany
   name: uplink-hidden-radio-botany-name
   description: uplink-hidden-radio-botany-desc

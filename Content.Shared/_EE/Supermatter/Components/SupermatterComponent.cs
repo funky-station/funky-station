@@ -242,7 +242,6 @@ public sealed partial class SupermatterComponent : Component
     /// <summary>
     /// The Entities that are hallucinating because of the suppermatter.
     /// </summary>
-    [DataField]
     public HashSet<Entity<MobStateComponent>> Hallucinating = new();
 
     #endregion

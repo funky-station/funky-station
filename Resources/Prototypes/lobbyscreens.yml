@@ -27,6 +27,7 @@
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
+# SPDX-FileCopyrightText: 2026 shkaduw <shkaduw@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -129,3 +130,7 @@
 - type: lobbyBackground
   id: ratburgers
   background: /Textures/LobbyScreens/ratburgers.webp
+
+- type: lobbyBackground
+  id: ivan
+  background: /Textures/LobbyScreens/ivan.webp

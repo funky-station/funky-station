@@ -1,5 +1,6 @@
-// SPDX-FileCopyrightText: 2025 beck <163376292+widgetbeck@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2026 A-Loose-Goose <237446272+A-Loose-Goose@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2026 ALooseGoose <ALooseGoosey@gmail.com>
+// SPDX-FileCopyrightText: 2026 beck <163376292+widgetbeck@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -7,6 +8,7 @@
 // all credit for the core gameplay concepts and a lot of the core functionality of the code goes to the folks over at Goob, but I re-wrote enough of it to justify putting it in our filestructure.
 // the original Bingle PR can be found here: https://github.com/Goob-Station/Goob-Station/pull/1519
 
+using System.Linq;
 using Content.Shared._Impstation.SpawnedFromTracker;
 using Content.Shared.Actions;
 using Content.Shared.Construction.Components;
@@ -27,6 +29,9 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
 using Content.Shared.Hands.Components;
+using Content.Shared.Interaction.Components;
+using Content.Shared.Stacks;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Impstation.Replicator;
 
@@ -54,6 +59,7 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
         SubscribeLocalEvent<ReplicatorNestComponent, StepTriggeredOffEvent>(OnStepTriggered);
 
         SubscribeLocalEvent<ReplicatorComponent, ReplicatorUpgrade2ActionEvent>(OnUpgrade2);
+        SubscribeLocalEvent<ReplicatorComponent, ReplicatorUpgrade2AltActionEvent>(OnUpgrade2Alt);
         SubscribeLocalEvent<ReplicatorComponent, ReplicatorUpgrade3ActionEvent>(OnUpgrade3);
     }
 
@@ -121,9 +127,18 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
         if (_whitelist.IsBlacklistPass(ent.Comp.Blacklist, tripper))
             return;
 
-        // regardless of what falls in, you get at least one point.
-        ent.Comp.TotalPoints++;
-        ent.Comp.SpawningProgress++;
+        // regardless of what falls in, you get at least one point
+        if (!HasComp<StackComponent>(tripper)) // as long as it's not a stack.
+        {
+            ent.Comp.TotalPoints += 10;
+            ent.Comp.SpawningProgress += 10;
+        }
+
+        // if the item is in a stack, you get points depending on how many items are in that stack.
+        if (TryComp<StackComponent>(tripper, out var stackComp))
+        {
+            ent.Comp.TotalPoints += stackComp.Count;
+        }
 
         // you get a bonus point if the item is Large, 2 bonus points if it's Huge, and 3 bonus points if it's above that.
         if (TryComp<ItemComponent>(tripper, out var itemComp))
@@ -231,8 +246,8 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
         // don't run this clientside
         if (_net.IsClient || !_timing.IsFirstTimePredicted)
             return;
-
-        foreach (var replicator in ent.Comp.SpawnedMinions)
+        var entities = EntityQueryEnumerator<ReplicatorComponent>();
+        while (entities.MoveNext(out var replicator, out var replicatorComp))
         {
             if (!TryComp<ReplicatorComponent>(replicator, out var comp))
                 continue;
@@ -251,6 +266,9 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
                 _actions.AddAction(replicator, targetAction);
             else if (mindContainer.Mind != null)
                 _actionContainer.AddAction((EntityUid)mindContainer.Mind, targetAction);
+
+            if (targetAction == comp.Level2Action)
+                _actions.AddAction(replicator, comp.Level2AltAction);
         }
     }
 
@@ -262,7 +280,7 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
 
         var oldUid = ent.Owner;
 
-        var upgradedUid = UpgradeReplicator(ent, 2);
+        var upgradedUid = UpgradeReplicator(ent, 2, false);
 
         QueueDel(oldUid);
         QueueDel(args.Action);
@@ -271,18 +289,53 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
             if (!EntityManager.EntityExists(upgradedUid))
                 return;
 
-            TryComp<HandsComponent>(upgradedUid, out var hands);
+            if (!TryComp<HandsComponent>(upgradedUid, out var hands))
+                return;
 
-            var ReplicatorOmnitool = Spawn("OmnitoolUnremoveable");
-            var ReplicatorWelder = Spawn("WelderExperimentalUnremoveable");
-            _handsSystem.AddHand(upgradedUid, "Left Tool Slot", HandLocation.Left);
-            _handsSystem.AddHand(upgradedUid, "Right Tool Slot", HandLocation.Right);
-            _handsSystem.TrySetActiveHand(upgradedUid, "Right Tool Slot");
-            _handsSystem.TryPickupAnyHand(upgradedUid, ReplicatorOmnitool);
-             _handsSystem.TrySetActiveHand(upgradedUid, "Left Tool Slot");
-            _handsSystem.TryPickupAnyHand(upgradedUid, ReplicatorWelder);
+            _handsSystem.AddHand(upgradedUid, "ReplicatorHand", HandLocation.Middle);
+            var tool = Spawn("WelderExperimentalUnremoveable");
+            _handsSystem.DoPickup(upgradedUid, hands.Hands["ReplicatorHand"], tool);
+            EnsureComp<UnremoveableComponent>(tool);
+        }
+    }
 
-        };
+    public void OnUpgrade2Alt(Entity<ReplicatorComponent> ent, ref ReplicatorUpgrade2AltActionEvent args)
+    {
+        // Don't run this clientside
+        if (_net.IsClient || !_timing.IsFirstTimePredicted)
+            return;
+
+        var oldUid = ent.Owner;
+
+        var upgradedUid = UpgradeReplicator(ent, 2, true);
+
+        QueueDel(oldUid);
+        QueueDel(args.Action);
+
+        {
+            if (!EntityManager.EntityExists(upgradedUid))
+                return;
+
+            if (!TryComp<HandsComponent>(upgradedUid, out var hands))
+                return;
+
+            if (TryComp<ActionsComponent>(upgradedUid, out var actionsComp))
+            {
+                // I dont know why but the regular Tier 2 Action always shows up for these other guys. This is just to get rid of that. Holy shitcode, me
+                foreach (var actionUid in actionsComp.Actions.ToList())
+                {
+                    if (!EntityManager.TryGetComponent<MetaDataComponent>(actionUid, out var meta) || meta.EntityPrototype == null)
+                        continue;
+
+                    if (meta.EntityPrototype.ID == "ActionReplicatorUpgrade2")
+                    {
+                        _actions.RemoveAction(upgradedUid, actionUid);
+                        break;
+                    }
+                }
+            }
+
+        }
     }
 
     public void OnUpgrade3(Entity<ReplicatorComponent> ent, ref ReplicatorUpgrade3ActionEvent args)
@@ -293,7 +346,7 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
 
         var oldUid = ent.Owner;
 
-        var upgradedUid = UpgradeReplicator(ent, 3);
+        var upgradedUid = UpgradeReplicator(ent, 3, false);
 
         QueueDel(ent);
         QueueDel(args.Action);
@@ -302,23 +355,51 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
             if (!EntityManager.EntityExists(upgradedUid))
                 return;
 
-            TryComp<HandsComponent>(upgradedUid, out var hands);
+            if (!TryComp<HandsComponent>(upgradedUid, out var hands))
+                return;
 
-            var ReplicatorArm = Spawn("ReplicatorT3Weapon");
-            _handsSystem.AddHand(upgradedUid, "Arm", HandLocation.Middle);
-            _handsSystem.TryPickupAnyHand(upgradedUid, ReplicatorArm);
+            _handsSystem.AddHand(upgradedUid, "ReplicatorHand", HandLocation.Middle);
+            var tool = Spawn("ReplicatorAAC");
+            _handsSystem.DoPickup(upgradedUid, hands.Hands["ReplicatorHand"], tool);
+            EnsureComp<UnremoveableComponent>(tool);
 
+            if (TryComp<ActionsComponent>(upgradedUid, out var actionsComp))
+            {
+                // I dont know why but the regular Tier 2 Action always shows up for these other guys. This is just to get rid of that. Holy shitcode, me
+                foreach (var actionUid in actionsComp.Actions.ToList())
+                {
+                    if (!EntityManager.TryGetComponent<MetaDataComponent>(actionUid, out var meta) || meta.EntityPrototype == null)
+                        continue;
+
+                    if (meta.EntityPrototype.ID == "ActionReplicatorUpgrade2")
+                    {
+                        _actions.RemoveAction(upgradedUid, actionUid);
+                        break;
+                    }
+                }
+            }
         };
     }
 
-    public EntityUid UpgradeReplicator(Entity<ReplicatorComponent> ent, int desiredLevel)
+    public EntityUid UpgradeReplicator(Entity<ReplicatorComponent> ent, int desiredLevel, bool alt)
     {
         var oldUid = ent.Owner;
         var xform = Transform(oldUid);
 
-        var nextStage = desiredLevel == 2
-            ? ent.Comp.Level2Id
-            : ent.Comp.Level3Id;
+        EntProtoId nextStage;
+
+        if (desiredLevel == 2 && !alt)
+        {
+            nextStage = ent.Comp.Level2Id;
+        }
+        else if (desiredLevel == 2 && alt)
+        {
+            nextStage = ent.Comp.Level2altId;
+        }
+        else
+        {
+            nextStage = ent.Comp.Level3Id;
+        }
 
         var upgraded = Spawn(nextStage, xform.Coordinates);
 
@@ -357,6 +438,12 @@ public sealed partial class ReplicatorUpgrade2ActionEvent : InstantActionEvent
 {
 
 }
+
+public sealed partial class ReplicatorUpgrade2AltActionEvent : InstantActionEvent
+{
+
+}
+
 
 public sealed partial class ReplicatorUpgrade3ActionEvent : InstantActionEvent
 {

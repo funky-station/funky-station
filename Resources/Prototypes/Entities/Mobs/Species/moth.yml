@@ -28,7 +28,11 @@
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2026 Delta <112193783+DeltaDnDsolutions@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Mora <46364955+TrixxedHeart@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Spatison <137375981+Spatison@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 hivehum <ketchupfaced@gmail.com>
 # SPDX-FileCopyrightText: 2026 unknown <daniel.thomas.staal@gmail.com>
 # SPDX-FileCopyrightText: 2026 unknown <kit.ds.kat@gmail.com>
 #
@@ -45,6 +49,7 @@
     species: Moth
     hideLayersOnEquip:
     - HeadTop
+    - Tail
   - type: Hunger
   - type: Thirst
   - type: Icon
@@ -140,7 +145,6 @@
       - map: [ "belt" ]
       - map: [ "id" ]
       - map: [ "outerClothing" ]
-      - map: [ "enum.HumanoidVisualLayers.Tail" ] #in the utopian future we should probably have a wings enum inserted here so everyhting doesn't break
       - map: [ "back" ]
       - map: [ "neck" ]
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
@@ -149,6 +153,7 @@
       - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
       - map: [ "mask" ]
       - map: [ "head" ]
+      - map: [ "enum.HumanoidVisualLayers.Tail" ] #in the utopian future we should probably have a wings enum inserted here so everyhting doesn't break
       - map: [ "pocket1" ]
       - map: [ "pocket2" ]
       - map: [ "clownedon" ] # Dynamically generated
@@ -210,7 +215,7 @@
   - type: HumanoidAppearance
     species: Moth
   - type: Inventory
-    displacements:
+    femaleDisplacements:
       gloves:
         sizeMaps:
           32:
@@ -226,13 +231,27 @@
           32:
             sprite: _Funkystation/Mobs/Species/Moth/displacement.rsi
             state: ears
-    femaleDisplacements:
       jumpsuit:
         sizeMaps:
           32:
             sprite: _Funkystation/Mobs/Species/Moth/displacement.rsi
             state: jumpsuit_female
     maleDisplacements:
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Funkystation/Mobs/Species/Moth/displacement.rsi
+            state: gloves
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Funkystation/Mobs/Species/Moth/displacement.rsi
+            state: shoes
+      ears:
+        sizeMaps:
+          32:
+            sprite: _Funkystation/Mobs/Species/Moth/displacement.rsi
+            state: ears
       jumpsuit:
         sizeMaps:
           32:

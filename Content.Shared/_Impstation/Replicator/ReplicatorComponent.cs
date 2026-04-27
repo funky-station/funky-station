@@ -1,4 +1,6 @@
-// SPDX-FileCopyrightText: 2025 beck <163376292+widgetbeck@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2026 A-Loose-Goose <237446272+A-Loose-Goose@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2026 ALooseGoose <ALooseGoosey@gmail.com>
+// SPDX-FileCopyrightText: 2026 beck <163376292+widgetbeck@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -46,10 +48,16 @@ public sealed partial class ReplicatorComponent : Component
     public EntProtoId Level2Id = "MobReplicatorTier2";
 
     [DataField]
+    public EntProtoId Level2altId = "MobReplicatorTier2Alt";
+
+    [DataField]
     public EntProtoId Level3Id = "MobReplicatorTier3";
 
     [DataField]
     public EntProtoId Level2Action = "ActionReplicatorUpgrade2";
+
+    [DataField]
+    public EntProtoId Level2AltAction = "ActionReplicatorUpgrade2Alt";
 
     [DataField]
     public EntProtoId Level3Action = "ActionReplicatorUpgrade3";

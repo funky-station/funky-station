@@ -7826,3 +7826,263 @@ Entries:
         with the waistbag and clipboard.
   id: 901
   time: '2026-02-27T22:57:15.0000000+00:00'
+- author: pirakaplant
+  changes:
+    - type: Tweak
+      message: The British accent now changes "dick" to "knob".
+  id: 902
+  time: '2026-03-02T23:57:41.0000000+00:00'
+- author: ALooseGoose
+  changes:
+    - type: Fix
+      message: The Nukie's Nuke now starts unanchored
+  id: 903
+  time: '2026-03-05T13:28:06.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Add
+      message: Added nitrous tanks to the operating tables in Medbay. (Packed)
+    - type: Tweak
+      message: Renamed the murder weapon in maintenance. (Packed)
+    - type: Fix
+      message: >-
+        Added missing directional fans to west arrivals and maintenance.
+        (Packed)
+    - type: Add
+      message: Added decals across main hallways. (Packed)
+    - type: Add
+      message: Added drains to the morgue. (Packed)
+    - type: Tweak
+      message: Reinforced the windows around Security and Genpop. (Packed)
+    - type: Tweak
+      message: Replaced the AI turret in the armory with a Security turret. (Packed)
+  id: 904
+  time: '2026-03-05T13:28:55.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Fix
+      message: CC got some necessary not-at-all-hotfixes.
+  id: 905
+  time: '2026-03-05T14:19:40.0000000+00:00'
+- author: Dogman20801
+  changes:
+    - type: Tweak
+      message: MK 58s, and accompanying .35 pistol magazines, have been resprited!
+  id: 906
+  time: '2026-03-08T01:33:49.0000000+00:00'
+- author: chuga-git
+  changes:
+    - type: Fix
+      message: Utility knife now shows its blade when toggled.
+  id: 907
+  time: '2026-03-08T01:35:36.0000000+00:00'
+- author: pirakaplant
+  changes:
+    - type: Tweak
+      message: >-
+        The nuclear outpost's Booze-O-Mat is now a Bruise-O-Mat. No more hacking
+        needed!
+    - type: Tweak
+      message: >-
+        The nuclear outpost now features two chemical payloads, two explosive
+        payloads, and two flash payloads.
+  id: 908
+  time: '2026-03-09T08:30:21.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Fix
+      message: Fixes mentions of LOOC to Help
+  id: 909
+  time: '2026-03-09T17:16:58.0000000+00:00'
+- author: Gorsthir
+  changes:
+    - type: Tweak
+      message: Resized rat lobby art to better fit the lobby screen
+  id: 910
+  time: '2026-03-10T00:52:58.0000000+00:00'
+- author: neadsy
+  changes:
+    - type: Fix
+      message: Fixed wording in the Cosmic Cult Colossus guidebook.
+  id: 911
+  time: '2026-03-10T00:56:22.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Add
+      message: Added oscilliator as a new nuke and expedition track.
+  id: 912
+  time: '2026-03-10T11:06:37.0000000+00:00'
+- author: Delta, Thrld, Trixxed
+  changes:
+    - type: Tweak
+      message: Existing lizard markings
+    - type: Tweak
+      message: Fixing moth displacements
+    - type: Add
+      message: New lizard markings
+    - type: Remove
+      message: Removed lizard tail wagging
+  id: 913
+  time: '2026-03-15T20:19:59.0000000+00:00'
+- author: Tea
+  changes:
+    - type: Tweak
+      message: resprited security to a more space-military aesthetic.
+  id: 914
+  time: '2026-03-15T20:20:56.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Tweak
+      message: Snouts now render over Jumpsuits
+  id: 915
+  time: '2026-03-19T22:02:34.0000000+00:00'
+- author: Dusty-Plant
+  changes:
+    - type: Tweak
+      message: >-
+        changed Court station max pop from infinite to 70, modified blob
+        thresholds and added some features to the map.
+  id: 916
+  time: '2026-03-30T01:56:01.0000000+00:00'
+- author: neadsy
+  changes:
+    - type: Add
+      message: Added a supermatter and its required components to box station!
+    - type: Fix
+      message: Fixed box station not having a way to recycle waste gasses.
+  id: 917
+  time: '2026-03-30T01:59:01.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Add
+      message: (Core) Revamped Service Lounge
+    - type: Add
+      message: (Core) Added Laundromat
+    - type: Add
+      message: (Core) Added PTP
+    - type: Add
+      message: (Core) Added more station maps
+    - type: Add
+      message: (Core) Added Psychologist's office
+    - type: Add
+      message: (Core) Added Psychologist Job
+    - type: Add
+      message: (Core) Added mailing system
+    - type: Add
+      message: (Core) More maints
+    - type: Tweak
+      message: (Core) Vox box bluespace vendor is actually linked now
+    - type: Tweak
+      message: (Core) Moved Clown's room
+    - type: Tweak
+      message: (Core) Moved Chapel
+    - type: Tweak
+      message: (Core) Moved fireaxe into command conference room
+    - type: Tweak
+      message: (Core) Moved NTRep office
+    - type: Tweak
+      message: (Core) IAA office now has meteor shielding
+    - type: Tweak
+      message: (Core) Moved grav gen to treat vault
+    - type: Tweak
+      message: (Core) Old NTRep office turned into maints
+    - type: Tweak
+      message: (Core) A SmartFridge has been added to the Medbay's treatment room
+    - type: Tweak
+      message: (Core) Simplified Science's artifact atmos setup
+    - type: Fix
+      message: (Core) Made Bridge harder to break into via disposals
+    - type: Fix
+      message: (Core) Removed unnecessary sets of doors in hallways
+    - type: Fix
+      message: (Core) Removed duplicate disposal chute in Cargo
+    - type: Fix
+      message: (Core) Replaced Magistrate's windows with Uranium windows
+    - type: Remove
+      message: (Core) Removed Genetics Lab
+    - type: Remove
+      message: (Core) Removed Nuclear Reactor
+  id: 918
+  time: '2026-03-30T02:02:00.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Add
+      message: >-
+        Added snack and drink vending machines to maintenance in various
+        locations in Packed
+    - type: Add
+      message: Added decals to the surgery rooms in medical in Packed
+    - type: Remove
+      message: Removed the station beacon for genetics in Packed
+    - type: Tweak
+      message: Replaced windows with standard windows in various locations in Packed
+    - type: Fix
+      message: >-
+        Fixed the incorrect/duplicitous warp points for evacuation, arrivals,
+        and the nuclear reactor in Packed
+    - type: Fix
+      message: Fixed the plasma extractor not mining any plasma in Packed
+    - type: Fix
+      message: Fixed the northeastern evac pod not showing up in Packed
+    - type: Add
+      message: Added directional fans to various locations in Packed
+  id: 919
+  time: '2026-03-30T04:22:11.0000000+00:00'
+- author: pirakaplant
+  changes:
+    - type: Add
+      message: Added safety goggles and safety jamgoggles.
+  id: 920
+  time: '2026-04-10T18:00:39.0000000+00:00'
+- author: Fr0goo
+  changes:
+    - type: Add
+      message: polka dot jumpsuit, clown jumpsuit, smug clown mask!
+    - type: Tweak
+      message: resprited tons of clown/tider clothes!
+    - type: Tweak
+      message: resprited holoclown
+  id: 921
+  time: '2026-04-10T18:03:23.0000000+00:00'
+- author: EmillyCoelho
+  changes:
+    - type: Tweak
+      message: Oasis eng section reworked to have Nuclear Reactor, SM and HFR Area.
+  id: 922
+  time: '2026-04-12T17:50:36.0000000+00:00'
+- author: Fr0goo
+  changes:
+    - type: Add
+      message: Added LOTS of costumes for the clown!
+    - type: Add
+      message: >-
+        Clowns now have toys they start with that they can select in their
+        loadout!
+    - type: Add
+      message: Added new role name for clown!
+  id: 923
+  time: '2026-04-12T19:56:24.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: >-
+        Changed Bagels perma to have more ingredients for a better cooking
+        experience
+  id: 924
+  time: '2026-04-19T20:33:26.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Add
+      message: >-
+        Added the crimes of Fraud and Grand Fraud to Space Law. They punish
+        trickery and deceptive behavior.
+  id: 925
+  time: '2026-04-26T20:12:24.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Tweak
+      message: >-
+        Command and CC jobs no longer roll first, instead rolling as all other
+        jobs do.
+  id: 926
+  time: '2026-04-26T20:41:02.0000000+00:00'

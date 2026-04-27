@@ -42,16 +42,16 @@ accent-british-replacement-9 = arses
 accent-british-words-10-1 = cup of
 accent-british-words-10-2 = beaker of
 accent-british-words-10-3 = glass of
-accent-british-words-10-4 = cup 
-accent-british-words-10-5 = beaker 
+accent-british-words-10-4 = cup
+accent-british-words-10-5 = beaker
 accent-british-words-10-6 = glass
 accent-british-replacement-10 = cuppa
 
 accent-british-words-11-1 = cups of
 accent-british-words-11-2 = beakers of
 accent-british-words-11-3 = glasses of
-accent-british-words-11-4 = cups 
-accent-british-words-11-5 = beakers 
+accent-british-words-11-4 = cups
+accent-british-words-11-5 = beakers
 accent-british-words-11-6 = glasses
 accent-british-replacement-11 = cuppas
 
@@ -155,7 +155,7 @@ accent-british-words-37-1 = man
 accent-british-words-37-2 = guy
 accent-british-replacement-37 = bloke
 
-accent-british-words-38-1 = men 
+accent-british-words-38-1 = men
 accent-british-words-38-2 = guys
 accent-british-replacement-38 = blokes
 
@@ -195,11 +195,11 @@ accent-british-words-45 = love
 accent-british-replacement-45 = luv
 
 accent-british-words-46-1 = idiot
-accent-british-words-46-2 = piece of shit 
+accent-british-words-46-2 = piece of shit
 accent-british-replacement-46 = wanker
 
 accent-british-words-47-1 = idiots
-accent-british-words-47-2 = pieces of shit 
+accent-british-words-47-2 = pieces of shit
 accent-british-replacement-47 = wankers
 
 accent-british-words-48 = asshole
@@ -217,8 +217,8 @@ accent-british-replacement-51 = lorries
 accent-british-words-52 = chips
 accent-british-replacement-52 = crisps
 
-accent-british-words-53-1 = french fries 
-accent-british-words-53-2 = fries 
+accent-british-words-53-1 = french fries
+accent-british-words-53-2 = fries
 accent-british-replacement-53 = chips
 
 accent-british-words-54-1 = secoff
@@ -283,8 +283,8 @@ accent-british-words-68-2 = annoyed
 accent-british-words-68-3 = angry
 accent-british-replacement-68 = miffed
 
-accent-british-words-69 = ran 
-accent-british-replacement-69 = legged it 
+accent-british-words-69 = ran
+accent-british-replacement-69 = legged it
 
 accent-british-words-70 = hungry
 accent-british-replacement-70 = peckish
@@ -352,10 +352,10 @@ accent-british-words-87 = beer
 accent-british-replacement-87 = stella
 
 accent-british-words-88 = dick
-accent-british-replacement-88 = cunt
+accent-british-replacement-88 = knob
 
 accent-british-words-89 = dicks
-accent-british-replacement-89 = cunts
+accent-british-replacement-89 = knobs
 
 accent-british-words-90 = kitchen
 accent-british-replacement-90 = chippy
@@ -373,7 +373,7 @@ accent-british-words-92-3 = televisions
 accent-british-words-92-4 = cameras
 accent-british-replacement-92 = tellies
 
-accent-british-words-93 = mail 
+accent-british-words-93 = mail
 accent-british-replacement-93 = post
 
 accent-british-words-94-1 = drunk
@@ -397,7 +397,7 @@ accent-british-replacement-97 = reverand
 accent-british-words-98-1 = knife
 accent-british-words-98-2 = sword
 accent-british-words-98-3 = blade
-accent-british-replacement-98 = shank 
+accent-british-replacement-98 = shank
 
 accent-british-words-99 = stabbed me
 accent-british-replacement-99 = sent me to London

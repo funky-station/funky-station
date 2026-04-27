@@ -1,6 +1,8 @@
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 Mora <46364955+TrixxedHeart@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 mkanke-real <mikekanke@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -21,3 +23,8 @@
   - /Audio/_Funkystation/Effects/Footsteps/wehstep3.ogg
   - /Audio/_Funkystation/Effects/Footsteps/wehstep4.ogg
   - /Audio/_Funkystation/Effects/Footsteps/wehstep5.ogg
+
+- type: soundCollection
+  id: FootstepSilence
+  files:
+  - /Audio/_Funkystation/Effects/Footsteps/silence.ogg

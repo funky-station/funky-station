@@ -22,7 +22,7 @@ public sealed class ShowJobIconsSystem : EquipmentHudSystem<ShowJobIconsComponen
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly AccessReaderSystem _accessReader = default!;
 
-    private const string NullIcon = "";
+    private const string NullIcon = "JobIconBlank";
 
     public override void Initialize()
     {

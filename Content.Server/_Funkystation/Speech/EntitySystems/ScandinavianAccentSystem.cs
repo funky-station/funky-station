@@ -1,6 +1,7 @@
-// SPDX-FileCopyrightText: 2025 W.xyz() <tptechteam@gmail.com>
+// SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2026 W.xyz() <84605679+pirakaplant@users.noreply.github.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later
+// SPDX-License-Identifier: MIT
 
 using System.Text;
 using Content.Server.Speech.Components;
@@ -33,60 +34,61 @@ public sealed class ScandinavianAccentSystem : EntitySystem
 
         var messageBuilder = new StringBuilder(message);
 
-        // SHITCODE INCOMING. "A" and "O" have a 50% chance to be replaced with an accented equivalent. "E" has a 25% chance to be replaced with "Æ".
+        // SHITCODE INCOMING. "A" and "O" have a 25% chance (50% * 50%) to be replaced with an accented equivalent. "E" has a 12.5% chance (25% * 50%) to be replaced with "Æ".
         for (var i = 0; i < messageBuilder.Length; i++)
         {
-            var random_int = _random.Next(0,4);
-            switch (messageBuilder[i])
+            if (_random.Prob(0.5f))
             {
-                case 'A':
-                    messageBuilder[i] = random_int switch
-                    {
-                        0 => 'Å',
-                        1 => 'Ä',
-                        _ => 'A'
-                    };
-                    break;
-                case 'a':
-                    messageBuilder[i] = random_int switch
-                    {
-                        0 => 'å',
-                        1 => 'ä',
-                        _ => 'a'
-                    };
-                    break;
-                case 'E':
-                    messageBuilder[i] = random_int switch
-                    {
-                        0 => 'Æ',
-                        _ => 'E'
-                    };
-                    break;
-                case 'e':
-                    messageBuilder[i] = random_int switch
-                    {
-                        0 => 'æ',
-                        _ => 'e'
-                    };
-                    break;
-                case 'O':
-                    messageBuilder[i] = random_int switch
-                    {
-                        0 => 'Ø',
-                        1 => 'Ö',
-                        _ => 'O'
-                    };
-                    break;
-                case 'o':
-                    messageBuilder[i] = random_int switch
-                    {
-                        0 => 'ø',
-                        1 => 'ö',
-                        _ => 'o'
-                    };
-                    break;
-                default:
-                    break;
+                var randomInt = _random.Next(0,4);
+                switch (messageBuilder[i])
+                {
+                    case 'A':
+                        messageBuilder[i] = randomInt switch
+                        {
+                            0 => 'Å',
+                            1 => 'Ä',
+                            _ => 'A'
+                        };
+                        break;
+                    case 'a':
+                        messageBuilder[i] = randomInt switch
+                        {
+                            0 => 'å',
+                            1 => 'ä',
+                            _ => 'a'
+                        };
+                        break;
+                    case 'E':
+                        messageBuilder[i] = randomInt switch
+                        {
+                            0 => 'Æ',
+                            _ => 'E'
+                        };
+                        break;
+                    case 'e':
+                        messageBuilder[i] = randomInt switch
+                        {
+                            0 => 'æ',
+                            _ => 'e'
+                        };
+                        break;
+                    case 'O':
+                        messageBuilder[i] = randomInt switch
+                        {
+                            0 => 'Ø',
+                            1 => 'Ö',
+                            _ => 'O'
+                        };
+                        break;
+                    case 'o':
+                        messageBuilder[i] = randomInt switch
+                        {
+                            0 => 'ø',
+                            1 => 'ö',
+                            _ => 'o'
+                        };
+                        break;
+                }
             }
         }
 

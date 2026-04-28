@@ -1,7 +1,9 @@
 # SPDX-FileCopyrightText: 2025 KiraZen_ <209320699+KiraZen-Underscore@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+pronana@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 ALooseGoose <ALooseGoosey@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -36,6 +38,30 @@
     amount: -2
   - !type:PlantAdjustPests
     amount: -2
+  footstepSound:
+    collection: FootstepBlood
+    params:
+      volume: 6
+
+- type: reagent
+  id: NaniteSlurry
+  name: reagent-name-nanite-slurry
+  group: Biological
+  desc: reagent-desc-nanite-slurry
+  physicalDesc: reagent-physical-desc-robotic
+  flavor: metallic
+  color: "#960355"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.5
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Shock: 1.2
+      - !type:MovespeedModifier
+        walkSpeedModifier: 0.5
+        sprintSpeedModifier: 0.5
   footstepSound:
     collection: FootstepBlood
     params:

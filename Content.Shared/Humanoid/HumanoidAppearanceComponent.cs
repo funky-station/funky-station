@@ -96,7 +96,7 @@ public sealed partial class HumanoidAppearanceComponent : Component
     ///     Which layers of this humanoid that should be hidden on equipping a corresponding item..
     /// </summary>
     [DataField]
-    public HashSet<HumanoidVisualLayers> HideLayersOnEquip = [HumanoidVisualLayers.Hair];
+    public HashSet<HumanoidVisualLayers> HideLayersOnEquip = [HumanoidVisualLayers.Hair, HumanoidVisualLayers.Snout, HumanoidVisualLayers.HeadTop, HumanoidVisualLayers.HeadSide, HumanoidVisualLayers.Tail];
 
     /// <summary>
     /// The profile that this entity was originally spawned with.

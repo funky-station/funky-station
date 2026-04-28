@@ -1,5 +1,6 @@
-# SPDX-FileCopyrightText: 2025 beck <163376292+widgetbeck@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 A-Loose-Goose <237446272+A-Loose-Goose@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 ALooseGoose <ALooseGoosey@gmail.com>
+# SPDX-FileCopyrightText: 2026 beck <163376292+widgetbeck@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -11,7 +12,7 @@
   description: It's just a little guy. What harm could it do?
   id: BaseMobReplicator
   abstract: true
-  parent: PlayerSiliconBase
+  parent: [InventoryBase, PlayerSiliconBase]
   components:
   - type: Replicator
   - type: SiliconLawBound
@@ -134,6 +135,12 @@
   - type: NpcFactionMember
     factions:
     - SimpleHostile
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Pai
+  - type: Inventory
+    templateId: replicator
+  - type: EyeProtection
 
 - type: entity
   id: MobReplicatorQueen
@@ -191,7 +198,16 @@
         layer:
         - SmallMobLayer
   - type: Body
-    prototype: Replicator1
+    prototype: Primate
+  - type: ReplacementAccent
+    accent: silicon
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Pai
+  - type: Inventory
+    templateId: replicator
+  - type: Loadout
+    prototypes: [ StartingGearReplicator ]
 
 # Tier 2: Deconstructors. These guys are a little bit tougher, and have tools to take things apart, but they don't have anywhere near as much stun & their attacks are just as weak as T1s.
 - type: entity
@@ -232,11 +248,73 @@
     damageContainer: Inorganic
     damageModifierSet: Replicator2
   - type: Body
-    prototype: Replicator2
+    prototype: Primate
   - type: ItemSlots
+  - type: ReplacementAccent
+    accent: silicon
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Borg
   - type: Inventory
+    templateId: replicator
+  - type: Loadout
+    prototypes: [ StartingGearReplicatorTools ]
 
-# Tier 3: These guys are tanks. Their job is to tear shit apart and kill things. They're slow, tanky, and have a weapon that does 25 blunt 30 struct.
+# Tier 2 ALT: Defender. These guys are our mid-level combatants. They have a slightly better stun laser, and a decent melee attack, but no utility functions.
+- type: entity
+  id: MobReplicatorTier2Alt
+  parent: BaseMobReplicator
+  categories: [HideSpawnMenu] # I don't want admins spawning a replicator that's unlinked to a nest
+  suffix: Level 2 Alt
+  components:
+  - type: ActionGun
+    action: ActionReplicatorEnergyBolt
+    gunProto: ReplicatorEnergyBolt
+  - type: CombatMode
+  - type: Puller
+    needsHands: false
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2 # same as slime
+    baseSprintSpeed: 4
+    weightlessFriction: 1
+    weightlessFrictionNoInput: 2
+    weightlessAcceleration: 1.2
+  - type: MovementAlwaysTouching
+  - type: Sprite
+    granularLayersRendering: true
+    drawDepth: Mobs
+    sprite: _Impstation/Mobs/Replicator/replicator.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: alive_level2alt
+    - map: ["enum.ReplicatorVisuals.Combat"]
+      state: combat_level2alt
+      shader: unshaded
+      visible: false
+  - type: NoSlip
+  - type: DamageStateVisuals
+    rotate: false
+    states:
+      Alive:
+        Base: alive_level2alt
+      Dead:
+        Base: dead_level2
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Replicator2
+  - type: ReplacementAccent
+    accent: silicon
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Borg
+  - type: Inventory
+    templateId: replicator
+  - type: Body
+    prototype: Primate
+  - type: Loadout
+    prototypes: [ StartingGearReplicatorDefence ]
+
+# Tier 3: These guys are tanks. Their job is to tear shit apart and kill things. They're slow, tanky, and have a weapon that does 25 blunt 45 struct.
 - type: entity
   id: MobReplicatorTier3
   parent: BaseMobReplicator
@@ -249,6 +327,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 0.6 # these fellas are the tanks, they rely on the smaller guys stunning things for them.
     baseSprintSpeed: 4
+    friction: 30 # these fellas are the tanks, they rely on the smaller guys stunning things for them.
   - type: Sprite
     drawDepth: Mobs
     sprite: _Impstation/Mobs/Replicator/replicator.rsi
@@ -267,9 +346,18 @@
       Dead:
         Base: dead_level3
   - type: Body
-    prototype: Replicator3
+    prototype: Primate
   - type: NoSlip
   - type: Magboots
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Replicator3
+  - type: ReplacementAccent
+    accent: silicon
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: SyndieBorg
+  - type: Inventory
+    templateId: replicator
+  - type: Loadout
+    prototypes: [ StartingGearReplicatorWeapon ]

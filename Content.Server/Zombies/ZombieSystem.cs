@@ -106,7 +106,6 @@ namespace Content.Server.Zombies
 
             SubscribeLocalEvent<IncurableZombieComponent, MapInitEvent>(OnPendingMapInit);
 
-            SubscribeLocalEvent<ZombifyOnDeathComponent, MobStateChangedEvent>(OnDamageChanged);
             SubscribeLocalEvent<ZombieComponent, DamageModifyEvent>(OnDamageModified);
 
         }

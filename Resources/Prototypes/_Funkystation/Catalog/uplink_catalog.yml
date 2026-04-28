@@ -146,6 +146,26 @@
   saleLimit: 1
 
 - type: listing
+  id: UplinkDAGDAutoInjectorBundle
+  name: uplink-autoinjector-bundle-name
+  description: uplink-autoinjector-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateCartridgeAutoinjectorBundleFilled
+  cost:
+    Telecrystal: 50
+  categories:
+  - UplinkDAGD
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - DAGDUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+  saleLimit: 1
+
+- type: listing
   id: UplinkSyndieKit
   name: uplink-syndie-kit-name
   description: uplink-syndie-kit-desc
@@ -205,6 +225,27 @@
       tags:
       - NukeOpsUplink # I don't really wanna mess with nukie balancing
   saleLimit: 1
+
+- type: listing
+  id: UplinkDAGDNukeCodePaperStation
+  name: uplink-nuke-code-paper-station-name
+  description: uplink-nuke-code-paper-station-desc
+  icon: { sprite: Objects/Misc/bureaucracy.rsi, state: paper_words-blood }
+  productEntity: NukeCodePaperStation
+  cost:
+    Telecrystal: 25 # goob
+  categories:
+  - UplinkDAGD
+  conditions:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - DAGDUplink
+  saleLimit: 1 # WD EDIT
 
 # Implants
 

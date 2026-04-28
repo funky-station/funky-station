@@ -222,32 +222,9 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
 
     public SiliconLawset GetLaws(EntityUid uid, SiliconLawBoundComponent? component = null)
     {
-        // Resolve the lawbound component
         if (!Resolve(uid, ref component))
             return new SiliconLawset();
 
-        // --- NEW: Freeform override ---
-        if (EntityManager.HasComponent<FreeformLawEntryComponent>(uid))
-        {
-            // Use a separate variable to avoid conflict with the main ev
-            var freeformEv = new GetSiliconLawsEvent(uid);
-            RaiseLocalEvent(uid, ref freeformEv);
-
-            if (freeformEv.Handled)
-            {
-                return freeformEv.Laws;
-            }
-
-            // If no laws were set yet, return empty
-            return new SiliconLawset()
-            {
-                Laws = new List<SiliconLaw>(),
-                ObeysTo = "Freeform"
-            };
-        }
-        // --- END NEW ---
-
-        // Original logic: raise an event to fetch laws from providers
         var ev = new GetSiliconLawsEvent(uid);
         RaiseLocalEvent(uid, ref ev);
         if (ev.Handled)
@@ -378,6 +355,32 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
 
             var evt = new AILawUpdatedEvent(update, provider.Laws);
             RaiseLocalEvent(ref evt);
+        }
+    }
+
+    public SiliconLawset GetFreeformLaws(EntityUid uid)
+    {
+        if (EntityManager.HasComponent<FreeformLawEntryComponent>(uid))
+        {
+            // Use a separate variable to avoid conflict with the main ev
+            var freeformEv = new GetSiliconLawsEvent(uid);
+            RaiseLocalEvent(uid, ref freeformEv);
+
+            if (freeformEv.Handled)
+            {
+                return freeformEv.Laws;
+            }
+
+            // If no laws were set yet, return empty
+            return new SiliconLawset()
+            {
+                Laws = new List<SiliconLaw>(),
+                ObeysTo = "Freeform"
+            };
+        }
+        else
+        {
+            return new SiliconLawset();
         }
     }
 }

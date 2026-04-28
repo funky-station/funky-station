@@ -25,6 +25,8 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Server.Mind;
+using Content.Server.Objectives.Components;
 using Content.Server.Store.Systems;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
@@ -32,6 +34,7 @@ using Content.Shared.PDA;
 using Content.Shared.FixedPoint;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
+using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Traitor.Uplink
@@ -42,6 +45,8 @@ namespace Content.Server.Traitor.Uplink
         [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
         [Dependency] private readonly StoreSystem _store = default!;
+        [Dependency] private readonly MindSystem _mind = default!;
+        [Dependency] private readonly TagSystem _tagSystem = default!;
 
         [ValidatePrototypeId<CurrencyPrototype>]
         public const string TelecrystalCurrencyPrototype = "Telecrystal";
@@ -93,6 +98,19 @@ namespace Content.Server.Traitor.Uplink
                 _store.TryAddCurrency(new Dictionary<string, FixedPoint2> { { currencyProtoId ?? TelecrystalCurrencyPrototype, balance.Value } }, uplinkEntity.Value, store);
             }
 
+            if (!_mind.TryGetMind(user, out var mindId, out var mind))
+                return false;
+
+            foreach (var objective in mind.Objectives)
+            {
+                    if (HasComp<DieConditionComponent>(objective))
+                    {
+                        DAGDUplinkExpansion(user, balance, currencyProtoId, storePreset, uplinkEntity);
+                        break;
+                    }
+
+            }
+
             // TODO add BUI. Currently can't be done outside of yaml -_-
 
             return true;
@@ -102,6 +120,19 @@ namespace Content.Server.Traitor.Uplink
         public bool AddUplink(EntityUid user, FixedPoint2? balance, EntityUid? uplinkEntity = null)
         {
             return AddUplink(user, balance, null, null, uplinkEntity);
+        }
+
+        public bool DAGDUplinkExpansion(EntityUid user, FixedPoint2? balance, EntProtoId? currencyProtoId, EntProtoId? storePreset, EntityUid? uplinkEntity = null) // All uplink changes for people that roll DAGD go here
+        {
+            if (uplinkEntity == null)
+                return false;
+
+            var store = EnsureComp<StoreComponent>(uplinkEntity.Value);
+
+            EnsureComp<TagComponent>(uplinkEntity.Value);
+            _tagSystem.AddTag(uplinkEntity.Value, "DAGDUplink"); // Adds the new Martyr tab
+            _store.TryAddCurrency(new Dictionary<string, FixedPoint2> { { TelecrystalCurrencyPrototype, 50 } }, uplinkEntity.Value, store); // Adds 50 TC
+            return true;
         }
 
         /// <summary>

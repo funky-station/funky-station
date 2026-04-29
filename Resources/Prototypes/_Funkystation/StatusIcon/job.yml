@@ -39,3 +39,11 @@
     sprite: /Textures/_Funkystation/Interface/Misc/job_icons.rsi
     state: CentralCommandIntern
   jobName: central-command-intern
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconBlank
+  icon:
+    sprite: /Textures/_Funkystation/Interface/Misc/job_icons.rsi
+    state: Blank
+  jobName: blank

@@ -76,6 +76,8 @@ public sealed class ShowMindShieldIconsSystem : EquipmentHudSystem<ShowMindShiel
 
         if (_prototype.TryIndex<JobIconPrototype>(iconId, out var noJobIcon))
             ev.StatusIcons.Add(noJobIcon);
+        else
+            Log.Error($"Invalid job icon prototype: {noJobIcon}");
 
         var statusIcon = component.MindShieldStatusIcon; // Goobstation - check if mindshield is broken
 

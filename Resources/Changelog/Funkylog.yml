@@ -8128,3 +8128,11 @@ Entries:
       message: Removed the n1984 from HoS's room on Bagel.
   id: 930
   time: '2026-04-29T03:29:58.0000000+00:00'
+- author: Queer-Cats
+  changes:
+    - type: Fix
+      message: Zombies zombify when they are killed
+    - type: Fix
+      message: Fixed Error log spamming from invalid jobicon
+  id: 931
+  time: '2026-04-29T03:31:48.0000000+00:00'

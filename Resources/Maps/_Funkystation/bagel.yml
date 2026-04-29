@@ -4,8 +4,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/18/2026 03:52:54
-  entityCount: 28621
+  time: 04/29/2026 02:21:50
+  entityCount: 28627
 maps:
 - 3201
 grids:
@@ -10067,17 +10067,16 @@ entities:
             0: 13107
             1: 32768
           -4,-4:
-            0: 65535
+            0: 57343
           -4,-5:
             0: 65535
           -4,-3:
-            0: 3001
-            1: 32768
+            0: 56797
           -4,-2:
-            0: 13107
-            1: 34952
+            0: 13057
+            1: 34944
           -5,-2:
-            0: 48059
+            0: 47931
           -4,-1:
             0: 30483
             1: 8
@@ -10089,7 +10088,7 @@ entities:
           -3,-4:
             0: 65535
           -3,-3:
-            0: 1919
+            0: 383
             1: 32768
           -3,-1:
             1: 35
@@ -10100,9 +10099,9 @@ entities:
             1: 8736
             0: 34816
           -2,-4:
-            0: 13143
+            0: 4439
           -2,-3:
-            0: 17
+            0: 1
             1: 68
           -2,-2:
             0: 65532
@@ -10110,7 +10109,7 @@ entities:
             0: 191
             1: 24576
           -2,-5:
-            0: 32759
+            0: 30583
           -2,0:
             1: 33860
             0: 4352
@@ -10172,7 +10171,7 @@ entities:
             0: 61440
           -5,1:
             2: 2184
-            0: 61495
+            0: 61555
           -4,2:
             0: 62463
           -5,2:
@@ -10537,8 +10536,7 @@ entities:
           -8,-3:
             0: 60942
           -9,-3:
-            0: 58894
-            4: 2048
+            0: 60942
           -8,-2:
             0: 30222
           -9,-2:
@@ -10554,8 +10552,7 @@ entities:
           -7,-2:
             0: 65518
           -7,-1:
-            0: 57599
-            5: 4096
+            0: 61695
           -7,0:
             0: 3822
           -6,-3:
@@ -10649,8 +10646,7 @@ entities:
           -13,0:
             0: 65500
           -12,1:
-            0: 187
-            6: 32768
+            0: 32955
             1: 4096
           -13,1:
             0: 29311
@@ -11651,7 +11647,7 @@ entities:
             0: 17
             1: 76
           17,-7:
-            7: 1
+            4: 1
             1: 9352
           17,-9:
             0: 4352
@@ -11749,17 +11745,17 @@ entities:
           -13,7:
             1: 39312
           -12,8:
-            8: 12
-            9: 3072
+            5: 12
+            6: 3072
           -11,5:
             0: 63351
           -11,6:
             0: 4607
             1: 49152
           -11,8:
-            8: 1
+            5: 1
             1: 17476
-            9: 256
+            6: 256
           -11,7:
             1: 17484
           -10,5:
@@ -11967,30 +11963,30 @@ entities:
             0: 65535
           -12,9:
             0: 16
-            10: 3084
+            7: 3084
           -13,9:
             1: 39305
           -13,10:
             1: 63897
           -13,11:
             1: 35033
-            10: 12288
+            7: 12288
           -12,10:
-            7: 12
-            10: 3072
+            4: 12
+            7: 3072
           -12,11:
-            10: 12
+            7: 12
           -12,12:
             0: 26350
           -11,9:
-            10: 257
+            7: 257
             1: 17476
           -11,10:
-            7: 1
-            10: 256
+            4: 1
+            7: 256
             1: 17476
           -11,11:
-            10: 1
+            7: 1
             1: 1092
           -11,12:
             0: 255
@@ -12042,8 +12038,8 @@ entities:
             1: 61158
           -13,12:
             1: 34952
-            9: 48
-            8: 12288
+            6: 48
+            5: 12288
           -12,13:
             0: 26214
           -13,13:
@@ -12080,7 +12076,7 @@ entities:
             1: 4369
           -9,13:
             1: 12835
-            10: 2176
+            7: 2176
           -9,14:
             1: 65535
           -9,15:
@@ -12088,7 +12084,7 @@ entities:
           -9,16:
             1: 50372
           -8,13:
-            10: 816
+            7: 816
             1: 34952
           -8,14:
             1: 24575
@@ -12098,11 +12094,11 @@ entities:
             1: 64719
           -7,14:
             1: 253
-            10: 57344
+            7: 57344
             0: 1024
           -7,15:
             1: 61440
-            10: 238
+            7: 238
             0: 1024
           -7,16:
             1: 65524
@@ -12153,7 +12149,7 @@ entities:
           -14,11:
             0: 4369
             1: 8736
-            10: 32768
+            7: 32768
           -14,9:
             1: 57344
           -14,10:
@@ -12161,8 +12157,8 @@ entities:
           -14,12:
             0: 1
             1: 8738
-            9: 128
-            8: 32768
+            6: 128
+            5: 32768
           -17,12:
             0: 52232
           -16,13:
@@ -12825,75 +12821,6 @@ entities:
           moles:
           - 27.225372
           - 102.419266
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.14975
-          moles:
-          - 20.078888
-          - 75.53487
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.14975
-          moles:
-          - 21.824879
-          - 82.10312
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 21.6852
-          - 81.57766
           - 0
           - 0
           - 0
@@ -14874,7 +14801,7 @@ entities:
       pos: -29.5,37.5
       parent: 60
     - type: Door
-      secondsUntilStateChange: -251645.17
+      secondsUntilStateChange: -252048.75
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -40484,11 +40411,6 @@ entities:
     - type: Transform
       pos: -65.09276,9.579465
       parent: 60
-  - uid: 16074
-    components:
-    - type: Transform
-      pos: 10.061119,21.64667
-      parent: 60
   - uid: 19147
     components:
     - type: Transform
@@ -50874,11 +50796,6 @@ entities:
     - type: Transform
       pos: 4.525793,13.457964
       parent: 60
-  - uid: 16076
-    components:
-    - type: Transform
-      pos: 10.482994,21.45917
-      parent: 60
 - proto: CableHVStack1
   entities:
   - uid: 985
@@ -59257,11 +59174,6 @@ entities:
     components:
     - type: Transform
       pos: 6.032233,-46.51076
-      parent: 60
-  - uid: 16075
-    components:
-    - type: Transform
-      pos: 10.248619,21.568544
       parent: 60
   - uid: 20016
     components:
@@ -149762,6 +149674,12 @@ entities:
     - type: Transform
       pos: -23.5,2.5
       parent: 60
+    - type: TechnologyDatabase
+      supportedDisciplines:
+      - Industrial
+      - Arsenal
+      - Experimental
+      - CivilianServices
 - proto: SecurityWhistle
   entities:
   - uid: 8673
@@ -157572,6 +157490,16 @@ entities:
       - SurveillanceCameraEngineering
       nameSet: True
       id: Bridge EVA
+  - uid: 12300
+    components:
+    - type: Transform
+      pos: 5.5,34.5
+      parent: 60
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraEngineering
+      nameSet: True
+      id: Reactor Control E
   - uid: 15586
     components:
     - type: Transform
@@ -157582,6 +157510,38 @@ entities:
       - SurveillanceCameraEngineering
       nameSet: True
       id: TEG Entrance
+  - uid: 16068
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -7.5,43.5
+      parent: 60
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraEngineering
+      nameSet: True
+      id: Reactor West
+  - uid: 16074
+    components:
+    - type: Transform
+      pos: -2.5,34.5
+      parent: 60
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraEngineering
+      nameSet: True
+      id: Reactor Control W
+  - uid: 16076
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 8.5,47.5
+      parent: 60
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraEngineering
+      nameSet: True
+      id: Reactor East
   - uid: 18880
     components:
     - type: Transform
@@ -157833,6 +157793,71 @@ entities:
       - SurveillanceCameraEngineering
       nameSet: True
       id: Communications
+  - uid: 28622
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -0.5,54.5
+      parent: 60
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraEngineering
+      nameSet: True
+      id: Reactor Gas Turbine
+  - uid: 28623
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -14.5,44.5
+      parent: 60
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraEngineering
+      nameSet: True
+      id: Supermatter
+  - uid: 28624
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -22.5,46.5
+      parent: 60
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraEngineering
+      nameSet: True
+      id: Supermatter West
+  - uid: 28625
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -28.5,43.5
+      parent: 60
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraEngineering
+      nameSet: True
+      id: Atmos Device Storage
+  - uid: 28626
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -46.5,55.5
+      parent: 60
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraEngineering
+      nameSet: True
+      id: HFR Hallway
+  - uid: 28627
+    components:
+    - type: Transform
+      pos: -47.5,61.5
+      parent: 60
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraEngineering
+      nameSet: True
+      id: HFR
 - proto: SurveillanceCameraGeneral
   entities:
   - uid: 2251
@@ -158377,6 +158402,13 @@ entities:
     components:
     - type: Transform
       pos: 4.5,-7.5
+      parent: 60
+- proto: SurveillanceCameraRouterEngineering
+  entities:
+  - uid: 16075
+    components:
+    - type: Transform
+      pos: 10.5,21.5
       parent: 60
 - proto: SurveillanceCameraRouterGeneral
   entities:
@@ -161296,11 +161328,6 @@ entities:
     - type: Transform
       pos: -53.5,14.5
       parent: 60
-  - uid: 16068
-    components:
-    - type: Transform
-      pos: 10.5,21.5
-      parent: 60
   - uid: 16069
     components:
     - type: Transform
@@ -163463,6 +163490,12 @@ entities:
     - type: Transform
       pos: 4.5,-27.5
       parent: 60
+    - type: TechnologyDatabase
+      supportedDisciplines:
+      - Industrial
+      - Arsenal
+      - Experimental
+      - CivilianServices
     - type: MaterialStorage
       materialWhiteList:
       - Cloth
@@ -182438,13 +182471,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -33.10693,-13.252035
-      parent: 60
-- proto: WeaponPistolN1984
-  entities:
-  - uid: 12300
-    components:
-    - type: Transform
-      pos: -32.490566,-6.2897525
       parent: 60
 - proto: WehMedipen
   entities:

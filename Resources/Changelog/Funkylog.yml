@@ -8102,3 +8102,11 @@ Entries:
         exclusive to Nuke and War ops
   id: 928
   time: '2026-04-27T16:29:10.0000000+00:00'
+- author: ThatFrog
+  changes:
+    - type: Tweak
+      message: Thief now starts with a Thieving Beacon.
+    - type: Tweak
+      message: Updated Thief Greeting to mention having a Thieving Beacon.
+  id: 929
+  time: '2026-04-29T01:18:39.0000000+00:00'

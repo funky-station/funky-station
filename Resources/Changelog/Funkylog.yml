@@ -8110,3 +8110,21 @@ Entries:
       message: Updated Thief Greeting to mention having a Thieving Beacon.
   id: 929
   time: '2026-04-29T01:18:39.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Tweak
+      message: >-
+        Fixed Bagel's Brig vacuuming up the entire station's air supply
+        (probably).
+    - type: Tweak
+      message: >-
+        Added a missing Camera Router for Engineering, replacing a table +
+        cables in the CE's room, on Bagel.
+    - type: Tweak
+      message: >-
+        Added Cameras to the Nuclear Reactor, Supermatter, Atmos, and HFR area
+        on Bagel.
+    - type: Tweak
+      message: Removed the n1984 from HoS's room on Bagel.
+  id: 930
+  time: '2026-04-29T03:29:58.0000000+00:00'

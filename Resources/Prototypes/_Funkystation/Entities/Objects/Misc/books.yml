@@ -35,7 +35,7 @@
     - state: icon_briefcase
   - type: MeleeWeapon
     wideAnimationRotation: 180
-    attackRate: 0.10 # VERY slow attack speed so it cannot be used as an actual weapon but can still be used to bash the clown over the head
+    attackRate: 0.25 # slow attack speed of about 7 seconds so it cannot be used as an actual weapon but can still be used to bash the clown over the head
     damage:
       types:
         Blunt: 10

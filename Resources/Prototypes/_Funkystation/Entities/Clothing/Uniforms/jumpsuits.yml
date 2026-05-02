@@ -737,3 +737,16 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/cadet.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/cadet.rsi
+
+# General Tanktop uniform (UnicornOnLSD)
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitTanktop
+  name: tank top 
+  description: A white tank top made of affordable textiles assorted with a pair of black pants. Pump it up ! 
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/tanktop.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/tanktop.rsi

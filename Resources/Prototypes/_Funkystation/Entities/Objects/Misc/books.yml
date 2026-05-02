@@ -36,6 +36,7 @@
   - type: MeleeWeapon
     wideAnimationRotation: 180
     attackRate: 0.10 # VERY slow attack speed so it cannot be used as an actual weapon but can still be used to bash the clown over the head
+    resetOnHandSelected: false # This makes it so you don't have a cooldown of 15 seconds when taking it out of your bag
     damage:
       types:
         Blunt: 10

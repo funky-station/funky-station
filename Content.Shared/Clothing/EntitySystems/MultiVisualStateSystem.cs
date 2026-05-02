@@ -4,12 +4,14 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Clothing.Components;
+using Robust.Shared.Containers;
 
 namespace Content.Shared.Clothing.EntitySystems;
 
 public sealed class MultiVisualStateSystem : EntitySystem
 {
     [Dependency] private readonly ClothingSystem _clothingSystem = default!;
+    [Dependency] private readonly SharedContainerSystem _containerSys = default!;
 
     public override void Initialize()
     {
@@ -47,5 +49,8 @@ public sealed class MultiVisualStateSystem : EntitySystem
 
         _clothingSystem.SetEquippedPrefix(uid, finalPrefix);
         Dirty(uid, comp);
+
+        if (_containerSys.TryGetContainingContainer((uid, null, null), out var container))
+            _clothingSystem.CheckEquipmentForLayerHide(uid, container.Owner);
     }
 }

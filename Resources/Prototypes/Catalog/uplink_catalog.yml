@@ -148,16 +148,17 @@
 # SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 amatwiedle <amatwiedle@gmail.com>
 # SPDX-FileCopyrightText: 2025 halycon <104782767+kleinerstation13@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 starch <starchpersonal@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2026 2DSiggy <siggymaxwell@gmail.com>
+# SPDX-FileCopyrightText: 2026 A-Loose-Goose <237446272+A-Loose-Goose@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 ALooseGoose <ALooseGoosey@gmail.com>
 # SPDX-FileCopyrightText: 2026 Minemoder5000 <minemoder50000@gmail.com>
-# SPDX-FileCopyrightText: 2026 Minemoder5000 <minemoder50000@gmail.com>
 # SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 august-sun <45527070+august.sun@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 mkanke-real <mikekanke@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -325,6 +326,23 @@
   saleLimit: 1 # WD EDIT
 
 - type: listing
+  id: UplinkDAGDEshield
+  name: uplink-eshield-name
+  description: uplink-eshield-desc
+  icon: { sprite: /Textures/Objects/Weapons/Melee/e_shield.rsi, state: eshield-on }
+  productEntity: EnergyShield
+  cost:
+    Telecrystal: 40 # goob
+  categories:
+  - UplinkDAGD
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - DAGDUplink
+  saleLimit: 1 # WD EDIT
+
+- type: listing
   id: UplinkSniperBundle
   name: uplink-sniper-bundle-name
   description: uplink-sniper-bundle-desc
@@ -434,6 +452,27 @@
   - !type:WarOpsCondition
   saleBlacklist: true
 
+- type: listing
+  id: UplinkDAGDGrenadeLauncherBundle
+  name: uplink-grenade-launcher-bundle-name
+  description: uplink-grenade-launcher-bundle-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Launchers/china_lake.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledGrenadeLauncher
+  cost:
+    Telecrystal: 150 # goob
+  categories:
+  - UplinkDAGD
+  conditions:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - DAGDUplink
+  saleLimit: 1 # WD EDIT
+
 
 # Funky duplicate to fix surplus bundle, this one cannot be bought ignore
 - type: listing
@@ -465,6 +504,27 @@
   conditions: # Funky war ops whitelisting
   - !type:WarOpsCondition
   saleLimit: 1
+
+- type: listing
+  id: UplinkDAGDL6SawBundle
+  name: uplink-l6-saw-bundle-name
+  description: uplink-l6-saw-bundle-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/LMGs/l6.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledLMG
+  cost:
+    Telecrystal: 100 # goob
+  categories:
+  - UplinkDAGD
+  conditions:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - DAGDUplink
+  saleLimit: 1 # WD EDIT
 
 
 # Explosives
@@ -576,6 +636,22 @@
     whitelist:
       tags:
       - NukeOpsUplink
+  saleLimit: 1 # WD EDIT
+
+- type: listing
+  id: UplinkDAGDGrenadierRig
+  name: uplink-grenadier-rig-name
+  description: uplink-grenadier-rig-desc
+  productEntity: ClothingBeltMilitaryWebbingGrenadeFilled
+  cost:
+    Telecrystal: 50 # goob
+  categories:
+  - UplinkDAGD
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - DAGDUplink
   saleLimit: 1 # WD EDIT
 
 - type: listing
@@ -793,6 +869,25 @@
         components:
           - SurplusBundle
 
+- type: listing
+  id: UplinkDAGDAmmoBundle
+  name: uplink-ammo-bundle-name
+  description: uplink-ammo-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateAmmoFilled
+  cost:
+    Telecrystal: 50 # goob
+  categories:
+  - UplinkDAGD
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - DAGDUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+
 #Chemicals
 
 - type: listing
@@ -850,6 +945,27 @@
     blacklist:
       components:
       - SurplusBundle
+
+- type: listing
+  id: UplinkDAGDZombieBundle
+  name: uplink-zombie-bundle-name
+  description: uplink-zombie-bundle-desc
+  icon: { sprite: /Textures/Structures/Wallmounts/signs.rsi, state: bio }
+  productEntity: ClothingBackpackDuffelZombieBundle
+  cost:
+    Telecrystal: 325 # goob
+  categories:
+  - UplinkDAGD
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - DAGDUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkNocturineChemistryBottle
@@ -935,6 +1051,26 @@
       blacklist:
         components:
           - SurplusBundle
+  saleLimit: 1 # WD EDIT
+
+- type: listing
+  id: UplinkDAGDMedsBundle
+  name: uplink-meds-bundle-name
+  description: uplink-meds-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateMedicalBundleFilled
+  cost:
+    Telecrystal: 75 # goob
+  categories:
+  - UplinkDAGD
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - DAGDUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
   saleLimit: 1 # WD EDIT
 
 # Deception
@@ -1203,11 +1339,41 @@
           - SurplusBundle
   saleLimit: 1 # WD EDIT
 
+#- type: listing
+#  id: UplinkAntimovCircuitBoard
+#  name: uplink-antimov-law-name
+#  description: uplink-antimov-law-desc
+#  productEntity: AntimovCircuitBoard
+#  cost:
+#    Telecrystal: 70 # Funky Price Change. Syndie variant
+#  categories:
+#  - UplinkDisruption
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#     blacklist:
+#       tags:
+#       - NukeOpsUplink
+
+#- type: listing
+#  id: UplinkNukieAntimovCircuitBoard
+#  name: uplink-antimov-law-name
+#  description: uplink-antimov-law-desc
+#  productEntity: AntimovCircuitBoard
+#  cost:
+#    Telecrystal: 80 # Funky price change. Nukie variant
+#  categories:
+#  - UplinkDisruption
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    whitelist:
+#      tags:
+#      - NukeOpsUplink
+
 - type: listing
-  id: UplinkAntimovCircuitBoard
-  name: uplink-antimov-law-name
-  description: uplink-antimov-law-desc
-  productEntity: AntimovCircuitBoard
+  id: UplinkSyndieFreeformLawCircuitBoard
+  name: uplink-syndie-freeform-law-name
+  description: uplink-syndie-freeform-law-desc
+  productEntity: SyndieFreeformLawCircuitBoard
   cost:
     Telecrystal: 70 # Funky Price Change. Syndie variant
   categories:
@@ -1217,14 +1383,15 @@
      blacklist:
        tags:
        - NukeOpsUplink
+  saleLimit: 1 # WD EDIT
 
 - type: listing
-  id: UplinkNukieAntimovCircuitBoard
-  name: uplink-antimov-law-name
-  description: uplink-antimov-law-desc
-  productEntity: AntimovCircuitBoard
+  id: UplinkNukieFreeformLawCircuitBoard
+  name: uplink-syndie-freeform-law-name
+  description: uplink-syndie-freeform-law-desc
+  productEntity: NukieFreeformLawCircuitBoard
   cost:
-    Telecrystal: 80 # Funky price change. Nukie variant
+    Telecrystal: 80 # Funky Price Change. Syndie variant
   categories:
   - UplinkDisruption
   conditions:
@@ -1232,6 +1399,7 @@
     whitelist:
       tags:
       - NukeOpsUplink
+  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkSurplusBundle
@@ -1365,6 +1533,27 @@
      whitelist:
         tags:
           - NukeOpsUplink
+  saleLimit: 1 # WD EDIT
+
+- type: listing
+  id: UplinkDAGDReinforcementRadioSyndicateCyborgAssault
+  name: uplink-reinforcement-radio-cyborg-assault-name
+  description: uplink-reinforcement-radio-cyborg-assault-dagd-desc
+  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-borg-assault }
+  productEntity: ClothingBackpackDuffelSyndicateFilledSyndicateCyborgAssault
+  cost:
+    Telecrystal: 165 # goob
+  categories:
+  - UplinkDAGD
+  conditions:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - DAGDUplink
   saleLimit: 1 # WD EDIT
 
 - type: listing
@@ -1545,6 +1734,27 @@
   saleLimit: 1 # WD EDIT
 
 - type: listing
+  id: UplinkDAGDMicroBombImplanter
+  name: uplink-micro-bomb-implanter-name
+  description: uplink-micro-bomb-implanter-desc
+  icon: { sprite: /Textures/Actions/Implants/implants.rsi, state: explosive }
+  productEntity: MicroBombImplanter
+  cost:
+    Telecrystal: 10 # goob
+  categories:
+  - UplinkDAGD
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - DAGDUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+  saleLimit: 1 # WD EDIT
+
+- type: listing
   id: UplinkMacroBombImplanter
   name: uplink-macro-bomb-implanter-name
   description: uplink-macro-bomb-implanter-desc
@@ -1563,6 +1773,27 @@
       blacklist:
         components:
           - SurplusBundle
+  saleLimit: 1 # WD EDIT
+
+- type: listing
+  id: UplinkDAGDMacroBombImplanter
+  name: uplink-macro-bomb-implanter-name
+  description: uplink-macro-bomb-implanter-desc
+  icon: { sprite: /Textures/Actions/Implants/implants.rsi, state: explosive }
+  productEntity: MacroBombImplanter
+  cost:
+    Telecrystal: 65 # goob
+  categories:
+  - UplinkDAGD
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - DAGDUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
   saleLimit: 1 # WD EDIT
 
 - type: listing
@@ -1801,6 +2032,23 @@
     whitelist:
       tags:
       - NukeOpsUplink
+  saleLimit: 1 # WD EDIT
+
+- type: listing
+  id: UplinkDAGDClothingOuterArmorRaid
+  name: uplink-syndie-raid-name
+  description: uplink-syndie-raid-desc
+  icon: { sprite: /Textures/Clothing/OuterClothing/Armor/syndie-raid.rsi, state: icon }
+  productEntity: ClothingBackpackSyndicateRaidBundle
+  cost:
+    Telecrystal: 30 # funky
+  categories:
+  - UplinkDAGD
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - DAGDUplink
   saleLimit: 1 # WD EDIT
 
 - type: listing
@@ -2621,6 +2869,27 @@
       - NukeOpsUplink
   saleLimit: 1
 
+- type: listing
+  id: UplinkDAGDDarkGygax
+  name: uplink-mech-teleporter-assault-name
+  description: uplink-mech-teleporter-assault-desc
+  icon: { sprite: /Textures/Objects/Specific/Mech/mecha.rsi, state: darkgygax }
+  productEntity: CrateCybersunDarkGygaxBundle
+  cost:
+    Telecrystal: 150 # goob
+  categories:
+  - UplinkDAGD
+  conditions:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - DAGDUplink
+  saleLimit: 1 # WD EDIT
+
 
 # Funky duplicate to fix surplus bundle, this one cannot be bought ignore
 - type: listing
@@ -2656,4 +2925,220 @@
     whitelist:
       tags:
       - NukeOpsUplink
+  saleLimit: 1
+
+- type: listing
+  id: UplinkDAGDMauler
+  name: uplink-mech-teleporter-heavy-name
+  description: uplink-mech-teleporter-heavy-desc
+  icon: { sprite: /Textures/Objects/Specific/Mech/mecha.rsi, state: mauler }
+  productEntity: CrateCybersunMaulerBundle
+  cost:
+    Telecrystal: 225 #Funky
+  categories:
+  - UplinkDAGD
+  conditions:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - DAGDUplink
+  saleLimit: 1 # WD EDIT
+
+- type: listing
+  id: uplinkHiddenUplinkRadioBotany
+  name: uplink-hidden-radio-botany-name
+  description: uplink-hidden-radio-botany-desc
+  productEntity: HiddenUplinkRadioBotany
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Botanist
+  saleLimit: 1
+
+- type: listing
+  id: uplinkFoodShakerPepperLead
+  name: uplink-food-pepper-shaker-lead-name
+  description: uplink-food-pepper-shaker-lead-desc
+  productEntity: FoodShakerPepperLead
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Chef
+  saleLimit: 1
+
+- type: listing
+  id: uplinkPitcherNapalm
+  name: uplink-pitcher-napalm-name
+  description: uplink-pitcher-napalm-desc
+  productEntity: PitcherNapalm
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Chef
+  saleLimit: 1
+
+- type: listing
+  id: uplinkd4DiceSharp
+  name: uplink-d4-sharp-name
+  description: uplink-d4-sharp-desc
+  productEntity: d4DiceSharp
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Librarian
+  saleLimit: 5
+
+- type: listing
+  id: uplinkEmergencyMedipenMute
+  name: uplink-emergency-medipen-mute-name
+  description: uplink-emergency-medipen-mute-desc
+  productEntity: EmergencyMedipenMute
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Mime
+  saleLimit: 1
+
+- type: listing
+  id: uplinkClothingShoesColorWhiteNoSound
+  name: uplink-clothing-shoes-white-no-sound-name
+  description: uplink-clothing-shoes-white-no-sound-desc
+  productEntity: ClothingShoesColorWhiteNoSound
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Mime
+  saleLimit: 1
+
+- type: listing
+  id: UplinkHiddenUplinkRadioScience
+  name: uplink-hidden-uplink-radio-science-name
+  description: uplink-hidden-uplink-radio-science-desc
+  productEntity: HiddenUplinkRadioScience
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerDepartmentCondition
+    whitelist:
+    - Science
+  saleLimit: 1
+
+- type: listing
+  id: UplinkClothingSyndiHeadHatCone
+  name: uplink-clothing-syndi-head-cone-name
+  description: uplink-clothing-syndi-head-cone-desc
+  productEntity: ClothingSyndiHeadHatCone
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerDepartmentCondition
+    whitelist:
+    - Engineering
+  saleLimit: 5
+
+- type: listing
+  id: UplinkNetworkConfiguratorWithTrigger
+  name: uplink-network-configurator-with-trigger-name
+  description: uplink-network-configurator-with-trigger-desc
+  productEntity: NetworkConfiguratorWithTrigger
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerDepartmentCondition
+    whitelist:
+    - Engineering
+  saleLimit: 1
+
+- type: listing
+  id: UplinkUtilityKnifeSyndi
+  name: uplink-utility-knife-syndi-name
+  description: uplink-utility-knife-syndi-desc
+  productEntity: UtilityKnifeSyndi
+  cost:
+    Telecrystal: 30
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerDepartmentCondition
+    whitelist:
+    - Cargo
+  saleLimit: 1
+
+- type: listing
+  id: UplinkAppraisalToolRadioJammer
+  name: uplink-apprasial-tool-radio-jammer-name
+  description: uplink-apprasial-tool-radio-jammer-desc
+  productEntity: AppraisalToolRadioJammer
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerDepartmentCondition
+    whitelist:
+    - Cargo
+  saleLimit: 1
+
+- type: listing
+  id: UplinkLeadChemistryVial
+  name: uplink-lead-chemistry-vial-name
+  description: uplink-lead-chemistry-vial-desc
+  productEntity: LeadChemistryVial
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerDepartmentCondition
+    whitelist:
+    - Medical
+  saleLimit: 1
+
+- type: listing
+  id: UplinkClothingHeadFaceshieldFlashProtection
+  name: uplink-clothing-head-faceshield-flash-protection-name
+  description: uplink-clothing-head-faceshield-flash-protection-desc
+  productEntity: ClothingHeadFaceshieldFlashProtection
+  cost:
+    Telecrystal: 15
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerDepartmentCondition
+    whitelist:
+    - Medical
   saleLimit: 1

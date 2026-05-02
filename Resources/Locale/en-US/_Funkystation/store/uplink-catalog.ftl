@@ -22,6 +22,14 @@ uplink-PDA-nukie-desc = A spare PDA from an operative, this can be used to show 
 
 uplink-PDA-agent-name = Agent PDA
 uplink-PDA-agent-desc = A spare PDA from an agent, this can be used to show your affiliation to those who have means of looking at your PDA and to check your wounds. Do keep in mind that syndicate turrets are coded for their crew alone, so don't expect to bypass them easily.
+
+# Nuke Codes
+uplink-nuke-code-paper-station-name = Station's Nuke Codes
+uplink-nuke-code-paper-station-desc = Go out with a bang, literally! A good Agent always goes down with the station! You may need extra preparation on top of these, though, they won't do much on their own.
+
 # Pointless
 uplink-towel-syndicate-name = Syndicate Towel
 uplink-towel-syndicate-desc = A highly versatile, malicious-looking black towel. Has a meaner whip than most other towels. For the Syndicates's strongest shower warriors.
+
+uplink-pinpointer-name = Universal Pinpointer
+uplink-pinpointer-desc = A pinpointer built to last by Gorlex, best used to keep tabs on important people or on mission critical items.

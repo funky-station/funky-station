@@ -70,6 +70,7 @@
     - Snout
     - HeadTop
     - HeadSide
+    - Tail
   - type: Hunger
   - type: Puller
     needsHands: false
@@ -233,6 +234,7 @@
     - Snout
     - HeadTop
     - HeadSide
+    - Tail
   - type: Inventory
     speciesId: reptilian
     #funky start  

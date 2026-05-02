@@ -8070,3 +8070,69 @@ Entries:
         experience
   id: 924
   time: '2026-04-19T20:33:26.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Add
+      message: >-
+        Added the crimes of Fraud and Grand Fraud to Space Law. They punish
+        trickery and deceptive behavior.
+  id: 925
+  time: '2026-04-26T20:12:24.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Tweak
+      message: >-
+        Command and CC jobs no longer roll first, instead rolling as all other
+        jobs do.
+  id: 926
+  time: '2026-04-26T20:41:02.0000000+00:00'
+- author: Scrambledking
+  changes:
+    - type: Fix
+      message: Targeted Cigarette Packs, not Cartons
+  id: 927
+  time: '2026-04-27T16:28:08.0000000+00:00'
+- author: ALooseGoose
+  changes:
+    - type: Tweak
+      message: EXPERIMENTAL - DAGD Traitors now start with 50 extra TC
+    - type: Tweak
+      message: >-
+        EXPERIMENTAL - DAGD Traitors can now buy stronger items previously
+        exclusive to Nuke and War ops
+  id: 928
+  time: '2026-04-27T16:29:10.0000000+00:00'
+- author: ThatFrog
+  changes:
+    - type: Tweak
+      message: Thief now starts with a Thieving Beacon.
+    - type: Tweak
+      message: Updated Thief Greeting to mention having a Thieving Beacon.
+  id: 929
+  time: '2026-04-29T01:18:39.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Tweak
+      message: >-
+        Fixed Bagel's Brig vacuuming up the entire station's air supply
+        (probably).
+    - type: Tweak
+      message: >-
+        Added a missing Camera Router for Engineering, replacing a table +
+        cables in the CE's room, on Bagel.
+    - type: Tweak
+      message: >-
+        Added Cameras to the Nuclear Reactor, Supermatter, Atmos, and HFR area
+        on Bagel.
+    - type: Tweak
+      message: Removed the n1984 from HoS's room on Bagel.
+  id: 930
+  time: '2026-04-29T03:29:58.0000000+00:00'
+- author: Queer-Cats
+  changes:
+    - type: Fix
+      message: Zombies zombify when they are killed
+    - type: Fix
+      message: Fixed Error log spamming from invalid jobicon
+  id: 931
+  time: '2026-04-29T03:31:48.0000000+00:00'

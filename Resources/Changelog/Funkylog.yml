@@ -8136,3 +8136,9 @@ Entries:
       message: Fixed Error log spamming from invalid jobicon
   id: 931
   time: '2026-04-29T03:31:48.0000000+00:00'
+- author: ALooseGoose and WiZ88
+  changes:
+    - type: Fix
+      message: refactored flavor text system for better maintainability
+  id: 932
+  time: '2026-05-06T20:01:25.0000000+00:00'

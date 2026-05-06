@@ -6,3 +6,36 @@
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: MIT
+
+- type: latheRecipe
+  id: WeaponPlasmaAdder
+  parent: BaseWeaponRecipeLong
+  result: WeaponPlasmaAdder
+  completetime: 10
+  materials:
+    Steel: 1000
+    Plastic: 400
+    Silver: 100
+    Plasma: 150
+
+- type: latheRecipe
+  id: WeaponPlasmaAkurra
+  parent: BaseWeaponRecipeLong
+  result: WeaponPlasmaAkurra
+  completetime: 15
+  materials:
+    Steel: 1500
+    Plastic: 400
+    Glass: 100
+    Gold: 100
+    Plasma: 300
+
+- type: latheRecipe
+  id: EchionCanister
+  parent: BaseAmmoRecipe
+  result: EchionCanister
+  completetime: 5
+  materials:
+    Glass: 50
+    Steel: 200
+    Plasma: 150

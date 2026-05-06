@@ -67,3 +67,18 @@
       amount: 3
     - id: ClothingOuterArmorBasic
       amount: 3
+
+- type: entity
+  id: CrateSecurityPlasmaWeapons
+  parent: [ CrateWeaponSecure, BaseSecurityContraband ]
+  name: phoron weapon crate
+  description: Contains a Jackal pistol, Medina rifle and Phoron fuel cells.
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponPlasmaAdder
+      amount: 1
+    - id: WeaponPlasmaAkurra
+      amount: 1
+    - id: EchionCanister
+      amount: 5

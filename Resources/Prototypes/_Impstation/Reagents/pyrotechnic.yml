@@ -1,0 +1,29 @@
+- type: reagent
+  id: Echion
+  name: reagent-name-echion
+  parent: BasePyrotechnic
+  desc: reagent-desc-echion
+  physicalDesc: reagent-physical-desc-ionizing
+  slipData:
+    requiredSlipSpeed: 3.5
+  flavor: tingly
+  flavorMinimum: 0.01
+  color: "#ceaaed"
+  recognizable: true
+  boilingPoint: -127.3
+  meltingPoint: -186.4
+  tileReactions:
+  - !type:FlammableTileReaction {}
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.7
+            Radiation: 0.5
+      - !type:MovespeedModifier
+        walkSpeedModifier: 0.7
+        sprintSpeedModifier: 0.7
+#      - !type:Flammable
+#        multiplier: 0.17

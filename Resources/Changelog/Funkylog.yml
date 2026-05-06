@@ -8142,3 +8142,9 @@ Entries:
       message: refactored flavor text system for better maintainability
   id: 932
   time: '2026-05-06T20:01:25.0000000+00:00'
+- author: Dusty-Plant
+  changes:
+    - type: Tweak
+      message: Fixed some issues for Bramble Station
+  id: 933
+  time: '2026-05-06T20:06:19.0000000+00:00'

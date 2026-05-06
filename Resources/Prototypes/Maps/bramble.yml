@@ -5,7 +5,7 @@
   id: Bramble
   mapName: 'Bramble Midway'
   mapPath: /Maps/_Funkystation/bramble.yml
-  minPlayers: 40
+  minPlayers: 70
   stations:
     Bramble:
       stationProto: StandardNanotrasenStation

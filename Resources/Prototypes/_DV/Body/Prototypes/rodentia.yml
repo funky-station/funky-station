@@ -25,10 +25,10 @@
     torso:
       part: TorsoRodentia
       organs:
-        heart: OrganAnimalHeart
+        heart: OrganHumanHeart
         lungs: OrganHumanLungs
         stomach: OrganRatStomach
-        liver: OrganAnimalLiver
+        liver: OrganHumanLiver
         kidneys: OrganHumanKidneys
       connections:
       - right arm

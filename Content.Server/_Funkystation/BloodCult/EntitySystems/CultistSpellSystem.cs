@@ -320,6 +320,13 @@ public sealed partial class CultistSpellSystem : EntitySystem
 
 	private void OnJuggernautCommune(Entity<JuggernautComponent> ent, ref BloodCultCommuneSendMessage args)
 	{
+		// Source-level fall-through: if this entity also holds BloodCultistComponent, the
+		// cultist handler already stamped the message and the rule's Update loop will
+		// dispatch it exactly once. Stamping here as well would queue a second
+		// DistributeCommune call (one per component) for a single user action.
+		if (HasComp<BloodCultistComponent>(ent))
+			return;
+
 		ent.Comp.CommuningMessage = args.Message;
 	}
 

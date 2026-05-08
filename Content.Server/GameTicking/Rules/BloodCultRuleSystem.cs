@@ -522,11 +522,20 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				cultist.StudyingVeil = false;
 			}
 
-			// Distribute cult communes
+			// Distribute cult communes.
+			// Drain the message into a local first so the slot is cleared BEFORE we dispatch.
+			// If anything inside DistributeCommune fails (precondition, cooldown, etc.) we
+			// must NOT leave the message stamped, otherwise the next Update tick would
+			// fire it again. Also clear any twin slot on JuggernautComponent so an entity
+			// holding both components can never queue two chants for one commune action.
 			if (cultist.CommuningMessage != null)
 			{
-				DistributeCommune(component, cultist.CommuningMessage, cultistUid);
+				var pending = cultist.CommuningMessage;
 				cultist.CommuningMessage = null;
+				if (TryComp<JuggernautComponent>(cultistUid, out var twin))
+					twin.CommuningMessage = null;
+
+				DistributeCommune(component, pending, cultistUid);
 			}
 
 			// Apply active revives
@@ -592,15 +601,26 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			}
 		}
 
-		// Process juggernaut communes
+		// Process juggernaut communes for entities that DON'T also hold BloodCultistComponent.
+		// Anything that does hold both was already drained in the cultist loop above; the
+		// source-level guard in CultistSpellSystem.OnJuggernautCommune normally prevents
+		// the slot from being stamped at all, but this is the symmetric defence in case a
+		// future caller writes to it directly.
 		var juggernauts = AllEntityQuery<JuggernautComponent>();
 		while (juggernauts.MoveNext(out var juggernautUid, out var juggernaut))
 		{
-			if (juggernaut.CommuningMessage != null)
+			if (juggernaut.CommuningMessage == null)
+				continue;
+
+			if (HasComp<BloodCultistComponent>(juggernautUid))
 			{
-				DistributeCommune(component, juggernaut.CommuningMessage, juggernautUid);
 				juggernaut.CommuningMessage = null;
+				continue;
 			}
+
+			var pending = juggernaut.CommuningMessage;
+			juggernaut.CommuningMessage = null;
+			DistributeCommune(component, pending, juggernautUid);
 		}
 
 		// End the round
@@ -1033,15 +1053,94 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		}
 	}
 
-	public void Speak(EntityUid? uid, string speech, bool forceLoud = false)
+	/// <summary>
+	/// Minimum gap between two forced cult chants from the same speaker.
+	/// Acts as the cooldown step of the chant fall-through so overlapping chant sources
+	/// (rift loop, tear-veil loop, duplicate commune handlers, spell casts, sacrifice or
+	/// convert invocations, etc.) can never pile up into a per-frame chant spam.
+	/// Kept short enough that the intended ~5s ritual cycles still fire normally.
+	/// </summary>
+	public static readonly TimeSpan ChantCooldown = TimeSpan.FromSeconds(1);
+
+	/// <summary>
+	/// Per-step precondition check used by every chant entry point. Returns true only
+	/// when it is still meaningful to force this entity to chant: it must exist, not
+	/// be terminating, not be dead, and still hold a cult-side component. Used as a
+	/// fall-through so each step in a multi-step ritual (or each call into a
+	/// chant-producing path like commune) re-validates the speaker before firing.
+	/// </summary>
+	public bool CanCultistChant(EntityUid uid)
+	{
+		if (TerminatingOrDeleted(uid))
+			return false;
+
+		if (!HasComp<BloodCultistComponent>(uid) && !HasComp<JuggernautComponent>(uid))
+			return false;
+
+		if (_mobSystem.IsDead(uid))
+			return false;
+
+		return true;
+	}
+
+	/// <summary>
+	/// Atomic check-and-update for the per-entity chant cooldown. Returns true if the
+	/// entity is allowed to chant right now (and stamps the next allowed time), or
+	/// false if it is still on cooldown from a previous chant. Non-cult entities
+	/// bypass the gate so non-cult callers (if ever added) are unaffected.
+	/// </summary>
+	private bool TryConsumeChantCooldown(EntityUid uid)
+	{
+		var now = _timing.CurTime;
+
+		if (TryComp<BloodCultistComponent>(uid, out var cultist))
+		{
+			if (now < cultist.NextChantTime)
+				return false;
+			cultist.NextChantTime = now + ChantCooldown;
+			return true;
+		}
+
+		if (TryComp<JuggernautComponent>(uid, out var jugger))
+		{
+			if (now < jugger.NextChantTime)
+				return false;
+			jugger.NextChantTime = now + ChantCooldown;
+			return true;
+		}
+
+		return true;
+	}
+
+	/// <summary>
+	/// Fires a single forced cult chant on <paramref name="uid"/>. Returns true iff the
+	/// chant actually went out. Each precondition is its own fall-through step so a
+	/// caller (e.g. <see cref="DistributeCommune"/>) can short-circuit and avoid
+	/// queuing follow-up chants for the same action when any earlier step fails.
+	///
+	/// Steps, in order:
+	///   1. Reject empty / null callers.
+	///   2. <see cref="CanCultistChant"/>: still alive, still cult-side, not terminating.
+	///   3. <see cref="TryConsumeChantCooldown"/>: not still on per-entity cooldown.
+	///   4. Localise the chant string.
+	///   5. Hand off to chat.
+	/// </summary>
+	public bool Speak(EntityUid? uid, string speech, bool forceLoud = false)
 	{
 		if (uid == null || string.IsNullOrWhiteSpace(speech))
-			return;
+			return false;
+
+		if (!CanCultistChant(uid.Value))
+			return false;
+
+		if (!TryConsumeChantCooldown(uid.Value))
+			return false;
 
 		if (!Loc.TryGetString(speech, out var message))
 			message = speech;
 
 		OnBloodCultSpellSpoken(uid.Value, message, forceLoud);
+		return true;
 	}
 
 	private void OnBloodCultSpellSpoken(EntityUid performer, string speech, bool forceLoud)
@@ -1422,47 +1521,82 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	// 	return true;
 	// }
 
-	public void DistributeCommune(BloodCultRuleComponent component, string message, EntityUid sender)
+	/// <summary>
+	/// Dispatches a commune action: forces the sender to whisper a single chant word
+	/// AND broadcasts the typed message to the rest of the cult. Returns true iff the
+	/// commune actually went through.
+	///
+	/// Structured as a fall-through so each step short-circuits the rest on failure
+	/// and never queues a second chant attempt for the same action:
+	///   1. Reject empty messages.
+	///   2. Reject missing / terminating senders.
+	///   3. <see cref="CanCultistChant"/>: still alive, still cult-side.
+	///   4. Sender must have a mind (we attribute the cult-wide broadcast to it).
+	///   5. <see cref="TryConsumeChantCooldown"/>: claim the per-entity cooldown slot.
+	///        If this fails, we treat the commune as already-handled and bail out
+	///        WITHOUT either chanting or re-broadcasting, so a duplicate dispatch
+	///        (e.g. an entity holding both BloodCultistComponent and JuggernautComponent
+	///        whose drain in Update wasn't atomic for some reason) collapses to one.
+	///   6. Build the chant variant for this sender (juggernaut accent vs random word).
+	///   7. Whisper the chant, then announce the typed message to the cult.
+	/// </summary>
+	public bool DistributeCommune(BloodCultRuleComponent component, string message, EntityUid sender)
 	{
-		string formattedMessage = FormattedMessage.EscapeText(message);
+		if (string.IsNullOrWhiteSpace(message))
+			return false;
 
-		EntityUid? mindId = CompOrNull<MindContainerComponent>(sender)?.Mind;
+		if (TerminatingOrDeleted(sender))
+			return false;
 
-		if (mindId != null)
+		if (!CanCultistChant(sender))
+			return false;
+
+		var mindId = CompOrNull<MindContainerComponent>(sender)?.Mind;
+		if (mindId == null)
+			return false;
+
+		// Claim the cooldown slot before doing any user-visible side effects. If the
+		// slot is already taken (i.e. this is a same-tick duplicate dispatch), the
+		// whole commune is treated as already handled. This is the key guard that
+		// prevents one commune action from emitting two chants.
+		if (!TryConsumeChantCooldown(sender))
+			return false;
+
+		string localSpeech;
+		if (HasComp<JuggernautComponent>(sender))
 		{
-			var metaData = MetaData(sender);
-			string localSpeech;
-
-			// Check if sender is a juggernaut - use juggernaut accent words instead of random chant
-			if (HasComp<JuggernautComponent>(sender))
+			var juggernautWordCount = 1;
+			if (_proto.TryIndex<ReplacementAccentPrototype>(JuggernautAccentPrototypeId, out var juggernautAccent) &&
+			    juggernautAccent.FullReplacements != null && juggernautAccent.FullReplacements.Length > 0)
 			{
-				// Dynamically get the count of juggernaut accent words from the prototype
-				var juggernautWordCount = 1; // Default to 1 if prototype not found
-				if (_proto.TryIndex<ReplacementAccentPrototype>(JuggernautAccentPrototypeId, out var juggernautAccent) &&
-				    juggernautAccent.FullReplacements != null && juggernautAccent.FullReplacements.Length > 0)
-				{
-					juggernautWordCount = juggernautAccent.FullReplacements.Length;
-				}
-
-				// Pick a random juggernaut accent word (1-based index)
-				var juggernautWordIndex = _random.Next(1, juggernautWordCount + 1);
-				localSpeech = Loc.GetString($"accent-words-juggernaut-{juggernautWordIndex}");
-			}
-			else
-			{
-				// Generate a random single-word chant from cult-chants.ftl
-				localSpeech = GenerateChant(wordCount: 1);
+				juggernautWordCount = juggernautAccent.FullReplacements.Length;
 			}
 
-			_chat.TrySendInGameICMessage(sender, localSpeech, InGameICChatType.Whisper, ChatTransmitRange.Normal);
-			_jobs.MindTryGetJob(mindId, out var prototype);
-			string job = "Crewmember";
-			if (prototype != null)
-				job = prototype.LocalizedName;
-			AnnounceToCultists(message = Loc.GetString("cult-commune-message", ("name", metaData.EntityName),
-				("job", job), ("message", formattedMessage)), color:new Color(166, 27, 27, 255),
-				fontSize: 12, newlineNeeded:false, includeGhosts:true);
+			var juggernautWordIndex = _random.Next(1, juggernautWordCount + 1);
+			localSpeech = Loc.GetString($"accent-words-juggernaut-{juggernautWordIndex}");
 		}
+		else
+		{
+			localSpeech = GenerateChant(wordCount: 1);
+		}
+
+		_chat.TrySendInGameICMessage(sender, localSpeech, InGameICChatType.Whisper, ChatTransmitRange.Normal);
+
+		var metaData = MetaData(sender);
+		_jobs.MindTryGetJob(mindId, out var prototype);
+		var job = prototype?.LocalizedName ?? "Crewmember";
+		var formattedMessage = FormattedMessage.EscapeText(message);
+		AnnounceToCultists(
+			Loc.GetString("cult-commune-message",
+				("name", metaData.EntityName),
+				("job", job),
+				("message", formattedMessage)),
+			color: new Color(166, 27, 27, 255),
+			fontSize: 12,
+			newlineNeeded: false,
+			includeGhosts: true);
+
+		return true;
 	}
 
 	/// <summary>

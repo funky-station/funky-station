@@ -41,4 +41,12 @@ public sealed partial class JuggernautComponent : Component
 	/// </summary>
 	[DataField]
 	public string? CommuningMessage = null;
+
+	/// <summary>
+	/// Earliest time at which this juggernaut may be forced to chant again.
+	/// Mirrors the guard on <see cref="BloodCultistComponent"/> so juggernaut entities
+	/// that don't also hold a cultist component still get the same per-step fall-through.
+	/// </summary>
+	[DataField]
+	public TimeSpan NextChantTime = TimeSpan.Zero;
 }

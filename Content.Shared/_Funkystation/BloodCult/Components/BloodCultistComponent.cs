@@ -78,6 +78,14 @@ public sealed partial class BloodCultistComponent : Component
 	[DataField] public string? CommuningMessage = null;
 
 	/// <summary>
+	///		Earliest time at which this cultist may be forced to chant again.
+	///		Used by <c>BloodCultRuleSystem</c> as a per-step fall-through guard so a
+	///		single user action (commune, spell cast, rune trigger) cannot be amplified
+	///		into multiple chants by overlapping handlers or same-tick re-entry.
+	/// </summary>
+	[DataField] public TimeSpan NextChantTime = TimeSpan.Zero;
+
+	/// <summary>
 	/// The Uid of the person trying to revive the cultist.
 	/// </summary>
 	[DataField] public EntityUid? ReviverUid = null;

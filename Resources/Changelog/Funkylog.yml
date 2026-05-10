@@ -8148,3 +8148,9 @@ Entries:
       message: Fixed some issues for Bramble Station
   id: 933
   time: '2026-05-06T20:06:19.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Fix
+      message: Fixed a chanting bug with Blood Cult
+  id: 934
+  time: '2026-05-10T06:43:04.0000000+00:00'

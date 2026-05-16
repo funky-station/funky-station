@@ -36,11 +36,11 @@
   - type: Item
     heldPrefix: surgerykitsyndicate
 
-# Regular anodynafil jug is too large, so we'll just use a beverage jug instead. I mean, are you gonna use the whole 200 units anyway?
+# Regular anodynafil jug is too large, so we'll just use a large beaker instead. I mean, are you gonna use the whole 200 units anyway?
 - type: entity
-  parent: CustomDrinkJug
+  parent: LargeBeaker
   suffix: anodynafil
-  id: DrinkJugAnodynafil
+  id: LargeBeakerAnodynafil
   categories: [ HideSpawnMenu ]
   components:
   - type: Label
@@ -50,4 +50,4 @@
       beaker:
         reagents:
         - ReagentId: Anodynafil
-          Quantity: 150
+          Quantity: 100

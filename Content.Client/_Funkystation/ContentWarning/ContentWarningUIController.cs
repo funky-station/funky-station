@@ -5,13 +5,15 @@
 using Content.Client.Gameplay;
 using Content.Client.Lobby;
 using Content.Shared._Funkystation.CCVars;
+using JetBrains.Annotations;
 using Robust.Client.Console;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Shared.Configuration;
 
 namespace Content.Client._Funkystation.ContentWarning;
 
-public sealed partial class ContentWarningUIController : UIController, IOnStateEntered<LobbyState>, IOnStateEntered<GameplayState>
+[UsedImplicitly]
+public sealed class ContentWarningUIController : UIController, IOnStateEntered<LobbyState>, IOnStateEntered<GameplayState>
 {
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IClientConsoleHost _consoleHost = default!;
@@ -20,7 +22,7 @@ public sealed partial class ContentWarningUIController : UIController, IOnStateE
 
     private void AttemptOpenContentWarningPopup()
     {
-        if (_cfg.GetCVar(CCVars_Funky.ContentWarningDisplay) || _cfg.GetCVar(CCVars_Funky.ContentWarningAcknowledged))
+        if (!_cfg.GetCVar(CCVars_Funky.ContentWarningDisplay) || _cfg.GetCVar(CCVars_Funky.ContentWarningAcknowledged))
             return;
 
         OpenContentWarningPopup();

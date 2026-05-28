@@ -1,12 +1,10 @@
-# SPDX-License-Identifier: MIT
-
 meta:
   format: 7
   category: Grid
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/18/2026 18:12:05
+  time: 05/28/2026 16:58:05
   entityCount: 1314
 maps: []
 grids:
@@ -98,10 +96,10 @@ entities:
       gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
     - type: DeviceNetwork
+      deviceNetId: Wireless
       configurators: []
       deviceLists: []
       transmitFrequencyId: ShuttleTimer
-      deviceNetId: Wireless
     - type: DecalGrid
       chunkCollection:
         version: 2
@@ -966,6 +964,13 @@ entities:
     - type: Transform
       pos: 27.5,1.5
       parent: 1
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        110:
+        - - DoorStatus
+          - DoorBolt
   - uid: 304
     components:
     - type: Transform
@@ -985,6 +990,13 @@ entities:
     - type: Transform
       pos: 28.5,-0.5
       parent: 1
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        109:
+        - - DoorStatus
+          - DoorBolt
 - proto: AirlockGlassShuttle
   entities:
   - uid: 172

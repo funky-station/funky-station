@@ -264,6 +264,7 @@
     sprite: Objects/Tanks/Jetpacks/security.rsi
     slots:
       - Back
+      - tankStorage
 
 #Filled security
 - type: entity

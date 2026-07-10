@@ -36,9 +36,11 @@
     - MindRoleGhostRoleFamiliar
   - type: IntrinsicRadioTransmitter
     intrinsicChannels:
+    - Binary
     - CentCom
   - type: ActiveRadio
     intrinsicChannels:
+    - Binary
     - CentCom
     - Common
   - type: Appearance

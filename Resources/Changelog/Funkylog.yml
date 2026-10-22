@@ -8178,3 +8178,9 @@ Entries:
       message: Hopefully fixed Bramble's spacing issues.
   id: 936
   time: '2026-05-28T21:26:29.0000000+00:00'
+- author: Fr0goo
+  changes:
+    - type: Tweak
+      message: resprite assistant jumpsuits!
+  id: 937
+  time: '2026-10-22T07:45:39.0000000+00:00'

@@ -28,11 +28,14 @@
   - type: Sprite
     layers:
     - state: paper
-    - state: cover_base
-      color: "#15abab"
-    - state: decor_wingette
-      color: "#5334e0"
-    - state: icon_briefcase
+    - state: cover_strong
+      color: "#134975"
+    - state: decor_wingette_circle
+      color: "#ffffff"
+    - state: detail_rivets
+      color: "#009100"
+    - state: icon_letter_N
+      color: "#ffffff"
   - type: MeleeWeapon
     wideAnimationRotation: 180
     attackRate: 0.10 # VERY slow attack speed so it cannot be used as an actual weapon but can still be used to bash the clown over the head
@@ -42,13 +45,4 @@
         Blunt: 10
   - type: GuideHelp
     guides:
-    - LegalSOP
-    - MedicalSOP
-    - ServiceSOP
-    - EngineeringSOP
-    - CargoSOP
-    - ScienceSOP
-    - CommandSOP # No idea why this was not in here before
-    - OrderOfSuccession # I find that this counts as SOP, good for an IAA to have
-    - SecuritySOP # Sec SOP
-    - AlertLevelsSOP # All alert level SOPs
+    - SOP101 # Who knew this was a preset thing that existed but was never added... i didn't... :(

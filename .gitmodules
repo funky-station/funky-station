@@ -1,4 +1,4 @@
 [submodule "RobustToolbox"]
 	path = RobustToolbox
 	url = https://github.com/funky-station/RobustToolbox.git
-	branch = v289.0.7
+	branch = master

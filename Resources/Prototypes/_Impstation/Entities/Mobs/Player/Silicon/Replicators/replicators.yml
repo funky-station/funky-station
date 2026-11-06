@@ -141,6 +141,7 @@
   - type: Inventory
     templateId: replicator
   - type: EyeProtection
+  - type: ZombieImmune
 
 - type: entity
   id: MobReplicatorQueen

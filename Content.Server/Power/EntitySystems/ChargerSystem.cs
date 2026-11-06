@@ -35,6 +35,8 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Storage.Components;
 using Robust.Server.Containers;
 using Content.Shared.Whitelist;
+using Robust.Shared.Prototypes;
+using Content.Shared.Tag;
 
 namespace Content.Server.Power.EntitySystems;
 
@@ -46,6 +48,9 @@ internal sealed class ChargerSystem : EntitySystem
     [Dependency] private readonly BatterySystem _battery = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly TagSystem _tagSystem = default!;
+
+    private static readonly ProtoId<TagPrototype> NoRechargeTag = "NoRecharge";
 
     public override void Initialize()
     {
@@ -248,6 +253,9 @@ internal sealed class ChargerSystem : EntitySystem
             return CellChargerStatus.Empty;
 
         if (!SearchForBattery(container.ContainedEntities[0], out var heldEnt, out var heldBattery))
+            return CellChargerStatus.Off;
+
+        if (_tagSystem.HasTag(heldEnt.Value, NoRechargeTag))
             return CellChargerStatus.Off;
 
         if (_battery.IsFull(heldEnt.Value, heldBattery))

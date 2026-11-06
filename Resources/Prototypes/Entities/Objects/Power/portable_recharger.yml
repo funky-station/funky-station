@@ -44,3 +44,6 @@
           components:
           - HitscanBatteryAmmoProvider
           - ProjectileBatteryAmmoProvider
+        blacklist:
+          tags:
+          - NoRecharge

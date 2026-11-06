@@ -8196,3 +8196,9 @@ Entries:
       message: Updated the engine version to prevent minor security issue
   id: 939
   time: '2026-11-04T21:51:07.0000000+00:00'
+- author: mycobiota
+  changes:
+    - type: Fix
+      message: Updated engine again to address a DOS vulnerability.
+  id: 940
+  time: '2026-11-06T18:26:01.0000000+00:00'

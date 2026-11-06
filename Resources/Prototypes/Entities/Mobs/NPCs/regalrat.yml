@@ -196,7 +196,7 @@
     toggleAction: null
     color: "#50595C"
     activateSound: null
-    deactivateSound: null 
+    deactivateSound: null
 
 - type: entity
   id: MobRatKingBuff
@@ -372,7 +372,7 @@
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
-  - type: FelinidFood # Nyanotrasen - Felinid, ability to eat rat, see Content.Server/Nyanotrasen/Abilities/Felinid/FelinidSystem.cs
+  #- type: FelinidFood # Nyanotrasen - Felinid, ability to eat rat, see Content.Server/Nyanotrasen/Abilities/Felinid/FelinidSystem.cs
   - type: Food
   - type: Item
     size: Tiny # Delta V - Make them edible and pickable.
